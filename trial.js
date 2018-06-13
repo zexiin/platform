@@ -1,9 +1,17 @@
-  var context, control, sprite, loop;
+var context, control, sprite, loop;
 
   context = document.querySelector("canvas").getContext("2d");
-
   context.canvas.height = 180;
   context.canvas.width = 320;
+
+ /*camera = {
+    x:0,
+    y:0,
+    width:320,
+    height:180,
+    maxX: context.canvas.width - width,
+    maxY: context.canvas.height - height
+  }*/
 
   sprite = {
     rad:8,
@@ -43,9 +51,6 @@
   };
   
   
-  
-  
-  
   // idk idk idk idk
   
   var bloc = {
@@ -72,7 +77,7 @@
       // if player is going left and hits right side of object
       
       if (player.x_vel < 0 && player.x <= right + player.rad && player.x >= right && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = 0;
+          player.x_vel = -0.7 * player.x_vel;
           player.x = right + player.rad;
       }
       
@@ -80,14 +85,14 @@
       // if player is going right and hits left side of object
       
       if (player.x_vel > 0 && player.x >= left - player.rad && player.x <= left && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = 0;
+          player.x_vel = -0.7 * player.x_vel;
           player.x = left - player.rad;
       }
       
       // if player is going down and hits top of object
       
       if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y >= top - player.rad && player.y <= bottom) {
-          player.y_vel = 0;
+          player.y_vel = -0.7 * player.y_vel;
           player.y = top - player.rad;
           player.jumping = false;
       }
@@ -95,18 +100,12 @@
       // if player is going up and hits bottom of object
       
       if (player.y_vel < 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y <= bottom && player.y >= top) {
-          player.y_vel = 0;
+          player.y_vel = -0.7 * player.y_vel;
           player.y = bottom+player.rad;
       }
       
       
   }
-  
-  
-  
-  
-  // idk idk idk idk
-
 
   loop = function() {
 
