@@ -186,9 +186,6 @@ var context, control, sprite, loop;
           context.fillRect(bloc3.x,bloc3.y,bloc3.width,bloc3.height);
           context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height)
 
-
-          
-    
           window.requestAnimationFrame(loop);
       };
 
