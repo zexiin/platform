@@ -92,7 +92,7 @@ var bloc4 = new Bloc(40, 292, 80, 40);
       if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y >= top - player.rad && player.y <= bottom) {
           player.y_vel = -friction * player.y_vel;
           player.y = top - player.rad;
-       
+          player.jumping = false;
       }
       
       // if player is going up and hits bottom of object
