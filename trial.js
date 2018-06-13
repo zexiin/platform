@@ -51,35 +51,17 @@ var context, control, sprite, loop;
   };
   
   
-  // idk idk idk idk
-  
-  var bloc = {
-      x:220,
-      y:80,
-      width:50,
-      height:20
-  };
-  
-  var bloc2 = {
-      x:40,
-      y:92,
-      width:80,
-      height:40
-  };
+function Bloc(x, y, w, h) {
+this.x = x;
+this.y = y;
+this.width = w;
+this.height = h;
+} 
 
-  var bloc3 = {
-      x:140,
-      y:192,
-      width:80,
-      height:40
-  };
-
- var bloc4 = {
-      x:40,
-      y:292,
-      width:80,
-      height:40
-  };
+var bloc = new Bloc(220, 320, 50, 20);
+var bloc2 = new Bloc(40, 92, 80, 40);
+var bloc3 = new Bloc(140, 192, 80, 40);
+var bloc4 = new Bloc(40, 292, 80, 40);
   
   
   function collisionIDK(player, object) {
@@ -145,10 +127,10 @@ var context, control, sprite, loop;
     
 
           // if rectangle is falling below floor line
-    if (sprite.y > W - 16 - 32) {
+    if (sprite.y > H - 16 - 32) {
 
       sprite.jumping = false;
-      sprite.y = W - 16 - 32;
+      sprite.y = H - 16 - 32;
       sprite.y_vel = 0;
 
     }
@@ -192,3 +174,4 @@ var context, control, sprite, loop;
   window.addEventListener("keydown", control.keyListener);
   window.addEventListener("keyup", control.keyListener);
   window.requestAnimationFrame(loop);
+
