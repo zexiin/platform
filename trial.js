@@ -50,30 +50,53 @@
   
   var bloc = {
       x:220,
-      y:120,
+      y:80,
       width:50,
       height:20
   };
   
+  var bloc2 = {
+      x:40,
+      y:92,
+      width:80,
+      height:40
+  };
   
   
   function collisionIDK(player, object) {
-      // check: if player is going left and hits right side of object
-      if (player.x_vel < 0 && player.x <= object.x + object.width + player.rad && player.x >= object.x && player.y >= object.y) {
+      let right = object.x + object.width;
+      let left = object.x;
+      let top = object.y;
+      let bottom = object.y + object.height;
+      
+      // if player is going left and hits right side of object
+      
+      if (player.x_vel < 0 && player.x <= right + player.rad && player.x >= right && player.y >= object.y && player.y <= object.y + object.height) {
           player.x_vel = 0;
-          player.x = object.x + object.width + player.rad;
+          player.x = right + player.rad;
       }
       
+      
       // if player is going right and hits left side of object
-      if (player.x_vel > 0 && player.x + player.rad >= object.x && player.x <= object.x + object.width && player.y >= object.y) {
+      
+      if (player.x_vel > 0 && player.x >= left - player.rad && player.x <= left && player.y >= object.y && player.y <= object.y + object.height) {
           player.x_vel = 0;
-          player.x = object.x - player.rad;
+          player.x = left - player.rad;
       }
       
       // if player is going down and hits top of object
-      if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+object.width && player.y >= object.y) {
+      
+      if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y >= top - player.rad && player.y <= bottom) {
           player.y_vel = 0;
-          player.y = object.y;
+          player.y = top - player.rad;
+          player.jumping = false;
+      }
+      
+      // if player is going up and hits bottom of object
+      
+      if (player.y_vel < 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y <= bottom && player.y >= top) {
+          player.y_vel = 0;
+          player.y = bottom+player.rad;
       }
       
       
@@ -126,22 +149,22 @@
     }
     
     collisionIDK(sprite, bloc);
+    collisionIDK(sprite, bloc2)
 
           // draw bg
-          context.fillStyle = "#f4f4f4";
+          context.fillStyle = "#eaf7fc";
           context.fillRect(0, 0, 320, 180);// x, y, width, height
           
           // draw sprite
-          context.fillStyle = "#ff0000";
-          context.strokeStyle = "#0000ff";
+          context.fillStyle = "#ffd175";
           context.beginPath();
           context.arc(sprite.x, sprite.y, sprite.rad, 0, 2*Math.PI);
-          context.stroke();
           context.fill();
           
-          // draw bloc
-          context.fillStyle="00ff00";
+          // draw blocs
+          context.fillStyle= "#94ccb9";
           context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
+          context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height)
           
     
           window.requestAnimationFrame(loop);
@@ -150,6 +173,3 @@
   window.addEventListener("keydown", control.keyListener);
   window.addEventListener("keyup", control.keyListener);
   window.requestAnimationFrame(loop);
-
-
-
