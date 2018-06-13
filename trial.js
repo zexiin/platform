@@ -3,7 +3,7 @@
   context = document.querySelector("canvas").getContext("2d");
 
   context.canvas.height = 180;
-  context.canvas.width = 320 * 5;
+  context.canvas.width = 320;
 
   sprite = {
     rad:8,
@@ -41,12 +41,54 @@
       }
     }
   };
+  
+  
+  
+  
+  
+  // idk idk idk idk
+  
+  var bloc = {
+      x:220,
+      y:120,
+      width:50,
+      height:20
+  };
+  
+  
+  
+  function collisionIDK(player, object) {
+      // check: if player is going left and hits right side of object
+      if (player.x_vel < 0 && player.x <= object.x + object.width + player.rad && player.x >= object.x && player.y >= object.y) {
+          player.x_vel = 0;
+          player.x = object.x + object.width + player.rad;
+      }
+      
+      // if player is going right and hits left side of object
+      if (player.x_vel > 0 && player.x + player.rad >= object.x && player.x <= object.x + object.width && player.y >= object.y) {
+          player.x_vel = 0;
+          player.x = object.x - player.rad;
+      }
+      
+      // if player is going down and hits top of object
+      if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+object.width && player.y >= object.y) {
+          player.y_vel = 0;
+          player.y = object.y;
+      }
+      
+      
+  }
+  
+  
+  
+  
+  // idk idk idk idk
 
 
   loop = function() {
 
           // press up and not already jumping
-          if (control.up && sprite.jumping == false) {
+          if (control.up && sprite.jumping === false) {
           sprite.y_vel -= 20;
           sprite.jumping = true;
       }
@@ -78,17 +120,29 @@
       sprite.x = 8;
     }
     
-    if (sprite.x > (320 * 5 - 8)) {
+    if (sprite.x > (320 - 8)) {
       sprite.x_vel = -1 *sprite.x_vel;
-      sprite.x = (320 * 5 - 8);
+      sprite.x = (320 - 8);
     }
+    
+    collisionIDK(sprite, bloc);
 
-          context.fillStyle = "#ffffff";
-          context.fillRect(0, 0, 320 * 5, 180);// x, y, width, height
+          // draw bg
+          context.fillStyle = "#f4f4f4";
+          context.fillRect(0, 0, 320, 180);// x, y, width, height
+          
+          // draw sprite
           context.fillStyle = "#ff0000";
+          context.strokeStyle = "#0000ff";
           context.beginPath();
-          context.arc(sprite.x, sprite.y, sprite.rad, 0,         2*Math.PI);
+          context.arc(sprite.x, sprite.y, sprite.rad, 0, 2*Math.PI);
           context.stroke();
+          context.fill();
+          
+          // draw bloc
+          context.fillStyle="00ff00";
+          context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
+          
     
           window.requestAnimationFrame(loop);
       };
