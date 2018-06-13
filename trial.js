@@ -58,10 +58,10 @@ this.width = w;
 this.height = h;
 } 
 
-var bloc = new Bloc(220, 320, 50, 20);
-var bloc2 = new Bloc(40, 92, 80, 40);
-var bloc3 = new Bloc(140, 192, 80, 40);
-var bloc4 = new Bloc(40, 292, 80, 40);
+var bloc = new Bloc(10, 100, 50, 20);
+var bloc2 = new Bloc(50, 150, 80, 40);
+var bloc3 = new Bloc(20, 200, 80, 40);
+var bloc4 = new Bloc(60, 250, 80, 40);
   
   
   function collisionIDK(player, object) {
