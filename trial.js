@@ -1,8 +1,8 @@
 var context, control, sprite, loop;
 
   context = document.querySelector("canvas").getContext("2d");
-  context.canvas.height = 180;
-  context.canvas.width = 320;
+  var H = context.canvas.height = 1000;
+  var W = context.canvas.width = 320;
 
  /*camera = {
     x:0,
@@ -66,6 +66,20 @@ var context, control, sprite, loop;
       width:80,
       height:40
   };
+
+  var bloc3 = {
+      x:140,
+      y:192,
+      width:80,
+      height:40
+  };
+
+ var bloc4 = {
+      x:40,
+      y:292,
+      width:80,
+      height:40
+  };
   
   
   function collisionIDK(player, object) {
@@ -76,23 +90,25 @@ var context, control, sprite, loop;
       
       // if player is going left and hits right side of object
       
+    var friction = 0.7;
       if (player.x_vel < 0 && player.x <= right + player.rad && player.x >= right && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = -0.7 * player.x_vel;
+          player.x_vel = -friction * player.x_vel;
           player.x = right + player.rad;
       }
       
+    
       
       // if player is going right and hits left side of object
       
       if (player.x_vel > 0 && player.x >= left - player.rad && player.x <= left && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = -0.7 * player.x_vel;
+          player.x_vel = -friction * player.x_vel;
           player.x = left - player.rad;
       }
       
       // if player is going down and hits top of object
       
       if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y >= top - player.rad && player.y <= bottom) {
-          player.y_vel = -0.7 * player.y_vel;
+          player.y_vel = -friction * player.y_vel;
           player.y = top - player.rad;
           player.jumping = false;
       }
@@ -100,7 +116,7 @@ var context, control, sprite, loop;
       // if player is going up and hits bottom of object
       
       if (player.y_vel < 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y <= bottom && player.y >= top) {
-          player.y_vel = -0.7 * player.y_vel;
+          player.y_vel = -friction * player.y_vel;
           player.y = bottom+player.rad;
       }
       
@@ -129,10 +145,10 @@ var context, control, sprite, loop;
     
 
           // if rectangle is falling below floor line
-    if (sprite.y > 180 - 16 - 32) {
+    if (sprite.y > W - 16 - 32) {
 
       sprite.jumping = false;
-      sprite.y = 180 - 16 - 32;
+      sprite.y = W - 16 - 32;
       sprite.y_vel = 0;
 
     }
@@ -142,17 +158,20 @@ var context, control, sprite, loop;
       sprite.x = 8;
     }
     
-    if (sprite.x > (320 - 8)) {
+    if (sprite.x > (W - 8)) {
       sprite.x_vel = -1 *sprite.x_vel;
-      sprite.x = (320 - 8);
+      sprite.x = (W - 8);
     }
     
     collisionIDK(sprite, bloc);
-    collisionIDK(sprite, bloc2)
+    collisionIDK(sprite, bloc2);
+    collisionIDK(sprite, bloc3);
+    collisionIDK(sprite, bloc4)
+    
 
           // draw bg
           context.fillStyle = "#eaf7fc";
-          context.fillRect(0, 0, 320, 180);// x, y, width, height
+          context.fillRect(0, 0, W, H);// x, y, width, height
           
           // draw sprite
           context.fillStyle = "#ffd175";
@@ -163,7 +182,11 @@ var context, control, sprite, loop;
           // draw blocs
           context.fillStyle= "#94ccb9";
           context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
-          context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height)
+          context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height);
+          context.fillRect(bloc3.x,bloc3.y,bloc3.width,bloc3.height);
+          context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height)
+
+
           
     
           window.requestAnimationFrame(loop);
