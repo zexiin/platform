@@ -42,7 +42,6 @@ var context, control, sprite, loop;
     }
   };
   
-  
 function Bloc(x, y, w, h) {
 this.x = x;
 this.y = y;
@@ -57,16 +56,7 @@ function randomBloc() {
   this.height = 10;
 }
 
-/*
-var bloc = new Bloc(220, 320, 50, 20);
-var bloc2 = new Bloc(40, 92, 80, 40);
-var bloc3 = new Bloc(140, 192, 80, 40);
-var bloc4 = new Bloc(40, 292, 80, 40);
-var bloc5 = new Bloc(100, 320, 50, 20);
-var bloc6 = new Bloc(120, 370, 30, 20);
-var bloc7 = new Bloc(88, 220, 60, 20);*/
 var blocFLAT = new Bloc(0, 990, W, 20);
-
 
 var arr = [10];
 
@@ -75,7 +65,6 @@ var arr = [10];
    let bloc = new randomBloc();
    arr.push(bloc);
  }
-  
   
   function collisionIDK(player, object) {
       
@@ -170,25 +159,12 @@ var arr = [10];
       sprite.x = (W - 8);
     }
     
-    /*
-    collisionIDK(sprite, bloc);
-    collisionIDK(sprite, bloc2);
-    collisionIDK(sprite, bloc3);
-    collisionIDK(sprite, bloc4);
-    collisionIDK(sprite, bloc5);
-    collisionIDK(sprite, bloc6);
-    collisionIDK(sprite, bloc7);
-*/
         collisionIDK(sprite, blocFLAT);
-
-
 
     var i;
     for (i = 0; i < noBlocs; i++) {
        collisionIDK(sprite, arr[i]);
     }
-
-    
 
           // draw bg
           context.fillStyle = "#eaf7fc";
@@ -202,16 +178,6 @@ var arr = [10];
           
               context.fillStyle= "#aed891";
 
-
-    /*
-          // draw blocs
-          context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
-          context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height);
-          context.fillRect(bloc3.x,bloc3.y,bloc3.width,bloc3.height);
-          context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height);
-          context.fillRect(bloc5.x,bloc5.y,bloc5.width,bloc5.height);
-         context.fillRect(bloc6.x,bloc6.y,bloc6.width,bloc6.height);
-       context.fillRect(bloc7.x,bloc7.y,bloc7.width,bloc7.height);*/
            context.fillRect(blocFLAT.x,blocFLAT.y,blocFLAT.width,blocFLAT.height);
   
     
@@ -219,10 +185,6 @@ var arr = [10];
     for  (i = 0; i < noBlocs; i++) {
       context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
     }
-
-
-
-
 
           window.requestAnimationFrame(loop);
       };
