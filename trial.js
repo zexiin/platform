@@ -49,6 +49,13 @@ this.width = w;
 this.height = h;
 } 
 
+function randomBloc() {
+  this.x = Math.random() * W;
+  this.y = Math.random() * H;
+  this.width = Math.random() * 0.1 * W;
+  this.height = Math.random() * 0.1 * H;
+}
+
 var bloc = new Bloc(220, 320, 50, 20);
 var bloc2 = new Bloc(40, 92, 80, 40);
 var bloc3 = new Bloc(140, 192, 80, 40);
@@ -59,7 +66,13 @@ var bloc7 = new Bloc(88, 220, 60, 20);
 var blocFLAT = new Bloc(0, 500, 320, 20);
 
 
+var arr = [10];
 
+ var i;
+ for (i = 0; i < 30; i++) {
+   let bloc = new randomBloc();
+   arr.push(bloc);
+ }
   
   
   function collisionIDK(player, object) {
@@ -160,12 +173,15 @@ var blocFLAT = new Bloc(0, 500, 320, 20);
     collisionIDK(sprite, bloc3);
     collisionIDK(sprite, bloc4);
     collisionIDK(sprite, bloc5);
-        collisionIDK(sprite, bloc6);
+    collisionIDK(sprite, bloc6);
     collisionIDK(sprite, bloc7);
-        collisionIDK(sprite, blocFLAT);
+    collisionIDK(sprite, blocFLAT);
 
 
-
+    var i;
+    for (i = 0; i < 30; i++) {
+       collisionIDK(sprite, arr[i]);
+    }
 
     
 
@@ -189,6 +205,11 @@ var blocFLAT = new Bloc(0, 500, 320, 20);
          context.fillRect(bloc6.x,bloc6.y,bloc6.width,bloc6.height);
        context.fillRect(bloc7.x,bloc7.y,bloc7.width,bloc7.height);
            context.fillRect(blocFLAT.x,blocFLAT.y,blocFLAT.width,blocFLAT.height);
+    
+    var i;
+    for  (i = 0; i < 30; i++) {
+      context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
+    }
 
 
 
