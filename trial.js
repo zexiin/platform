@@ -63,13 +63,13 @@ var bloc4 = new Bloc(40, 292, 80, 40);
 var bloc5 = new Bloc(100, 320, 50, 20);
 var bloc6 = new Bloc(120, 370, 30, 20);
 var bloc7 = new Bloc(88, 220, 60, 20);
-var blocFLAT = new Bloc(0, 500, 320, 20);
+var blocFLAT = new Bloc(0, 990, 320, 20);
 
 
 var arr = [10];
 
  var i;
- for (i = 0; i < 30; i++) {
+ for (i = 0; i < 100; i++) {
    let bloc = new randomBloc();
    arr.push(bloc);
  }
@@ -179,7 +179,7 @@ var arr = [10];
 
 
     var i;
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < 100; i++) {
        collisionIDK(sprite, arr[i]);
     }
 
@@ -207,7 +207,7 @@ var arr = [10];
            context.fillRect(blocFLAT.x,blocFLAT.y,blocFLAT.width,blocFLAT.height);
     
     var i;
-    for  (i = 0; i < 30; i++) {
+    for  (i = 0; i < 100; i++) {
       context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
     }
 
