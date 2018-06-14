@@ -141,13 +141,14 @@ var arr = [10];
     
 
           // if rectangle is falling below floor line
+    /*
     if (sprite.y > H - 16 - 32) {
 
       sprite.jumping = false;
       sprite.y = H - 16 - 32;
       sprite.y_vel = 0;
 
-    }
+    }*/
     
     if (sprite.x < 8) {
       sprite.x_vel = -1 *sprite.x_vel;
