@@ -2,7 +2,8 @@ var context, control, sprite, loop;
 
   context = document.querySelector("canvas").getContext("2d");
   var H = context.canvas.height = 1000;
-  var W = context.canvas.width = 320;
+  var W = context.canvas.width = 800;
+  var noBlocs = 180;
 
   sprite = {
     rad:8,
@@ -53,23 +54,24 @@ function randomBloc() {
   this.x = Math.random() * W;
   this.y = Math.random() * H;
   this.width = Math.random() * 0.1 * W;
-  this.height = Math.random() * 0.1 * H;
+  this.height = Math.random() * 50;
 }
 
+/*
 var bloc = new Bloc(220, 320, 50, 20);
 var bloc2 = new Bloc(40, 92, 80, 40);
 var bloc3 = new Bloc(140, 192, 80, 40);
 var bloc4 = new Bloc(40, 292, 80, 40);
 var bloc5 = new Bloc(100, 320, 50, 20);
 var bloc6 = new Bloc(120, 370, 30, 20);
-var bloc7 = new Bloc(88, 220, 60, 20);
-var blocFLAT = new Bloc(0, 990, 320, 20);
+var bloc7 = new Bloc(88, 220, 60, 20);*/
+var blocFLAT = new Bloc(0, 990, W, 20);
 
 
 var arr = [10];
 
  var i;
- for (i = 0; i < 100; i++) {
+ for (i = 0; i < noBlocs; i++) {
    let bloc = new randomBloc();
    arr.push(bloc);
  }
@@ -168,6 +170,7 @@ var arr = [10];
       sprite.x = (W - 8);
     }
     
+    /*
     collisionIDK(sprite, bloc);
     collisionIDK(sprite, bloc2);
     collisionIDK(sprite, bloc3);
@@ -175,11 +178,13 @@ var arr = [10];
     collisionIDK(sprite, bloc5);
     collisionIDK(sprite, bloc6);
     collisionIDK(sprite, bloc7);
-    collisionIDK(sprite, blocFLAT);
+*/
+        collisionIDK(sprite, blocFLAT);
+
 
 
     var i;
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < noBlocs; i++) {
        collisionIDK(sprite, arr[i]);
     }
 
@@ -195,19 +200,23 @@ var arr = [10];
           context.arc(sprite.x, sprite.y, sprite.rad, 0, 2*Math.PI);
           context.fill();
           
+              context.fillStyle= "#aed891";
+
+
+    /*
           // draw blocs
-          context.fillStyle= "#aed891";
           context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
           context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height);
           context.fillRect(bloc3.x,bloc3.y,bloc3.width,bloc3.height);
           context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height);
           context.fillRect(bloc5.x,bloc5.y,bloc5.width,bloc5.height);
          context.fillRect(bloc6.x,bloc6.y,bloc6.width,bloc6.height);
-       context.fillRect(bloc7.x,bloc7.y,bloc7.width,bloc7.height);
+       context.fillRect(bloc7.x,bloc7.y,bloc7.width,bloc7.height);*/
            context.fillRect(blocFLAT.x,blocFLAT.y,blocFLAT.width,blocFLAT.height);
+  
     
     var i;
-    for  (i = 0; i < 100; i++) {
+    for  (i = 0; i < noBlocs; i++) {
       context.fillRect(arr[i].x,arr[i].y,arr[i].width,arr[i].height);
     }
 
