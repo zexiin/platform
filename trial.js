@@ -5,6 +5,16 @@ var context, control, sprite, loop;
   var W = context.canvas.width = 800;
   var noBlocs = 180;
 
+  /*
+  const coin = function(x, y) {
+  this.x = x,
+  this.y = y
+  }
+  
+  Coin.prototype = {
+		constructor : Coin
+	};*/
+
   sprite = {
     rad:8,
     jumping:true,
