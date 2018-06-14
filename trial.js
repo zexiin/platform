@@ -62,47 +62,53 @@ var bloc = new Bloc(220, 320, 50, 20);
 var bloc2 = new Bloc(40, 92, 80, 40);
 var bloc3 = new Bloc(140, 192, 80, 40);
 var bloc4 = new Bloc(40, 292, 80, 40);
+var bloc5 = new Bloc(0, 500, 320, 20);
   
   
   function collisionIDK(player, object) {
+      
+      /* note !!1
+       * calculations assume player is a circle (arc) 
+       * with (x,y) being the center of the circle,
+       * and object is a rectangle with (x,y) being
+       * the top left corner of the rectangle.
+       */
+      
       let right = object.x + object.width;
       let left = object.x;
       let top = object.y;
       let bottom = object.y + object.height;
       
-      // if player is going left and hits right side of object
+      // if player isn't moving or if player isn't touching object, return.
+      if ((player.x_vel === 0 && player.y_vel === 0) || (player.x > right+player.rad && player.y > bottom && player.x < left && palyer.y < top-player.rad) ) {
+          return;
+      }
       
-    var friction = 0.7;
-      if (player.x_vel < 0 && player.x <= right + player.rad && player.x >= right && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = -friction * player.x_vel;
+      // if player is going left and hits right side of object
+      if (player.x_vel < 0 && player.x <= right + player.rad && player.x >= right && player.y + player.rad >= object.y && player.y - player.rad <= object.y + object.height) {
+          player.x_vel = 0;
           player.x = right + player.rad;
       }
       
-    
       
       // if player is going right and hits left side of object
-      
-      if (player.x_vel > 0 && player.x >= left - player.rad && player.x <= left && player.y >= object.y && player.y <= object.y + object.height) {
-          player.x_vel = -friction * player.x_vel;
+      if (player.x_vel > 0 && player.x >= left - player.rad && player.x <= left && player.y + player.rad >= object.y && player.y - player.rad <= object.y + object.height) {
+          player.x_vel = 0;
           player.x = left - player.rad;
       }
       
       // if player is going down and hits top of object
-      
       if (player.y_vel > 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y >= top - player.rad && player.y <= bottom) {
-          player.y_vel = -friction * player.y_vel;
+          player.y_vel = 0;
           player.y = top - player.rad;
           player.jumping = false;
       }
       
       // if player is going up and hits bottom of object
-      
       if (player.y_vel < 0 && player.x >= object.x && player.x <= object.x+ object.width && player.y <= bottom && player.y >= top) {
-          player.y_vel = -friction * player.y_vel;
+          player.y_vel = 0;
           player.y = bottom+player.rad;
       }
-      
-      
   }
 
   loop = function() {
@@ -122,8 +128,15 @@ var bloc4 = new Bloc(40, 292, 80, 40);
           sprite.y_vel += 1; //gravity
           sprite.x += sprite.x_vel;
           sprite.y += sprite.y_vel;
-          sprite.x_vel *= 0.9;
-          sprite.y_vel *= 0.9;
+          // friction (more friction when not jumping)
+          if (sprite.jumping) {
+              sprite.x_vel *= 0.9;
+              sprite.y_vel *= 0.9;
+          }
+          else {
+              sprite.x_vel *= 0.8;
+              sprite.y_vel *= 0.8;
+          }
     
 
           // if rectangle is falling below floor line
@@ -148,7 +161,8 @@ var bloc4 = new Bloc(40, 292, 80, 40);
     collisionIDK(sprite, bloc);
     collisionIDK(sprite, bloc2);
     collisionIDK(sprite, bloc3);
-    collisionIDK(sprite, bloc4)
+    collisionIDK(sprite, bloc4);
+    collisionIDK(sprite, bloc5);
     
 
           // draw bg
@@ -162,11 +176,12 @@ var bloc4 = new Bloc(40, 292, 80, 40);
           context.fill();
           
           // draw blocs
-          context.fillStyle= "#94ccb9";
+          context.fillStyle= "#aed891";
           context.fillRect(bloc.x,bloc.y,bloc.width,bloc.height);
           context.fillRect(bloc2.x,bloc2.y,bloc2.width,bloc2.height);
           context.fillRect(bloc3.x,bloc3.y,bloc3.width,bloc3.height);
-          context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height)
+          context.fillRect(bloc4.x,bloc4.y,bloc4.width,bloc4.height);
+          context.fillRect(bloc5.x,bloc5.y,bloc5.width,bloc5.height);
 
           window.requestAnimationFrame(loop);
       };
