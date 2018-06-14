@@ -53,7 +53,7 @@ this.height = h;
 function randomBloc() {
   this.x = Math.random() * W;
   this.y = Math.random() * H;
-  this.width = Math.random() * 0.1 * W;
+  this.width = Math.random() * 0.1 * W + 50;
   this.height = Math.random() * 50;
 }
 
