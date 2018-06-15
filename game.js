@@ -53,7 +53,7 @@
 		  }
 
 		  sprite.prototype.jump = function() {
-	          this.y_vel -= 0.3;
+	          this.y_vel -= 0.2;
 	          this.jumping = true;
 		  }
 
@@ -73,7 +73,7 @@
 		  sprite.prototype.draw = function() {
 		  	context.fillStyle = "#ff0000";
 					          context.beginPath();
-					          context.arc(this.x * SCALE, this.y * SCALE, SCALE*0.3, 0, 2*Math.PI);
+					          context.arc(this.x * SCALE, this.y * SCALE, SCALE*this.rad, 0, 2*Math.PI);
 					          context.fill();
 		  }
 
@@ -124,6 +124,8 @@
 
 		  function collide(player) {
 
+		  	var margin = 0.0;
+
 	    
 		  	var yStart = player.y - player.rad;
 		  	var yEnd = player.y + player.rad;
@@ -140,19 +142,24 @@
 	      let top = walls[k].y;
 	      let bottom = walls[k].y + 1;
 
+	          // if player isn't moving or if player isn't touching object, return.
+      if ((player.x_vel === 0 && player.y_vel === 0) || (xStart > right && yStart > bottom && xEnd < left && yEnd < top)) {
+          return;
+      }
+
 		    	// if player is going left and hits right side of object
 
 		    	if ((yStart <= bottom && yStart >= top) || (yEnd <= bottom && yEnd >= top)) {
 	      if (player.x_vel < 0 && xStart <= right && xEnd >= right) {
 	          player.x_vel = 0;
-	          player.x = right + player.rad;
+	          player.x = right + player.rad + margin;
 	      }
 	      
 	      
 	      // if player is going right and hits left side of object
 	      if (player.x_vel > 0 && xEnd >= left && xStart <= left) {
 	          player.x_vel = 0;
-	          player.x = left - player.rad;
+	          player.x = left - player.rad - margin;
 	      }
 	      
 	      }
@@ -163,14 +170,14 @@
 	      if (player.y_vel > 0 && yEnd >= top && yStart <= top) {
 
 	          player.y_vel = 0;
-	          player.y = top - player.rad;
+	          player.y = top - player.rad - margin;
 	          player.jumping = false;
 	      }
 	      
 	      // if player is going up and hits bottom of object
 	      if (player.y_vel < 0 && yStart <= bottom && yEnd >= bottom) {
 	          player.y_vel = 0;
-	          player.y = bottom + player.rad;
+	          player.y = bottom + player.rad + margin;
 	      }
 
 	     }
@@ -179,7 +186,7 @@
 		  }
 
 
-				      				       var simpleLevelPlan = [
+				       var level1 = [
 				  "                    xxx                         ",
 				  "          o                        xxx          ",
 				  "  x              = x  x                         ",
@@ -194,6 +201,7 @@
 				  "                xxxx                            ",
 				  "                              xxx               "
 				];
+
 
 				function level(plan) {
 
@@ -232,7 +240,6 @@
 				}
 
 				var player = new sprite();
-				level(simpleLevelPlan);
 
 				 loop = function() {
 
@@ -257,7 +264,7 @@
 
 				 player.draw();
 
-					level(simpleLevelPlan);
+					level(level1);
 
 				 window.requestAnimationFrame(loop);
 
