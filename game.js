@@ -1,8 +1,10 @@
 
 	var context = document.querySelector("canvas").getContext("2d");
-	var H = context.canvas.height = 1000;
+	var H = context.canvas.height = 500;
 	var W = context.canvas.width = 800;
-	var SCALE = 30;
+	var SCALE = 16;
+	var FRICTION = 0.8;
+
 
 			// COIN
 	function coin(x, y) {
@@ -42,16 +44,39 @@ coin.prototype.draw = function() {
 	    this.y_vel = 0;
 	  };
  
-	  sprite.prototype.stepX = function(dir) {
+	  sprite.prototype.left = function() {
+	  	this.x_vel -= 0.01;
+	  }
 
-	    // left
-	    if (dir.type == "left") {
-	  	this.x_vel -= 1;
-	    } 
-	    else if (dir.type == "right") {
-	  	// right
-	  	this.x_vel += 1;
-	    }
+	  sprite.prototype.right = function() {
+	  	this.x_vel += 0.01;
+	  }
+
+	  sprite.prototype.jump = function() {
+          this.y_vel -= 0.1;
+          this.jumping = true;
+	  }
+
+	  sprite.prototype.update = function() {
+
+	  	player.y_vel += 0.001; //gravity
+	   player.x += player.x_vel;
+	   player.y += player.y_vel;
+
+	   if (player.x < 8) {
+      player.x_vel = -1 *player.x_vel;
+      player.x = 8;
+    }
+    
+    if (player.x > (W - 8)) {
+      player.x_vel = -1 *player.x_vel;
+      player.x = (W - 8);
+    }
+
+    if (player.y > (H - 8)) {
+      player.y_vel = -1 *player.y_vel;
+      player.y = (H - 8);
+    }
 
 	  }
 
@@ -60,8 +85,9 @@ coin.prototype.draw = function() {
 				          context.beginPath();
 				          context.arc(this.x * SCALE, this.y * SCALE, SCALE/3, 0, 2*Math.PI);
 				          context.fill();
-
 	  }
+
+
 	  
 
 	  var control = {
@@ -94,6 +120,14 @@ coin.prototype.draw = function() {
 	    }
 	  };
 
+	  function overlap(first, second) {
+
+	  	  if ((first.y * SCALE + SCALE/2) < (second.y * SCALE) && (first.y * SCALE - SCALE/2) > (second.y * SCALE)) {
+	  	  	player.y_vel = -1 * FRICTION *player.y_vel;
+	  	  }
+
+	  } 
+
 			       var simpleLevelPlan = [
 			  "                      ",
 			  "          o           ",
@@ -114,23 +148,23 @@ coin.prototype.draw = function() {
 				// window.alert(this.height);
 				// window.alert(this.width);
 
-				// for each row
-				var i;
-				for (i = 0; i < this.height; i++) {
-					var row = plan[i]
+				// j is column and i is row 
+				var j;
+				for (j = 0; j < this.height; j++) {
+					var row = plan[j]
 
 			    // for each column
-				    var j;
-					for (j = 0; j < this.width; j++) {
+				    var i;
+					for (i = 0; i < this.width; i++) {
 
-						var pix = row[j];
+						var pix = row[i];
 						 if (pix == 'o') {
-						 	var coin1 = new coin(j, i);
+						 	var coin1 = new coin(i, j);
 						 	coin1.draw();
 						 }
 
 						 else if (pix == 'x') {
-						 	var wall1 = new wall(j, i);
+						 	var wall1 = new wall(i, j);
 						 	wall1.draw();
 						 }
 
@@ -139,10 +173,7 @@ coin.prototype.draw = function() {
 				}
 			}
 
-
-
 			var player = new sprite();
-
 
 			 loop = function() {
 
@@ -150,18 +181,18 @@ coin.prototype.draw = function() {
      context.fillRect(0, 0, W, H);// x, y, width, height
           
 
-			 	if (control.right) {
-			 		player.stepX(right);
-			 	}
+			 	// press up and not already jumping
+      if (control.up && player.jumping === false) {
+          player.jump();
+      }
+          if (control.left) {
+          player.left();
+      }
+          if (control.right) {
+          player.right();
+      }
 
-			 	else if (control.left) {
-			 		player.stepX(left);
-			 	}
-
-
-	  	player.y_vel += 1; //gravity
-	   player.x += player.x_vel;
-	   player.y += player.y_vel;
+	  	player.update();
 
 			 player.draw();
 
