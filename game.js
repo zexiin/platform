@@ -179,18 +179,21 @@
 		  }
 
 
-				       var simpleLevelPlan = [
-				  "                      ",
-				  "          o           ",
-				  "  x              = x  ",
-				  "  x      o  o o    x  ",
-				  "  x @      xxxxx   x  ",
-				  "  xxxxx            x  ",
-				  "      x!!!!!!!!!!!!x  ",
-				  "      xxxxxxxxxxxxxx  ",
-				  "                      "
+				      				       var simpleLevelPlan = [
+				  "                    xxx                         ",
+				  "          o                        xxx          ",
+				  "  x              = x  x                         ",
+				  "  x      o  o o    x        xx                  ",
+				  "  x @      xxxxx   x             xxx            ",
+				  "  xxxxx            x       xxxx                 ",
+				  "      x!!!!!!!!!!!!x                            ",
+				  "      xxxxxxxxxxxxxx                   o        ",
+				  "           xxxxx                   o            ",
+				  "                                xxxxx           ",
+				  "                                                ",
+				  "                xxxx                            ",
+				  "                              xxx               "
 				];
-
 
 				function level(plan) {
 
