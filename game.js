@@ -271,7 +271,6 @@
 		    
 				 }
 
-
 		  window.addEventListener("keydown", control.keyListener);
 		  window.addEventListener("keyup", control.keyListener);
 		  window.requestAnimationFrame(loop);
