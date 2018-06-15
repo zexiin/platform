@@ -1,8 +1,4 @@
 # that was wrong
-You're wrong 
 
-# that's not very nice
 
-youe welcome 
-
-# thx boo
+temp tilesheets are 16x16px per tile
