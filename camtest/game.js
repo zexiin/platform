@@ -41,10 +41,10 @@ var control = {
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
 tilesheet.onload = function() { sprite.onload(); }; // on loading this, load next
-tilesheet.src = "../assets/sheet.png";
+tilesheet.src = "../sheet.png";
 var sprite = new Image();
 sprite.onload = function() { init(); }; // on loading this, start initialize the game.
-sprite.src = "../assets/characters.png";
+sprite.src = "../characters.png";
 
 
 
