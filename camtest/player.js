@@ -1,9 +1,6 @@
-
 /**********
-
 this file contains the contructor and instance methods for
 the Player class.
-
 **********/
 
 
@@ -11,6 +8,8 @@ the Player class.
 function Player() {
 	this.x = 100;
 	this.y = 0;
+	this.xinit = 100;
+	this.yinit = 0;
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = false;
@@ -44,6 +43,7 @@ Player.prototype.update = function() {
 	  this.x_vel *= 0.83;
 	  this.y_vel *= 0.83;
 	}	
+
 	// player's camera coordinates are updated in Camera.update()
 
 };
