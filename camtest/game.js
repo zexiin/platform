@@ -96,7 +96,7 @@ function loop() {
 		player.jumping = false;
 	};
 
-	//collisionCheck(player, map);
+	collisionCheck(player, map);
 
 	cam.update();
 	coinRemove(player);
