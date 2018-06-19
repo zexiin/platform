@@ -55,7 +55,7 @@ function init() {
 	context.imageSmoothingEnabled = false;
 	player = new Player();
 	map = new Map(tilesheet, 16, 32);
-	map.init(23, 11, "\
+/*	map.init(23, 11, "\
  ]                  [X \
  ]                  [X \
  ]                  [X \
@@ -63,10 +63,26 @@ function init() {
  XXX]               [X \
  9776   o    %      [X \
  ]o        o     o  [X \
- ]  oooo dmmmmb o o [X \
+ ]! oooo dmmmmb o o [X \
  ]    o  ixxxxl   o [X \
  ========xxxxxx======= \
- xxxxxxxxxxxxxxxxxxxxx ");
+ xxxxxxxxxxxxxxxxxxxxx ");*/
+
+
+	map.init(38, 11, "\
+ ]                                 [X \
+ ]                                 [X \
+ ]                                 [X \
+ 8445     o                        [X \
+ XXX]               o       o      [X \
+ 9776   o    %     dmmb    o  o    [X \
+ ]o        o     o        dmmmmb   [X \
+ ]! oooo dmmmmb o o      o  o  o   [X \
+ ]    o  ixxxxl   o    o         o [X \
+ ========xxxxxx====================== \
+ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ");
+
+
 	cam = new Camera(player, map);
 	loop(); // finish initializing and start the game loop
 
@@ -84,22 +100,21 @@ function loop() {
 	//context.clearRect(0,0,cam.w,cam.h); 
 	context.fillStyle = '#e1ecf2';
 	context.fillRect(0,0,canvas.width,canvas.height);
-
-	// collisionCheck(player, map);
 	
 	//drawMap();
 	player.update();
 	// temp floor collision
-	if(player.y >= 200) {
-		player.y = 200;
+	if(player.y >= 220) {
+		player.y = 220;
 		player.y_vel = 0;
 		player.jumping = false;
 	};
 
-	collisionCheck(player, map);
+	// collisionCheck(player, map);
 
 	cam.update();
 	coinRemove(player);
+	spike(player);
 	cam.draw();
 	player.draw();
 
