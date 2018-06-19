@@ -11,6 +11,9 @@ the Player class.
 function Player() {
 	this.x = 100;
 	this.y = 0;
+	
+	this.xinit = 100;
+	this.yinit = 0;
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = false;
