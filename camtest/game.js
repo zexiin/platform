@@ -73,9 +73,9 @@ function init() {
  ]                                 [X \
  ]                                 [X \
  ]                                 [X \
- 8445     o                        [X \
- XXX]               o       o%%    [X \
- 9776   o    %     dmmb    o  %    [X \
+ 8445     o                  %%    [X \
+ XXX]               o       o %    [X \
+ 9776   o    %     dmmb    o  o    [X \
  ]o        o     o        dmmmmb   [X \
  ]! oooo dmmmmb o o      o  o  o   [X \
  ]    o  ixxxxl   o    o         o [X \
