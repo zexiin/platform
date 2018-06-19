@@ -10,7 +10,7 @@ this file contains functions for collision detection ??? maybe ??? :^(
 
 
 
-function collisionCheck(player, map) {
+function collisionHandler(player, map) {
 
 	// check each side of player for a collision tile
 	// use map getTile to determine what sides should collide
@@ -19,12 +19,6 @@ function collisionCheck(player, map) {
 	// after u figure this out use a separate logic grid rather than map.getTile()
 
 
-	// convert player coords to map col,row
-
-	var curTile = { 
-		col: Math.ceil(player.x / map.scaled), 
-		row: Math.ceil(player.y / map.scaled) 
-	}; 
 
 	// bounding box of player in map coordinates (not location of 32x32 tile)
 	var playerBound = {
@@ -34,46 +28,6 @@ function collisionCheck(player, map) {
 		h: 39
 	};
 
-
-
-
-	// do a check on NINE(?) adjacent tiles (incl current tile).
-	// for each adj tile, check which type of collision there should be
-	// and then check for each collision... probably. idk man
-
-	// currently only checking cardinal four.
-
-
-	// get each tile id
-	let above = map.getTile(curTile.col, curTile.row - 1);
-	let below = map.getTile(curTile.col, curTile.row + 1);
-	let right = map.getTile(curTile.col + 1, curTile.row);
-	let  left = map.getTile(curTile.col - 1, curTile.row);
-
-
-	// for debugging. draw the adj tiles to make sure theyre the right ones lmfao
-		// above [blue]
-		context.fillStyle = "rgba(66, 134, 244,0.3)";
-		let x = curTile.col * map.scaled - cam.x;
-		let y = (curTile.row-1) * map.scaled - cam.y;
-		context.fillRect(x, y, 32, 32);
-		// below [pink]
-		context.fillStyle = "rgba(244, 65, 160,0.3)";
-		x = curTile.col * map.scaled - cam.x;
-		y = (curTile.row+1) * map.scaled - cam.y;
-		context.fillRect(x, y, 32, 32);
-		// right [green]
-		context.fillStyle = "rgba(109, 226, 86,0.3)";
-		x = (curTile.col+1) * map.scaled - cam.x;
-		y = curTile.row * map.scaled - cam.y;
-		context.fillRect(x, y, 32, 32);
-		// left [yello]
-		context.fillStyle = "rgba(255, 199, 58,0.3)";
-		x = (curTile.col-1) * map.scaled - cam.x;
-		y = curTile.row * map.scaled - cam.y;
-		context.fillRect(x, y, 32, 32);
-
-
 	// draw player bounding box. 
 	context.strokeStyle = "#ff5132";
 	context.strokeRect(playerBound.x - cam.x,playerBound.y - cam.y, playerBound.w, playerBound.h);
@@ -82,30 +36,168 @@ function collisionCheck(player, map) {
 
 
 
-	var tyle = collisionType(above);
-	// if player is going up and tile above has collision on southern edge,
-	if (tyle.s && player.y_vel < 0) {
-		player.y_vel = 0;
+
+
+	let nw = { 
+		col: Math.round((playerBound.x - map.scaled)/map.scaled), 
+		row: Math.round((playerBound.y - map.scaled)/map.scaled) };
+	let  n = { 
+		col: Math.round(playerBound.x/map.scaled), 
+		row: Math.round((playerBound.y - map.scaled)/map.scaled) };
+	let ne = { 
+		col: Math.round((playerBound.x + map.scaled)/map.scaled), 
+		row: Math.round((playerBound.y - map.scaled)/map.scaled) };
+
+
+	let  w = { 
+		col: Math.round((playerBound.x - map.scaled)/map.scaled), 
+		row: Math.round(playerBound.y/map.scaled)
+	 };
+	 let  e = { 
+		col: Math.round((playerBound.x + map.scaled)/map.scaled),
+		row: Math.round(playerBound.y /map.scaled)
+	 };
+
+	 let sw = { 
+		col: Math.round((playerBound.x - map.scaled)/map.scaled), 
+		row: Math.round((playerBound.y + map.scaled)/map.scaled) };
+	let  s = { 
+		col: Math.round(playerBound.x/map.scaled), 
+		row: Math.round((playerBound.y + map.scaled)/map.scaled) };
+	let se = { 
+		col: Math.round((playerBound.x + map.scaled)/map.scaled), 
+		row: Math.round((playerBound.y + map.scaled)/map.scaled) };
+
+
+
+
+	// for each side of the player bounding box, check if its x/y align with tile grid
+	// if it aligns, get the tiles that are touching 
+	// for every tile that it touches, add that tile to a list of tiles to check for collision. (or just check it)
+
+	// check 8 tiles with possible collision 
+
+	if ((playerBound.x/map.scaled).toFixed(2)%1 <= 0.15) { 
+		// playerbound left aligns with tile grid. set western tile.
+		w.tile = map.getTile(w.col, w.row);
+		w.touching = true;	
 	};
-	// if player is going left and tile left has collision on eastern edge,
-	tyle = collisionType(left);
-	if (tyle.e && player.x_vel < 0) { 
-		player.x += player.X_ACCEL;
-		player.x_vel = 0; 
+	if (((playerBound.x+playerBound.w)/map.scaled).toFixed(2)%1 <= 0.15 ) { 
+		// playerbound right aligns with tile grid. set eastern tile.
+		e.tile = map.getTile(e.col, e.row);
+		e.touching = true;
+	};
+	if ((playerBound.y/map.scaled).toFixed(2)%1 <= 0.15) { 
+		// playerbound top aligns with tile grid. set northern tile.
+		n.tile = map.getTile(n.col, n.row);
+		n.touching = true;
+
+		// check nw and ne
+		if(w.touching) {
+			nw.tile = map.getTile(nw.col, nw.row);
+			nw.touching = true;
+		}
+		if(e.touching) {
+			ne.tile = map.getTile(ne.col, ne.row);
+			ne.touching = true;
+		}
+
+	};
+	if (((playerBound.y+playerBound.h)/map.scaled).toFixed(2)%1 <= 0.15) { 
+		// playerbound bottom aligns with tile grid. set southern tile.
+		s.tile = map.getTile(s.col, s.row);
+		s.touching = true;
+
+		// check sw and se
+		if(w.touching) {
+			sw.tile = map.getTile(sw.col, sw.row);
+			sw.touching = true;
+		}
+		if(e.touching) {
+			se.tile = map.getTile(se.col, se.row);
+			se.touching = true;
+		}
+	};
+
+
+
+
+	// for debugging: draw the 8 tiles around player bounding box
+		context.fillStyle = "rgba(149, 96, 229,0.3)"; // nw, purple
+		context.fillRect(nw.col *map.scaled- cam.x, nw.row*map.scaled - cam.y, 32, 32);
+		context.fillStyle = "rgba(0, 0, 0,0.3)"; // n, black
+		context.fillRect(n.col *map.scaled- cam.x, n.row*map.scaled - cam.y, 32, 32);
+		context.fillStyle = "rgba(65, 242, 139,0.3)"; // ne, green
+		context.fillRect(ne.col *map.scaled- cam.x, ne.row*map.scaled - cam.y, 32, 32);
+
+		context.fillStyle = "rgba(255, 229, 63,0.3)"; // w, yellow
+		context.fillRect(w.col *map.scaled- cam.x, w.row*map.scaled - cam.y, 32, 32);	
+		context.fillStyle = "rgba(239, 58, 31,0.3)"; // e, red
+		context.fillRect(e.col *map.scaled- cam.x, e.row*map.scaled - cam.y, 32, 32);
+
+		context.fillStyle = "rgba(255, 84, 166,0.3)"; // sw, pink
+		context.fillRect(sw.col *map.scaled- cam.x, sw.row*map.scaled - cam.y, 32, 32);
+		context.fillStyle = "rgba(255, 255, 255, 0.6)"; // s, white
+		context.fillRect(s.col *map.scaled- cam.x, s.row*map.scaled - cam.y, 32, 32);
+		context.fillStyle = "rgba(66, 134, 244,0.3)"; // se, blue
+		context.fillRect(se.col *map.scaled- cam.x, se.row*map.scaled - cam.y, 32, 32);
+
+
+	// if player is moving left and the tile there is touching and it has eastern collision,
+	if (w.touching && player.x_vel < 0) {
+		if (collisionType(w.tile).e) { collide(player, "left"); }
 	}
-	// if player is going right and tile right has collision on western edge,
-	tyle = collisionType(right);
-	if (tyle.w && player.x_vel > 0) { 
-		player.x -= player.X_ACCEL;
-		player.x_vel = 0; 
+	// if player is moving right and the tile there is touching and it has western collision,
+	if (e.touching && player.x_vel > 0) {
+		if (collisionType(e.tile).w) { collide(player, "right"); }
 	}
-	// if player is going down and tile below has collision on northern edge,
-	tyle = collisionType(below);
-	if (tyle.n && player.y_vel > 0) { 
-		player.y -= player.GRAVITY;
-		player.y_vel = 0; 
-		player.jumping = false; 
+	// if player is moving up and the tile there is touching and it has southern collision,
+	if(n.touching && player.y_vel < 0) { 
+		if(collisionType(n.tile).s) { collide(player, "up"); }
+	 }
+	 // if player is moving down and the tile there is touching and it has northern collision,
+	if(s.touching && player.y_vel > 0) { 
+		if(collisionType(s.tile).n) { collide(player, "down"); }
 	}
+
+	// if player is moving nw and the tile there is touch and it has s/e collision,
+	if(nw.touching && (player.x_vel < 0 || player.y_vel < 0)) {
+		let hasCollision = collisionType(nw.tile);
+		if (hasCollision.e) { collide(player, "left"); }
+		if (hasCollision.s) { collide(player, "up"); }
+	}
+
+	// if player is moving ne and the tile there is touch and it has s/w collision,
+	if(ne.touching && (player.x_vel > 0|| player.y_vel < 0)) {
+		let hasCollision = collisionType(ne.tile);
+		if (hasCollision.w) { collide(player, "right"); }
+		if (hasCollision.s) { collide(player, "up"); }
+	}
+
+	// if player is moving sw and the tile there is touch and it has n/e collision,
+	if(sw.touching && (player.x_vel < 0 || player.y_vel > 0)) {
+		let hasCollision = collisionType(sw.tile);
+		if (hasCollision.e) { collide(player, "left"); }
+		if (hasCollision.n) { collide(player, "down"); }
+	}
+
+	// if player is moving se and the tile there is touch and it has n/w collision,
+	if(se.touching && (player.x_vel > 0 || player.y_vel > 0)) {
+		let hasCollision = collisionType(se.tile);
+		if (hasCollision.w) { collide(player, "right"); }
+		if (hasCollision.n) { collide(player, "down"); }
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -142,6 +234,30 @@ function collisionType(tileChar) {
 
 		default: return collisions; // default: no collision.
 	};
+}
+
+// adjust player coordinates if there is a collision.
+function collide(player, direction) { // direction is the direction player is moving in and hits object
+	switch(direction) {
+		case "left":
+			player.x += player.X_ACCEL;
+			player.x_vel = 0; 
+			break;
+		case "right":
+			player.x -= player.X_ACCEL;
+			player.x_vel = 0; 
+			break;
+		case "up":
+			player.y_vel = 0;
+			break;
+		case "down":
+			player.y -= player.GRAVITY;
+			player.y_vel = 0; 
+			player.jumping = false; 
+			break;
+
+		default: return;
+	}
 }
 
 
