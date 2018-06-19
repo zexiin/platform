@@ -12,6 +12,7 @@ function Map(tilesheet, tilesize, scaledsize) {
 	this.tilesheet = tilesheet;
 	this.tsize = tilesize;
 	this.scaled = scaledsize;
+        this.arrayRep = stringRep.split('');
 }
 
 Map.prototype.init = function(c, r, stringRep) { 
@@ -21,7 +22,8 @@ Map.prototype.init = function(c, r, stringRep) {
 };
 
 Map.prototype.getTile = function(col, row) {
-	let tile = this.tiles.charAt(row * this.cols + col);
+	let tile = this.arrayRep[row * this.cols + col];
+	// let tile = this.tiles.charAt(row * this.cols + col);
 	switch(tile) {
     	case " ": return 0;  //blank
     	case "%": return 136; // solid yello
@@ -41,6 +43,7 @@ Map.prototype.getTile = function(col, row) {
     	case "i": return 28;
     	case "l": return 30;
     	case "=": return 8;
+	case "o": return 135;		
     	
     	default: return;
 
@@ -140,6 +143,8 @@ Camera.prototype.draw = function() {
 
 		}
 	}
+	
+	document.getElementById("insert").innerHTML = "coins!: " + coinCount;
 
 };
 
@@ -151,6 +156,24 @@ Camera.prototype.camToMap = function(x,y) {
 	return {x: x + this.x, y: y + this.y };
 };
 
+
+var coinCount = 0;
+
+// test for collision of player with any of the coins, then filters that coin out of the array
+ function coinRemove(player) {
+
+ 	let col = Math.ceil(player.x / map.scaled);
+	let row = Math.ceil(player.y / map.scaled); 
+
+	let playerIndex = row * this.map.cols + col;
+
+	if (this.map.arrayRep[playerIndex] == "o") {
+		delete(this.map.arrayRep[playerIndex]);
+		 coinCount += 1;
+
+	};
+
+}
 
 
 
