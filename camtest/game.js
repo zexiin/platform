@@ -59,12 +59,12 @@ function init() {
  ]                  [X \
  ]                  [X \
  ]                  [X \
- 8445               [X \
+ 8445     o         [X \
  XXX]               [X \
- 9776        %      [X \
- ]                  [X \
- ]       dmmmmb     [X \
- ]       ixxxxl     [X \
+ 9776   o    %      [X \
+ ]o        o     o  [X \
+ ]  oooo dmmmmb o o [X \
+ ]    o  ixxxxl   o [X \
  ========xxxxxx======= \
  xxxxxxxxxxxxxxxxxxxxx ");
 	cam = new Camera(player, map);
@@ -97,6 +97,7 @@ function loop() {
 	collisionCheck(player, map);
 
 	cam.update();
+	coinRemove(player);
 	cam.draw();
 	player.draw();
 
