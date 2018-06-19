@@ -7,6 +7,7 @@ the Map and Camera classes.
 **********/
 
 var coinCount = 0;
+var livesCount = 3;
 
 
 // test for collision of player with any of the coins, then filters that coin out of the array
@@ -20,6 +21,26 @@ var coinCount = 0;
 	if (this.map.arrayRep[playerIndex] == "o") {
 		delete(this.map.arrayRep[playerIndex]);
 		 coinCount += 1;
+
+	};
+
+}
+
+function spike(player) {
+
+	let col = Math.ceil(player.x / map.scaled);
+	let	row = Math.ceil(player.y / map.scaled); 
+
+	let playerIndex = row * this.map.cols + col;
+
+	if (this.map.arrayRep[playerIndex] == "!") {
+		livesCount--;
+		//freeze
+
+		// move somewhere else
+		player.x = player.xinit;
+		player.y = player.yinit;
+
 
 	};
 
@@ -66,6 +87,7 @@ Map.prototype.getTile = function(col, row) {
     	case "l": return 30;
     	case "=": return 8;
     	case "o": return 135;
+    	case "!": return 136; // spike bloc
     	
     	default: return;
 
@@ -168,6 +190,7 @@ Camera.prototype.draw = function() {
 
 
    document.getElementById("insert").innerHTML = "coins!: " + coinCount;
+   document.getElementById("lives").innerHTML = "lives!: " + livesCount;
 
 };
 
