@@ -84,6 +84,8 @@ function loop() {
 	//context.clearRect(0,0,cam.w,cam.h); 
 	context.fillStyle = '#e1ecf2';
 	context.fillRect(0,0,canvas.width,canvas.height);
+
+	// collisionCheck(player, map);
 	
 	//drawMap();
 	player.update();
@@ -94,7 +96,7 @@ function loop() {
 		player.jumping = false;
 	};
 
-	collisionCheck(player, map);
+	//collisionCheck(player, map);
 
 	cam.update();
 	coinRemove(player);
@@ -111,4 +113,3 @@ function loop() {
 
 window.addEventListener("keydown", control.keyListener);
 window.addEventListener("keyup", control.keyListener);
-
