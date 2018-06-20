@@ -5,17 +5,22 @@ body {
 
 }
 
-
 h1 {
-  font-family: sans-serif;
-  font-size: 13 pt;
+  font-family: verdana;
+  font-size: 30pt;
+  text-transform: lowercase;
+  letter-spacing: -2px;
   color: #617799;
+   text-shadow: 2px 2px #CCDDCC;
+  margin-bottom: -20px;
 }
 
 h2 {
-	font-family: georgia;
+	font-family: courier;
     font-size: 9 pt;
+    text-transform: uppercase;
     color: #33AA99;
+    margin-bottom: -5px;
 }
 
 
