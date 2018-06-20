@@ -226,6 +226,9 @@ function collisionType(tileChar) {
 		case 8:
 			collisions.n = true;
 			return collisions;
+		case 28:
+			collisions.w = true;
+			return collisions;	
 		case 30: collisions.e = true; return collisions;
 		case 11: collisions.w = true; collisions.n = true; return collisions;
 		case 13: collisions.e = true; collisions.n = true; return collisions;
