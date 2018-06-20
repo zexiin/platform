@@ -7,7 +7,7 @@ this file contains the main game functions??
 
 var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
-canvas.height = 300;
+canvas.height = 500;
 canvas.width = 480;
 
 var control = {
