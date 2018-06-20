@@ -69,16 +69,26 @@ function init() {
  xxxxxxxxxxxxxxxxxxxxx ");*/
 
 
-	map.init(38, 11, "\
+	map.init(38, 21, "\
  ]                        o        [X \
+ ]                                 [X \
+ ]            o    o               [X \
+ ]                     v    o      [X \
+ ]        o          dmmmb         [X \
+ ]    o          o         o       [X \
+ ]       o   dmmmb   o     o   o   [X \
+ ]                  o     o        [X \
+ ] o  dmmmb  o    o    o  o        [X \
+ ]            vvv     o   o      o [X \
+ ]    o   o  dmmmb        vv  o    [X \
  ]                   o  dmmmb      [X \
- ]  o  %%%     o  o                [X \
+ ]v o  %%%     o  o            o   [X \
  8445    %%%%      dmmmmb          [X \
  XXX]              ! o       o     [X \
- 9776   o    %     dmmb    o !o    [X \
- ]o        %  !  o        dmmmmb   [X \
+ 9776   o    %     dmmb o  o !o    [X \
+ ]o        %  !  o    o   dmmmmb   [X \
  ]! oooo dmmmmb o o      o  o  o   [X \
- ]    o  ixxxxl   o    o !    !  o [X \
+ ]    o  ixxxxl   ovvvvo !    !  o [X \
  ========xxxxxx====================== \
  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ");
 
@@ -103,12 +113,13 @@ function loop() {
 	
 	//drawMap();
 	player.update();
+	/*
 	// temp floor collision
 	if(player.y >= 220) {
 		player.y = 220;
 		player.y_vel = 0;
 		player.jumping = false;
-	};
+	};*/
 
 	collisionHandler(player, map);
 
