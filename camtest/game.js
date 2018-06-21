@@ -70,27 +70,27 @@ function init() {
 
 
 	map.init(38, 21, "\
- ]                        o        [X \
- ]                                 [X \
- ]            o    o               [X \
- ]                     v    o      [X \
- ]        o          dmmmb         [X \
- ]    o          o         o       [X \
- ]       o   dmmmb   o     o   o   [X \
- ]                  o     o        [X \
- ] o  dmmmb  o    o    o  o        [X \
- ]            vvv     o   o      o [X \
- ]    o   o  dmmmb        vv  o    [X \
- ]                   o  dmmmb      [X \
- ]v o  %%%     o  o            o   [X \
- 8445    %%%%      dmmmmb          [X \
- XXX]              ! o       o     [X \
- 9776   o    %     dmmb o  o !o    [X \
- ]o        %  !  o    o   dmmmmb   [X \
- ]! oooo dmmmmb o o      o  o  o   [X \
- ]    o  ixxxxl   ovvvvo !    !  o [X \
- ========xxxxxx====================== \
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ");
+X]                        o        [XX\
+X]                                 [XX\
+X]            o    o               [XX\
+X]                     v    o      [XX\
+X]        o          dmmmb         [XX\
+X]    o          o         o       [XX\
+X]       o   dmmmb   o     o   o   [XX\
+X]       2          o     o        [XX\
+X] o  dmmmb  o    o    o  o        [XX\
+X]            vvv     o   o      o [XX\
+X]    o   o  dmmmb        vv  o    [XX\
+X]                   o  dmmmb      [XX\
+X]v o  %%%     o  o  2         o   [XX\
+X8445    %%%%      dmmmmb          [XX\
+XXXX]              ! o       o     [XX\
+X9776   o    %     dmmb o  o !o    [XX\
+X]o        %  !  o    o   dmmmmb   [XX\
+X]! oooo dmmmmb o o      o  o  o   [XX\
+X]2   o  ixxxxl   ovvvvo !    !  o [XX\
+=========xxxxxx=======================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
 
 	cam = new Camera(player, map);
