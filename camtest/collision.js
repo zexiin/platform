@@ -17,6 +17,14 @@ function collisionHandler(player, map) {
 	// do relevant collision check based on direction of player + location&type of tile
 
 	// after u figure this out use a separate logic grid rather than map.getTile()
+	
+	 // so he doesn't run off screen to live his own life you feel me?
+        // sorry for hardcoded constants
+	if (player.x < -19) player.x = -19;
+	if (player.x > (map.cols * map.scaled - 19 - 29)) player.x = (map.cols * map.scaled - 19 - 29);
+	if (player.y < -25) player.y = -25;
+	if (player.y > (map.rows * map.scaled - 25 - 39)) player.y = (map.rows * map.scaled - 25 - 39);
+
 
 
 
