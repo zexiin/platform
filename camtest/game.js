@@ -19,24 +19,29 @@ canvas.width = 480;
 var control = {
 	left: false, right: false, up: false, down: false,
 
-	keyListener: function(event) {
-	  // switch the keystate
-	  var key_state = (event.type == "keydown")?true:false;
-
-	  switch(event.keyCode) {
-	    case 37: // left
-	      control.left = key_state;
-	      break;
-	    case 38: // up
-	      control.up = key_state;
-	      break;
-	    case 39: // right
-	      control.right = key_state;
-	      break;
-	    case 40: // down
-	    	control.down = key_state;
-	    	break;
-  		}
+	keyListener: function(event) {		
++
++		// switch the keystate
++		var key_state = (event.type == "keydown")?true:false;
++
++		switch(event.keyCode) {
++			case 37: // left
++				control.left = key_state;
++				event.preventDefault(); // preventDefault prevents arrow keys from scrolling the page.
++				break;
++			case 38: // up
++				control.up = key_state;
++				event.preventDefault();
++				break;
++			case 39: // right
++				control.right = key_state;
++				event.preventDefault();
++				break;
++			case 40: // down
++				control.down = key_state;
++				event.preventDefault();
++				break;
++		}
 	}
 };
 
