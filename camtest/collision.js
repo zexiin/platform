@@ -146,8 +146,34 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		w: tile_obj.tsize, 
 		h: tile_obj.tsize
 	};
-	tile.collisions = collisionType(tile.id);
+	
+	// special tiles: 
+	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
+    
+        // coin
+	if (tile.id == 135) {
+		delete(map.arrayRep[tileIndex]);
+		coinCount += 1;
+		return;
+	}  
+	// treasure: next level
+	else if (tile.id == 85) {
+		
+		levelNo++;
+		init(mapArr[levelNo]);
+		return;
 
+	}
+	// spike
+	else if (tile.id == 119) {
+		livesCount--;
+		// move somewhere else
+		player.x = player.xinit;
+		player.y = player.yinit;
+		return;
+	}
+	
+	tile.collisions = collisionType(tile.id);
 
 	const saveMePlease = 2*scaleFactor; // I GUESS ??????????????
 
