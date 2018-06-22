@@ -6,11 +6,6 @@ the Map and Camera classes.
 
 **********/
 
-// global variables that rly shouldn't exist because bad programming practice
-var coinCount = 0;
-var livesCount = 3;
-var levelNo = 1;
-
 /*
 // test for collision of player with any of the coins, then filters that coin out of the array
 // AND tests for next level if u hit the treaaaaasure
