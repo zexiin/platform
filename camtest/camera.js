@@ -6,20 +6,37 @@ the Map and Camera classes.
 
 **********/
 
+// global variables that rly shouldn't exist because bad programming practice
 var coinCount = 0;
 var livesCount = 3;
+var levelNo = 1;
 
 
 // test for collision of player with any of the coins, then filters that coin out of the array
+// AND tests for next level if u hit the treaaaaasure
  function coinRemove(player) {
 
  	let col = Math.ceil(player.x / map.scaled);
 	let	row = Math.ceil(player.y / map.scaled); 
 
 	let playerIndex = row * this.map.cols + col;
+	let playerIndex2 = playerIndex - 1; 
+
+	if (this.map.arrayRep[playerIndex] == "t") {
+		levelNo++;
+
+		init(mapArr[levelNo]);
+	};
+
 
 	if (this.map.arrayRep[playerIndex] == "o") {
 		delete(this.map.arrayRep[playerIndex]);
+		 coinCount += 1;
+
+	};
+
+	if (this.map.arrayRep[playerIndex2] == "o") {
+		delete(this.map.arrayRep[playerIndex2]);
 		 coinCount += 1;
 
 	};
@@ -50,6 +67,14 @@ function Map(tilesheet, tilesize, scaledsize) {
 	this.tilesheet = tilesheet;
 	this.tsize = tilesize;
 	this.scaled = scaledsize;
+
+	// only writes the text the first 150? frames
+	this.levelText = { 
+		time: 200,
+		x: 10,
+		y: 90, 
+		opacity: 1.0 
+	}
 }
 
 Map.prototype.init = function(c, r, stringRep) { 
@@ -86,8 +111,10 @@ Map.prototype.getTile = function(col, row) {
     	case "i": return 28;
     	case "l": return 30;
     	case "=": return 8;
-        case "v": return 117;
+    	case "v": return 117;
     	case "o": return 135;
+    	case "2": return 102;
+    	case "t": return 85;
     	case "!": return 119; // spike bloc
     	
     	default: return;
@@ -121,9 +148,6 @@ drawMap = function() {
 };
 
 
-
-
-
 function Camera(following, map) {
 
 	// x,y are the map coords of the top left corner of camera
@@ -140,6 +164,8 @@ function Camera(following, map) {
 	this.map = map;              // the map duh
 
 }
+
+
 
 Camera.prototype.update = function() {
 
@@ -161,6 +187,7 @@ Camera.prototype.update = function() {
 
 Camera.prototype.draw = function() {
 
+
 	// calculate which rows/cols are visible.
 	let leftCol = Math.floor(this.x / this.map.scaled);  
 	let rightCol = Math.ceil((this.x + this.w )/ this.map.scaled);
@@ -171,8 +198,11 @@ Camera.prototype.draw = function() {
 		for (var r = topRow; r <= bottomRow; r++) {
 
 			var tile = this.map.getTile(c,r);
+
 			if (tile === 0) continue; // skip if blank tile
 			var xyTarget = this.mapToCam(c*this.map.scaled, r*this.map.scaled);
+
+			
 
 			context.drawImage(
 				this.map.tilesheet, // image src
@@ -185,13 +215,29 @@ Camera.prototype.draw = function() {
 				xyTarget.y, // target y
 				this.map.scaled, this.map.scaled  // target w,h
 				);
+		   }
+
 
 		}
+	
+
+    // i'm sorry i'm so extra 
+	if (this.map.levelText.time > 0) {
+ 	 context.font = "80px verdana";
+ 	 context.fillStyle = "#339999";
+ 	 context.globalAlpha = this.map.levelText.opacity;
+ 	 this.map.levelText.opacity -= 0.005;
+     context.fillText("level " + levelNo, this.map.levelText.x, this.map.levelText.y);
+     this.map.levelText.x += 0.7;
+     this.map.levelText.y += 0.5;
+     this.map.levelText.time--;
+
 	}
+	context.globalAlpha = 1.0;
 
-
-   document.getElementById("insert").innerHTML = "coins!: " + coinCount;
-   document.getElementById("lives").innerHTML = "lives!: " + livesCount;
+   document.getElementById("insert").innerHTML = "coins: " + coinCount;
+   document.getElementById("lives").innerHTML = "lives: " + livesCount;
+   document.getElementById("level").innerHTML = "level: " + levelNo;
 
 };
 
