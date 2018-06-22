@@ -8,6 +8,7 @@ this file contains the main game functions??
 var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
 var mapArr = [];
+var scaleFactor = 2;
 
 context.font = "15px Arial";    
 context.textBaseline="top"; 
