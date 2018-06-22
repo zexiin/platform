@@ -9,8 +9,6 @@ var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
 var mapArr = [];
 var scaleFactor = 2;
-
-// global variables that rly shouldn't exist because bad programming practice
 var coinCount = 0;
 var livesCount = 3;
 var levelNo = 1;
@@ -18,9 +16,6 @@ var levelNo = 1;
 context.font = "15px Arial";    
 context.textBaseline="top"; 
 context.fillText("Top",5,100);    
-
-canvas.height = 500;
-canvas.width = 480;
 
 var control = {
 	left: false, right: false, up: false, down: false,
