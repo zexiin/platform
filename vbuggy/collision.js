@@ -18,11 +18,9 @@ things to add in the future after u get this bumsack to actually Work:
 
 
 function CollisionMap(map) {
-	alert("???");
 	this.cols = map.cols;
 	this.rows = map.rows;
 	this.scaled = map.scaled;
-	console.log(this.scaled);
 }
 
 CollisionMap.prototype.init = function(stringRep) { 
