@@ -16,8 +16,8 @@ var levelNo = 1;
 // AND tests for next level if u hit the treaaaaasure
  function coinRemove(player) {
 
- 	let col = Math.ceil(player.x / map.scaled);
-	let	row = Math.ceil(player.y / map.scaled); 
+ 	let col = Math.ceil((player.x + player.w/2) / map.scaled);
+	let row = Math.ceil((player.y + player.h/2) / map.scaled); 
 
 	let playerIndex = row * this.map.cols + col;
 	let playerIndex2 = playerIndex - 1; 
