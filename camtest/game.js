@@ -165,10 +165,7 @@ function loop() {
 
 	collisionHandler(player, map);
 
-    
 	cam.update();
-	coinRemove(player);
-	spike(player);
 	cam.draw();
 	player.draw();
 	
