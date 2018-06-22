@@ -158,7 +158,8 @@ function Camera(following, map) {
 
 	this.xMax = map.cols*map.scaled - this.w;
 	this.yMax = map.rows*map.scaled - this.h;
-
+	if (this.xMax < 0) this.xMax = 0;
+	if (this.yMax < 0) this.yMax = 0;
 
 	this.following = following;  // usually the player object
 	this.map = map;              // the map duh
@@ -168,9 +169,9 @@ function Camera(following, map) {
 
 
 Camera.prototype.update = function() {
-
-	this.x = this.following.x - this.w*0.5 + 32;
-	this.y = this.following.y - this.h*0.5 + 32;
+	
+	this.x = this.following.x - this.w*0.5 + this.following.w*0.5;
+	this.y = this.following.y - this.h*0.5 + this.following.h*0.5;
 
 	if (this.x < 0) this.x = 0;
 	else if (this.x > this.xMax) this.x = this.xMax;
