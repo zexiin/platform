@@ -24,23 +24,19 @@ Map.prototype.getTile = function(col, row) {
 	let tile = this.tiles.charAt(row * this.cols + col);
 	switch(tile) {
     	case " ": return 0;  //blank
-    	case "%": return 136; // solid yello
-    	case "4": return 81;
-    	case "5": return 82;
-    	case "6": return 116;
-    	case "7": return 115;
-    	case "8": return 95;
-    	case "9": return 78;
-    	case "]": return 99;
-    	case "[": return 97;
-    	case "d": return 11;
-    	case "x": return 29;
-    	case "X": return 98;
-    	case "m": return 12;
-    	case "b": return 13;
-    	case "i": return 28;
-    	case "l": return 30;
-    	case "=": return 8;
+    	case "%": return 155; // solid
+    	case "]": return 242;
+    	case "[": return 242;
+    	case "d": return 80;
+    	case "x": return 125;
+    	case "X": return 242;
+    	case "m": return 81;
+    	case "b": return 82;
+    	case "i": return 124;
+    	case "l": return 126;
+    	case "=": return 103;
+    	case "r": return 102;
+    	case "7": return 104;
     	
     	default: return;
 

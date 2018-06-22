@@ -45,20 +45,21 @@ var control = {
 
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { sprite.onload(); }; // on loading this, load next
-tilesheet.src = "../assets/sheet.png";
-var sprite = new Image();
-sprite.onload = function() { init(); }; // on loading this, start initialize the game.
-sprite.src = "../assets/characters.png";
+tilesheet.onload = function() { init(); }; // on loading this, load next
+tilesheet.src = "../assets/arcadesheet.png";
+
 
 
 var scaleFactor = 2;
-var player, map, cam;
+var player, map, cam, collision_map;
 
 function init() {
 
 	context.imageSmoothingEnabled = false;
 	player = new Player();
+
+// temp. work on modularity pls bxch
+
 	map = new Map(tilesheet, 16, 16*scaleFactor);
 	map.init(38, 13, "\
  ]                                 [X \
@@ -66,15 +67,38 @@ function init() {
  ]                                 [X \
  ]                     dmb         [X \
  ]                                 [X \
- 8445           db           %%    [X \
- XXX]                         %    [X \
- 9776        %     dmmb            [X \
+ ]              db           %%    [X \
+ ]                            %    [X \
+ ]           %     dmmb            [X \
  ]                        dmmmmb   [X \
- ]       dmmmmb                    [X \
+ ]       r====7                    [X \
  ]       ixxxxl       %            [X \
  ========xxxxxx====================== \
  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ");
 	cam = new Camera(player, map);
+
+
+
+
+	collision_map = new CollisionMap(map);
+	collision_map.init("\
+ ]                                 [  \
+ ]                                 [  \
+ ]                                 [  \
+ ]                     d=b         [  \
+ ]                                 [  \
+ ]              db           %%    [  \
+ ]                            %    [  \
+ ]           %     d==b            [  \
+ ]                        d====b   [  \
+ ]       d====b                    [  \
+ ]       [    ]       %            [  \
+ ========      ====================== \
+                                      ");
+
+
+
+
 	loop(); // finish initializing and start the game loop
 
 }
@@ -101,7 +125,7 @@ function loop() {
 		player.jumping = false;
 	};
 
-	collisionHandler(player, map);
+	collisionHandler(player, collision_map);
 
 	cam.update();
 	cam.draw();

@@ -17,8 +17,8 @@ function Player() {
 
 	this.camCoords = {}; //temp
 
-	this.GRAVITY = 0.15*scaleFactor; //0.15
-	this.X_ACCEL = 0.25*scaleFactor; // 0.25
+	this.GRAVITY = 0.2*scaleFactor; //0.15
+	this.X_ACCEL = 0.4*scaleFactor; // 0.25
 	this.Y_ACCEL = 8*scaleFactor;
 	this.FRICTION = 0.83;
 	this.w = 32*scaleFactor;
@@ -31,10 +31,10 @@ function Player() {
 		y:0,
 		x_prev: 0,
 		y_prev: 0,
-		w: 10*scaleFactor, //13
-		h: 19*scaleFactor, // 19
-		x_offset: 11.5*scaleFactor, // 10
-		y_offset: 13*scaleFactor
+		w: 14*scaleFactor, //13
+		h: 14*scaleFactor, // 19
+		x_offset: 9*scaleFactor, // 10
+		y_offset: 18*scaleFactor
 	};
 
 
@@ -86,5 +86,5 @@ Player.prototype.updateBoundingBox = function() {
 
 Player.prototype.draw = function() {
 	//context.drawImage(sprite, 0, 0, 32, 32, this.x, this.y, this.w, this.h);
-	context.drawImage(sprite, 0, 0, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
+	context.drawImage(tilesheet, 0, 0, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
 };
