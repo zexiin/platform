@@ -20,29 +20,24 @@ canvas.width = 480;
 var control = {
 	left: false, right: false, up: false, down: false,
 
-	keyListener: function(event) {		
-+
-+		// switch the keystate
-+		var key_state = (event.type == "keydown")?true:false;
-+
-+		switch(event.keyCode) {
-+			case 37: // left
-+				control.left = key_state;
-+				event.preventDefault(); // preventDefault prevents arrow keys from scrolling the page.
-+				break;
-+			case 38: // up
-+				control.up = key_state;
-+				event.preventDefault();
-+				break;
-+			case 39: // right
-+				control.right = key_state;
-+				event.preventDefault();
-+				break;
-+			case 40: // down
-+				control.down = key_state;
-+				event.preventDefault();
-+				break;
-+		}
+	keyListener: function(event) {
+	  // switch the keystate
+	  var key_state = (event.type == "keydown")?true:false;
+
+	  switch(event.keyCode) {
+	    case 37: // left
+	      control.left = key_state;
+	      break;
+	    case 38: // up
+	      control.up = key_state;
+	      break;
+	    case 39: // right
+	      control.right = key_state;
+	      break;
+	    case 40: // down
+	    	control.down = key_state;
+	    	break;
+  		}
 	}
 };
 
@@ -63,76 +58,73 @@ sprite.src = "../characters.png";
 
 var player, map, cam;
 
-
 var map1 = {
 	map: "\
- ]                  [X \
- ]                  [X \
- ]                  [X \
- 8445     o         [X \
- XXX]     %         [X \
- 9776   o    %      [X \
- ]o        o     o  [X \
- ]! oooo dmmmmb o o [X \
- ]    o  ixxxxl t o [X \
- ========xxxxxx======= \
- xxxxxxxxxxxxxxxxxxxxx ",
+]                  [X\
+]                  [X\
+]                  [X\
+8445     o         [X\
+XXX]     %         [X\
+9776   o    %      [X\
+]o        o     o  [X\
+]! oooo dmmmmb o o [X\
+]    o  ixxxxl t o [X\
+========xxxxxx=======\
+xxxxxxxxxxxxxxxxxxxxx ",
    row: 11, 
-   col: 23
+   col: 21
 
 }
 
  var map2 = {
- 	name: "map2",
     map: "\
-X]                        o        [XX\
-X]                                 [XX\
-X]            o    o               [XX\
-X]                     vt   o      [XX\
-X]        o          dmmmb         [XX\
-X]    o          o         o       [XX\
-X]       o   dmmmb   o     o   o   [XX\
-X]       2          o     o        [XX\
-X] o  dmmmb  o    o    o  o        [XX\
-X]            vvv     o   o      o [XX\
-X]    o   o  dmmmb        vv  o    [XX\
-X]                   o  dmmmb      [XX\
-X]v o        o  o  2         o     [XX\
-X8445    dmmmb      dmmmmb         [XX\
-XXXX]              ! o       o     [XX\
-X9776   o    %     dmmb o  o !o    [XX\
-X]o        %  !  o    o   dmmmmb   [XX\
-X]! oooo dmmmmb o o      o  o  o   [XX\
-X]2   o  ixxxxl   ovvvvo !    !  o [XX\
-=========xxxxxx=======================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+]                        o        [X\
+]                                 [X\
+]            o    o               [X\
+]                     vt   o      [X\
+]        o          dmmmb         [X\
+]    o          o         o       [X\
+]       o   dmmmb   o     o   o   [X\
+]       2          o     o        [X\
+] o  dmmmb  o    o    o  o        [X\
+]            vvv     o   o      o [X\
+]    o   o  dmmmb        vv  o    [X\
+]                   o  dmmmb      [X\
+]v o        o  o  2         o     [X\
+8445    dmmmb      dmmmmb         [X\
+XXX]              ! o       o     [X\
+9776   o    %     dmmb o  o !o    [X\
+]o        %  !  o    o   dmmmmb   [X\
+]! oooo dmmmmb o o      o  o  o   [X\
+]2   o  ixxxxl   ovvvvo !    !  o [X\
+========xxxxxx======================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   row: 21,
-  col: 38
+  col: 36
 
  }
 
  var map3 = {
- 	name: "map2",
     map: "\
 X]                        o        [XX\
 X]                                 [XX\
-X]            o    o               [XX\
-X]                     v    o      [XX\
-X]        o          dmmmb         [XX\
-X]    o          o         o       [XX\
-X]       o   dmmmb   o     o   o   [XX\
-X]       2          o     o        [XX\
-X] o  dmmmb  o    o    o  o        [XX\
+X]  dmb          o    o            [XX\
+X8445                     v    o   [XX\
+XXXX]        o          dmb        [XX\
+XXXX]    o          o         o    [XX\
+X9776       o   dmmmb   o     o   o[XX\
+X]       2          o     o    dmb [XX\
+X] o  dmb  o    o    o  o          [XX\
 X]            vvv     o   o      o [XX\
-X]    o   o  dmmmb        vv  o    [XX\
-X]                   o  dmmmb      [XX\
+X]    o   o  dmb        vv  o      [XX\
+X]                   o  dmb        [XX\
 X]v o        o  o  2         o     [XX\
-X8445    dmmmb      dmmmmb         [XX\
+X8445    dmmmb      dmb            [XX\
 XXXX]              ! o       o     [XX\
 X9776   o    %     dmmb o  o !o    [XX\
 X]o        %  !  o    o   dmmmmb   [XX\
-X]! oooo dmmmmb o o      o  o  o   [XX\
-X]2   o  ixxxxl   ovvvvo !    !  o [XX\
+X]! dmmmmmmmmmb o o      o  o  o   [XX\
+X]!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!![XX\
 =========xxxxxx=======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   row: 21,
@@ -153,7 +145,7 @@ function init(mapNo) {
 
 	context.imageSmoothingEnabled = false;
 	player = new Player();
-	map = new Map(tilesheet, 16, 32);
+	map = new Map(tilesheet, 16, 16 * scaleFactor);
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
 	cam = new Camera(player, map);
