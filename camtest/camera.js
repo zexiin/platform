@@ -170,6 +170,8 @@ function Camera(following, map) {
 
 Camera.prototype.update = function() {
 	
+	this.x = this.following.x - this.w*0.5 + 32;
+	this.y = this.following.y - this.h*0.5 + 32;	
 	this.x = this.following.x - this.w*0.5 + this.following.w*0.5;
 	this.y = this.following.y - this.h*0.5 + this.following.h*0.5;
 
