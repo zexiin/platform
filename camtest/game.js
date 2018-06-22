@@ -10,6 +10,11 @@ var canvas = context.canvas;
 var mapArr = [];
 var scaleFactor = 2;
 
+// global variables that rly shouldn't exist because bad programming practice
+var coinCount = 0;
+var livesCount = 3;
+var levelNo = 1;
+
 context.font = "15px Arial";    
 context.textBaseline="top"; 
 context.fillText("Top",5,100);    
