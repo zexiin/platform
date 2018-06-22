@@ -24,7 +24,6 @@ var levelNo = 1;
 
 	if (this.map.arrayRep[playerIndex] == "t") {
 		levelNo++;
-
 		init(mapArr[levelNo]);
 	};
 
@@ -42,6 +41,7 @@ var levelNo = 1;
 	};
 
 }
+
 
 function spike(player) {
 
@@ -115,6 +115,7 @@ Map.prototype.getTile = function(col, row) {
     	case "o": return 135;
     	case "2": return 102;
     	case "t": return 85;
+    	// case "-": return 46; // blue middle platform
     	case "!": return 119; // spike bloc
     	
     	default: return;
@@ -161,6 +162,7 @@ function Camera(following, map) {
 	if (this.xMax < 0) this.xMax = 0;
 	if (this.yMax < 0) this.yMax = 0;
 
+
 	this.following = following;  // usually the player object
 	this.map = map;              // the map duh
 
@@ -169,9 +171,9 @@ function Camera(following, map) {
 
 
 Camera.prototype.update = function() {
-	
+
 	this.x = this.following.x - this.w*0.5 + 32;
-	this.y = this.following.y - this.h*0.5 + 32;	
+	this.y = this.following.y - this.h*0.5 + 32;
 	this.x = this.following.x - this.w*0.5 + this.following.w*0.5;
 	this.y = this.following.y - this.h*0.5 + this.following.h*0.5;
 
@@ -231,10 +233,10 @@ Camera.prototype.draw = function() {
  	 context.globalAlpha = this.map.levelText.opacity;
  	 this.map.levelText.opacity -= 0.0025;
  	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
-         context.fillText(text1, this.map.levelText.x, this.map.levelText.y);
-         this.map.levelText.x += 0.5;
-         this.map.levelText.y += 0.3;
-         this.map.levelText.time--;
+     context.fillText(text1, this.map.levelText.x, this.map.levelText.y);
+     this.map.levelText.x += 0.5;
+     this.map.levelText.y += 0.3;
+     this.map.levelText.time--;
 
 	}
 	context.globalAlpha = 1.0;
