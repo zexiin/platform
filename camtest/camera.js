@@ -70,7 +70,7 @@ function Map(tilesheet, tilesize, scaledsize) {
 
 	// only writes the text the first 150? frames
 	this.levelText = { 
-		time: 200,
+		time: 350,
 		x: 10,
 		y: 90, 
 		opacity: 1.0 
@@ -223,14 +223,15 @@ Camera.prototype.draw = function() {
 
     // i'm sorry i'm so extra 
 	if (this.map.levelText.time > 0) {
- 	 context.font = "80px verdana";
+ 	 context.font = "70px georgia";
  	 context.fillStyle = "#339999";
  	 context.globalAlpha = this.map.levelText.opacity;
- 	 this.map.levelText.opacity -= 0.005;
-     context.fillText("level " + levelNo, this.map.levelText.x, this.map.levelText.y);
-     this.map.levelText.x += 0.7;
-     this.map.levelText.y += 0.5;
-     this.map.levelText.time--;
+ 	 this.map.levelText.opacity -= 0.0025;
+ 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
+         context.fillText(text1, this.map.levelText.x, this.map.levelText.y);
+         this.map.levelText.x += 0.5;
+         this.map.levelText.y += 0.3;
+         this.map.levelText.time--;
 
 	}
 	context.globalAlpha = 1.0;
