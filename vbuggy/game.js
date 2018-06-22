@@ -145,9 +145,6 @@ function init(mapNo) {
 	map = new Map(tilesheet, 16, 16 * scaleFactor);
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
-	cam = new Camera(player, map);
-	loop(); // finish initializing and start the game loop
-
 	collision_map = new CollisionMap(map);
 	collision_map.init("\
  ]                                 [  \
@@ -163,6 +160,9 @@ function init(mapNo) {
  ]       [    ]       %            [  \
  ========      ====================== \
                                       ");
+	cam = new Camera(player, map);
+	loop(); // finish initializing and start the game loop
+
 
 }
 
