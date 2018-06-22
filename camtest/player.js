@@ -84,6 +84,5 @@ Player.prototype.updateBoundingBox = function() {
 };
 
 Player.prototype.draw = function() {
-	//context.drawImage(sprite, 0, 0, 32, 32, this.x, this.y, 64, 64);
-	context.drawImage(sprite, 0, 64, 32, 32, this.camCoords.x, this.camCoords.y, 64, 64);
+	context.drawImage(sprite, 0, 0, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
 };
