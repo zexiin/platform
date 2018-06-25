@@ -254,6 +254,6 @@
 
   });
 
-  sprite_sheet.image.src = "characterrr.png";// Start loading the image.
+  sprite_sheet.image.src = "../character.png";// Start loading the image.
 
 })();
