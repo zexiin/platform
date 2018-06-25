@@ -6,58 +6,7 @@ the Map and Camera classes.
 
 **********/
 
-/*
 
-// test for collision of player with any of the coins, then filters that coin out of the array
-// AND tests for next level if u hit the treaaaaasure
- function coinRemove(player) {
-
- 	let col = Math.ceil((player.x + player.w/2)/ map.scaled);
-	let	row = Math.ceil((player.y + player.h/2)/ map.scaled); 
-
-	let playerIndex = row * this.map.cols + col;
-	let playerIndex2 = playerIndex - 1; 
-
-	if (this.map.arrayRep[playerIndex] == "t") {
-		levelNo++;
-		init(mapArr[levelNo]);
-		// init(mapArr[2]);
-	};
-
-
-	if (this.map.arrayRep[playerIndex] == "o") {
-		delete(this.map.arrayRep[playerIndex]);
-		 coinCount += 1;
-
-	};
-
-	if (this.map.arrayRep[playerIndex2] == "o") {
-		delete(this.map.arrayRep[playerIndex2]);
-		 coinCount += 1;
-
-	};
-
-}
-
-
-function spike(player) {
-
-	let col = Math.ceil((player.x + player.w/2)/ map.scaled);
-	let	row = Math.ceil((player.y + player.h/2)/ map.scaled); 
-
-	let playerIndex = row * this.map.cols + col;
-
-	if (this.map.arrayRep[playerIndex] == "!") {
-		livesCount--;
-		//freeze
-
-		// move somewhere else
-		player.x = player.xinit;
-		player.y = player.yinit;
-
-	};
-
-}*/
 
 function Map(tilesheet, tilesize, scaledsize) {
 	this.tilesheet = tilesheet;
@@ -76,17 +25,13 @@ function Map(tilesheet, tilesize, scaledsize) {
 Map.prototype.init = function(c, r, stringRep) { 
 	this.cols = c;
 	this.rows = r;
-	this.tiles = stringRep; 
 
-	this.arrayRep = stringRep.split('');
+	this.tiles = stringRep.split('');
 };
 
 Map.prototype.getTile = function(col, row) {
 
-    // i switched it to an array
-	let tile = this.arrayRep[row * this.cols + col];
-
-	// let tile = this.tiles.charAt(row * this.cols + col);
+	let tile = this.tiles[row * this.cols + col];
 
 	switch(tile) {
         case " ": return 0;  //blank
@@ -103,7 +48,9 @@ Map.prototype.getTile = function(col, row) {
     	case "=": return 103;
     	case "r": return 102;
     	case "7": return 104;
- 
+       
+
+
     	case "o": return 159;
     	case "t": return 163;
     	case "!": return 98; // spike bloc
@@ -113,6 +60,7 @@ Map.prototype.getTile = function(col, row) {
     }
 
 };
+
 
 Map.prototype.levelTextFunction = function(levelText) {
 
@@ -233,7 +181,7 @@ Camera.prototype.draw = function() {
 	
 
     // i'm sorry i'm so extra 
-    this.map.levelTextFunction(this.map.levelText);
+	this.map.levelTextFunction(this.map.levelText);
 
    document.getElementById("insert").innerHTML = "coins: " + coinCount;
    document.getElementById("lives").innerHTML = "lives: " + livesCount;
