@@ -87,3 +87,17 @@ Player.prototype.draw = function() {
 	//context.drawImage(sprite, 0, 0, 32, 32, this.x, this.y, this.w, this.h);
 	context.drawImage(tilesheet, 0, 0, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
 };
+
+
+Player.prototype.stop = function() {
+	this.x = this.y = -100;
+	this.x_vel = this.y_vel = this.GRAVITY = this.X_ACCEL = this.Y_ACCEL = 0;
+};
+
+Player.prototype.reset = function() {
+	this.x = this.xinit;
+	this.y = this.yinit;
+	this.x_vel = 0;
+	this.y_vel = 0;
+	this.jumping = false;
+};
