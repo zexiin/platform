@@ -48,8 +48,8 @@ var control = {
 
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { init(map1);  }; // on loading this, load next
-tilesheet.src = "../assets/arcadesheet.png";
+tilesheet.onload = function() { init(map1); }; // on loading this, load next
+tilesheet.src = "arcadesheet.png";
 
 var player, map, cam, collision_map;
 
@@ -57,15 +57,15 @@ var map1 = {
 	map: "\
  ]                                 [X \
  ]                                 [X \
- ]                                 [X \
+ ]                      t          [X \
  ]                     dmb         [X \
  ]                                 [X \
  ]              db           %%    [X \
  ]                            %    [X \
- ]           %     dmmb            [X \
- ]                        dmmmmb   [X \
+ ]           %     dmmb     o      [X \
+ ]         o              dmmmmb   [X \
  ]       r====7                    [X \
- ]       ixxxxl       %            [X \
+ ]   o   ixxxxl  !    %        !   [X \
  ========xxxxxx====================== \
  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ",
    row: 13, 
@@ -82,15 +82,15 @@ var map1 = {
 ]        o          dmmmb         [X\
 ]    o          o         o       [X\
 ]       o   dmmmb   o     o   o   [X\
-]       2          o     o        [X\
+]                  o     o        [X\
 ] o  dmmmb  o    o    o  o        [X\
 ]            vvv     o   o      o [X\
 ]    o   o  dmmmb        vv  o    [X\
 ]                   o  dmmmb      [X\
-]v o        o  o  2         o     [X\
-8445    dmmmb      dmmmmb         [X\
+]v o        o  o            o     [X\
+X]      dmmmb      dmmmmb         [X\
 XXX]              ! o       o     [X\
-9776   o    %     dmmb o  o !o    [X\
+XX]    o    %     dmmb o  o !o    [X\
 ]o        %  !  o    o   dmmmmb   [X\
 ]! oooo dmmmmb o o      o  o  o   [X\
 ]2   o  ixxxxl   ovvvvo !    !  o [X\
@@ -135,6 +135,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 
 
+
+
 function init(mapNo) {
 
 	canvas.height = Math.min(mapNo.row * 32, 500);
@@ -145,7 +147,15 @@ function init(mapNo) {
 	map = new Map(tilesheet, 16, 16 * scaleFactor);
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
+	cam = new Camera(player, map);
+
 	collision_map = new CollisionMap(map);
+
+	collision_map.init(mapNo.map);
+
+   
+
+	/*
 	collision_map.init("\
  ]                                 [  \
  ]                                 [  \
@@ -159,10 +169,9 @@ function init(mapNo) {
  ]       d====b                    [  \
  ]       [    ]       %            [  \
  ========      ====================== \
-                                      ");
-	cam = new Camera(player, map);
+                                      ");*/
+	
 	loop(); // finish initializing and start the game loop
-
 
 }
 
