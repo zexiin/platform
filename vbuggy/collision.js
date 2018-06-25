@@ -33,12 +33,25 @@ CollisionMap.prototype.getTile = function(col, row) {
 
     	case "%": return 1;  // solid 
     	case "]": return 2;  // right 
+    	case "l": return 2;  // right 
+
     	case "[": return 3;  // left
+    	case "i": return 3;  // left
+
     	case "_": return 4;  // bottom
     	case "=": return 5;  // top
+    	case "m": return 5;  // top
     	case "d": return 6;  // top & left
+    	case "r": return 6;  // top & left
     	case "b": return 7;  // top & right
+    	case "7": return 7;  // top & left
     	
+        case "o": return 20;  // COIN
+        case "t": return 21;  // TREASURE, NEXT LEVEL
+        case "!": return 22;  // SPIKE, DIE
+
+
+
     	default: return;
 
     }
@@ -132,7 +145,7 @@ function collisionHandler(player, map) {
 // given a tile id#, returns object that tells which sides to check for collisions.
 // replace with logic grid instead of maptiles for less code repetition
 function collisionType(tile_ID) {
-	var collisions = { n: false, s: false, e: false, w: false };
+	var collisions = { n: false, s: false, e: false, w: false, coin: false, treasure: false, spike: false };
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -162,7 +175,18 @@ function collisionType(tile_ID) {
 		case 7: // top & right
 			collisions.n = true; collisions.e = true;
 			return collisions;
-	
+
+		case 20: // COIN
+			collisions.coin = true;
+			return collisions;	
+
+	    case 21: // TREASURE
+			collisions.treasure = true;
+			return collisions;	
+
+	    case 22: // SPIKE
+			collisions.spike = true;
+			return collisions;	
 
 
 		default: return collisions; // default: no collision.
@@ -186,37 +210,37 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	};
 
 
-	// special tiles: 
-	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
-    
-        // coin
-	if (tile.id == 159) {
-		delete(map.arrayRep[tileIndex]);
+	tile.collisions = collisionType(tile.id);
+
+	if (tile.collisions.coin) {
+
+		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
+        delete(map.arrayRep[tileIndex]); // remove the coin from the graphical map
+
+        collision_map.tiles = collision_map.tiles.slice(0, tileIndex) + collision_map.tiles.slice(tileIndex + 1);
+
 		coinCount += 1;
 		return;
-	}  
-	// treasure: next level
-	else if (tile.id == 163) {
-		
+
+	}
+
+	if (tile.collisions.treasure) {
+
 		levelNo++;
 		init(mapArr[levelNo]);
 		return;
 
 	}
-	// spike
-	else if (tile.id == 98) {
+
+	if (tile.collisions.spike) {
+
 		livesCount--;
 		// move somewhere else
 		player.x = player.xinit;
 		player.y = player.yinit;
 		return;
+
 	}
-
-
-
-
-
-	tile.collisions = collisionType(tile.id);
 
 	const saveMePlease = 2*scaleFactor; // I GUESS ??????????????
 
