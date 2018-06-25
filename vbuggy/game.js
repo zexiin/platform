@@ -54,7 +54,7 @@ var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
 tilesheet.src = "../assets/arcadesheet.png";
 
-var player, map, cam, collision_map;
+var player, map, cam, collision_map, em;
 
 
 
@@ -74,6 +74,7 @@ function init(mapNo) {
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
 	cam = new Camera(player, map);
+	em = new Enemy(20, 260, 0);
 
 	collision_map = new CollisionMap(map);
 
@@ -105,6 +106,8 @@ function loop() {
 	cam.update();
 	cam.draw();
 	player.draw();
+	em.update();
+	em.draw(cam);
 
 
 	if(time%29 === 0) blink = !blink;
