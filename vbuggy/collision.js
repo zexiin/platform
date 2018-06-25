@@ -24,14 +24,15 @@ function CollisionMap(map) {
 }
 
 CollisionMap.prototype.init = function(stringRep) { 
-	this.tiles = stringRep; 
+	this.tiles = stringRep.split(''); 
 };
 
 CollisionMap.prototype.getTile = function(col, row) {
-	let tile = this.tiles.charAt(row * this.cols + col);
+	let tile = this.tiles[row * this.cols + col];
 	switch(tile) {
 
     	case "%": return 1;  // solid 
+    	case "X": return 1;
     	case "]": return 2;  // right 
     	case "l": return 2;  // right 
 
@@ -110,7 +111,7 @@ function collisionHandler(player, map) {
 
 
 
-	
+	/*
 	// debugging drawings
 		let nw = { 
 			col: colMin, 
@@ -135,7 +136,7 @@ function collisionHandler(player, map) {
 		context.fillRect(ne.col *map.scaled- cam.x, ne.row*map.scaled - cam.y, map.scaled, map.scaled);
 		context.fillRect(sw.col *map.scaled- cam.x, sw.row*map.scaled - cam.y, map.scaled, map.scaled);
 		context.fillRect(se.col *map.scaled- cam.x, se.row*map.scaled - cam.y, map.scaled, map.scaled);
-	
+	*/
 
 
 }
@@ -215,9 +216,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	if (tile.collisions.coin) {
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
-        delete(map.arrayRep[tileIndex]); // remove the coin from the graphical map
-
-        collision_map.tiles = collision_map.tiles.slice(0, tileIndex) + "\u0020" + collision_map.tiles.slice(tileIndex + 1);
+        layer.tiles[tileIndex] = "\u0020";
+        map.tiles[tileIndex] = "\u0020";
 
 		coinCount += 1;
 		return;
@@ -226,8 +226,11 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	if (tile.collisions.treasure) {
 
+		player.stop(); 
 		levelNo++;
-		init(mapArr[levelNo]);
+	
+		
+		init(mapArr[levelNo-1]);
 		return;
 
 	}
@@ -236,10 +239,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		livesCount--;
 		// move somewhere else
-		player.x = player.xinit;
-		player.y = player.yinit;
-		player.x_vel = 0;
-	        player.y_vel = 0;
+	    player.reset();
 		return;
 
 	}
