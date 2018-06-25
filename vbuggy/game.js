@@ -49,7 +49,7 @@ var control = {
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
 tilesheet.onload = function() { init(map1); }; // on loading this, load next
-tilesheet.src = "arcadesheet.png";
+tilesheet.src = "../assets/arcadesheet.png";
 
 var player, map, cam, collision_map;
 
