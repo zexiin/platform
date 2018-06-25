@@ -125,6 +125,22 @@ Map.prototype.getTile = function(col, row) {
 
 };
 
+Map.prototype.levelTextFunction = function(levelText) {
+
+	if (levelText.time > 0) {
+ 	 context.font = "70px georgia";
+ 	 context.fillStyle = "#339999";
+ 	 context.globalAlpha = levelText.opacity;
+ 	 levelText.opacity -= 0.0025;
+ 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
+     context.fillText(text1, levelText.x, levelText.y);
+     levelText.x += 0.5;
+     levelText.y += 0.3;
+     levelText.time--;
+	}
+	context.globalAlpha = 1.0;
+}
+
 
 
 // this function isn't actually used in-game; it's just for debugging purposes.
@@ -228,19 +244,7 @@ Camera.prototype.draw = function() {
 	
 
     // i'm sorry i'm so extra 
-	if (this.map.levelText.time > 0) {
- 	 context.font = "70px georgia";
- 	 context.fillStyle = "#339999";
- 	 context.globalAlpha = this.map.levelText.opacity;
- 	 this.map.levelText.opacity -= 0.0025;
- 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
-     context.fillText(text1, this.map.levelText.x, this.map.levelText.y);
-     this.map.levelText.x += 0.5;
-     this.map.levelText.y += 0.3;
-     this.map.levelText.time--;
-
-	}
-	context.globalAlpha = 1.0;
+    this.map.levelTextFunction(this.map.levelText);
 
    document.getElementById("insert").innerHTML = "coins: " + coinCount;
    document.getElementById("lives").innerHTML = "lives: " + livesCount;
