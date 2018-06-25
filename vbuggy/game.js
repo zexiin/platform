@@ -7,7 +7,6 @@ this file contains the main game functions??
 
 var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
-var mapArr = [];
 var scaleFactor = 2;
 var coinCount = 0;
 var livesCount = 3;
@@ -29,16 +28,20 @@ var control = {
 
 	  switch(event.keyCode) {
 	    case 37: // left
-	      control.left = key_state;
-	      break;
+			control.left = key_state;
+			event.preventDefault();
+			break;
 	    case 38: // up
-	      control.up = key_state;
-	      break;
+			control.up = key_state;
+			event.preventDefault();
+			break;
 	    case 39: // right
-	      control.right = key_state;
-	      break;
+			control.right = key_state;
+			event.preventDefault();
+			break;
 	    case 40: // down
 	    	control.down = key_state;
+	    	event.preventDefault();
 	    	break;
   		}
 	}
@@ -48,98 +51,21 @@ var control = {
 
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { init(map1); }; // on loading this, load next
+tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
 tilesheet.src = "../assets/arcadesheet.png";
 
 var player, map, cam, collision_map;
 
-var map1 = {
-	map: "\
- ]                                 [X \
- ]                                 [X \
- ]                      t          [X \
- ]                     dmb         [X \
- ]                                 [X \
- ]              db           %%    [X \
- ]                            %    [X \
- ]           %     dmmb     o      [X \
- ]         o              dmmmmb   [X \
- ]       r====7                    [X \
- ]   o   ixxxxl  !    %        !   [X \
- ========xxxxxx====================== \
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ",
-   row: 13, 
-   col: 38
-
-}
-
- var map2 = {
-    map: "\
-]                        o        [X\
-]                                 [X\
-]            o    o               [X\
-]                     vt   o      [X\
-]        o          dmmmb         [X\
-]    o          o         o       [X\
-]       o   dmmmb   o     o   o   [X\
-]                  o     o        [X\
-] o  dmmmb  o    o    o  o        [X\
-]            vvv     o   o      o [X\
-]    o   o  dmmmb        vv  o    [X\
-]                   o  dmmmb      [X\
-]v o        o  o            o     [X\
-X]      dmmmb      dmmmmb         [X\
-XXX]              ! o       o     [X\
-XX]    o    %     dmmb o  o !o    [X\
-]o        %  !  o    o   dmmmmb   [X\
-]! oooo dmmmmb o o      o  o  o   [X\
-]2   o  ixxxxl   ovvvvo !    !  o [X\
-========xxxxxx======================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  row: 21,
-  col: 36
-
- }
-
- var map3 = {
-    map: "\
-X]                        o        [XX\
-X]                                 [XX\
-X]  dmb          o    o            [XX\
-X8445                     v    o   [XX\
-XXXX]        o          dmb        [XX\
-XXXX]    o          o         o    [XX\
-X9776       o   dmmmb   o     o   o[XX\
-X]       2          o     o    dmb [XX\
-X] o  dmb  o    o    o  o          [XX\
-X]            vvv     o   o      o [XX\
-X]    o   o  dmb        vv  o      [XX\
-X]                   o  dmb        [XX\
-X]v o        o  o  2         o     [XX\
-X8445    dmmmb      dmb            [XX\
-XXXX]              ! o       o     [XX\
-X9776   o    %     dmmb o  o !o    [XX\
-X]o        %  !  o    o   dmmmmb   [XX\
-X]! dmmmmmmmmmb o o      o  o  o   [XX\
-X]!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!![XX\
-=========xxxxxx=======================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  row: 21,
-  col: 38
-
- }
-
- mapArr[1] = map1;
- mapArr[2] = map2;
- mapArr[3] = map3;
 
 
 
-
-
+var animate;
 function init(mapNo) {
-
-	canvas.height = Math.min(mapNo.row * 32, 500);
+	
+	window.cancelAnimationFrame(animate);
+	
+	play = true;
+	canvas.height = Math.min(mapNo.row * 32, 350);
     canvas.width = Math.min(mapNo.col * 16, 480);
 
 	context.imageSmoothingEnabled = false;
@@ -153,33 +79,21 @@ function init(mapNo) {
 
 	collision_map.init(mapNo.map);
 
-   
 
-	/*
-	collision_map.init("\
- ]                                 [  \
- ]                                 [  \
- ]                                 [  \
- ]                     d=b         [  \
- ]                                 [  \
- ]              db           %%    [  \
- ]                            %    [  \
- ]           %     d==b            [  \
- ]                        d====b   [  \
- ]       d====b                    [  \
- ]       [    ]       %            [  \
- ========      ====================== \
-                                      ");*/
 	
 	loop(); // finish initializing and start the game loop
 
 }
 
-function loop() {
+var time = 0;
+var blink = true;
 
-	// clearRect functions below but if u redraw the bg every time it's not necessary
-	//context.clearRect(player.camCoords.x,player.camCoords.y,64,64); 
-	//context.clearRect(0,0,cam.w,cam.h); 
+function loop() {
+	
+
+	
+
+
 	context.fillStyle = '#e1ecf2';
 	context.fillRect(0,0,canvas.width,canvas.height);
 	
@@ -189,13 +103,31 @@ function loop() {
 
     
 	cam.update();
-	// coinRemove(player);
-	// spike(player);
 	cam.draw();
 	player.draw();
+
+
+	if(time%29 === 0) blink = !blink;
+	time++;
+	if(blink){
+		context.fillStyle = '#FF00FF';
+		context.fillRect(0,0,30,30);
+	}
 	
-    window.requestAnimationFrame(loop);
+    animate = window.requestAnimationFrame(loop);
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 window.addEventListener("keydown", control.keyListener);
 window.addEventListener("keyup", control.keyListener);
