@@ -217,7 +217,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
         delete(map.arrayRep[tileIndex]); // remove the coin from the graphical map
 
-        collision_map.tiles = collision_map.tiles.slice(0, tileIndex) + collision_map.tiles.slice(tileIndex + 1);
+        collision_map.tiles = collision_map.tiles.slice(0, tileIndex) + "\u0020" + collision_map.tiles.slice(tileIndex + 1);
 
 		coinCount += 1;
 		return;
