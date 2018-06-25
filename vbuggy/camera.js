@@ -103,18 +103,7 @@ Map.prototype.getTile = function(col, row) {
     	case "=": return 103;
     	case "r": return 102;
     	case "7": return 104;
-       
-/*
-
-    	case "4": return 81;
-    	case "5": return 82;
-    	case "6": return 116;
-    	case "7": return 115;
-    	case "8": return 95;
-    	case "9": return 78;
-  
-    	case "v": return 117;*/
-
+ 
     	case "o": return 159;
     	case "t": return 163;
     	case "!": return 98; // spike bloc
