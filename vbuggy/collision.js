@@ -238,6 +238,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		// move somewhere else
 		player.x = player.xinit;
 		player.y = player.yinit;
+		player.x_vel = 0;
+	        player.y_vel = 0;
 		return;
 
 	}
