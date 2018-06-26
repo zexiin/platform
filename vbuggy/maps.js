@@ -11,21 +11,21 @@ var mapArr = [];
 mapArr.push({
 	level: 1,
 	map: "\
- ]                                 [X \
- ]                                 [X \
- ]                      t          [X \
- ]                     dmb         [X \
- ]                                 [X \
- ]              db           %%    [X \
- ]                 Q          %    [X \
- ]           %     dmmb  Q  o      [X \
- ]       Q o             dmmmmb    [X \
- ]       r====7                    [X \
- ]   o   ixxxxl  !    %        !   [X \
- ========xxxxxx====================== \
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ",
+]                                 [X \
+]                                 [X \
+]                      t          [X \
+]                     dmb         [X \
+]                                 [X \
+]              db           %%    [X \
+]                 Q          %    [X \
+]           %     dmmb  Q  o      [X \
+]       Q o             dmmmmb    [X \
+]       r====7                    [X \
+]   o   ixxxxl  !    %        !   [X \
+========xxxxxx====================== \
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ",
    row: 13, 
-   col: 38
+   col: 37
 });
 
 mapArr.push({
@@ -93,20 +93,20 @@ mapArr.push({
 X]                        o        [XX\
 X]                                 [XX\
 X]  dmb          o    o            [XX\
-X8445                     v    o   [XX\
-XXXX]        o          dmb        [XX\
-XXXX]    o          o         o    [XX\
-X9776       o   dmmmb   o     o   o[XX\
+X]                        v    o   [XX\
+X]        o          dmb           [XX\
+X]    o      Q  Qo         o       [XX\
+X]          o   dmmmb   o     o   o[XX\
 X]       2          o     o    dmb [XX\
 X] o  dmb  o    o    o  o          [XX\
 X]            vvv     o   o      o [XX\
 X]    o   o  dmb        vv  o      [XX\
 X]                   o  dmb        [XX\
-X]v o        o  o  2         o     [XX\
-X8445    dmmmb      dmb            [XX\
-XXXX]              ! o       o     [XX\
-X9776   o    %     dmmb o  o !o    [XX\
-X]o        %  !  o    o   dmmmmb   [XX\
+X]v o    Q   o  o  2         o     [XX\
+X]       dmmmb      dmb            [XX\
+X]              ! oQ      o        [XX\
+X]      o    %     dmmb o Qo !o    [XX\
+X]o  Q     %  !  o    o   dmmmmb   [XX\
 X]! dmmmmmmmmmb o o      o  o  o   [XX\
 X]!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!![XX\
 =========xxxxxx=======================\
