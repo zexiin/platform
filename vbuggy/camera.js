@@ -35,12 +35,17 @@ Map.prototype.getTile = function(col, row) {
 
 	switch(tile) {
         case " ": return 0;  //blank
+	
+        case "]": return 1;  //left invisible wall
+        case "[": return 2;  //right invisible wall
+        case "X": return 3;  //solid invisible wall		
+			
     	case "%": return 155; // solid
-    	case "]": return 242;
-    	case "[": return 242;
+    	//case "]": return 242; - this makes them black
+    	//case "[": return 242;
     	case "d": return 80;
     	case "x": return 125;
-    	case "X": return 242;
+    	//case "X": return 242;
     	case "m": return 81;
     	case "b": return 82;
     	case "i": return 124;
@@ -176,7 +181,7 @@ Camera.prototype.draw = function() {
 
 			var tile = this.map.getTile(c,r);
 
-			if (tile === 0) continue; // skip if blank tile
+			if (tile <= 3) continue; // skip if blank tile/invisible walls
 			var xyTarget = this.mapToCam(c*this.map.scaled, r*this.map.scaled);
 
 			context.drawImage(
