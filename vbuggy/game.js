@@ -55,7 +55,7 @@ var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
 tilesheet.src = "../assets/arcadesheet.png";
 
-var player, map, cam, collision_map, em;
+var player, map, cam, collision_map;
 
 
 
