@@ -216,8 +216,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	if (tile.collisions.coin) {
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
-        layer.tiles[tileIndex] = "\u0020";
-        map.tiles[tileIndex] = "\u0020";
+        	layer.tiles[tileIndex] = "\u0020";
+        	map.tiles[tileIndex] = "\u0020";
 
 		coinCount += 1;
 		return;
@@ -239,7 +239,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		livesCount--;
 		// move somewhere else
-	    player.reset();
+	    	player.reset();
+		player.updateBoundingBox();
 		return;
 
 	}
