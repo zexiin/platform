@@ -37,7 +37,8 @@ Enemies.prototype.draw = function() {
 // helper method
 function getAllIndexes(arr, val) {
 
-    var indexes = [], i = -1;
+    var indexes = []; 
+    let i = -1;
 
     while ((i = arr.indexOf(val, i+1)) != -1){
         indexes.push(i);
