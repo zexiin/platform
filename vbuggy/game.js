@@ -106,9 +106,10 @@ function loop() {
 	cam.draw();
 	player.draw();
 
+	time++;
 /*
 	if(time%29 === 0) blink = !blink;
-	time++;
+	
 	if(blink){
 		context.fillStyle = '#FF00FF';
 		context.fillRect(0,0,30,30);
