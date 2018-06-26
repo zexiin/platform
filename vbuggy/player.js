@@ -19,7 +19,7 @@ function Player() {
 	
     this.GRAVITY = 0.1*scaleFactor; //0.15
 	this.X_ACCEL = 0.2*scaleFactor; // 0.25
-	this.Y_ACCEL = 9*scaleFactor;
+	this.Y_ACCEL = 6*scaleFactor;
 	this.FRICTION = 0.83;
 	this.w = 32*scaleFactor;
 	this.h = 32*scaleFactor;
@@ -65,6 +65,8 @@ Player.prototype.update = function() {
 	      this.x_vel += this.X_ACCEL;
 	      this.facingRight = true;
 	  	}
+
+	  	if(this.y_vel < 0) {this.y_vel *=1.05}
 
     this.y_vel += this.GRAVITY;
     this.x += this.x_vel;
@@ -127,7 +129,7 @@ Player.prototype.reset = function() {
 	this.y = this.yinit;
 	this.x_vel = 0;
 	this.y_vel = 0;
-	this.jumping = false;
+	this.jumping = true;
 	deathTexts.push(new DeathText());
 };
 
