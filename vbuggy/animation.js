@@ -4,11 +4,16 @@ this file contains vars/methods for animation.
 
 **********/
 
+
+  ////////////
+ // PLAYER //
+////////////
+
 Player.prototype.animation = {
 		state: "idle",
-		delay: 10,
+		delay: 15,
 		cur_frame: 0,
-		max_frames: 64, // just so cur_frame doesn't get huge i gues
+		max_frames: 4, // just so cur_frame doesn't get huge i gues
 
 		idle: {},
 
@@ -111,6 +116,11 @@ Player.prototype.updateAnimation = function() {
 };
 
 
+  //////////
+ // COIN //
+//////////
+
+
 var coinAnimation = {
 	cur_frame: 0,
 	no_frames: 4,
@@ -127,6 +137,62 @@ coinAnimation.getFrame = function() {
 	return this.frames[this.cur_frame];
 };
 
+
+  ///////////
+ // ENEMY //
+///////////
+
+
+Enemy.prototype.frame = {
+	x: 96, y:0
+}
+
+Enemy.prototype.animation = {
+		state: "walk_right",
+		delay: 20,
+		cur_frame: 0,
+		max_frames: 2, // just so cur_frame doesn't get huge i gues
+
+
+		walk_right: {
+			no_frames: 2,
+			frames: [{x:112,y:304}, {x:128,y:304}]
+		},
+
+		walk_left: {
+			no_frames: 2,
+			frames: [{x:96,y:0}, {x:112,y:0}]
+		},
+
+	};
+
+Enemy.prototype.setAnimationFrame = function() {
+
+	switch(this.animation.state) {
+
+		case "walk_right":
+			this.frame.x = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].x;
+			this.frame.y = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].y;
+			break;
+		case "walk_left":
+			this.frame.x = this.animation.walk_left.frames[(this.animation.cur_frame % this.animation.walk_left.no_frames)].x;
+			this.frame.y = this.animation.walk_left.frames[(this.animation.cur_frame % this.animation.walk_left.no_frames)].y;
+			break;
+
+	}
+}
+
+Enemy.prototype.updateAnimation = function() {
+
+	// frame delay for all Enemy animations .. idk theres probably a more elegant way to do this
+	if (time%this.animation.delay === 0 ) this.animation.cur_frame = (this.animation.cur_frame+1) % this.animation.max_frames;
+
+	if (this.x_vel >= 0) this.animation.state = "walk_right";
+	else this.animation.state = "walk_left";
+
+	this.setAnimationFrame();
+
+};
 
 
 
