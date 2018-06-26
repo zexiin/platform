@@ -6,7 +6,7 @@
 function Enemies(arrayRep) {
 
 	this.enemyBag = [];
-	
+
 	let enemyIndex = getAllIndexes(arrayRep, "Q");
 
 	for (let i = 0; i < enemyIndex.length; i++) {
@@ -14,7 +14,7 @@ function Enemies(arrayRep) {
 		let y = Math.floor(enemyIndex[i] / map.cols);
 		let x = Math.floor(enemyIndex[i] % map.cols);
 
-		this.enemyBag.push(new Enemy(x, y, 0, 4));
+		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 64 * scaleFactor));
 	}
 
 }
@@ -52,7 +52,7 @@ function Enemy(x, y, a, l) {
 	
 		this.x = x;
 		this.y = y;
-		this.x_vel = 0.02;
+		this.x_vel = 0.3 * scaleFactor;
 		this.X_ACCEL = a;
         
 		this.length = l; // length of path enemy is to travel
@@ -88,18 +88,6 @@ Enemy.prototype.checkKill = function() {
 		player.reset();
 		
 	}
-
-	let xx = this.x + 16 * scaleFactor;
-	let yy = this.y + 16 * scaleFactor;
-
-	if (this.xx >= player.bound.x && this.xx <= (player.bound.x + player.bound.w) 
-		&& this.yy >= player.bound.y && this.yy <= (player.bound.y + player.bound.h)) {
-
-		livesCount--;
-		// move somewhere else
-		player.reset();
-		
-	}
 	
 }
 
@@ -115,14 +103,11 @@ Enemy.prototype.draw = function() {
 
 	// if his x & y coordinates are within the x y coordiantes of the camera, draw:
 	// draw him at the camera coordinates
-	let xx = this.x * scaleFactor * 16;
-	let yy = this.y * scaleFactor * 16;
 
-	if (xx >= cam.x && xx <= (cam.x + cam.w) && yy >= cam.y && yy 
+	if (this.x >= cam.x && this.x <= (cam.x + cam.w)
+	 && this.y >= cam.y && this.y <= (cam.y + cam.h)) {
 
-		<= (cam.y + cam.h)) {
-
-	let xyTarget = cam.mapToCam(this.x * 16 * scaleFactor, this.y * 16 * scaleFactor);
+	let xyTarget = cam.mapToCam(this.x, this.y);
 
 		context.drawImage(
 				map.tilesheet, // image src
