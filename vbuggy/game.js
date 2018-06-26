@@ -66,7 +66,7 @@ function init(mapNo) {
 	
 	play = true;
 	canvas.height = Math.min(mapNo.row * 32, 350);
-    canvas.width = Math.min(mapNo.col * 16, 480);
+   	canvas.width = Math.min(mapNo.col * 16, 480);
 
 	context.imageSmoothingEnabled = false;
 	player = new Player();
@@ -75,10 +75,9 @@ function init(mapNo) {
 
 	cam = new Camera(player, map);
 	collision_map = new CollisionMap(map);
-
 	collision_map.init(mapNo.map);
-
-
+	
+	if (mapNo.level === 1) player.speedUp();
 	
 	loop(); // finish initializing and start the game loop
 
