@@ -82,6 +82,7 @@ Enemy.prototype.update = function() {
 }
 
 Enemy.prototype.die = function() {
+	killCount++;
 	this.x = this.y = -100;
 	this.x_vel = this.X_ACCEL = 0;
 }
