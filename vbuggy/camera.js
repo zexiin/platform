@@ -146,11 +146,24 @@ Camera.prototype.update = function() {
 };
 
 
+Camera.prototype.getTileFrame = function(tile_ID) {
+
+	switch(tile_ID) {
+
+		case 159: return coinAnimation.getFrame();
+
+		default: 
+			return {
+				x: (tile_ID - 1) * this.map.tsize % this.map.tilesheet.width,
+				y: Math.floor((tile_ID - 1) * this.map.tsize / this.map.tilesheet.width) * this.map.tsize
+			};
+	}
+}
+
+
 Camera.prototype.draw = function() {
-	
 	this.enemies.update();
 	this.enemies.draw();
-
 
 	// calculate which rows/cols are visible.
 	let leftCol = Math.floor(this.x / this.map.scaled);  
@@ -166,23 +179,18 @@ Camera.prototype.draw = function() {
 			if (tile === 0) continue; // skip if blank tile
 			var xyTarget = this.mapToCam(c*this.map.scaled, r*this.map.scaled);
 
-			
-
 			context.drawImage(
 				this.map.tilesheet, // image src
-				(tile - 1) * this.map.tsize % this.map.tilesheet.width, // start clipping x
-				Math.floor((tile - 1) * this.map.tsize / 
-					this.map.tilesheet.width) * this.map.tsize, // start clipping y
+				this.getTileFrame(tile).x, // start clipping x
+				this.getTileFrame(tile).y, // start clipping y
 				this.map.tsize, // src width (clipped)
 				this.map.tsize, // src height (clipped)
 				xyTarget.x, // target x
 				xyTarget.y, // target y
 				this.map.scaled, this.map.scaled  // target w,h
-				);
-		   }
-
-
+			);
 		}
+	}
 	
 
     // i'm sorry i'm so extra 
