@@ -22,16 +22,15 @@ function Enemies(arrayRep) {
 Enemies.prototype.update = function() {
 
 	this.enemyBag.forEach(function(element) {
-    element.update();
-   });
+    	element.update();
+    });
 }
 
 Enemies.prototype.draw = function() {
 
 	this.enemyBag.forEach(function(element) {
-    element.draw(cam);
-   
-   });
+    	element.draw(cam);
+    });
 }
 
 // helper method
@@ -124,6 +123,8 @@ Enemy.prototype.turn = function() {
 
 Enemy.prototype.draw = function() {
 
+	this.updateAnimation();
+
 	// if his x & y coordinates are within the x y coordiantes of the camera, draw:
 	// draw him at the camera coordinates
 
@@ -134,9 +135,8 @@ Enemy.prototype.draw = function() {
 
 		context.drawImage(
 				map.tilesheet, // image src
-				6 * map.tsize % map.tilesheet.width, // start clipping x
-				Math.floor(6 * map.tsize / 
-					map.tilesheet.width) * map.tsize, // start clipping y
+				this.frame.x, // start clipping x
+				this.frame.y, // start clipping y
 				map.tsize, // src width (clipped)
 				map.tsize, // src height (clipped)
 				xyTarget.x, // target x
