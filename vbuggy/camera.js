@@ -119,6 +119,7 @@ function Camera(following, map) {
 
 	this.following = following;  // usually the player object
 	this.map = map;              // the map duh
+	this.enemies = new Enemies(this.map.arrayRep);
 
 }
 
@@ -140,7 +141,6 @@ Camera.prototype.update = function() {
 
 	this.following.camCoords = this.mapToCam(this.following.x, this.following.y);
 	
-	this.enemies = new Enemies(this.map.arrayRep);
 
 
 };
