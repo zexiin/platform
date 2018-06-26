@@ -191,6 +191,8 @@ Camera.prototype.draw = function() {
    document.getElementById("insert").innerHTML = "coins: " + coinCount;
    document.getElementById("lives").innerHTML = "lives: " + livesCount;
    document.getElementById("level").innerHTML = "level: " + levelNo;
+   document.getElementById("kills").innerHTML = "kills: " + killCount;	
+	
 
 };
 
