@@ -119,7 +119,7 @@ function Camera(following, map) {
 
 	this.following = following;  // usually the player object
 	this.map = map;              // the map duh
-	this.enemies = new Enemies(this.map.arrayRep);
+	this.enemies = new Enemies(this.map.tiles);
 
 }
 
