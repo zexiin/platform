@@ -54,7 +54,10 @@ function Enemy(x, y, a, l) {
 		this.y = y;
 		this.x_vel = 0.3 * scaleFactor;
 		this.X_ACCEL = a;
-        
+
+		this.w = 16 * scaleFactor;
+		this.h = 16 * scaleFactor;
+  
 		this.length = l; // length of path enemy is to travel
 		this.currDist = 0; // distance he has travelled on current path (if it reaches l it turns around)
 }
@@ -78,15 +81,31 @@ Enemy.prototype.update = function() {
 
 }
 
+Enemy.prototype.die = function() {
+	this.x = this.y = -100;
+	this.x_vel = this.X_ACCEL = 0;
+}
+
 Enemy.prototype.checkKill = function() {
 
 	let xEnd = this.x + 16 * scaleFactor;
 	let yEnd = this.y + 16 * scaleFactor;
 
-	if (this.x < (player.bound.x + player.bound.w) && xEnd > player.bound.x &&
-        this.y < (player.bound.y + player.bound.h) && yEnd >  player.bound.y ) {
+	if (!(this.x < (player.bound.x + player.bound.w) && xEnd > player.bound.x)) return;
 
-    	        livesCount--;
+	// if player is moving down onto the enemy
+	if (player.bound.y + player.bound.h > this.y &&  player.bound.y_prev + player.bound.h <= this.y) { 
+            
+            this.die();
+            player.y_vel *= -3;
+            return;
+
+	}
+
+
+	if (this.y < (player.bound.y + player.bound.h) && yEnd > player.bound.y ) {
+
+    	livesCount--;
 		// move somewhere else
 		player.reset();
 
