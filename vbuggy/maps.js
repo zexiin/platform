@@ -40,15 +40,15 @@ mapArr.push({
 ]       o   dmmmb   o     o   o   [X\
 ]    Q             o     o        [X\
 ] o  dmmmb  o    o    o  o        [X\
-]            vvv     o   o      o [X\
+]           Q        o   o      o [X\
 ]    o   o  dmmmb      Q vv  o    [X\
 ]                   o  dmmmb      [X\
-]v o        o  o    Q       o     [X\
+]v o    Q   o  o    Q       o     [X\
 ]       dmmmb      dmmmmb         [X\
-]                 ! o       o     [X\
+]                 Q o       o     [X\
 ]    o      %     dmmb o  o !o    [X\
-]o        %  !  o    o   dmmmmb   [X\
-]! oooo dmmmmb o o      o  o  o   [X\
+]o      Q %  !  o    o   dmmmmb   [X\
+]! oooo dmmmmb o Q      o  o  o   [X\
 ]2   o  ixxxxl   ovvvvo !    !  o [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -74,7 +74,7 @@ mapArr.push({
 %                   o  dmb        %\
 %  o    Q   o  o  2         o     %\
 %       dmmmb      dmb            %\
-%                 ! o       o     %\
+%              Q  ! o       o     %\
 %   o    %     dmmb o  oQ!o       %\
 %        %  !  o        dmmmmb    %\
 %  !    r====7      db            %\
@@ -95,7 +95,7 @@ X]                                 [XX\
 X]  dmb          o    o            [XX\
 X]                        v    o   [XX\
 X]        o          dmb           [XX\
-X]    o      Q  Qo         o       [XX\
+X]    o         Qo         o       [XX\
 X]          o   dmmmb   o     o   o[XX\
 X]       2          o     o    dmb [XX\
 X] o  dmb  o    o    o  o          [XX\
