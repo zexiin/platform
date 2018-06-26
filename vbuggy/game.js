@@ -12,6 +12,7 @@ var coinCount = 0;
 var livesCount = 3;
 var levelNo = 1;
 var killCount = 0;
+var deathTexts = [];
 
 context.font = "15px Arial";    
 context.textBaseline="top"; 
