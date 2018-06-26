@@ -74,8 +74,6 @@ function init(mapNo) {
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
 	cam = new Camera(player, map);
-	em = new Enemy(20, 260, 0);
-
 	collision_map = new CollisionMap(map);
 
 	collision_map.init(mapNo.map);
@@ -106,8 +104,6 @@ function loop() {
 	cam.update();
 	cam.draw();
 	player.draw();
-	em.update();
-	em.draw(cam);
 
 
 	if(time%29 === 0) blink = !blink;
