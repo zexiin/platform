@@ -80,14 +80,17 @@ Enemy.prototype.update = function() {
 
 Enemy.prototype.checkKill = function() {
 
-	if (this.x >= player.bound.x && this.x<= (player.bound.x + player.bound.w) 
-		&& this.y >= player.bound.y && this.y <= (player.bound.y + player.bound.h)) {
+	let xEnd = this.x + 16 * scaleFactor;
+	let yEnd = this.y + 16 * scaleFactor;
 
-		livesCount--;
+	if (this.x < (player.bound.x + player.bound.w) && xEnd > player.bound.x &&
+        this.y < (player.bound.y + player.bound.h) && yEnd >  player.bound.y ) {
+
+    	        livesCount--;
 		// move somewhere else
 		player.reset();
-		
-	}
+
+    }
 	
 }
 
