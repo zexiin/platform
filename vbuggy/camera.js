@@ -139,12 +139,17 @@ Camera.prototype.update = function() {
 
 
 	this.following.camCoords = this.mapToCam(this.following.x, this.following.y);
+	
+	this.enemies = new Enemies(this.map.arrayRep);
 
 
 };
 
 
 Camera.prototype.draw = function() {
+	
+	this.enemies.update();
+	this.enemies.draw();
 
 
 	// calculate which rows/cols are visible.
