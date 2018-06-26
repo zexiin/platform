@@ -9,6 +9,7 @@ var mapArr = [];
 
 
 mapArr.push({
+	level: 1,
 	map: "\
  ]                                 [X \
  ]                                 [X \
@@ -28,7 +29,8 @@ mapArr.push({
 });
 
 mapArr.push({
-    map: "\
+	level: 2,
+    	map: "\
 ]                        o        [X\
 ]                                 [X\
 ]            o    o               [X\
@@ -56,7 +58,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  });
 
 mapArr.push({
-    map: "\
+	level: 3,
+    	map: "\
 %                        o        %\
 %                                 %\
 %  dmb          o    o            %\
@@ -85,7 +88,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 
 mapArr.push({
-    map: "\
+	level: 4,
+    	map: "\
 X]                        o        [XX\
 X]                                 [XX\
 X]  dmb          o    o            [XX\
