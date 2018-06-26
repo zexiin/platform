@@ -13,12 +13,12 @@ function Player() {
 	this.y = this.yinit = 0;
 	this.x_vel = 0;
 	this.y_vel = 0;
-	this.jumping = false;
+	this.jumping = true;
 
 	this.camCoords = {}; 
 	
-    this.GRAVITY = 0.15*scaleFactor; //0.15
-	this.X_ACCEL = 0.25*scaleFactor; // 0.25
+    this.GRAVITY = 0.1*scaleFactor; //0.15
+	this.X_ACCEL = 0.2*scaleFactor; // 0.25
 	this.Y_ACCEL = 9*scaleFactor;
 	this.FRICTION = 0.83;
 	this.w = 32*scaleFactor;
@@ -128,7 +128,6 @@ Player.prototype.reset = function() {
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = false;
-	
 	deathTexts.push(new DeathText());
 };
 
@@ -142,10 +141,11 @@ Player.prototype.slowDown = function() {
 };
 Player.prototype.speedUp = function() {
 
-	this.GRAVITY = 0.2*scaleFactor*1.5; //0.15
+	this.GRAVITY = 0.14*scaleFactor*1.5; //0.15
 	this.X_ACCEL = 0.4*scaleFactor*2; // 0.25
-	this.Y_ACCEL = 8*scaleFactor*1.3;
+	this.Y_ACCEL = 7*scaleFactor*1.3;
 	//this.FRICTION = 0.83*0.5;
+	this.animation.delay = 10;
 
 };
 
