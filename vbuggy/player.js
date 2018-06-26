@@ -128,6 +128,8 @@ Player.prototype.reset = function() {
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = false;
+	
+	deathTexts.push(new DeathText());
 };
 
 Player.prototype.slowDown = function() {
