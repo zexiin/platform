@@ -7,7 +7,7 @@ this file contains the main game functions??
 
 var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
-var scaleFactor = 2;
+var scaleFactor = 3;
 var coinCount = 0;
 var livesCount = 3;
 var levelNo = 1;
@@ -67,8 +67,8 @@ function init(mapNo) {
 	window.cancelAnimationFrame(animate);
 	
 	play = true;
-	canvas.height = Math.min(mapNo.row * 32, 350);
-   	canvas.width = Math.min(mapNo.col * 16, 480);
+	canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
+   	canvas.width = Math.min(mapNo.col * 16, /*480 * scaleFactor*/);
 
 	context.imageSmoothingEnabled = false;
 	player = new Player();
