@@ -131,6 +131,8 @@ function Camera(following, map) {
 
 
 Camera.prototype.update = function() {
+	
+	this.enemies.update();
 
 	this.x = this.following.x - this.w*0.5 + 32;
 	this.y = this.following.y - this.h*0.5 + 32;
@@ -167,8 +169,11 @@ Camera.prototype.getTileFrame = function(tile_ID) {
 
 
 Camera.prototype.draw = function() {
-	this.enemies.update();
 	this.enemies.draw();
+	
+	deathTexts.forEach(function(element) {
+        element.display();
+        });
 
 	// calculate which rows/cols are visible.
 	let leftCol = Math.floor(this.x / this.map.scaled);  
@@ -217,5 +222,32 @@ Camera.prototype.mapToCam = function(x,y) {
 Camera.prototype.camToMap = function(x,y) {
 	return {x: x + this.x, y: y + this.y };
 };
+
+// DEATH TEXT OBJECT
+
+function DeathText() {
+	this.time = 200;
+    this.x = 20;
+	this.y = 90; 
+	this.opacity = 1.0; 
+	this.size = 30;
+}
+
+DeathText.prototype.display = function() {
+
+	if (this.time > 0) {
+ 	 context.font = this.size + "px courier";
+ 	 context.fillStyle = "#661144";
+ 	 context.globalAlpha = this.opacity;
+ 	 this.opacity -= 0.005;
+ 	 // let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
+     context.fillText("death is inevitable", this.x, this.y);
+     this.x += 0.8;
+     this.y += 0.2;
+     this.time--;
+	}
+	context.globalAlpha = 1.0;
+}
+
 
 
