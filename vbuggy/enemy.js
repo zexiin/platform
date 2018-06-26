@@ -3,11 +3,10 @@
 // needs acceleration, x, y 
 
 // collection of enemies
-function Enemies(arrayRep, cam) {
+function Enemies(arrayRep) {
 
 	this.enemyBag = [];
-	//this.cam = cam;
-
+	
 	let enemyIndex = getAllIndexes(arrayRep, "Q");
 
 	for (let i = 0; i < enemyIndex.length; i++) {
