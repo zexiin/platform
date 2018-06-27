@@ -7,30 +7,22 @@ function Enemies(arrayRep) {
 
 	this.enemyBag = [];
 
-	let enemyIndex = getAllIndexes(arrayRep, "Q");
+	// j is the length of the path the enemy is supposed to travel along
+	for (let j = 2; j <= 9; j++) {
 
-	for (let i = 0; i < enemyIndex.length; i++) {
+		let enemyIndex = getAllIndexes(arrayRep, j.toString());
+
+		for (let i = 0; i < enemyIndex.length; i++) {
 
 		let y = Math.floor(enemyIndex[i] / map.cols);
 		let x = Math.floor(enemyIndex[i] % map.cols);
 
-		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 64 * scaleFactor));
+		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 16 * scaleFactor * j));
+	    }
+
 	}
 
-}
 
-Enemies.prototype.update = function() {
-
-	this.enemyBag.forEach(function(element) {
-    	element.update();
-    });
-}
-
-Enemies.prototype.draw = function() {
-
-	this.enemyBag.forEach(function(element) {
-    	element.draw(cam);
-    });
 }
 
 // helper method
@@ -44,6 +36,21 @@ function getAllIndexes(arr, val) {
     }
 
     return indexes;
+}
+
+Enemies.prototype.update = function() {
+
+	this.enemyBag.forEach(function(element) {
+    element.update();
+   });
+}
+
+Enemies.prototype.draw = function() {
+
+	this.enemyBag.forEach(function(element) {
+    element.draw(cam);
+   
+   });
 }
 
 // single enemy
