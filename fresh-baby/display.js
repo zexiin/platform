@@ -116,12 +116,37 @@ DeathText.prototype.display = function() {
 }
 
 var levelText = { 
-		time: 350,
-		x: 10,
-		y: 90, 
-		opacity: 1.0 
-	}
+	time: 350,
+	x: 10,
+	y: 90, 
+	opacity: 1.0 
+};
 
+levelText.reset = function() {
+	this.time = 350;
+	this.x = 10;
+	this.y = 90;
+	this.opacity = 1.0;
+};
+
+levelText.draw = function() {
+	if (this.time > 0) {
+ 	 context.font = "70px georgia";
+ 	 context.fillStyle = "#339999";
+ 	 context.globalAlpha = this.opacity;
+ 	 this.opacity -= 0.0025;
+ 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
+     context.fillText(text1, this.x, this.y);
+     this.x += 0.5;
+     this.y += 0.3;
+     this.time--;
+	}
+	context.globalAlpha = 1.0;
+};
+
+
+
+/*
 levelTextFunction = function(levelText) {
 
 	if (levelText.time > 0) {
@@ -137,7 +162,7 @@ levelTextFunction = function(levelText) {
 	}
 	context.globalAlpha = 1.0;
 }
-
+*/
 
 
 

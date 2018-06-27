@@ -220,8 +220,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		player.stop(); 
 		levelNo++;
-	
-		
 		init(mapArr[levelNo-1]);
 		return;
 

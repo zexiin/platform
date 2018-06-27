@@ -60,7 +60,8 @@ drawGame = function() {
 	player.draw();
 	enemies.draw();
 	
-	levelTextFunction(levelText);
+	//levelTextFunction(levelText);
+	levelText.draw();
 	deathTexts.forEach(function(element) {
         element.display();
     });
@@ -99,7 +100,9 @@ function init(mapNo) {
 	window.cancelAnimationFrame(animate);
 
 	time = 0;
-	
+
+	levelText.reset();
+
 	play = true;
 	canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
    	canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);

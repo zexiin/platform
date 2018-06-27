@@ -19,7 +19,6 @@ Map.prototype.init = function(c, r, stringRep) {
 	this.rows = r;
 
 	this.tiles = stringRep.split('');
-
 	// find player and initialise player object
 	this.findPlayer();
 };
