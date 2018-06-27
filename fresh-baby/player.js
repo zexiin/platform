@@ -14,6 +14,11 @@ function Player(x, y) {
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = true;
+	
+	this.attack = {
+		state: "idle",
+		time: -1
+	}
 
 	this.camCoords = {}; 
 	
@@ -83,6 +88,43 @@ Player.prototype.update = function() {
 	  this.y_vel *= this.FRICTION;
 	}	
 	// player's camera coordinates are updated in Camera.update()
+	
+	// ATTACK updates
+	// STARTS
+	  	if (control.attack && this.attack.state === "idle") {
+	  		console.log("start");
+	  		this.attack.state = "ongoing";
+	  		this.attack.time = 150;
+	  	}
+        
+        // DECREMENT COUNTER
+	  	if (this.attack.state !== "idle") {
+	  		console.log("timedown");
+	  		this.attack.time--;
+	  	}
+
+	  	if (this.attack.time == 130) {
+	  		console.log("delayin");
+	  		this.attack.state = "delay";
+	  	}
+
+	  	if (this.attack.time == 0) {
+	  		console.log("finish attack");
+	  		this.attack.state = "idle";
+	  		this.attack.time = -1;
+	  	}
+
+	  	// DEBUGGIN
+
+	  	if(this.attack.state == "ongoing"){
+		context.fillStyle = '#FF00FF';
+		context.fillRect(0,0,30,30);
+	    }
+
+	    if(this.attack.state == "delay"){
+		context.fillStyle = '#FF0000';
+		context.fillRect(0,0,30,30);
+	    }
 
 	this.updateBoundingBox();
 
