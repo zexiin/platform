@@ -75,7 +75,7 @@ Map.prototype.getTile = function(col, row) {
     	case "l": return 126;
     	case "=": return 103;
     	case "r": return 102;
-    	case "7": return 104;
+    	case "k": return 104;
        
 
 
