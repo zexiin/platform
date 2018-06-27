@@ -45,7 +45,7 @@ CollisionMap.prototype.getTile = function(col, row) {
     	case "d": return 6;  // top & left
     	case "r": return 6;  // top & left
     	case "b": return 7;  // top & right
-    	case "7": return 7;  // top & left
+    	case "k": return 7;  // top & left
     	
         case "o": return 20;  // COIN
         case "t": return 21;  // TREASURE, NEXT LEVEL
