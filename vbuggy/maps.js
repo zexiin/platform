@@ -125,10 +125,10 @@ X]                 o                %%%%              [xxxx]\
 X]                                         %          [xxxx]\
 X]                     2        %                     [xxxx]\
 X]                     dmb                            [xxxx]\
-X]           o  4                                     [xxxx]\
+X]           o  4     %                               [xxxx]\
 X]                               %                    [xxxx]\
 X]                db                 5                [xxxx]\
-X]    o                                               [xxxx]\
+X]    o          %                                    [xxxx]\
 X]                                                    [xxxx]\
 X]         db                           %             [xxxx]\
 X]  P                  %                              [xxxx]\
