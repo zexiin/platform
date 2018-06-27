@@ -14,12 +14,12 @@ mapArr.push({
 ]                                 [X\
 ]                      t          [X\
 ]                     dmb         [X\
-]                    P            [X\
+]                                 [X\
 ]              db           %%    [X\
 ]                 3          %    [X\
 ]           %     dmmb  5  o      [X\
 ]       5 o             dmmmmb    [X\
-]       r====k                    [X\
+]       r====k           P        [X\
 ]   o   ixxxxl  !    %        !   [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -46,8 +46,8 @@ mapArr.push({
 ]       dmmmb      dmmmmb         [X\
 ]                 ! o       o     [X\
 ]    o      %     dmmb o  o !o    [X\
-]o        %  !  o    o   dmmmmb   [X\
-]! oooo dmmmmb o o   P  o  o  o   [X\
+]o        %  !  o    oP  dmmmmb   [X\
+]! oooo dmmmmb o o      o  o  o   [X\
 ]2   o  ixxxxl   ovvvvo !    !  o [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -72,10 +72,10 @@ mapArr.push({
 %    o   o  dmb        vv  o      %\
 %                   o  dmb        %\
 %  o    4   o  o   2        o     %\
-%       dmmmb      dmb            %\
-%              P  ! o       o     %\
+%       dmmmb  P   dmb            %\
+%                 ! o       o     %\
 %   o    %     dmmb o  o5!o       %\
-%        % P!  o        dmmmmb    %\
+%        %  !  o        dmmmmb    %\
 %  !    r====k      db            %\
 %!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!!%\
 =========xxxxxx====================\
@@ -96,7 +96,7 @@ mapArr.push({
 ]        o          dmb           [\
 ]    o         5o         o       [\
 ]          o   dmmmb   o     o   o[\
-]    P             o     o    dmb [\
+]                  o     o    dmb [\
 ] o  dmb  o    o    o  o          [\
 ]            vvv     o   o      o [\
 ]    o   o  dmb        vv  o      [\
@@ -104,7 +104,7 @@ mapArr.push({
 ]v o    4   o  o            o     [\
 ]       dmmmb      dmb            [\
 ]              ! o3      o        [\
-]      o    %     dmmb o 5oP!o    [\
+]      o   P%     dmmb o 5o !o    [\
 ]o 9     %  !  o    o   dmmmmb    [\
 ]! dmmmmmmmmmb o o      o  o  o   [\
 ]!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!![\
