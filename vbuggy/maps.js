@@ -8,8 +8,8 @@ this file contains maps
 var mapArr = [];
 
 mapArr.push({
-	level: 1,
-	map: "\
+  level: 1,
+  map: "\
 ]                                 [X\
 ]                                 [X\
 ]                      t          [X\
@@ -28,8 +28,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 });
 
 mapArr.push({
-	level: 2,
-    	map: "\
+  level: 2,
+      map: "\
 ]                        o        [X\
 ]                                 [X\
 ]            o    o               [X\
@@ -57,8 +57,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  });
 
 mapArr.push({
-	level: 3,
-    	map: "\
+  level: 3,
+      map: "\
 %                        o        %\
 %                                 %\
 %  dmb          o    o            %\
@@ -87,8 +87,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 
 mapArr.push({
-	level: 4,
-    	map: "\
+  level: 4,
+      map: "\
 ]                        o        [\
 ]                                 [\
 ]  dmb          o    o            [\
@@ -148,23 +148,23 @@ X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
-X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                          3  t      ixxxxxxxxxxxxxxxxxxx]\
 X]                                          dmmmb     ixxxxxxxxxxxxxxxxxxx]\
-X]                                          %         ixxxxxxxxxxxxxxxxxxx]\
+X]                                          %     o   ixxxxxxxxxxxxxxxxxxx]\
 X]                                  %       %    dmb  ixxxxxxxxxxxxxxxxxxx]\
-X]                                  %       %         ixxxxxxxxxxxxxxxxxxx]\
+X]                 o                %6      %         ixxxxxxxxxxxxxxxxxxx]\
 X]                db             dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
-X]                                       %            ixxxxxxxxxxxxxxxxxxx]\
-X]                   db            %     %      %     ixxxxxxxxxxxxxxxxxxx]\
+X]                     o                 %      o     ixxxxxxxxxxxxxxxxxxx]\
+X]                   db            %   o %      %     ixxxxxxxxxxxxxxxxxxx]\
 X]                                 %     %            ixxxxxxxxxxxxxxxxxxx]\
-X]           2                     %                  ixxxxxxxxxxxxxxxxxxx]\
+X]           2           o         %  !      o        ixxxxxxxxxxxxxxxxxxx]\
 X]           dmb                  r==============k    ixxxxxxxxxxxxxxxxxxx]\
-X]                  db     dmmmmmmxxxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
-X]                                ixxxxxxxxxxxxxxl    ixxxxxxxxxxxxxxxxxxx]\
-X]                       %        ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
-X]  P                  9          ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
-X]                   r=============xxxxxxxxxxxxxxl    ixxxxxxxxxxxxxxxxxxx]\
-=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3   ixxxxxxxxxxxxxxxxxxx]\
+X]                  db     dmmmmmmxxxxxxxxxxxxxxxlo  dxxxxxxxxxxxxxxxxxxxx]\
+X]                                ixxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
+X]               o       %        ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
+X]  P                  9   o    o ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
+X]           o       r============xxxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
+=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3  oixxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
 row: 22,
 col: 75
