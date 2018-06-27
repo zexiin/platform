@@ -71,7 +71,7 @@ function init(mapNo) {
    	canvas.width = Math.min(mapNo.col * 16, /*480 * scaleFactor*/);
 
 	context.imageSmoothingEnabled = false;
-	player = new Player();
+	// player = new Player();
 	map = new Map(tilesheet, 16, 16 * scaleFactor);
 	map.init(mapNo.col, mapNo.row, mapNo.map);
 
