@@ -111,6 +111,11 @@ Enemy.prototype.checkKill = function() {
 
 
 	if (this.y < (player.bound.y + player.bound.h) && yEnd > player.bound.y ) {
+		
+		if (player.attack.state === "ongoing") { 
+		   this.die(); 
+		   return;
+	        }
 
     	player.die();
 
