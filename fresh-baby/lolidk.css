@@ -1,0 +1,35 @@
+html {
+}
+
+body {
+
+}
+
+
+h1 {
+  font-family: verdana;
+  font-size: 20pt;
+  text-transform: lowercase;
+  letter-spacing: -2px;
+  color: #617799;
+  text-shadow: 2px 2px #CCDDCC;
+  margin-bottom: -20px;
+}
+
+h2 {
+	font-family: courier;
+  font-size: 10pt;
+  text-transform: uppercase;
+  color: #33AA99;
+  margin-bottom: -5px;
+}
+
+
+canvas {
+  letter-spacing: -2px;
+	position: fixed;
+	left:10px;
+	border-style: solid;
+	border-width: 15px;
+	border-color: #333333;
+}
