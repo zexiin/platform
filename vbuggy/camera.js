@@ -27,14 +27,21 @@ Map.prototype.init = function(c, r, stringRep) {
 	this.rows = r;
 
 	this.tiles = stringRep.split('');
-	
-	// find player and initialise player object
 
-    for(let i = 0; i < this.tiles.length; i++) {
+	// find player and initialise player object
+	this.findPlayer();
+
+
+};
+
+// find and create player 
+Map.prototype.findPlayer = function() {
+
+	for(let i = 0; i < this.tiles.length; i++) {
     if (this.tiles[i] === "P") {
 
-    	        let y = Math.floor(i / map.cols);
-		let x = Math.floor(i % map.cols);
+    	let y = Math.floor(i / this.cols);
+		let x = Math.floor(i % this.cols);
 
 		player = new Player(x * scaleFactor * 16, y * scaleFactor * 16);
 
@@ -42,7 +49,8 @@ Map.prototype.init = function(c, r, stringRep) {
 
        }
     }
-};
+
+}
 
 Map.prototype.getTile = function(col, row) {
 
