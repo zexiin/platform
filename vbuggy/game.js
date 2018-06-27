@@ -68,7 +68,7 @@ function init(mapNo) {
 	
 	play = true;
 	canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
-   	canvas.width = Math.min(mapNo.col * 16, /*480 * scaleFactor*/);
+   	canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);
 
 	context.imageSmoothingEnabled = false;
 	// player = new Player();
