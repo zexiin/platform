@@ -114,17 +114,7 @@ Player.prototype.update = function() {
 	  		this.attack.time = -1;
 	  	}
 
-	  	// DEBUGGIN
-
-	  	if(this.attack.state == "ongoing"){
-		context.fillStyle = '#FF00FF';
-		context.fillRect(0,30,30,30);
-	    }
-
-	    if(this.attack.state == "delay"){
-		context.fillStyle = '#FF0000';
-		context.fillRect(0,30,30,30);
-	    }
+	  	
 
 	this.updateBoundingBox();
 
@@ -147,6 +137,18 @@ Player.prototype.updateBoundingBox = function() {
 Player.prototype.draw = function() {
 	this.updateAnimation();
 	context.drawImage(tilesheet, this.frame.x, this.frame.y, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
+	
+	// DEBUGGIN
+
+	   if(this.attack.state == "ongoing"){
+		context.fillStyle = '#FF00FF';
+		context.fillRect(0,30,30,30);
+	    }
+
+	    if(this.attack.state == "delay"){
+		context.fillStyle = '#FF0000';
+		context.fillRect(0,30,30,30);
+	    }
 };
 
 
