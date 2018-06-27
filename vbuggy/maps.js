@@ -115,4 +115,59 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
  });
 
+mapArr.push({
+level: 5,
+map:"\
+X]                                                    [xxxx]\
+X]                                                    [xxxx]\
+X]                                     t              [xxxx]\
+X]                 o                %%%%              [xxxx]\
+X]                                         %          [xxxx]\
+X]                     2        %                     [xxxx]\
+X]                     dmb                            [xxxx]\
+X]           o  4                                     [xxxx]\
+X]                               %                    [xxxx]\
+X]                db                 5                [xxxx]\
+X]    o                                               [xxxx]\
+X]                                                    [xxxx]\
+X]         db                           %             [xxxx]\
+X]  P                  %                              [xxxx]\
+X]                        9                           [xxxx]\
+========k                 dmmmmmmmmb                  [xxxx]\
+xxxxxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![xxxx]\
+xxxxxxxxx=============================================[xxxx]",
+row: 18,
+col: 60
+
+})
+
+mapArr.push({
+  level: 6,
+  map: "\
+X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                                    ixxxxxxxxxxxxxxxxxxx]\
+X]                                          dmmmb     ixxxxxxxxxxxxxxxxxxx]\
+X]                                          %         ixxxxxxxxxxxxxxxxxxx]\
+X]                                  %       %    dmb  ixxxxxxxxxxxxxxxxxxx]\
+X]                                  %       %         ixxxxxxxxxxxxxxxxxxx]\
+X]                db             dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
+X]                                       %            ixxxxxxxxxxxxxxxxxxx]\
+X]                   db            %     %      %     ixxxxxxxxxxxxxxxxxxx]\
+X]                                 %     %            ixxxxxxxxxxxxxxxxxxx]\
+X]           2                     %                  ixxxxxxxxxxxxxxxxxxx]\
+X]           dmb                  r==============k    ixxxxxxxxxxxxxxxxxxx]\
+X]                  db     dmmmmmmxxxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
+X]                                ixxxxxxxxxxxxxxl    ixxxxxxxxxxxxxxxxxxx]\
+X]                       %        ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
+X]  P                  9          ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
+X]                   r=============xxxxxxxxxxxxxxl    ixxxxxxxxxxxxxxxxxxx]\
+=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3   ixxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxxx]",
+row: 22,
+col: 75
+
+});
 
