@@ -46,7 +46,7 @@ mapArr.push({
 ]       dmmmb      dmmmmb         [X\
 ]                 ! o       o     [X\
 ]    o      %     dmmb o  o !o    [X\
-]o        %  !  o    oP  dmmmmb   [X\
+]o        %  !  o  P o   dmmmmb   [X\
 ]! oooo dmmmmb o o      o  o  o   [X\
 ]2   o  ixxxxl   ovvvvo !    !  o [X\
 ========xxxxxx======================\
