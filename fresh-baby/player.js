@@ -103,7 +103,7 @@ Player.prototype.update = function() {
 	  		this.attack.time--;
 	  	}
 
-	  	if (this.attack.time == 130) {
+	  	if (this.attack.time == 120) {
 	  		console.log("delayin");
 	  		this.attack.state = "delay";
 	  	}
