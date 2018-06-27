@@ -17,7 +17,7 @@ function Player() {
 
 	this.camCoords = {}; 
 	
-    this.GRAVITY = 0.1*scaleFactor; //0.15
+    	this.GRAVITY = 0.15*scaleFactor; //0.15
 	this.X_ACCEL = 0.2*scaleFactor; // 0.25
 	this.Y_ACCEL = 6*scaleFactor;
 	this.FRICTION = 0.83;
