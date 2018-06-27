@@ -22,7 +22,7 @@ context.fillText("Top",5,100);
 //canvas.width = 480;
 
 var control = {
-	left: false, right: false, up: false, down: false,
+	left: false, right: false, up: false, down: false, attack: false,
 
 	keyListener: function(event) {
 	  // switch the keystate
@@ -45,6 +45,11 @@ var control = {
 	    	control.down = key_state;
 	    	event.preventDefault();
 	    	break;
+	    case 90: // attack
+	    	control.attack = key_state;
+	    	event.preventDefault();
+	    	break;			  
+			  
   		}
 	}
 };
