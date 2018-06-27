@@ -67,7 +67,7 @@ mapArr.push({
 %       o      4   o         o    %\
 %          o   dmmmb   o     o t o%\
 %    2             o     o    dmb %\
-% o  dmb  o    o    o  o          %\
+% o  dmb  o    o    o  o    %     %\
 %            vvv     o   o      o %\
 %    o   o  dmb        vv  o      %\
 %                   o  dmb        %\
