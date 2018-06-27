@@ -104,7 +104,7 @@ Enemy.prototype.checkKill = function() {
 	if (player.bound.y + player.bound.h > this.y &&  player.bound.y_prev + player.bound.h <= this.y) { 
             
             this.die();
-            player.y_vel *= -3;
+            player.y_vel *= -5;
             return;
 
 	}
