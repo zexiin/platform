@@ -118,12 +118,12 @@ Player.prototype.update = function() {
 
 	  	if(this.attack.state == "ongoing"){
 		context.fillStyle = '#FF00FF';
-		context.fillRect(0,0,30,30);
+		context.fillRect(0,30,30,30);
 	    }
 
 	    if(this.attack.state == "delay"){
 		context.fillStyle = '#FF0000';
-		context.fillRect(0,0,30,30);
+		context.fillRect(0,30,30,30);
 	    }
 
 	this.updateBoundingBox();
