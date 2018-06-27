@@ -15,7 +15,6 @@ function sound(src) {
 
 
 function startaudio() {
-    mySound = new sound("bounce.mp3");
-    myMusic = new sound("gametheme.mp3");
+    myMusic = new sound("../assets/gametheme.mp3");
     myMusic.play();
 }
