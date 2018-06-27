@@ -8,9 +8,9 @@ the Player class.
 
 
 
-function Player() {
-	this.x = this.xinit = 160;
-	this.y = this.yinit = 0;
+function Player(x, y) {
+	this.x = this.xinit = x;
+	this.y = this.yinit = y;
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = true;
