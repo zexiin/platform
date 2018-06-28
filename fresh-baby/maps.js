@@ -19,7 +19,7 @@ mapArr.push({
 ]                 3          %    [X\
 ]           %     dmmb  5  o      [X\
 ]       5 o             dmmmmb    [X\
-]       r====k           P        [X\
+]       r====k   R       P        [X\
 ]   o   ixxxxl  !    %        !   [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
