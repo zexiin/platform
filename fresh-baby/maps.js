@@ -10,21 +10,21 @@ var mapArr = [];
 mapArr.push({
   level: 1,
   map: "\
+]                p           k    [X\
+]              dmmmb              [X\
+]                0         l      [X\
+]                 %         =     [X\
+]                  d    b    r    [X\
+]                    m            [X\
+]                    i            [X\
 ]                                 [X\
 ]                                 [X\
-]                      t          [X\
-]                     dmb         [X\
 ]                                 [X\
-]              db           %%    [X\
-]                 3          %    [X\
-]ooooo      %     dmmb  5  o      [X\
-]ooooo  5 o             dmmmmb    [X\
-]ooooo  r====k           P        [X\
-]ooooo  ixxxxl  !    %        !   [X\
+]                                 [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
    row: 13, 
-   col: 36
+   col: 37
 });
 
 mapArr.push({
