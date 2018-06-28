@@ -211,6 +211,12 @@ Player.prototype.die = function() {
 	deathTexts.push(new DeathText());
 	livesCount--;
 	this.reset();
+	
+	enemies.terminateAll();
+	bullets.terminateAll();
+
+	enemies = new Enemies(map.tiles);
+	bullets = new Bullets();
 
 };
 
