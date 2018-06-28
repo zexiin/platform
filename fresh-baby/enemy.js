@@ -123,8 +123,8 @@ Enemy.prototype.die = function() {
 
 Enemy.prototype.checkKill = function() {
 
-	let xEnd = this.x + 16 * scaleFactor;
-	let yEnd = this.y + 16 * scaleFactor;
+	let xEnd = this.x + this.w;
+	let yEnd = this.y + this.h;
 
 	if (!(this.x < (player.bound.x + player.bound.w) && xEnd > player.bound.x)) return;
 
