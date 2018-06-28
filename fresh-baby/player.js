@@ -17,7 +17,8 @@ function Player(x, y) {
 	
 	this.attack = {
 		state: "idle",
-		time: -1
+		time: -1,
+		delay_time: 20
 	}
 
 	this.camCoords = {}; 
@@ -49,6 +50,7 @@ function Player(x, y) {
 	this.facingRight = true;
 
 }
+
 
 
   ////////////////////
@@ -94,18 +96,28 @@ Player.prototype.update = function() {
 	  	if (control.attack && this.attack.state === "idle") {
 	  		console.log("start");
 	  		this.attack.state = "ongoing";
-	  		this.attack.time = 150;
+	  		this.attack.time = this.attack.delay_time;
 	  	}
         
+
+        /*
         // DECREMENT COUNTER
 	  	if (this.attack.state !== "idle") {
-	  		console.log("timedown");
+	  		console.log("timedown" + this.attack.time);
 	  		this.attack.time--;
 	  	}
 
-	  	if (this.attack.time == 120) {
+	  	if (this.attack.time == this.attack.delay_time) {
 	  		console.log("delayin");
 	  		this.attack.state = "delay";
+	  	}
+	  	*/
+
+	  	// i changed it so that the active attack time is based on the attack animation
+
+	  	if (this.attack.state === "delay") {
+	  		console.log("delaying");
+	  		this.attack.time--;
 	  	}
 
 	  	if (this.attack.time == 0) {
@@ -195,7 +207,7 @@ Player.prototype.speedUp = function() {
 
 Player.prototype.die = function() {
 
-	sleep(3500);
+	sleep(2000);
 	deathTexts.push(new DeathText());
 	livesCount--;
 	this.reset();
