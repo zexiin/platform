@@ -218,7 +218,13 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	if (tile.collisions.treasure) {
 
-		player.stop(); 
+		terminate(player);
+		terminate(map);
+		terminate(cam);
+		enemies.terminateAll();
+		bullets.terminateAll();
+		terminate(bullets);
+		terminate(enemies);
 		levelNo++;
 		init(mapArr[levelNo-1]);
 		return;
