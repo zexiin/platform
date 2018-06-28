@@ -10,45 +10,59 @@ this file contains vars/methods for animation.
 ////////////
 
 Player.prototype.animation = {
-		state: "idle",
-		delay: 15,
-		cur_frame: 0,
-		max_frames: 4, // just so cur_frame doesn't get huge i gues
+	prev_state: "idle",
+	state: "idle",
+	delay: 15,
+	cur_frame: 0,
+	max_frames: 4, // just so cur_frame doesn't get huge i gues
 
-		idle: {},
+	idle: {},
 
-		walk_right: {
-			no_frames: 4,
-			frames: [{x:32,y:0}, {x:64,y:0}, {x:0,y:32}, {x:64,y:0}]
-		},
+	walk_right: {
+		no_frames: 4,
+		frames: [{x:32,y:0}, {x:64,y:0}, {x:0,y:32}, {x:64,y:0}]
+	},
 
-		walk_left: {
-			no_frames: 4,
-			frames: [{x:32,y:304}, {x:64,y:304}, {x:64,y:336}, {x:64,y:304} ]
-		},
+	walk_left: {
+		no_frames: 4,
+		frames: [{x:32,y:304}, {x:64,y:304}, {x:64,y:336}, {x:64,y:304} ]
+	},
 
-		jump_right: {
-			no_frames: 1,
-			frames: [{x:32,y:32}]
-		},
+	jump_right: {
+		no_frames: 1,
+		frames: [{x:32,y:32}]
+	},
 
-		jump_left: {
-			no_frames: 1,
-			frames: [{x:32,y:336}]
-		},
+	jump_left: {
+		no_frames: 1,
+		frames: [{x:32,y:336}]
+	},
 
-		land_right: {
-			no_frames: 1,
-			frames: [{x:64,y:32}]
-		},
+	land_right: {
+		no_frames: 1,
+		frames: [{x:64,y:32}]
+	},
 
-		land_left: {
-			no_frames: 1,
-			frames: [{x:0,y:336}]
-		},
-	};
+	land_left: {
+		no_frames: 1,
+		frames: [{x:0,y:336}]
+	},
 
-Player.prototype.setAnimationFrame = function() {
+	attack_right: {
+		no_frames: 4,
+		frames: [{x:0,y:400}, {x:32,y:400}, {x:64,y:400}, {x:96,y:400} ]
+	},
+
+	attack_left: {
+		no_frames: 4,
+		frames: [{x:96,y:368}, {x:64,y:368}, {x:32,y:368}, {x:0,y:368} ]
+	},
+
+
+};
+
+Player.prototype.setAnimationFrame = function() { 
+// this could probably be simplified considering theres so much repetition
 
 	switch(this.animation.state) {
 
@@ -63,6 +77,11 @@ Player.prototype.setAnimationFrame = function() {
 		case "walk_right":
 			this.frame.x = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].x;
 			this.frame.y = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].y;
+			break;
+		case "attack_right":
+			this.frame.x = this.animation.attack_right.frames[(this.animation.cur_frame % this.animation.attack_right.no_frames)].x;
+			this.frame.y = this.animation.attack_right.frames[(this.animation.cur_frame % this.animation.attack_right.no_frames)].y;
+			if (this.animation.cur_frame === this.animation.attack_right.no_frames-1) this.attack.state = "delay";
 			break;
 		case "idle_right":
 			this.frame.x = 0;
@@ -81,6 +100,11 @@ Player.prototype.setAnimationFrame = function() {
 			this.frame.x = this.animation.walk_left.frames[(this.animation.cur_frame % this.animation.walk_left.no_frames)].x;
 			this.frame.y = this.animation.walk_left.frames[(this.animation.cur_frame % this.animation.walk_left.no_frames)].y;
 			break;
+		case "attack_left":
+			this.frame.x = this.animation.attack_left.frames[(this.animation.cur_frame % this.animation.attack_left.no_frames)].x;
+			this.frame.y = this.animation.attack_left.frames[(this.animation.cur_frame % this.animation.attack_left.no_frames)].y;
+			if (this.animation.cur_frame === this.animation.attack_left.no_frames-1) this.attack.state = "delay";
+			break;
 		case "idle_left":
 			this.frame.x = 0;
 			this.frame.y = 304;
@@ -97,23 +121,33 @@ Player.prototype.updateAnimation = function() {
 
 
 	if (this.facingRight) {
-		if (this.y_vel < -1) this.animation.state = "jump_right";
+		if (this.attack.state === "ongoing") this.animation.state = "attack_right";
+		else if (this.y_vel < -1) this.animation.state = "jump_right";
 		else if (this.y_vel > 1) this.animation.state = "land_right";
 		else if (this.x_vel > 1) this.animation.state = "walk_right";
 		else this.animation.state = "idle_right";
-
 	}
-
 	else {
-		if (this.y_vel < -1) this.animation.state = "jump_left";
+		if (this.attack.state === "ongoing") this.animation.state = "attack_left";
+		else if (this.y_vel < -1) this.animation.state = "jump_left";
 		else if (this.y_vel > 1) this.animation.state = "land_left";
 		else if (this.x_vel < -1) this.animation.state = "walk_left";
 		else this.animation.state = "idle_left";
 	}
 
+	// if it's a new animation state, start frames from 0.
+	if (this.animation.prev_state !== this.animation.state) this.animation.cur_frame = 0;
+	this.animation.prev_state = this.animation.state;
+
 	this.setAnimationFrame();
 
 };
+
+
+
+
+
+
 
 
   //////////
@@ -185,24 +219,24 @@ Enemy.prototype.frame = {
 }
 
 Enemy.prototype.animation = {
-		state: "walk_right",
-		delay: 40,
-		cur_frame: 0,
-		max_frames: 2, // just so cur_frame doesn't get huge i gues
-		lastUpdate: 0,
+	state: "walk_right",
+	delay: 40,
+	cur_frame: 0,
+	max_frames: 2, // just so cur_frame doesn't get huge i gues
+	lastUpdate: 0,
 
 
-		walk_right: {
-			no_frames: 2,
-			frames: [{x:112,y:304}, {x:128,y:304}]
-		},
+	walk_right: {
+		no_frames: 2,
+		frames: [{x:112,y:304}, {x:128,y:304}]
+	},
 
-		walk_left: {
-			no_frames: 2,
-			frames: [{x:96,y:0}, {x:112,y:0}]
-		},
+	walk_left: {
+		no_frames: 2,
+		frames: [{x:96,y:0}, {x:112,y:0}]
+	},
 
-	};
+};
 
 Enemy.prototype.setAnimationFrame = function() {
 
@@ -218,7 +252,7 @@ Enemy.prototype.setAnimationFrame = function() {
 			break;
 
 	}
-}
+};
 
 Enemy.prototype.updateAnimation = function() {
 
