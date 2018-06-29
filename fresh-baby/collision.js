@@ -68,12 +68,14 @@ function collisionHandler(player, map) {
 	rowMin = Math.floor(player.bound.y/map.scaled);
 	tile = { col: colMin, row: rowMin, tsize: map.scaled };
 	collide(player, tile, map);
+	if (player.stop) return;
 
 	// ne
 	colMax = Math.floor((player.bound.x+player.bound.w)/map.scaled);
 	rowMin = Math.floor(player.bound.y/map.scaled);
 	tile = { col: colMax, row: rowMin, tsize: map.scaled };
 	collide(player, tile, map);
+	if (player.stop) return;
 
 	/* // these checks are unnecessary unless the sprite gets longer lol
 	//  w
@@ -94,6 +96,7 @@ function collisionHandler(player, map) {
 	rowMax = Math.floor((player.bound.y+player.bound.h)/map.scaled);
 	tile = { col: colMin, row: rowMax, tsize: map.scaled };
 	collide(player, tile, map);
+	if (player.stop) return;
 
 	// se
 	colMax = Math.floor((player.bound.x+player.bound.w)/map.scaled);
@@ -217,6 +220,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+	        player.stop = true;
 
 		terminate(player);
 		terminate(map);
