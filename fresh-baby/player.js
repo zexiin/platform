@@ -14,6 +14,7 @@ function Player(x, y) {
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = true;
+	this.stop = false;
 	
 	this.attack = {
 		state: "idle",
