@@ -79,7 +79,9 @@ drawGame = function() {
 updateGame = function() {
 	
 	player.update();
-	collisionHandler(player, collision_map); 
+	collisionHandler(player, collision_map);
+	if (player.stop) return;
+
 	enemies.update(); 
 	bullets.update();
 	cam.update();
