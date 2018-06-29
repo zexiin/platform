@@ -6,7 +6,39 @@ this file contains maps
 **********/
 
 var mapArr = [];
-
+mapArr.push({
+level: 7,
+map: "\
+xxxxxxxxxxl                                                      ixl                                    xxxxx]\
+xxxxxxxxxxx                                                      ixl                                    xxxxx]\
+ooooxxxxxxx                                                      ixl                                    xxxxx]\
+ooooxxxxxxx                                                      ixl                         o          xxxxx]\
+ooooxxxxxxx                     o                                ixl                      dmmmmmb       xxxxx]\
+ooooxxxxxxx                    dmb            8                  ixl            R            R          xxxxx]\
+ooooxxxxxxl        5     o                    dmmmmm==k          ixl    o          4      4     4     t xxxxx]\
+====xxxxxxl       dmmmmmb                           ixl          ixxmmb         i=======================xxxxx]\
+xxxxxxxxxxl                                         ixl    o     ixl          o  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   3                     ixl!        !ixl         dmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixxmmb o       ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                             7    3      ixl          ixx            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                       o     dmmmmmmmb   ixl!       o!ixl         dmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                                         ixl          xxlmmd         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                    dmb                  ixl                      o  ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl               o                         ixl     o                dmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxlP                                        ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl            dmb                          ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl=========                                ixl            dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixl!!!!===!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+!!!!!!!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+   row: 27, 
+   col: 110
+});
 mapArr.push({
   level: 1,
   map: "\
