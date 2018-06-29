@@ -7,7 +7,7 @@ this file contains maps
 
 var mapArr = [];
 mapArr.push({
-level: 7,
+level: 1,
 map: "\
 xxxxxxxxxxl                                                      ixl                                    xxxxx]\
 xxxxxxxxxxx                                                      ixl                                    xxxxx]\
@@ -40,7 +40,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    col: 110
 });
 mapArr.push({
-  level: 1,
+  level: 2,
   map: "\
 ]                                 [X\
 ]                                 [X\
@@ -60,7 +60,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 });
 
 mapArr.push({
-  level: 2,
+  level: 3,
       map: "\
 ]                        o        [X\
 ]                                 [X\
@@ -89,7 +89,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  });
 
 mapArr.push({
-  level: 3,
+  level: 4,
       map: "\
 %                        o        %\
 %                                 %\
@@ -119,7 +119,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 
 mapArr.push({
-  level: 4,
+  level: 5,
       map: "\
 ]                        o        [\
 ]                                 [\
@@ -148,7 +148,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  });
 
 mapArr.push({
-level: 5,
+level: 6,
 map:"\
 X]                                                    [xxxx]\
 X]                                                    [xxxx]\
@@ -174,7 +174,7 @@ col: 60
 })
 
 mapArr.push({
-  level: 6,
+  level: 7,
   map: "\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
@@ -204,7 +204,7 @@ col: 75
 });
 
 mapArr.push({
-level: 7,
+level: 8,
 map: "\
 xxxxxxxxxxl                                                                                             xxxxx]\
 xxxxxxxxxxx                                                                                             xxxxx]\
