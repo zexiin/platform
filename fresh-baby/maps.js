@@ -171,3 +171,37 @@ col: 75
 
 });
 
+mapArr.push({
+level: 7,
+map: "\
+xxxxxxxxxxl                                                                                             xxxxx]\
+xxxxxxxxxxx                                                                                             xxxxx]\
+ooooxxxxxxx                                                                                             xxxxx]\
+ooooxxxxxxx                                                                                  o          xxxxx]\
+ooooxxxxxxx                     o                                                         dmmmmmb       xxxxx]\
+ooooxxxxxxx                    dmb            8                                 R            R          xxxxx]\
+ooooxxxxxxl        5     o                    dmmmmm==k                 o          4      4     4     t xxxxx]\
+====xxxxxxl       dmmmmmb                           ixl          ixxmmmb     o  i=======================xxxxx]\
+xxxxxxxxxxl                                         ixl    o     ixl         dmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   2                     ixl!        !ixl            ixxlxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   dmb        o o o o    ixl  o       ixl   o        ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                             7    3      ixl          ixxmmb         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                       o     dmmmmmmmb   ixl!       o!ixl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                                         ixl          xxl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                    dmb                  ixl                      o  ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl               o                         ixl     o                dmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxlP                                        ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl            dmb                          ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl=========                                ixl            dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixl!!!!===!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+!!!!!!!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+   row: 27, 
+   col: 110
+});
+
