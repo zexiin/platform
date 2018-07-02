@@ -35,6 +35,20 @@ function Enemies(arrayRep) {
 
         }
 
+    // JUMP
+
+       let enemyIndex2 = getAllIndexes(arrayRep, "J");
+
+		for (let i = 0; i < enemyIndex2.length; i++) {
+
+		let y = Math.floor(enemyIndex2[i] / map.cols);
+		let x = Math.floor(enemyIndex2[i] % map.cols);
+
+		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 16 * scaleFactor * 6, "jump"));
+
+        }
+
+
 }
 
 // helper method
@@ -80,10 +94,11 @@ function Enemy(x, y, a, l, type) {
 	
 		this.x = x;
 		this.y = y;
+
 		this.x_vel = 0.3 * scaleFactor;
 		this.X_ACCEL = a;
 
-        if (type == "blue") {
+        if (type == "blue" || type == "jump") {
 		this.w = 16 * scaleFactor;
 		this.h = 16 * scaleFactor;
 	    }
@@ -92,7 +107,14 @@ function Enemy(x, y, a, l, type) {
 	    this.w = 32 * scaleFactor;
 		this.h = 32 * scaleFactor;	
 	    }
-  
+
+	    if (type == "jump") {
+	    	this.y_init = this.y;
+	    	this.y_vel = this.jump_vel = -3 * scaleFactor;
+	    	this.GRAVITY = 0.15 * scaleFactor;
+	    	this.x_vel = 0.25 * scaleFactor;
+	    }
+
 		this.length = l; // length of path enemy is to travel
 		this.currDist = 0; // distance he has travelled on current path (if it reaches l it turns around)
 }
@@ -102,6 +124,21 @@ function Enemy(x, y, a, l, type) {
 // it's not rly collision tho
 
 Enemy.prototype.update = function() {
+
+	if (this.type == "jump") {
+
+		this.y_vel += this.GRAVITY;
+		console.log("yvel " + this.y_vel);
+
+		this.y += this.y_vel;
+
+		if (this.y > this.y_init) {
+		this.y = this.y_init;
+		this.y_vel *= -0.97;
+	    }
+
+	}
+
 	this.x_vel += this.X_ACCEL;
 
 	this.x += this.x_vel;
@@ -139,7 +176,6 @@ Enemy.prototype.checkKill = function() {
 
 	}
 
-
 	if (this.y < (player.bound.y + player.bound.h) && yEnd > player.bound.y ) {
 		
 		if (player.attack.state === "ongoing") { 
@@ -160,6 +196,13 @@ Enemy.prototype.turn = function() {
    this.x_vel *= -1;
    this.currDist = 0;
 
+
+   if (this.type == "jump") {
+   	this.y_vel += this.jump_vel;
+   	console.log("yvel " + this.y_vel);
+   	return;
+   }
+
    if (this.type == "tank") {
 
    	let dir = -1;
@@ -174,7 +217,8 @@ Enemy.prototype.turn = function() {
 
 Enemy.prototype.draw = function() {
 
-	if (this.type == "tank") { generalDraw(this, /*51*/ 89, 2, 2); return; }
+	if (this.type == "tank") { generalDraw(this, 89, 2, 2); return; }
+	if (this.type == "jump") { generalDraw(this, 51, 1); return; }
 
 	this.updateAnimation();
 
