@@ -18,14 +18,49 @@ h1 {
 
 h2 {
 	font-family: courier;
-  font-size: 10pt;
+  font-size: 15pt;
   text-transform: uppercase;
   color: #33AA99;
   margin-bottom: -5px;
 }
 
+.navbar {
+  display:block;
+}
+
+
+ul {
+    display:block;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    width: 40px;
+    background-color: #333333;
+    position: fixed;
+    height: 430px;
+    overflow: auto;
+}
+
+li {
+    
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.levels {
+  font-family: courier;
+  font-size: 25pt;
+  text-transform: uppercase;
+  color: #ffffff;
+
+}
+
 
 canvas {
+  margin-left: 45px;
   letter-spacing: -2px;
 	position: fixed;
 	left:10px;
