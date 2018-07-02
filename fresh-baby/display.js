@@ -9,8 +9,6 @@ this file contains menus n displays n text n shit maybe ???????
 
 function StatBar() {
 
-
-
 	this.icon_w = 8; // NOT scaled
 	this.icon_scaled = 8*scaleFactor;
 	this.coin = { x:56, y:144 };
@@ -145,6 +143,48 @@ levelText.draw = function() {
 };
 
 
+document.getElementById("level1").onclick = function() {
+startLevel(1);
+};
+document.getElementById("level2").onclick = function() {
+startLevel(2);
+};
+document.getElementById("level3").onclick = function() {
+startLevel(3);
+};
+document.getElementById("level4").onclick = function() {
+startLevel(4);
+};
+document.getElementById("level5").onclick = function() {
+startLevel(5);
+};
+document.getElementById("level6").onclick = function() {
+startLevel(6);
+};
+document.getElementById("level7").onclick = function() {
+startLevel(7);
+};
+document.getElementById("level8").onclick = function() {
+startLevel(8);
+};
+
+function startLevel(no) {
+	    console.log("levelno " + levelNo);
+		player.stop = true;
+
+		terminate(player);
+		terminate(map);
+		terminate(cam);
+		enemies.terminateAll();
+		bullets.terminateAll();
+		terminate(bullets);
+		terminate(enemies);
+		terminate(collision_map);
+		levelNo = no;
+		init(mapArr[levelNo-1]);
+		return;
+}
+
 
 /*
 levelTextFunction = function(levelText) {
@@ -163,6 +203,7 @@ levelTextFunction = function(levelText) {
 	context.globalAlpha = 1.0;
 }
 */
+
 
 
 
