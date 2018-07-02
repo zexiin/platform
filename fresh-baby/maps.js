@@ -18,9 +18,9 @@ mapArr.push({
 ]              db           %%    [X\
 ]                 3          %    [X\
 ]           %     dmmb  5  o      [X\
-]       5 o             dmmmmb    [X\
-]       r====k   R       P        [X\
-]   o   ixxxxl  !    %        !   [X\
+]       J o             dmmmmb    [X\
+]       r====k           P        [X\
+]   o   ixxxxl  !J   %        !   [X\
 ========xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
    row: 13, 
@@ -35,7 +35,7 @@ ooooxxxxxxx                                                                     
 ooooxxxxxxx                                                                                  o          xxxxx]\
 ooooxxxxxxx                     o        o                                                dmmmmmb       xxxxx]\
 ooooxxxxxxx                    dmb      dmb   8                                 R            R          xxxxx]\
-ooooxxxxxxl        6     o                    dmmmmm==k                 o          4      4     4     t xxxxx]\
+ooooxxxxxxl       J      o                    dmmmmm==k                 o          4      4     4     t xxxxx]\
 ==========l       dmmmmmmb                          ixl          ixxmmmb        ========================xxxxx]\
 xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl!        !ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -74,7 +74,7 @@ mapArr.push({
 ]            vvv     o   o      o [X\
 ]    o   o  dmmmb      4 vv  o    [X\
 ]                   o  dmmmb      [X\
-]v o        o  o   5        o     [X\
+]v o        o  o   J        o     [X\
 ]       dmmmb      dmmmmb         [X\
 ]                 ! o       o     [X\
 ]    o      %     dmmb o  o !o    [X\
@@ -108,7 +108,7 @@ mapArr.push({
 %                 ! o       o     %\
 %   o    %     dmmb o  o5!o       %\
 %        %  !  o        dmmmmb    %\
-%  !    r====k      db            %\
+%  !    r====kJ     db            %\
 %!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!!%\
 =========xxxxxx====================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
