@@ -61,12 +61,16 @@ sleep = function(ms) { // lol
 
 
 drawGame = function() {
+
+	context.fillStyle = bg_color;
+	context.fillRect(0,0,canvas.width,canvas.height);
+
 	cam.draw();
 	player.draw();
 	enemies.draw();
 	bullets.draw();
+	cam.drawOverlay();
 	
-	//levelTextFunction(levelText);
 	levelText.draw();
 	deathTexts.forEach(function(element) {
         element.display();
@@ -85,6 +89,11 @@ updateGame = function() {
 	enemies.update(); 
 	bullets.update();
 	cam.update();
+
+	document.getElementById("insert").innerHTML = "coins: " + coinCount;
+	document.getElementById("lives").innerHTML = "lives: " + livesCount;
+	document.getElementById("level").innerHTML = "level: " + levelNo;
+	document.getElementById("kills").innerHTML = "kills: " + killCount;	
 	time++;
 
 }
@@ -99,6 +108,7 @@ tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load nex
 tilesheet.src = "../assets/arcadesheet.png";
 
 var player, map, cam, collision_map, enemies, animate, time, bullets;
+var bg_color;
 
 var statBar = new StatBar();
 
@@ -117,15 +127,20 @@ function init(mapNo) {
    	canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);
 
 	context.imageSmoothingEnabled = false;
-	// player = new Player();
-	map = new Map(tilesheet, 16, 16 * scaleFactor);
-	map.init(mapNo.col, mapNo.row, mapNo.map);
 
-	cam = new Camera(player, map);
-	collision_map = new CollisionMap(map);
-	collision_map.init(mapNo.map);
+	map = new TileMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
+	collision_map = new CollisionMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
+
+	let bg_map, overlay_map;
+	if (mapNo.map_bg !== undefined) bg_map = new BGMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map_bg);
+	if (mapNo.map_overlay !== undefined) overlay_map = new OverlayMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map_overlay);
+	if (mapNo.bg_color !== undefined) bg_color = mapNo.bg_color;
+	else bg_color = "#bae4ef";
+
+	cam = new Camera(player, map, bg_map, overlay_map);
+
 	
-	if (mapNo.level === 1) player.speedUp();
+	if (mapNo.level === 1) {player.speedUp();}
 
 	enemies = new Enemies(map.tiles);
 	bullets = new Bullets();
@@ -136,18 +151,10 @@ function init(mapNo) {
 
 
 function loop() {
-	context.fillStyle = '#e1ecf2';
-	context.fillRect(0,0,canvas.width,canvas.height);
-
 	updateGame();
 	drawGame();
     animate = window.requestAnimationFrame(loop);
-
 }
-
-
-
-
 
 
 

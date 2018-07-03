@@ -9,6 +9,8 @@ this file contains menus n displays n text n shit maybe ???????
 
 function StatBar() {
 
+
+
 	this.icon_w = 8; // NOT scaled
 	this.icon_scaled = 8*scaleFactor;
 	this.coin = { x:56, y:144 };
@@ -95,17 +97,17 @@ function DeathText() {
     this.x = 20;
 	this.y = 90; 
 	this.opacity = 1.0; 
-	this.size = 20;
+	this.size = 30;
 }
 
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
- 	 context.font = this.size + "px verdana";
- 	 context.fillStyle = "#99CCBB";
+ 	 context.font = this.size + "px courier";
+ 	 context.fillStyle = "#661144";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.005;
-     context.fillText("dying is more painful if you wince", this.x, this.y);
+     context.fillText("death is inevitable", this.x, this.y);
      this.x += 0.8;
      this.y += 0.2;
      this.time--;
@@ -114,115 +116,62 @@ DeathText.prototype.display = function() {
 }
 
 var levelText = { 
-	time: 100,
+	time: 350,
 	x: 10,
-	y: 120, 
+	y: 90, 
 	opacity: 1.0 
 };
 
 levelText.reset = function() {
-	this.time = 100;
+	this.time = 350;
 	this.x = 10;
-	this.y = 120;
+	this.y = 90;
 	this.opacity = 1.0;
 };
 
 levelText.draw = function() {
 	if (this.time > 0) {
- 	 context.font = "bold 90px gadget";
- 	 context.fillStyle = "#accadb";
+ 	 context.font = "70px georgia";
+ 	 context.fillStyle = "#339999";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.0025;
  	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
      context.fillText(text1, this.x, this.y);
-     //this.x += 0.5;
-     //this.y += 0.3;
+     this.x += 0.5;
+     this.y += 0.3;
      this.time--;
 	}
 	context.globalAlpha = 1.0;
 };
 
-/*
-for (let i = 1; i <= 8; i++) {
-
-	let s = "level" + i;
-	document.getElementById().onclick = function() {
-		levelNo = i;
-		startLevel(i);
-	}
-}*/
 
 
-document.getElementById("level1").onclick = function() {
-levelNo = 1;
-startLevel(1);
-};
-document.getElementById("level2").onclick = function() {
-levelNo = 2;
-startLevel(2);
-};
-document.getElementById("level3").onclick = function() {
-levelNo = 3;
-startLevel(3);
-};
-document.getElementById("level4").onclick = function() {
-levelNo = 4;
-startLevel(4);
-};
-document.getElementById("level5").onclick = function() {
-levelNo = 5;	
-startLevel(5);
-};
-document.getElementById("level6").onclick = function() {
-levelNo = 6;
-startLevel(6);
-};
-document.getElementById("level7").onclick = function() {
-levelNo = 7;
-startLevel(7);
-};
-document.getElementById("level8").onclick = function() {
-levelNo = 8;
-startLevel(8);
-};
+
+document.getElementById("level1").onclick = function() {startLevel(1);};
+document.getElementById("level2").onclick = function() {startLevel(2);};
+document.getElementById("level3").onclick = function() {startLevel(3);};
+document.getElementById("level4").onclick = function() {startLevel(4);};
+document.getElementById("level5").onclick = function() {startLevel(5);};
+document.getElementById("level6").onclick = function() {startLevel(6);};
+document.getElementById("level7").onclick = function() {startLevel(7);};
+document.getElementById("level8").onclick = function() {startLevel(8);};
 
 function startLevel(no) {
-		player.stop = true;
+    console.log("levelno " + levelNo);
+	player.stop = true;
 
-		terminate(player);
-		terminate(map);
-		terminate(cam);
-		enemies.terminateAll();
-		bullets.terminateAll();
-		terminate(bullets);
-		terminate(enemies);
-		terminate(collision_map);
-		init(mapArr[no-1]);
-		return;
+	terminate(player);
+	terminate(map);
+	terminate(cam);
+	enemies.terminateAll();
+	bullets.terminateAll();
+	terminate(bullets);
+	terminate(enemies);
+	terminate(collision_map);
+	levelNo = no;
+	init(mapArr[levelNo-1]);
+	return;
 }
-
-
-/*
-levelTextFunction = function(levelText) {
-
-	if (levelText.time > 0) {
- 	 context.font = "70px georgia";
- 	 context.fillStyle = "#339999";
- 	 context.globalAlpha = levelText.opacity;
- 	 levelText.opacity -= 0.0025;
- 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
-     context.fillText(text1, levelText.x, levelText.y);
-     levelText.x += 0.5;
-     levelText.y += 0.3;
-     levelText.time--;
-	}
-	context.globalAlpha = 1.0;
-}
-*/
-
-
-
-
 
 
 
