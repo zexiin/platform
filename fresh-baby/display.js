@@ -95,17 +95,17 @@ function DeathText() {
     this.x = 20;
 	this.y = 90; 
 	this.opacity = 1.0; 
-	this.size = 30;
+	this.size = 20;
 }
 
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
- 	 context.font = this.size + "px courier";
- 	 context.fillStyle = "#661144";
+ 	 context.font = this.size + "px verdana";
+ 	 context.fillStyle = "#99CCBB";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.005;
-     context.fillText("death is inevitable", this.x, this.y);
+     context.fillText("dying is more painful if you wince", this.x, this.y);
      this.x += 0.8;
      this.y += 0.2;
      this.time--;
@@ -114,62 +114,79 @@ DeathText.prototype.display = function() {
 }
 
 var levelText = { 
-	time: 350,
+	time: 100,
 	x: 10,
-	y: 90, 
+	y: 120, 
 	opacity: 1.0 
 };
 
 levelText.reset = function() {
-	this.time = 350;
+	this.time = 100;
 	this.x = 10;
-	this.y = 90;
+	this.y = 120;
 	this.opacity = 1.0;
 };
 
 levelText.draw = function() {
 	if (this.time > 0) {
- 	 context.font = "70px georgia";
- 	 context.fillStyle = "#339999";
+ 	 context.font = "bold 90px gadget";
+ 	 context.fillStyle = "#accadb";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.0025;
  	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
      context.fillText(text1, this.x, this.y);
-     this.x += 0.5;
-     this.y += 0.3;
+     //this.x += 0.5;
+     //this.y += 0.3;
      this.time--;
 	}
 	context.globalAlpha = 1.0;
 };
 
+/*
+for (let i = 1; i <= 8; i++) {
+
+	let s = "level" + i;
+	document.getElementById().onclick = function() {
+		levelNo = i;
+		startLevel(i);
+	}
+}*/
+
 
 document.getElementById("level1").onclick = function() {
+levelNo = 1;
 startLevel(1);
 };
 document.getElementById("level2").onclick = function() {
+levelNo = 2;
 startLevel(2);
 };
 document.getElementById("level3").onclick = function() {
+levelNo = 3;
 startLevel(3);
 };
 document.getElementById("level4").onclick = function() {
+levelNo = 4;
 startLevel(4);
 };
 document.getElementById("level5").onclick = function() {
+levelNo = 5;	
 startLevel(5);
 };
 document.getElementById("level6").onclick = function() {
+levelNo = 6;
 startLevel(6);
 };
 document.getElementById("level7").onclick = function() {
+levelNo = 7;
 startLevel(7);
 };
 document.getElementById("level8").onclick = function() {
+levelNo = 8;
 startLevel(8);
 };
 
 function startLevel(no) {
-	    console.log("levelno " + levelNo);
 		player.stop = true;
 
 		terminate(player);
@@ -180,8 +197,7 @@ function startLevel(no) {
 		terminate(bullets);
 		terminate(enemies);
 		terminate(collision_map);
-		levelNo = no;
-		init(mapArr[levelNo-1]);
+		init(mapArr[no-1]);
 		return;
 }
 
