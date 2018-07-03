@@ -13,11 +13,12 @@ function CollisionMap(map) {
 	this.cols = map.cols;
 	this.rows = map.rows;
 	this.scaled = map.scaled;
-}
 
-CollisionMap.prototype.init = function(stringRep) { 
-	this.tiles = stringRep.split(''); 
-};
+	this.init = function(stringRep) { 
+		this.tiles = stringRep.split(''); 
+	};
+
+}
 
 CollisionMap.prototype.getTile = function(col, row) {
 	let tile = this.tiles[row * this.cols + col];
@@ -33,15 +34,21 @@ CollisionMap.prototype.getTile = function(col, row) {
 
     	case "_": return 4;  // bottom
     	case "=": return 5;  // top
+    	case "-": return 5;  // top
     	case "m": return 5;  // top
     	case "d": return 6;  // top & left
+    	case "y": return 6;  // top & left
     	case "r": return 6;  // top & left
     	case "b": return 7;  // top & right
-    	case "k": return 7;  // top & left
+    	case "j": return 7;  // top & right
+    	case "k": return 7;  // top & right
     	
-        case "o": return 20;  // COIN
-        case "t": return 21;  // TREASURE, NEXT LEVEL
-        case "!": return 22;  // SPIKE, DIE
+        case "o": return 20; // COIN
+        case "t": return 21; // TREASURE, NEXT LEVEL
+        case "!": return 22; // SPIKE, DIE
+
+        case "~": return 30; // WATER, pls
+        case "I": return 31; // ICE, pls
 
 
 
@@ -63,6 +70,9 @@ function collisionHandler(player, map) {
 	// these values get updated with each check because the collide function can change player coords
 	let colMin, colMax, rowMin, rowMax, tile;
 
+	// currently checks 4 tiles because that's the max space current sprite can occupy
+	// if sprite bounding box exceeds 16x16, add more checks accordingly
+
 	// nw
 	colMin = Math.floor(player.bound.x/map.scaled);
 	rowMin = Math.floor(player.bound.y/map.scaled);
@@ -76,20 +86,6 @@ function collisionHandler(player, map) {
 	tile = { col: colMax, row: rowMin, tsize: map.scaled };
 	collide(player, tile, map);
 	if (player.stop) return;
-
-	/* // these checks are unnecessary unless the sprite gets longer lol
-	//  w
-	colMin = Math.floor(player.bound.x/map.scaled);
-	rowMin = Math.floor(player.bound.y/map.scaled);
-	tile = { col: colMin, row: rowMin+1, tsize: map.scaled };
-	collide(player, tile, map);
-
-	//  e
-	colMax = Math.floor((player.bound.x+player.bound.w)/map.scaled);
-	rowMin = Math.floor(player.bound.y/map.scaled);
-	tile = { col: colMax, row: rowMin+1, tsize: map.scaled };
-	collide(player, tile, map);
-	*/
 
 	// sw
 	colMin = Math.floor(player.bound.x/map.scaled);
@@ -141,7 +137,9 @@ function collisionHandler(player, map) {
 // given a tile id#, returns object that tells which sides to check for collisions.
 // replace with logic grid instead of maptiles for less code repetition
 function collisionType(tile_ID) {
-	var collisions = { n: false, s: false, e: false, w: false, coin: false, treasure: false, spike: false };
+	var collisions = { n: false, s: false, e: false, w: false, 
+					   coin: false, treasure: false, spike: false, 
+					   water: false, ice: false };
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -184,6 +182,15 @@ function collisionType(tile_ID) {
 			collisions.spike = true;
 			return collisions;	
 
+		case 30: // water
+			collisions.water = true;
+			return collisions;
+
+		case 31: // ice
+			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
+			collisions.ice = true;
+			return collisions;
+
 
 		default: return collisions; // default: no collision.
 	};
@@ -220,7 +227,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
-	        player.stop = true;
+		player.stop = true;
 
 		terminate(player);
 		terminate(map);
@@ -242,12 +249,42 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	}
 
+
+	if (tile.collisions.water) {
+
+		// if player is moving down into water
+		if (player.bound.y+player.bound.h > tile.y+tile.h*0.5 && !player.inWater) { 
+			//console.log("collide north of water");
+			player.inWater = true;
+			player.setWater();
+			player.jumping = false;
+			player.y += player.y_vel;
+			player.updateBoundingBox;
+			return;
+		}
+
+		// if player is moving up out of water
+		if (player.bound.y+player.bound.h < tile.y+tile.h*0.5 && player.inWater) {
+			//console.log("collide south of water: " +player.x.toFixed(2) +","+player.y.toFixed(2));
+			player.inWater = false;
+			player.Y_ACCEL = player.Y_ACCEL*3;
+			player.GRAVITY = 0.1*scaleFactor;
+			return;
+		}
+
+	}
+
+	
+
+
 	const saveMePlease = 2*scaleFactor; // I GUESS ??????????????
 
 	if(tile.collisions.n) {
 		// if player is moving down into a tile with north collision
 		if (player.bound.y+player.bound.h > tile.y &&  player.bound.y_prev+player.bound.h <= tile.y + saveMePlease) { 
 			// for debug // console.log("collide north of tile "+tile.id);
+			if (!player.inWater) player.setPhysics();
+			if (tile.collisions.ice) player.setIce();
 			player.y = tile.y - player.bound.h - player.bound.y_offset - 0.1;
 			player.y_vel = 0;
 			player.jumping = false;
