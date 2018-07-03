@@ -168,6 +168,9 @@ class CollisionMap extends Map {
 
 	        case "~": return 30; // WATER, pls
 	        case "I": return 31; // ICE, pls
+		case "È": return 31.1; // ICE after u hit it once, pls
+                case "Ê": return 31.2; // ICE after u hit it twice, pls
+		
 
 
 
