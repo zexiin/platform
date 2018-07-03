@@ -86,7 +86,7 @@ function collisionHandler(player, map) {
 function collisionType(tile_ID) {
 	var collisions = { n: false, s: false, e: false, w: false, 
 					   coin: false, treasure: false, spike: false, 
-					   water: false, ice: false };
+					   water: false, ice: false, ice2: false, ice3: false };
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -146,6 +146,17 @@ function collisionType(tile_ID) {
 			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
 			collisions.ice = true;
 			return collisions;
+			
+		case 31.1: // ice in subpar condition
+			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
+			collisions.ice2 = true;
+			return collisions;	
+
+		case 31.2: // ice in subpar condition
+			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
+			collisions.ice3 = true;
+			return collisions;	
+	
 
 
 		default: return collisions; // default: no collision.
@@ -241,6 +252,12 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			// for debug // console.log("collide north of tile "+tile.id);
 			if (!player.inWater) player.setPhysics();
 			if (tile.collisions.ice) player.setIce();
+			
+			// if he's going down and key down is pressed:
+			if (player.y_vel > 2.5 && control.down) {
+				iceHandler(tile, tile_obj, layer);
+			} 
+			
 			player.y = tile.y - player.bound.h - player.bound.y_offset - 0.1;
 			player.y_vel = 0;
 			player.jumping = false;
@@ -301,7 +318,20 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 } 
 
 
+function iceHandler(tile, tile_obj, layer) {
 
+	let c;
+    
+    if (tile.collisions.ice) { c = "È"; }
+    else if (tile.collisions.ice2) { c = "Ê"; }
+    else if (tile.collisions.ice3) { c = "É"; }
+    else return;
+
+	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
+    layer.tiles[tileIndex] = c;
+    map.tiles[tileIndex] = c;	
+
+}
 
 
 
