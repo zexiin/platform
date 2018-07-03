@@ -72,8 +72,9 @@ Map.prototype.getTile = function(col, row) {
 
     	case "~": return 176; // water
     	case "I": return 133;
-       
-
+    	case "È": return 133;
+    	case "Ê": return 133;
+      
 
     	case "o": return 159; // coin
     	// coin shinies this is not productive but i want pretty sparkles ok
