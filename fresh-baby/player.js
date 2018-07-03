@@ -23,12 +23,9 @@ function Player(x, y) {
 	}
 
 	this.camCoords = {}; 
-	
-    this.GRAVITY = 0.15*scaleFactor; //0.15
-	this.X_ACCEL = 0.2*scaleFactor; // 0.25
-	this.Y_ACCEL = 6*scaleFactor;
-	this.Y_FLOAT = 1 + 0.03*scaleFactor; // idk lol
-	this.FRICTION = 0.83;
+
+	this.setPhysics();
+
 	this.w = 32*scaleFactor;
 	this.h = 32*scaleFactor;
 
@@ -49,14 +46,15 @@ function Player(x, y) {
 		y: 0
 	};
 	this.facingRight = true;
+	this.inWater = false;
 
 }
 
 
 
-  ////////////////////
- // update physics //
-////////////////////
+  /////////////
+ // update  //
+/////////////
 
 
 Player.prototype.update = function() {
@@ -64,7 +62,7 @@ Player.prototype.update = function() {
 	// handle controls
 		if (control.up && !this.jumping) {
 	      this.y_vel -= this.Y_ACCEL;
-	      this.jumping = true;
+	      if (!this.inWater) this.jumping = true;
 	  	}
 	    if (control.left) {
 	      this.x_vel -= this.X_ACCEL;
@@ -74,8 +72,11 @@ Player.prototype.update = function() {
 	      this.x_vel += this.X_ACCEL;
 	      this.facingRight = true;
 	  	}
+	  	if (control.down && this.inWater) {
+	  		this.y_vel += this.Y_ACCEL*0.5;
+	  	}
 
-	  	if(this.y_vel < 0) {this.y_vel *=this.Y_FLOAT}
+	  	if(this.y_vel < 0) {this.y_vel *= this.Y_FLOAT;}
 
     this.y_vel += this.GRAVITY;
     this.x += this.x_vel;
@@ -87,35 +88,20 @@ Player.prototype.update = function() {
 	  this.y_vel *= 0.9;
 	}
 	else {
-	  this.x_vel *= this.FRICTION;
-	  this.y_vel *= this.FRICTION;
+	  this.x_vel *= this.X_FRICTION;
+	  this.y_vel *= this.Y_FRICTION;
 	}	
+
+
 	// player's camera coordinates are updated in Camera.update()
 	
 	// ATTACK updates
-	// STARTS
 	  	if (control.attack && this.attack.state === "idle") {
 	  		console.log("start");
 	  		this.attack.state = "ongoing";
 	  		this.attack.time = this.attack.delay_time;
 	  	}
         
-
-        /*
-        // DECREMENT COUNTER
-	  	if (this.attack.state !== "idle") {
-	  		console.log("timedown" + this.attack.time);
-	  		this.attack.time--;
-	  	}
-
-	  	if (this.attack.time == this.attack.delay_time) {
-	  		console.log("delayin");
-	  		this.attack.state = "delay";
-	  	}
-	  	*/
-
-	  	// i changed it so that the active attack time is based on the attack animation
-
 	  	if (this.attack.state === "delay") {
 	  		console.log("delaying");
 	  		this.attack.time--;
@@ -127,7 +113,6 @@ Player.prototype.update = function() {
 	  		this.attack.time = -1;
 	  	}
 
-	  	
 
 	this.updateBoundingBox();
 
@@ -188,22 +173,9 @@ Player.prototype.reset = function() {
 	this.x_vel = 0;
 	this.y_vel = 0;
 	this.jumping = true;
-	this.updateBoundingBox;
-};
-
-Player.prototype.slowDown = function() {
-
-	this.GRAVITY = 0.2*scaleFactor*0.5; //0.15
-	this.X_ACCEL = 0.4*scaleFactor*0.5; // 0.25
-
-};
-Player.prototype.speedUp = function() {
-
-	this.GRAVITY = 0.14*scaleFactor*1.5; //0.15
-	this.X_ACCEL = 0.4*scaleFactor*2; // 0.25
-	this.Y_ACCEL = 7*scaleFactor*1.3;
-	this.animation.delay = 10;
-	this.Y_FLOAT = 1.04;
+	this.inWater = false;
+	this.setPhysics();
+	this.updateBoundingBox();
 };
 
 Player.prototype.die = function() {
@@ -220,6 +192,55 @@ Player.prototype.die = function() {
 	bullets = new Bullets();
 
 };
+
+
+
+
+  /////////////
+ // physics //
+/////////////
+
+
+Player.prototype.setPhysics = function () { // reset regular player physics
+	this.GRAVITY = 0.15*scaleFactor; //0.15
+	this.X_ACCEL = 0.2*scaleFactor; // 0.25
+	this.Y_ACCEL = 6*scaleFactor;
+	this.Y_FLOAT = 1 + 0.03*scaleFactor; // idk lol
+	this.X_FRICTION = this.Y_FRICTION = 0.83;
+}
+
+Player.prototype.slowDown = function() {
+
+	this.GRAVITY = this.GRAVITY * 0.75; //0.15
+	this.X_ACCEL = this.X_ACCEL * 0.5; // 0.25
+
+};
+
+Player.prototype.speedUp = function() {
+
+	this.GRAVITY = this.GRAVITY * 2;
+	this.X_ACCEL = this.X_ACCEL * 2;
+	this.Y_ACCEL = this.Y_ACCEL * 1.5;
+	this.animation.delay = 10;
+	this.Y_FLOAT = 1.04;
+};
+
+Player.prototype.setWater = function () { 
+	this.GRAVITY = 0.05*scaleFactor; 
+	this.X_ACCEL = 0.17*scaleFactor; 
+	this.Y_ACCEL = 0.3*scaleFactor;
+	this.Y_FLOAT = 1 + 0.03*scaleFactor; 
+	this.X_FRICTION = this.Y_FRICTION = 0.73;
+};
+
+Player.prototype.setIce = function() {
+	this.X_ACCEL = 0.05*scaleFactor;
+	this.Y_ACCEL = 5*scaleFactor;
+	this.X_FRICTION = 0.99;
+
+};
+
+
 
 
 
