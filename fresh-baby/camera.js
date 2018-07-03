@@ -12,16 +12,15 @@ function Map(tilesheet, tilesize, scaledsize) {
 	this.tilesheet = tilesheet;
 	this.tsize = tilesize;
 	this.scaled = scaledsize;
+	this.init = function(c, r, stringRep) { 
+		this.cols = c;
+		this.rows = r;
+
+		this.tiles = stringRep.split('');
+		// find player and initialise player object
+		this.findPlayer();
+	};
 }
-
-Map.prototype.init = function(c, r, stringRep) { 
-	this.cols = c;
-	this.rows = r;
-
-	this.tiles = stringRep.split('');
-	// find player and initialise player object
-	this.findPlayer();
-};
 
 
 // find and create player 
@@ -65,6 +64,14 @@ Map.prototype.getTile = function(col, row) {
     	case "=": return 103;
     	case "r": return 102;
     	case "k": return 104;
+    	case "-": return 213; // dirt top
+    	case "y": return 212; // dirt topleft corner
+    	case "j": return 214; // dirt topright
+
+    	case "_": return 147;
+
+    	case "~": return 176; // water
+    	case "I": return 133;
        
 
 
@@ -82,6 +89,8 @@ Map.prototype.getTile = function(col, row) {
     }
 
 };
+
+
 
 
 
@@ -147,8 +156,6 @@ Camera.prototype.update = function() {
 
 	this.following.camCoords = this.mapToCam(this.following.x, this.following.y);
 	
-
-
 };
 
 
@@ -172,9 +179,8 @@ Camera.prototype.getTileFrame = function(tile_ID) {
 
 
 Camera.prototype.draw = function() {
-	
 
-	
+	//context.fillRect();
 
 	// calculate which rows/cols are visible.
 	let leftCol = Math.floor(this.x / this.map.scaled);  
