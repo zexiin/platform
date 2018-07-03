@@ -122,16 +122,16 @@ Player.prototype.updateAnimation = function() {
 
 	if (this.facingRight) {
 		if (this.attack.state === "ongoing") this.animation.state = "attack_right";
-		else if (this.y_vel < -1) this.animation.state = "jump_right";
-		else if (this.y_vel > 1) this.animation.state = "land_right";
-		else if (this.x_vel > 1) this.animation.state = "walk_right";
+		else if (this.y_vel < -0.5) this.animation.state = "jump_right";
+		else if (this.y_vel > 0.5) this.animation.state = "land_right";
+		else if (control.right) this.animation.state = "walk_right";
 		else this.animation.state = "idle_right";
 	}
 	else {
 		if (this.attack.state === "ongoing") this.animation.state = "attack_left";
-		else if (this.y_vel < -1) this.animation.state = "jump_left";
-		else if (this.y_vel > 1) this.animation.state = "land_left";
-		else if (this.x_vel < -1) this.animation.state = "walk_left";
+		else if (this.y_vel < -0.5) this.animation.state = "jump_left";
+		else if (this.y_vel > 0.5) this.animation.state = "land_left";
+		else if (control.left) this.animation.state = "walk_left";
 		else this.animation.state = "idle_left";
 	}
 
