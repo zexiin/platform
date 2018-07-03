@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 {
-	font-family: verdana;
+  font-family: verdana;
   font-size: 15pt;
   text-transform: lowercase;
   color: #AAAAAA;
@@ -47,7 +47,7 @@ li {
 
 .navbar a {
   text-decoration: none;
-  color: #ffffff;
+  color: #ff0000;
 }
 
 .levels {
@@ -55,6 +55,16 @@ li {
   font-size: 20pt;
   text-transform: uppercase;
   color: #ffffff;
+}
+
+.right {
+   color: #555555;
+   font-family: verdana;
+   font-size: 15pt;
+   left: 600px;
+   position:fixed;
+   height: 410px;
+   width: 400px;
 
 }
 
@@ -62,9 +72,9 @@ li {
 canvas {
   margin-left: 45px;
   letter-spacing: -2px;
-	position: fixed;
-	left:10px;
-	border-style: solid;
-	border-width: 5px;
-	border-color: #333333;
+  position: fixed;
+  left:10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #333333;
 }
