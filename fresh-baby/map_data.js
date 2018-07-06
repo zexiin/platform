@@ -432,4 +432,33 @@ xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxxx=============================================ixxxx]"
 
 
-})
+});
+
+mapArr.push({
+  level: 10,
+  row: 21,
+  col: 35,
+  map: "\
+]                                 [\
+]                                 [\
+]                                 [\
+]   P                         o   [\
+]                o                [\
+]IIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIII[\
+]                                 [\
+] J     o           5             [\
+]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
+]                                 [\
+]            o      J             [\
+]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
+]                                 [\
+]   R            o              o [\
+]IIIIIIIIII%%%%%%IIIIIIIIIIIIIIIII[\
+]                                 [\
+]    o   R         o      o    t  [\
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
+===================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  
+ });
