@@ -406,10 +406,10 @@ X]                 3                            o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxl                   4         ixxxx]\
 X]                ixxxxxl     5                       ixxxx]\
-X]         dmb    ixxxxxl                      %      ixxxx]\
-X]  P   %~~~~~~~~~ixxxxxl           J                 ixxxx]\
-X]     !%       o ixxxxxl 9                           ixxxx]\
-========%  o  o   ixxxxxl                        t    ixxxx]\
+X]         dmb    ixlooil                      %      ixxxx]\
+X]  P   %~~~~~~~~~ixlooil           J                 ixxxx]\
+X]     !%       o ixl     9                           ixxxx]\
+========%  o  o   ixx===k                        t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
   map_bg: "\
@@ -425,9 +425,9 @@ X]                                              o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]         dmb    ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]      %~~~~~~~~~ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]     !%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]         dmb    ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]      %~~~~~~~~~ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 ========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxxx=============================================ixxxx]"
