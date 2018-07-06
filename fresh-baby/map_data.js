@@ -155,7 +155,7 @@ mapArr.push({
   level: 3,
   row: 24,
   col: 48,
-  bg_color: "#f0fff6",
+  bg_color: "#3f8f6e",
   map: "\
 l                                             ix\
 l                                             ix\
@@ -166,14 +166,14 @@ l                                             ix\
 l                                             ix\
 l                                             ix\
 l ooooooooooooooooooooooooooooo               ix\
-l ooooooooooooooooooooooooooooo               ix\
+ltooooooooooooooooooooooooooooo               ix\
 x==================================mmb        ix\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl           ix\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl        dmmxx\
 xxx______________________xxxxxxxxxl           ix\
 xxl                      ixxxxxxxxxmmb        ix\
 xxl                      L________K           ix\
-xxl                                        dmmxx\
+xxl                         R              dmmxx\
 xxl   P                                    !!!ix\
 xxl~~~~~~~~~~~~~~~~~~~~~~r====================xx\
 xxl                      ixxxxxxxxxxxxxxxxxxxxxx\
@@ -186,10 +186,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 l.............................................ix\
 l...................{}........................ix\
 l...{}.........C.........C....................ix\
-l............C..........{}....................ix\
-l.............................................ix\
 la....a....a....a....a....a....a....a....a....ix\
-eAbcdeAbcdeAbcdeAbcdeAbcdeAbcdeAbcdeAbcdeAbcdeix\
+e:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcdeix\
+fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgix\
+FGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGix\
 123123123  123123 123123                      ix\
 456456456  456456 456456                      ix\
 789789789  789789 789789   v    v             ix\
@@ -235,7 +235,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   
 
  });
-
 mapArr.push({
   level: 4,
   row: 21,
