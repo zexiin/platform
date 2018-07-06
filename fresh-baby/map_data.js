@@ -448,14 +448,14 @@ mapArr.push({
 ]                                 [\
 ] J     o           5             [\
 ]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
-]                                 [\
-]            o      J             [\
+]                   J             [\
+]            o                    [\
 ]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
-]                                 [\
-]   R            o              o [\
+]   R                             [\
+]                o              o [\
 ]IIIIIIIIII%%%%%%IIIIIIIIIIIIIIIII[\
-]                                 [\
-]    o   R         o      o    t  [\
+]        R                        [\
+]    o             o      o    t  [\
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
 ===================================\
