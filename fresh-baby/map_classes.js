@@ -22,11 +22,8 @@ class Map { // basic map constructor and functions. all others just override get
 	}
 
 	getTile(col, row) {
-		let tile = this.tiles[row * this.cols + col];
-		return;
 		// child classes should override this function for their respective shit
 	}
-
 
 	// debugging function to view full map. 
 	drawMap() {
@@ -108,8 +105,8 @@ class TileMap extends Map {
 
 	    	case "~": return 220; // water blue 176
 	    	case "I": return 133; // ice
-	    	case "È": return 133;
-	    	case "Ê": return 133;
+		    	case "È": return 182;
+		    	case "Ê": return 183;
 	       
 
 
@@ -168,10 +165,6 @@ class CollisionMap extends Map {
 
 	        case "~": return 30; // WATER, pls
 	        case "I": return 31; // ICE, pls
-		case "È": return 31.1; // ICE after u hit it once, pls
-                case "Ê": return 31.2; // ICE after u hit it twice, pls
-		
-
 
 
 	    	default: return;
@@ -212,7 +205,7 @@ class BGMap extends Map {
 
 	    	// biggie clouds
 	    	case "a": return 309;
-	    	case "A": return 331;
+	    	case ":": return 331; // white
 	    	case "b": return 332;
 	    	case "c": return 333;
 	    	case "d": return 334;
@@ -222,6 +215,11 @@ class BGMap extends Map {
 	    	case "C": return 290; // single cloud
 	    	case "{": return 265; // halfcloud left
 	    	case "}": return 266; // halfcloud right
+
+	    	case "f": return 353; // grassy hillz
+	    	case "g": return 354;
+	    	case "F": return 375;
+	    	case "G": return 376;
 
 
 
