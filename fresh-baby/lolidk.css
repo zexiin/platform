@@ -49,13 +49,14 @@ li {
 ul li:hover {
   cursor: pointer;
   color: #bbbbbb;
-  margin-left: 15px;
+  margin-left: 2px;
+
 }
 
 ul li:active {
   cursor: pointer;
   color: #AAAAAA;
-  margin-left: 15px;
+  margin-left: 2px;
 }
 
 
