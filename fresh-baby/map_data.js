@@ -66,28 +66,28 @@ mapArr.push({
   row: 27, 
   col: 110,
   map: "\
-xxxxxxxxxxl                                                                                             xxxxx]\
-xxxxxxxxxxx                                                                                             xxxxx]\
-ooooxxxxxxx                                                                                             xxxxx]\
-ooooxxxxxxx                                                                                  o          xxxxx]\
-ooooxxxxxxx                     o        o                                                dmmmmmb       xxxxx]\
-ooooxxxxxxx                    dmb      dmb   8                                 R            R          xxxxx]\
-ooooxxxxxxl       J      o                    dmmmmm==k                 o          4      4     4     t xxxxx]\
-==========l       dmmmmmmb                          ixl          ixxmmmb        ========================xxxxx]\
+xxxxxxxxxxl                                                                                             ixxxx]\
+____xxxxxxl                                                                                             ixxxx]\
+ooooixxxxxl                                                                                             ixxxx]\
+ooooixxxxxl                                                                                  o          ixxxx]\
+ooooixxxxxl                     o        o                                                dmmmmmb       ixxxx]\
+ooooR_____K                    dmb      dmb   8                                 R            R          ixxxx]\
+oooo              J      o                    dmmmmm==k                 o          4      4     4     t ixxxx]\
+==========l       dmmmmmmb                          ixl          ixxmmmb        r=======================xxxxx]\
 xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl!        !ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                             7    3      ixl          ixl o          ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                       o    dmmmIIImmb   ixl!       o!ixxmmb         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl     IIIII                               ixl          xxl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   dmmb                  ixl                      o  ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                             7    3      ixl          ixl o          ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                       o    dmmmIIImmb   ixl!       o!ixxmmb         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl     IIIII                               ixl          R_K            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                   dmmb                  ixl                      o  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl               o                         ixl     o               dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxlP                                        ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl            dmmb                         ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl========k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixl            dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxlP                                        ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl            dmmb                         ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxx========k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixl            r============xxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxl                                ixl!!!!===!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxl                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxl!  !  !  !  !  !  !  !  !  !  ! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxl                                ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxl!  !  !  !  !  !  !  !  !  !  ! ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxx--------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
