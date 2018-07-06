@@ -1,306 +1,378 @@
-// map for starting positions of enemy
 
-// needs acceleration, x, y 
+/**********
 
-// collection of enemies
-function Enemies(arrayRep) {
+trying to class enemies too
 
-	this.enemyBag = [];
+**********/
 
-	// j is the length of the path the enemy is supposed to travel along
-	for (let j = 2; j <= 9; j++) {
 
-		let enemyIndex = getAllIndexes(arrayRep, j.toString());
+class Enemy {
 
-		for (let i = 0; i < enemyIndex.length; i++) {
+	constructor(gen, physics, boundary) {
+		/* PARAMETERS. so many dam
+			gen: {x, y, w, h, path_length}
+			physics: {x_vel, y_vel, x_accel, y_accel, gravity}
+			boundary: {w, h, x_offset, y_offset}
+		*/
 
-		let y = Math.floor(enemyIndex[i] / map.cols);
-		let x = Math.floor(enemyIndex[i] % map.cols);
+		this.x = this.xinit = gen.x;
+		this.y = this.yinit = gen.y;
 
-		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 16 * scaleFactor * j, "blue"));
-	    }
+		this.x_vel = physics.x_vel * scaleFactor;
+		this.y_vel = physics.y_vel * scaleFactor;
+
+		this.camCoords = {}; 
+		this.setPhysics(physics.x_accel, physics.y_accel, physics.gravity);
+
+		this.w = gen.w*scaleFactor;
+		this.h = gen.h*scaleFactor;
+
+		this.bound = {
+			x:0, 
+			y:0,
+			x_prev: 0,
+			y_prev: 0,
+			w: boundary.w*scaleFactor, //13
+			h: boundary.h*scaleFactor, // 19
+			x_offset: boundary.x_offset*scaleFactor, // 10
+			y_offset: boundary.y_offset*scaleFactor
+		};
+
+		this.frame = {}; // clipping coordinates of current animation frame
+		
+		this.length = gen.path_length;
+		this.curDist = 0;
 
 	}
 
-	// TANK
+	setPhysics(x_ac, y_ac, g) {
+		this.GRAVITY = g*scaleFactor; //0.15
+		this.X_ACCEL = x_ac*scaleFactor; // 0.25
+		this.Y_ACCEL = y_ac*scaleFactor;
+		this.Y_FLOAT = 1 + 0.01*scaleFactor; // idk lol
+		this.X_FRICTION = this.Y_FRICTION = 0.83;
+	}
 
-	    let enemyIndex = getAllIndexes(arrayRep, "R");
+	update() {
 
-		for (let i = 0; i < enemyIndex.length; i++) {
-
-		let y = Math.floor(enemyIndex[i] / map.cols);
-		let x = Math.floor(enemyIndex[i] % map.cols);
-
-		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 16 * scaleFactor * 4, "tank"));
-
-        }
-
-    // JUMP
-
-       let enemyIndex2 = getAllIndexes(arrayRep, "J");
-
-		for (let i = 0; i < enemyIndex2.length; i++) {
-
-		let y = Math.floor(enemyIndex2[i] / map.cols);
-		let x = Math.floor(enemyIndex2[i] % map.cols);
-
-		this.enemyBag.push(new Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 0, 16 * scaleFactor * 6, "jump"));
-
-        }
-
-
-}
-
-// helper method
-function getAllIndexes(arr, val) {
-
-    var indexes = []; 
-    let i = -1;
-
-    while ((i = arr.indexOf(val, i+1)) != -1){
-        indexes.push(i);
-    }
-
-    return indexes;
-}
-
-Enemies.prototype.update = function() {
-
-	this.enemyBag.forEach(function(element) {
-    element.update();
-   });
-}
-
-Enemies.prototype.draw = function() {
-
-	this.enemyBag.forEach(function(element) {
-    element.draw(cam);
-   
-   });
-}
-
-Enemies.prototype.terminateAll = function() {
-
-	this.enemyBag.forEach(function(element) {
-    terminate(element);
-
-   });
-}
-
-// single enemy
-function Enemy(x, y, a, l, type) {
-
-	    this.type = type;
-	
-		this.x = x;
-		this.y = y;
-
-		this.x_vel = 0.3 * scaleFactor;
-		this.X_ACCEL = a;
-
-        if (type == "blue" || type == "jump") {
-		this.w = 16 * scaleFactor;
-		this.h = 16 * scaleFactor;
-	    }
-
-	    else if (type == "tank") {
-	    this.w = 32 * scaleFactor;
-		this.h = 32 * scaleFactor;	
-	    }
-
-	    if (type == "jump") {
-	    	this.y_init = this.y;
-	    	this.y_vel = this.jump_vel = -3 * scaleFactor;
-	    	this.GRAVITY = 0.15 * scaleFactor;
-	    	this.x_vel = 0.25 * scaleFactor;
-	    }
-
-		this.length = l; // length of path enemy is to travel
-		this.currDist = 0; // distance he has travelled on current path (if it reaches l it turns around)
-}
-
-// with each update: update x-vel of enemy
-// check for collision with edge of platform, if is, reverse x_vel
-// it's not rly collision tho
-
-Enemy.prototype.update = function() {
-
-	if (this.type == "jump") {
-
+		this.x_vel += this.X_ACCEL;
+		this.x += this.x_vel;
+		this.curDist += this.x_vel;
 		this.y_vel += this.GRAVITY;
-		console.log("yvel " + this.y_vel);
-
 		this.y += this.y_vel;
 
-		if (this.y > this.y_init) {
-		this.y = this.y_init;
-		this.y_vel *= -0.97;
-	    }
+		if (Math.abs(this.curDist) > this.length) this.turn();
+
+		this.checkKill();
+
+		this.updateBoundingBox();
+		this.camCoords = cam.mapToCam(this.x, this.y);
+	}
+
+	updateBoundingBox() {
+		this.bound.x_prev = this.bound.x;
+		this.bound.y_prev = this.bound.y;
+		this.bound.x = this.x + this.bound.x_offset;
+		this.bound.y = this.y + this.bound.y_offset;
+	}
+
+	die() {
+		this.x = this.y = -100;
+		this.setPhysics(0,0,0);
+		this.x_vel = this.y_vel = 0;
+	}
+
+	checkKill() {
+
+		let enemy_left = this.bound.x; let enemy_top = this.bound.y;
+		let enemy_right = this.bound.x + this.bound.w; let enemy_bottom = this.bound.y + this.bound.h;
+
+		// replace w overlap ? {!}
+
+		if(!(enemy_left < player.bound.x+player.bound.w && enemy_right > player.bound.x)) return;
+
+		if (player.bound.y + player.bound.h > enemy_top) {
+
+			// if player is jumping down onto enemy
+			if(player.bound.y_prev+player.bound.h <= enemy_top) {
+				killCount++;
+				this.die();
+				player.y_vel *= -4;
+				return;
+			}
+
+			else if (enemy_bottom > player.bound.y) {
+
+				if (player.attack.state === "ongoing") {
+					killCount++;
+					this.die();
+				}
+				else player.die();
+
+			}
+			
+		}
 
 	}
 
-	this.x_vel += this.X_ACCEL;
 
-	this.x += this.x_vel;
-
-	this.currDist += this.x_vel;
-
-	if (Math.abs(this.currDist) > this.length) { 
-		this.turn();
+	turn() {
+		this.x_vel *= -1;
+		this.curDist = 0;
 	}
 
-	this.checkKill();
+	draw() {
+		this.updateAnimation();
+		if(this.bound.x+this.bound.w >= cam.x && this.bound.x <= cam.x+cam.w 
+			&& this.bound.y+this.bound.h >= cam.y && this.bound.y <= cam.y+cam.h) {
+
+			context.drawImage(tilesheet, 
+				this.frame.x, this.frame.y, this.w/scaleFactor, this.h/scaleFactor, 
+				this.camCoords.x, this.camCoords.y, this.w, this.h );
+
+		}
+
+	}
 
 }
 
-Enemy.prototype.die = function() {
-	this.x = this.y = -100;
-	this.x_vel = this.X_ACCEL = 0;
+
+
+
+
+
+class Blue_Enemy extends Enemy {
+
+	constructor(x, y, path_length) {
+		let gen = { 
+			x: x, y: y,
+			w: 16, h: 16,
+			path_length: path_length
+		};
+		let physics = {
+			x_vel: 0.2, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
+		};
+		let boundary = {
+			w: 10, h: 11, x_offset:3, y_offset: 5,
+		};
+		super(gen, physics, boundary);
+		this.frame = {x:96,y:0};
+	}
+
 }
 
-Enemy.prototype.checkKill = function() {
 
-	let xEnd = this.x + this.w;
-	let yEnd = this.y + this.h;
 
-	if (!(this.x < (player.bound.x + player.bound.w) && xEnd > player.bound.x)) return;
 
-	// if player is moving down onto the enemy
-	if (player.bound.y + player.bound.h > this.y &&  player.bound.y_prev + player.bound.h <= this.y) { 
-            
-            	killCount++;
 
-            this.die();
-            player.y_vel *= -4;
-            return;
+
+
+
+
+
+class Jump_Enemy extends Enemy {
+
+	constructor(x, y, path_length) {
+		let gen = { 
+			x: x, y: y,
+			w: 16, h: 32,
+			path_length: path_length
+		};
+		let physics = {
+			x_vel: 0.25, y_vel: 0, x_accel: 0, y_accel: -1.4, gravity: 0.05
+		};
+		let boundary = {
+			w: 10, h: 16, x_offset:3, y_offset: 16,
+		};
+		super(gen, physics, boundary);
+		this.frame = {x:96,y:16}; // replace w animation 
+	}
+
+	update() {
+		super.update();
+		if (this.y > this.yinit) {
+
+			this.y = this.yinit;
+			this.y_vel = this.Y_ACCEL;
+		}
+
+		if (this.y_vel < 0) {
+			this.y_vel *= 1.02;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+class Tank_Enemy extends Enemy {
+
+	constructor(x, y, path_length) {
+		let gen = { 
+			x: x, y: y,
+			w: 32, h: 32,
+			path_length: path_length
+		};
+		let physics = {
+			x_vel: 0.25, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
+		};
+		let boundary = {
+			w: 24, h: 26, x_offset:3, y_offset: 6, // this big boi can intersect 9 tiles at once
+		};
+		super(gen, physics, boundary);
+		this.bulletDelay = 500;
+		this.frame = {x:0,y:64}; // replace w animation 
+	}
+
+	update() {
+		super.update();
+		if(time%this.bulletDelay === 0) {
+			let x_offset = -6*scaleFactor;
+			let y_offset = 13*scaleFactor;
+			if(this.x_vel > 0) x_offset = 21*scaleFactor; // facing right
+			bullets.bag.push(new Bullet(this.x+x_offset,this.y+y_offset,this.x_vel,this.y_vel));
+		}
+	}
+
+
+}
+
+
+
+class Bullet extends Enemy {
+
+	constructor(x, y, x_dir, y_dir) {
+		let gen = { 
+			x: x, y: y,
+			w: 16, h: 16, // 16,16
+			path_length: 0
+		};
+		let physics = {
+			x_vel: x_dir, y_vel: y_dir, x_accel: 0, y_accel: 0, gravity: 0
+		};
+		let boundary = {
+			w: 4, h: 4, x_offset:6, y_offset: 7,  // 4,4,6,7
+		};
+		super(gen, physics, boundary);
+		this.frame = {x:80,y:64}; // replace w animation 
+	}
+
+	update() {
+		if(overlap(this.bound, player.bound)) player.die();
+		else {
+			this.x += this.x_vel;
+			this.y += this.y_vel;
+			this.updateBoundingBox();
+			this.camCoords = cam.mapToCam(this.x, this.y);
+		}
 
 	}
 
-	if (this.y < (player.bound.y + player.bound.h) && yEnd > player.bound.y ) {
-		
-		if (player.attack.state === "ongoing") { 
-		   	killCount++;
+}
 
-		   this.die(); 
-		   return;
+
+
+
+
+class Bag {
+	constructor() { this.bag = []; }
+	update() {
+		this.bag.forEach(function(element) {element.update();});
+	}
+	draw() {
+		this.bag.forEach(function(element) {element.draw();});
+	}
+	terminateAll() { 
+		this.bag.forEach(function(element) {terminate(element)}); 
+	}
+}
+
+
+
+
+class Enemies extends Bag {
+	constructor(arrayRep) {
+		super();
+
+		// j is the length of the path the enemy is supposed to travel along
+		for (let j = 2; j <= 9; j++) {
+
+			let enemyIndex = getAllIndexes(arrayRep, j.toString());
+
+			for (let i = 0; i < enemyIndex.length; i++) {
+
+				let y = Math.floor(enemyIndex[i] / map.cols);
+				let x = Math.floor(enemyIndex[i] % map.cols);
+
+				this.bag.push(new Blue_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * j));
+		    }
+
+		}
+
+		// TANK
+
+		    let enemyIndex = getAllIndexes(arrayRep, "R");
+
+			for (let i = 0; i < enemyIndex.length; i++) {
+
+				let y = Math.floor(enemyIndex[i] / map.cols);
+				let x = Math.floor(enemyIndex[i] % map.cols);
+
+				this.bag.push(new Tank_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 4));
+
 	        }
 
-    	player.die();
+	    // JUMP
 
-    }
-	
-}
+	       let enemyIndex2 = getAllIndexes(arrayRep, "J");
 
-Enemy.prototype.turn = function() {
+			for (let i = 0; i < enemyIndex2.length; i++) {
 
-   this.x_vel *= -1;
-   this.currDist = 0;
+				let y = Math.floor(enemyIndex2[i] / map.cols);
+				let x = Math.floor(enemyIndex2[i] % map.cols);
 
+				this.bag.push(new Jump_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 6));
 
-   if (this.type == "jump") {
-   	this.y_vel += this.jump_vel;
-   	console.log("yvel " + this.y_vel);
-   	return;
-   }
-
-   if (this.type == "tank") {
-
-   	let dir = -1;
-
-   	if (this.x_vel > 0) { dir = +1; }
-    
-    bullets.bulletBag.push(new Bullet(this.x, this.y, dir));
-   }
-
-}
-
-
-Enemy.prototype.draw = function() {
-
-	if (this.type == "tank") { generalDraw(this, 89, 2, 2); return; }
-	if (this.type == "jump") { generalDraw(this, 51, 1); return; }
-
-	this.updateAnimation();
-
-	// if his x & y coordinates are within the x y coordiantes of the camera, draw:
-	// draw him at the camera coordinates
-
-	if ((this.x + this.w) >= cam.x && this.x <= (cam.x + cam.w)
-	 && (this.y + this.h) >= cam.y && this.y <= (cam.y + cam.h)) {
-
-	let xyTarget = cam.mapToCam(this.x, this.y);
-
-		context.drawImage(
-				map.tilesheet, // image src
-				this.frame.x, // start clipping x
-				this.frame.y, // start clipping y
-				map.tsize, // src width (clipped)
-				map.tsize, // src height (clipped)
-				xyTarget.x, // target x
-				xyTarget.y, // target y
-				map.scaled, map.scaled  // target w,h
-				);
-
+	        }
 	}
 }
 
-function Bullet(x, y, dir) {
-	this.x = x;
-	this.y = y;
-	this.x_vel = dir * 1;
 
-	this.w = 16*2/3 * scaleFactor;
-	this.h = 16*2/3 * scaleFactor;
-}
-
-Bullet.prototype.update = function() {
-
-	// COLLISION CHECK W PLAYER
-    if (overlap(this, player.bound)) {
-    	player.die();
-
-    	// bullet disapppears
-    	return;
-    }
-
-	this.x += this.x_vel;
-
-}
-
-Bullet.prototype.draw = function() {
-	generalDraw(this, 94, 1);
+class Bullets extends Bag {
 }
 
 
-// ALLLLL THE BULLETS
-function Bullets() {
-	this.bulletBag = [];
+
+
+
+
+
+
+
+
+
+
+  /////////////
+ // helpers //
+/////////////
+
+function getAllIndexes(arr, val) {
+
+    var indices = []; 
+    let i = -1;
+
+    while ((i = arr.indexOf(val, i+1)) != -1) indices.push(i);
+
+    return indices;
 }
-
-Bullets.prototype.update = function() {
-
-	this.bulletBag.forEach(function(element) {
-    element.update();
-     });
-
-}
-
-Bullets.prototype.draw = function() {
-
-	this.bulletBag.forEach(function(element) {
-    element.draw();
-    });
-
-}
-
-Bullets.prototype.terminateAll = function() {
-
-	this.bulletBag.forEach(function(element) {
-    terminate(element);
-
-   });
-}
-
 
 // checks if two rectangular boxes overlap
 // the arguments are two objects: each must have an x, y, w, and h
@@ -309,27 +381,16 @@ function overlap(first, second) {
              && first.y < (second.y + second.h) && (first.y + second.h) > second.y);
 }
 
-function generalDraw(object, tileNo, k) {
-
-	if ((object.x + object.w) >= cam.x && object.x <= (cam.x + cam.w)
-	 && (object.y + object.h)>= cam.y && object.y <= (cam.y + cam.h)) {
-
-	let xyTarget = cam.mapToCam(object.x, object.y);
-
-		context.drawImage(
-				map.tilesheet, // image src
-				(tileNo - 1) * map.tsize % map.tilesheet.width,
-				Math.floor((tileNo - 1) * map.tsize / map.tilesheet.width) * map.tsize,
-				map.tsize * k, // src width (clipped)
-				map.tsize * k, // src height (clipped)
-				xyTarget.x, // target x
-				xyTarget.y, // target y
-				map.scaled * k, map.scaled * k  // target w,h
-				);
-	}
-}
 
 function terminate(object) {
 	object = null;
 	delete object;
 }
+
+
+
+
+
+
+
+
