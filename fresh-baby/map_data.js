@@ -70,7 +70,7 @@ xxxxxxxxxxl                                                                     
 ____xxxxxxl                                                                                             ixxxx]\
 ooooixxxxxl                                                                                             ixxxx]\
 ooooixxxxxl                                                                                  o          ixxxx]\
-ooooR_____K                     o        o                                                dmmmmmb       ixxxx]\
+ooooL_____K                     o        o                                                dmmmmmb       ixxxx]\
 oooo                           dmb      dmb   8                                 R            R          ixxxx]\
 oooo              J      o                    dmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========l       dmmmmmmb                          ixl          ixxmmmb        r=======================xxxxx]\
@@ -79,7 +79,7 @@ xxxxxxxxxxl                   3                     ixl!        !ixl        dmmm
 xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                             7    3      ixl          ixl o          ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                       o    dmmmIIImmb   ixl!       o!ixxmmb         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl     IIIII                               ixl          R_K            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl     IIIII                               ixl          L_K            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   dmmb                  ixl                      o  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl               o                         ixl     o               dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxlP                                        ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -406,7 +406,7 @@ X]                 3                            o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxl                   4         ixxxx]\
 X]                ixx__xl     5                       ixxxx]\
-X]         dmb    ixlooRK                      %      ixxxx]\
+X]         dmb    ixlooLK                      %      ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
 X]     !%       o ixl     9                           ixxxx]\
 ========%  o  o   ixx===k                        t    ixxxx]\
