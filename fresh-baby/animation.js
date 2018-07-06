@@ -214,13 +214,9 @@ gotCoin.getFrame = function(frame_num) {
 ///////////
 
 
-Enemy.prototype.frame = {
-	x: 96, y:0
-}
-
-Enemy.prototype.animation = {
+Blue_Enemy.prototype.animation = {
 	state: "walk_right",
-	delay: 40,
+	delay: 30,
 	cur_frame: 0,
 	max_frames: 2, // just so cur_frame doesn't get huge i gues
 	lastUpdate: 0,
@@ -238,6 +234,67 @@ Enemy.prototype.animation = {
 
 };
 
+
+Jump_Enemy.prototype.animation = {
+	state: "walk_right",
+	delay: 40,
+	cur_frame: 0,
+	max_frames: 2, // just so cur_frame doesn't get huge i gues
+	lastUpdate: 0,
+
+
+	walk_right: {
+		no_frames: 2,
+		frames: [{x:128,y:320}, {x:112,y:320}]
+	},
+
+	walk_left: {
+		no_frames: 2,
+		frames: [{x:96,y:16}, {x:112,y:16}]
+	},
+
+};
+
+Tank_Enemy.prototype.animation = {
+	state: "walk_right",
+	delay: 20,
+	cur_frame: 0,
+	max_frames: 2, // just so cur_frame doesn't get huge i gues
+	lastUpdate: 0,
+
+
+	walk_right: {
+		no_frames: 2,
+		frames: [{x:144,y:304}, {x:176,y:304}]
+	},
+
+	walk_left: {
+		no_frames: 2,
+		frames: [{x:0,y:64}, {x:32,y:64}]
+	},
+
+};
+
+Bullet.prototype.animation = {
+	state: "walk_right",
+	delay: 100000,
+	cur_frame: 0,
+	max_frames: 1, // just so cur_frame doesn't get huge i gues
+	lastUpdate: 0,
+
+	walk_right: {
+		no_frames: 1,
+		frames: [{x:80,y:64}]
+	},
+
+	walk_left: {
+		no_frames: 1,
+		frames: [{x:80,y:64}]
+	},
+
+};
+
+// this function can be used for all enemies as long as ani state names match up
 Enemy.prototype.setAnimationFrame = function() {
 
 	switch(this.animation.state) {
@@ -254,6 +311,8 @@ Enemy.prototype.setAnimationFrame = function() {
 	}
 };
 
+// should probably replace this with individual updateAni functions for each type of enemy
+// if animations get more complex beyond just walk right/ walk left ?
 Enemy.prototype.updateAnimation = function() {
 
 	// frame delay for all Enemy animations .. idk theres probably a more elegant way to do this
