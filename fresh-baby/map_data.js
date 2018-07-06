@@ -70,8 +70,8 @@ xxxxxxxxxxl                                                                     
 ____xxxxxxl                                                                                             ixxxx]\
 ooooixxxxxl                                                                                             ixxxx]\
 ooooixxxxxl                                                                                  o          ixxxx]\
-ooooixxxxxl                     o        o                                                dmmmmmb       ixxxx]\
-ooooR_____K                    dmb      dmb   8                                 R            R          ixxxx]\
+ooooR_____K                     o        o                                                dmmmmmb       ixxxx]\
+oooo                           dmb      dmb   8                                 R            R          ixxxx]\
 oooo              J      o                    dmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========l       dmmmmmmb                          ixl          ixxmmmb        r=======================xxxxx]\
 xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -405,9 +405,9 @@ X]                    %                       o       ixxxx]\
 X]                 3                            o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxl                   4         ixxxx]\
-X]                ixL__Kl     5                       ixxxx]\
-X]         dmb    ixlooil                      %      ixxxx]\
-X]  P   %~~~~~~~~~ixlooLK           J                 ixxxx]\
+X]                ixx__xl     5                       ixxxx]\
+X]         dmb    ixlooRK                      %      ixxxx]\
+X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
 X]     !%       o ixl     9                           ixxxx]\
 ========%  o  o   ixx===k                        t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
@@ -426,7 +426,7 @@ X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]         dmb    ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]      %~~~~~~~~~ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 ========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
