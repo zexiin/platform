@@ -389,3 +389,29 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    
 });
 
+mapArr.push({
+  level: 9,
+  row: 18,
+  col: 60,
+  map:"\
+X]                                                    [xxxx]\
+X]                                                    [xxxx]\
+X]                                                    [xxxx]\
+X]                                                    [xxxx]\
+X]                                         %          [xxxx]\
+X]                     2        %                     [xxxx]\
+X]                     dmb                            [xxxx]\
+X]                    %                               [xxxx]\
+X]                                                    [xxxx]\
+X]                dmmmmmb~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[xxxx]\
+X]                ixxxxxl                             [xxxx]\
+X]                ixxxxxl     5                       [xxxx]\
+X]         dmb    ixxxxxl                      %      [xxxx]\
+X]  P   %~~~~~~~~~ixxxxxl           J                 [xxxx]\
+X]      %       o ixxxxxl 9                           [xxxx]\
+========k  o  o   ixxxxxl        dmmmmmmmmb      t    [xxxx]\
+xxxxxxxxl!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!![xxxx]\
+xxxxxxxxx=============================================[xxxx]",
+
+
+})
