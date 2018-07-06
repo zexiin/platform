@@ -156,6 +156,7 @@ document.getElementById("level6").onclick = function() {startLevel(6);};
 document.getElementById("level7").onclick = function() {startLevel(7);};
 document.getElementById("level8").onclick = function() {startLevel(8);};
 document.getElementById("level9").onclick = function() {startLevel(9);};
+document.getElementById("level10").onclick = function() {startLevel(10);};
 
 
 function startLevel(no) {
