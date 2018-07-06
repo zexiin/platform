@@ -26,8 +26,8 @@ mapArr.push({
 ]                 3          %    [X\
 ]           %     dmmb  5  o      [X\
 ]         o             dmmmmb    [X\
-]~~~~~~~r====k           P        [X\
-]   o   ixxxxl  !J   %        !   [X\
+]~~~~~~~r====k   J       P        [X\
+]   o   ixxxxl  !    %        !   [X\
 --------xxxxxx======================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   map_bg: "\
@@ -71,8 +71,8 @@ ____xxxxxxl                                                                     
 ooooixxxxxl                                                                                             ixxxx]\
 ooooixxxxxl                                                                                  o          ixxxx]\
 ooooL_____K                     o        o                                                dmmmmmb       ixxxx]\
-oooo                           dmb      dmb   8                                 R            R          ixxxx]\
-oooo              J      o                    dmmmmm==k                 o          4      4     4     t ixxxx]\
+oooo              J            dmb      dmb   8                                 R            R          ixxxx]\
+oooo                     o                    dmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========l       dmmmmmmb                          ixl          ixxmmmb        r=======================xxxxx]\
 xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl!        !ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
