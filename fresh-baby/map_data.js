@@ -394,24 +394,43 @@ mapArr.push({
   row: 18,
   col: 60,
   map:"\
-X]                                                    [xxxx]\
-X]                                                    [xxxx]\
-X]                                                    [xxxx]\
-X]                                                    [xxxx]\
-X]                                         %          [xxxx]\
-X]                     2        %                     [xxxx]\
-X]                     dmb                            [xxxx]\
-X]                    %                               [xxxx]\
-X]                                                    [xxxx]\
-X]                dmmmmmb~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[xxxx]\
-X]                ixxxxxl                             [xxxx]\
-X]                ixxxxxl     5                       [xxxx]\
-X]         dmb    ixxxxxl                      %      [xxxx]\
-X]  P   %~~~~~~~~~ixxxxxl           J                 [xxxx]\
-X]      %       o ixxxxxl 9                           [xxxx]\
-========k  o  o   ixxxxxl        dmmmmmmmmb      t    [xxxx]\
-xxxxxxxxl!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!![xxxx]\
-xxxxxxxxx=============================================[xxxx]",
+X]                                                    ixxxx]\
+X]                                       o            ixxxx]\
+X]                                                    ixxxx]\
+X]                                         o          ixxxx]\
+X]                               o         %          ixxxx]\
+X]                     2        %                     ixxxx]\
+X]                  o  dmb                       o    ixxxx]\
+X]                    %                       o       ixxxx]\
+X]                 3                            o     ixxxx]\
+X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
+X]                ixxxxxl                   4         ixxxx]\
+X]                ixxxxxl     5                       ixxxx]\
+X]         dmb    ixxxxxl                      %      ixxxx]\
+X]  P   %~~~~~~~~~ixxxxxl           J                 ixxxx]\
+X]     !%       o ixxxxxl 9                           ixxxx]\
+========%  o  o   ixxxxxl                        t    ixxxx]\
+xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
+xxxxxxxxx=============================================ixxxx]",
+  map_bg: "\
+X]                                                    ixxxx]\
+X]                                       o            ixxxx]\
+X]                                                    ixxxx]\
+X]                                         o          ixxxx]\
+X]                               o         %          ixxxx]\
+X]                              %                     ixxxx]\
+X]                  o  dmb                       o    ixxxx]\
+X]                    %                       o       ixxxx]\
+X]                                              o     ixxxx]\
+X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]         dmb    ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]      %~~~~~~~~~ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]     !%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
+xxxxxxxxx=============================================ixxxx]",
 
 
 })
