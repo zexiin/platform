@@ -301,47 +301,38 @@ class Bag {
 class Enemies extends Bag {
 	constructor(arrayRep) {
 		super();
+		
+		for (let i = 0; i < arrayRep.length; i++) {
+			// if arrayRep[i] = 2-9, J or R then remember which index & create lol
+			let value = return_enemies(arrayRep[i]);
 
-		// j is the length of the path the enemy is supposed to travel along
-		for (let j = 2; j <= 9; j++) {
+			if (value < 0) { continue; }
 
-			let enemyIndex = getAllIndexes(arrayRep, j.toString());
+			let y = Math.floor(i / map.cols);
+			let x = Math.floor(i % map.cols);
 
-			for (let i = 0; i < enemyIndex.length; i++) {
+			if (value == "R") { 
+				this.bag.push(new Tank_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 4)); 
+				continue;
+			}
 
-				let y = Math.floor(enemyIndex[i] / map.cols);
-				let x = Math.floor(enemyIndex[i] % map.cols);
+			else if (value == "J") { 
+				this.bag.push(new Jump_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 6));
+				continue;
 
-				this.bag.push(new Blue_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * j));
+			}
+
+			else {
+				for (let j = 2; j <= 9; j++) {
+				if (j == value) {
+					this.bag.push(new Blue_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * j));
+				 }
+			   }
 		    }
 
 		}
 
-		// TANK
-
-		    let enemyIndex = getAllIndexes(arrayRep, "R");
-
-			for (let i = 0; i < enemyIndex.length; i++) {
-
-				let y = Math.floor(enemyIndex[i] / map.cols);
-				let x = Math.floor(enemyIndex[i] % map.cols);
-
-				this.bag.push(new Tank_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 4));
-
-	        }
-
-	    // JUMP
-
-	       let enemyIndex2 = getAllIndexes(arrayRep, "J");
-
-			for (let i = 0; i < enemyIndex2.length; i++) {
-
-				let y = Math.floor(enemyIndex2[i] / map.cols);
-				let x = Math.floor(enemyIndex2[i] % map.cols);
-
-				this.bag.push(new Jump_Enemy(x * scaleFactor * 16, y * scaleFactor * 16, 16 * scaleFactor * 6));
-
-	        }
+		
 	}
 }
 
@@ -363,6 +354,18 @@ class Bullets extends Bag {
   /////////////
  // helpers //
 /////////////
+
+// returns index if it is that thing otherwise returns -1
+function return_enemies(char) {
+
+	for (let i = 2; i <= 9; i++) {
+		if (char == i) return char;
+	}
+	if ((char == "J") || (char == "R")) return char;
+
+	return -1;
+
+}
 
 function getAllIndexes(arr, val) {
 
