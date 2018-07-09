@@ -159,6 +159,11 @@ class Blue_Enemy extends Enemy {
 		this.frame = {x:96,y:0};
 	}
 
+	die() {
+		fx.bag.push(new Poof(this.x,this.y));
+		super.die();
+	}
+
 }
 
 
@@ -285,7 +290,15 @@ class Bullet extends Enemy {
 class Bag {
 	constructor() { this.bag = []; }
 	update() {
-		this.bag.forEach(function(element) {element.update();});
+		this.bag.forEach(function(element, i, bag) {
+			element.update();
+			if(element.x+element.w < 0 || element.x > map.cols*map.scaled 
+				|| element.y+element.h < 0 || element.y > map.rows*map.scaled) { 
+				terminate(element);
+				bag.splice(i,1);
+			}
+
+		});
 	}
 	draw() {
 		this.bag.forEach(function(element) {element.draw();});
@@ -335,11 +348,6 @@ class Enemies extends Bag {
 		
 	}
 }
-
-
-class Bullets extends Bag {
-}
-
 
 
 
