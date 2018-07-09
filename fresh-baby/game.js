@@ -122,7 +122,7 @@ updateGame = function() {
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
-tilesheet.src = "arcadesheet.png";
+tilesheet.src = "../assets/arcadesheet.png";
 
 var player, map, cam, collision_map, enemies, animate, time, bullets;
 var bg_color;
