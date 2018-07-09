@@ -56,10 +56,6 @@ class Camera {
 		switch(tile_ID) {
 
 			case 159: return coinAnimation.getFrame();
-				case 159.1: return gotCoin.getFrame(0);
-				case 159.2: return gotCoin.getFrame(1);
-				case 159.3: return gotCoin.getFrame(2);
-				case 159.4: return gotCoin.getFrame(3);
 
 			default: 
 				return {
@@ -82,13 +78,14 @@ class Camera {
 		for (var c = leftCol; c <= rightCol; c++) {
 			for (var r = topRow; r <= bottomRow; r++) {
 
-
-				if(this.hasBG) var bgtile = this.bgmap.getTile(c,r);
-				var tile = this.map.getTile(c,r);
 				var xyTarget = this.mapToCam(c*this.map.scaled, r*this.map.scaled);
 
-				// draw all layers.
-				if(this.hasBG) this.drawTile(bgtile,xyTarget);
+				if(this.hasBG) {
+					var bgtile = this.bgmap.getTile(c,r);
+					this.drawTile(bgtile,xyTarget);
+				}
+
+				var tile = this.map.getTile(c,r);
 				this.drawTile(tile,xyTarget);
 
 			}
