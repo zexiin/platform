@@ -183,6 +183,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+		win.play();
 		player.stop = true;
 
 		terminate(player);
