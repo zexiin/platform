@@ -174,8 +174,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	if (tile.collisions.coin) {
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
-		layer.tiles[tileIndex] = "À";
-		map.tiles[tileIndex] = "À";
+		layer.tiles[tileIndex] = map.tiles[tileIndex] = "\u0020";
+		fx.bag.push(new Sparkles(tile.x, tile.y));
 
 		coinCount += 1;
 		return;
@@ -190,6 +190,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		terminate(cam);
 		enemies.terminateAll();
 		bullets.terminateAll();
+		fx.terminateAll();
+		terminate(fx);
 		terminate(bullets);
 		terminate(enemies);
 		levelNo++;
@@ -215,7 +217,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			player.setWater();
 			player.jumping = false;
 			player.y += player.y_vel;
-			player.updateBoundingBox;
+			water_depth = tile.y+tile.h*0.5;
+			fx.bag.push(new WaterSplash(player.x,player.y+8*scaleFactor));
+			fx.bag.push(new Shimmer(player.x, player.bound.y+10));
 			return;
 		}
 
@@ -247,14 +251,12 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 					iceHandler(tile_obj, layer);
 				}
 			}
-			
+
 			
 			player.y = tile.y - player.bound.h - player.bound.y_offset - 0.1;
 			player.y_vel = 0;
 			player.jumping = false;
 
-
-			player.updateBoundingBox();
 
 			return;
 		}
@@ -269,8 +271,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			player.x_vel = 0;
 
 
-			player.updateBoundingBox();
-
 			return;
 		}
 
@@ -281,9 +281,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			// for debug // console.log("collide west of tile "+tile.id);
 			player.x = tile.x - player.bound.w - player.bound.x_offset - 0.1;
 			player.x_vel = 0;
-
-
-			player.updateBoundingBox();
 
 			return;
 		}
@@ -298,8 +295,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			player.y_vel = 0; 
 
 			if (tile.collisions.ice) iceHandler(tile_obj, layer);
-
-			player.updateBoundingBox();
 
 			return;
 		}
@@ -324,6 +319,11 @@ function iceHandler(tile_obj, layer) {
 		case "Ê":
 			map.tiles[tileIndex] = "\u0020";
 			layer.tiles[tileIndex] = "\u0020";
+
+			let x = tile_obj.col * map.scaled;
+			let y = tile_obj.row * map.scaled;
+
+			fx.bag.push(new IceParticles(x, y));
 			return;
 	}
 
