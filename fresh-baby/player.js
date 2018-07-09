@@ -187,7 +187,7 @@ Player.prototype.die = function() {
 	fx.terminateAll();
 
 	enemies = new Enemies(map.tiles);
-	bullets = new Bullets();
+	bullets = new Bag();
 	fx = new Bag();
 
 };
