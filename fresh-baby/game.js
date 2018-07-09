@@ -1,4 +1,3 @@
-
 /**********
 
 this file contains the main game functions??
@@ -13,6 +12,7 @@ var livesCount = 5;
 var levelNo = 1;
 var killCount = 0;
 var deathTexts = [];
+var paused = false;
 
 context.font = "15px Arial";    
 context.textBaseline="top"; 
@@ -20,6 +20,22 @@ context.fillText("Top",5,100);
 
 // canvas.height = 500;
 //canvas.width = 480;
+function togglePause(){
+	if(!paused){
+		paused = true;
+	}
+	else if(paused){
+		paused = false;
+	}
+};
+
+window.addEventListener('keydown', function (e) {
+	var key = e.keyCode;
+	if(key === 80)//p
+	{
+		togglePause();
+	}
+});
 
 var control = {
 	left: false, right: false, up: false, down: false, attack: false,
@@ -28,7 +44,9 @@ var control = {
 	  // switch the keystate
 	  var key_state = (event.type == "keydown")?true:false;
 
-	  switch(event.keyCode) {
+	  switch(event.keyCode){
+	  	case 13:
+	  	    break;;
 	    case 37: // left
 			control.left = key_state;
 			event.preventDefault();
@@ -48,8 +66,7 @@ var control = {
 	    case 90: // attack
 	    	control.attack = key_state;
 	    	event.preventDefault();
-	    	break;			  
-			  
+	    	break;	 
   		}
 	}
 };
@@ -66,7 +83,6 @@ drawGame = function() {
 	context.fillRect(0,0,canvas.width,canvas.height);
 
 	cam.draw();
-	fx.draw();
 	player.draw();
 	enemies.draw();
 	bullets.draw();
@@ -84,14 +100,12 @@ drawGame = function() {
 updateGame = function() {
 	
 	player.update();
-	//collisionHandler(player, collision_map);
-	if(player.stop) return;
+	collisionHandler(player, collision_map);
+	if (player.stop) return;
 
-	fx.update();
 	enemies.update(); 
 	bullets.update();
 	cam.update();
-
 
 	document.getElementById("insert").innerHTML = "coins: " + coinCount;
 	document.getElementById("lives").innerHTML = "lives: " + livesCount;
@@ -108,9 +122,9 @@ updateGame = function() {
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
-tilesheet.src = "../assets/arcadesheet.png";
+tilesheet.src = "arcadesheet.png";
 
-var player, map, cam, collision_map, enemies, animate, time, bullets, fx;
+var player, map, cam, collision_map, enemies, animate, time, bullets;
 var bg_color;
 
 var statBar = new StatBar();
@@ -120,7 +134,6 @@ var statBar = new StatBar();
 function init(mapNo) {
 	
 	window.cancelAnimationFrame(animate);
-
 
 	time = 0;
 
@@ -147,8 +160,7 @@ function init(mapNo) {
 	if (mapNo.level === 1) {player.speedUp();}
 
 	enemies = new Enemies(map.tiles);
-	bullets = new Bag();
-	fx = new Bag();
+	bullets = new Bullets();
 	
 	loop(); // finish initializing and start the game loop
 
@@ -156,8 +168,16 @@ function init(mapNo) {
 
 
 function loop() {
-	updateGame();
 	drawGame();
+	if(!paused){
+		updateGame();
+	}
+	else if(paused){
+		context.font = "70px Arial";
+		context.fillStyle = "#000000"
+		text1 = "Paused"
+		context.fillText(text1,125, 225);
+	}
     animate = window.requestAnimationFrame(loop);
 }
 
