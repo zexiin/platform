@@ -213,6 +213,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		// if player is moving down into water
 		if (player.bound.y+player.bound.h > tile.y+tile.h*0.5 && !player.inWater) { 
+			
+			water_enter.play();
 			//console.log("collide north of water");
 			player.inWater = true;
 			player.setWater();
@@ -226,6 +228,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		// if player is moving up out of water
 		if (player.bound.y+player.bound.h < tile.y+tile.h*0.5 && player.inWater) {
+			
+			water_exit.play();
 			//console.log("collide south of water: " +player.x.toFixed(2) +","+player.y.toFixed(2));
 			player.inWater = false;
 			player.Y_ACCEL = player.Y_ACCEL*3;
@@ -308,6 +312,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 
 function iceHandler(tile_obj, layer) {
+	icecrack.play();
 	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 
 	switch(map.tiles[tileIndex]) {
