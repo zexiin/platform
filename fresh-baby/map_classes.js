@@ -111,11 +111,6 @@ class TileMap extends Map {
 
 
 	    	case "o": return 159; // coin
-	    	// coin shinies this is not productive but i want pretty sparkles ok
-	    		case "À": return 159.1;
-	    		case "Á": return 159.2;
-	    		case "Â": return 159.3;
-	    		case "Ã": return 159.4;
 	    	case "t": return 163;
 	    	case "!": return 98; // spike bloc
 	    	
