@@ -171,42 +171,6 @@ coinAnimation.getFrame = function() {
 	return this.frames[this.cur_frame];
 };
 
-var gotCoin = {
-	cur_frame: 0,
-	no_frames: 4,
-	frames: [{x:128,y:112}, {x:144,y:112}, {x:160,y:112}, {x:176,y:112}],
-	delay: 15
-};
-
-gotCoin.getFrame = function(frame_num) {
-
-	let imdying;
-
-	switch (frame_num) {
-		case 0:
-			imdying = getAllIndexes(map.tiles, "À");
-			for (let i = 0; i < imdying.length; i++) 
-				setTimeout(function() {map.tiles[imdying[i]] = collision_map.tiles[i] = "Á";}, 100);
-			break;
-		case 1:
-			imdying = getAllIndexes(map.tiles, "Á");
-			for (let i = 0; i < imdying.length; i++) 
-				setTimeout(function() {map.tiles[imdying[i]] = collision_map.tiles[i] = "Â";}, 100);
-			break;
-		case 2:
-			imdying = getAllIndexes(map.tiles, "Â");
-			for (let i = 0; i < imdying.length; i++) 
-				setTimeout(function() {map.tiles[imdying[i]] = collision_map.tiles[i] = "Ã";}, 100);
-			break;
-		case 3:
-			imdying = getAllIndexes(map.tiles, "Ã");
-			for (let i = 0; i < imdying.length; i++) 
-				setTimeout(function() {map.tiles[imdying[i]] = collision_map.tiles[i] = "\u0020";}, 100);
-			break;
-	}
-
-	return this.frames[frame_num];
-};
 
 
   ///////////
@@ -327,6 +291,196 @@ Enemy.prototype.updateAnimation = function() {
 	this.setAnimationFrame();
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ///////////
+ // EFFEX //
+///////////
+
+/* 
+
+these are objects that have position/velocity/animation
+but are merely for visual effect and have no collisions/interactions
+
+ALSO VisFX assumes that each effect only has one animation state and expires after it plays
+
+
+e.g.
+ice breaking
+water bubbles
+splash
+smoke puffs
+coin sparkles can go here too proably
+windy? leaves blowing thru the air? im dying
+
+*/
+
+
+class VisFX { // visual effects that add nothing worthwhile to the game.
+
+	constructor(x, y, x_vel, y_vel, w, h) {
+		this.x = x;
+		this.y = y;
+		this.x_vel = x_vel;
+		this.y_vel = y_vel;
+		this.w = w * scaleFactor;
+		this.h = h * scaleFactor;
+		this.frame = {x:0, y:0};
+		this.animation = this.camCoords = {}; // oi
+		this.repeat = false;
+	}
+
+	update() {
+		this.x += this.x_vel;
+		this.y += this.y_vel;
+		this.camCoords = cam.mapToCam(this.x, this.y);
+		this.updateAnimation();
+	}
+
+	stop() {
+		this.x = this.y = -100;
+		this.x_vel = this.y_vel = 0;
+	}
+
+	updateAnimation() {
+
+		if (time%this.animation.delay === 0) {
+			if (this.animation.cur_frame+1 === this.animation.no_frames && !this.repeat) this.stop();
+			else this.animation.cur_frame = (this.animation.cur_frame+1) % this.animation.no_frames;
+		}
+
+		this.frame.x = this.animation.frames[this.animation.cur_frame].x;
+		this.frame.y = this.animation.frames[this.animation.cur_frame].y;
+
+	}
+
+	draw() {
+		if(this.x+this.w >= cam.x && this.x <= cam.x+cam.w 
+			&& this.y+this.h >= cam.y && this.y <= cam.y+cam.h) {
+
+			context.drawImage(tilesheet, 
+				this.frame.x, this.frame.y, this.w/scaleFactor, this.h/scaleFactor, 
+				this.camCoords.x, this.camCoords.y, this.w, this.h );
+
+		}
+	}
+
+}
+
+
+class Sparkles extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0 , 0, 16, 16);
+		this.animation = {
+			delay: 16,
+			cur_frame: 0,
+			no_frames: 4,
+			frames:[{x:128,y:112}, {x:144,y:112}, {x:160,y:112}, {x:176,y:112}],
+
+		};
+	}
+}
+
+
+class IceParticles extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0 , 0.8*scaleFactor, 16, 16);
+		this.animation = {
+			delay: 30,
+			cur_frame: 0,
+
+			no_frames: 3,
+			frames: [/*{x:96, y:128},*/{x:144, y:336},{x:160, y:336},{x:176, y:336},{x:192, y:336}/*,{x:208, y:336}*/], 
+
+		};
+	}
+}
+
+class Poof extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0 , 0, 16, 16);
+		this.animation = {
+			delay: 10,
+			cur_frame: 0,
+
+			no_frames: 5,
+			frames: [{x:0, y:128},{x:16, y:128},{x:32, y:128},{x:48, y:128},{x:64, y:128}], 
+
+		};
+	}
+}
+
+
+class WaterSplash extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0 , 0, 32, 32);
+		this.animation = {
+			delay: 10,
+			cur_frame: 0,
+
+			no_frames: 5,
+			frames: [{x:224, y:320},{x:224, y:320},{x:256, y:320},{x:224, y:352},{x:256, y:352}], // temp frames lmfao
+
+		};
+	}
+}
+
+// [!] don't know how/when/where in the code to generate these for watertop.. 
+class Shimmer extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0.03*scaleFactor , 0, 16, 16);
+		this.frame = {x:336,y:128};
+		this.dist = 0;
+	}
+	update() {
+		this.x += this.x_vel;
+		this.dist += this.x_vel;
+		if (Math.abs(this.dist) > 2*scaleFactor) {
+			this.x_vel *= -1;
+			this.dist = 0;
+		}
+		this.camCoords = cam.mapToCam(this.x, this.y); 
+		// disappear if off camera. this is probably temporary
+		if(this.camCoords.x+this.w < 0 || this.camCoords.x > cam.w 
+			|| this.camCoords.y+this.h < 0 || this.camCoords.y > cam.h) this.stop();
+		
+	}
+}
+
+var water_depth; // idk where else to put this variable soz
+class Bubbles extends VisFX {
+	constructor(x,y,x_vel) {
+		super(x, y, x_vel , -0.8, 16, 16);
+		this.max_y;
+		this.animation = {
+			delay: 20,
+			cur_frame: 0,
+			no_frames: 3,
+			frames: [{x:144, y:352},{x:160, y:352},{x:176, y:352}],
+		};
+	}
+	update() {
+		super.update(); 
+		if(this.y < water_depth) this.stop();
+	}
+}
+
+
+
+
+
 
 
 
