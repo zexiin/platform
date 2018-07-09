@@ -1,7 +1,5 @@
 /**********
-
 this file contains the main game functions??
-
 **********/
 
 var context = document.querySelector("canvas").getContext("2d");
@@ -28,7 +26,6 @@ function togglePause(){
 		paused = false;
 	}
 };
-
 window.addEventListener('keydown', function (e) {
 	var key = e.keyCode;
 	if(key === 80)//p
@@ -36,7 +33,6 @@ window.addEventListener('keydown', function (e) {
 		togglePause();
 	}
 });
-
 var control = {
 	left: false, right: false, up: false, down: false, attack: false,
 
@@ -44,9 +40,7 @@ var control = {
 	  // switch the keystate
 	  var key_state = (event.type == "keydown")?true:false;
 
-	  switch(event.keyCode){
-	  	case 13:
-	  	    break;;
+	  switch(event.keyCode) {
 	    case 37: // left
 			control.left = key_state;
 			event.preventDefault();
@@ -66,7 +60,8 @@ var control = {
 	    case 90: // attack
 	    	control.attack = key_state;
 	    	event.preventDefault();
-	    	break;	 
+	    	break;			  
+			  
   		}
 	}
 };
@@ -83,6 +78,7 @@ drawGame = function() {
 	context.fillRect(0,0,canvas.width,canvas.height);
 
 	cam.draw();
+	fx.draw();
 	player.draw();
 	enemies.draw();
 	bullets.draw();
@@ -100,12 +96,14 @@ drawGame = function() {
 updateGame = function() {
 	
 	player.update();
-	collisionHandler(player, collision_map);
-	if (player.stop) return;
+	//collisionHandler(player, collision_map);
+	if(player.stop) return;
 
+	fx.update();
 	enemies.update(); 
 	bullets.update();
 	cam.update();
+
 
 	document.getElementById("insert").innerHTML = "coins: " + coinCount;
 	document.getElementById("lives").innerHTML = "lives: " + livesCount;
@@ -124,7 +122,7 @@ var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
 tilesheet.src = "../assets/arcadesheet.png";
 
-var player, map, cam, collision_map, enemies, animate, time, bullets;
+var player, map, cam, collision_map, enemies, animate, time, bullets, fx;
 var bg_color;
 
 var statBar = new StatBar();
@@ -134,6 +132,7 @@ var statBar = new StatBar();
 function init(mapNo) {
 	
 	window.cancelAnimationFrame(animate);
+
 
 	time = 0;
 
@@ -160,7 +159,8 @@ function init(mapNo) {
 	if (mapNo.level === 1) {player.speedUp();}
 
 	enemies = new Enemies(map.tiles);
-	bullets = new Bullets();
+	bullets = new Bag();
+	fx = new Bag();
 	
 	loop(); // finish initializing and start the game loop
 
