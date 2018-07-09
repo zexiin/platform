@@ -168,6 +168,16 @@ function init(mapNo) {
 
 
 function loop() {
+	
+	if (!player.inWater) {
+		underwater.pause();
+	}
+
+	if ((underwater.paused || (underwater.duration == 0)) && player.inWater) { 
+		console.log("inwater " + player.inWater);
+		underwater.play(); 
+	}
+	
 	drawGame();
 	if(!paused){
 		updateGame();
