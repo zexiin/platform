@@ -95,6 +95,8 @@ class Enemy {
 
 			// if player is jumping down onto enemy
 			if(player.bound.y_prev+player.bound.h <= enemy_top) {
+				
+			        bounce.play();
 				killCount++;
 				this.die();
 				player.y_vel *= -4;
