@@ -96,25 +96,33 @@ Player.prototype.update = function() {
 	// player's camera coordinates are updated in Camera.update()
 	
 	// ATTACK updates
-	  	if (control.attack && this.attack.state === "idle") {
-	  		console.log("start");
-	  		this.attack.state = "ongoing";
-	  		this.attack.time = this.attack.delay_time;
-	  	}
-        
-	  	if (this.attack.state === "delay") {
-	  		console.log("delaying");
-	  		this.attack.time--;
-	  	}
+		if (control.attack && this.attack.state === "idle") {
+			console.log("start");
+			this.attack.state = "ongoing";
+			this.attack.time = this.attack.delay_time;
+		}
 
-	  	if (this.attack.time == 0) {
-	  		console.log("finish attack");
-	  		this.attack.state = "idle";
-	  		this.attack.time = -1;
-	  	}
+		if (this.attack.state === "delay") {
+			console.log("delaying");
+			this.attack.time--;
+		}
 
+		if (this.attack.time == 0) {
+			console.log("finish attack");
+			this.attack.state = "idle";
+			this.attack.time = -1;
+		}
+
+	collisionHandler(this, collision_map);
 
 	this.updateBoundingBox();
+
+
+	//// otherstuf?/ ///
+	// generate bubbles
+	if(this.inWater && Math.floor(Math.random()*50) === 0 && Math.abs(this.x_vel) > 0.1) {
+		fx.bag.push(new Bubbles(this.x+8*scaleFactor,this.y+8*scaleFactor,this.x_vel* -0.3));
+	}
 
 };
 
@@ -136,17 +144,6 @@ Player.prototype.draw = function() {
 	this.updateAnimation();
 	context.drawImage(tilesheet, this.frame.x, this.frame.y, 32, 32, this.camCoords.x, this.camCoords.y, this.w, this.h);
 	
-	// DEBUGGIN
-
-	   if(this.attack.state == "ongoing"){
-		context.fillStyle = '#FF00FF';
-		context.fillRect(0,30,30,30);
-	    }
-
-	    if(this.attack.state == "delay"){
-		context.fillStyle = '#FF0000';
-		context.fillRect(0,30,30,30);
-	    }
 };
 
 
@@ -187,9 +184,11 @@ Player.prototype.die = function() {
 	
 	enemies.terminateAll();
 	bullets.terminateAll();
+	fx.terminateAll();
 
 	enemies = new Enemies(map.tiles);
 	bullets = new Bullets();
+	fx = new Bag();
 
 };
 
