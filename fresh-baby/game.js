@@ -66,6 +66,7 @@ drawGame = function() {
 	context.fillRect(0,0,canvas.width,canvas.height);
 
 	cam.draw();
+	fx.draw();
 	player.draw();
 	enemies.draw();
 	bullets.draw();
@@ -83,12 +84,14 @@ drawGame = function() {
 updateGame = function() {
 	
 	player.update();
-	collisionHandler(player, collision_map);
-	if (player.stop) return;
+	//collisionHandler(player, collision_map);
+	if(player.stop) return;
 
+	fx.update();
 	enemies.update(); 
 	bullets.update();
 	cam.update();
+
 
 	document.getElementById("insert").innerHTML = "coins: " + coinCount;
 	document.getElementById("lives").innerHTML = "lives: " + livesCount;
@@ -107,7 +110,7 @@ var tilesheet = new Image();
 tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
 tilesheet.src = "../assets/arcadesheet.png";
 
-var player, map, cam, collision_map, enemies, animate, time, bullets;
+var player, map, cam, collision_map, enemies, animate, time, bullets, fx;
 var bg_color;
 
 var statBar = new StatBar();
@@ -117,6 +120,7 @@ var statBar = new StatBar();
 function init(mapNo) {
 	
 	window.cancelAnimationFrame(animate);
+
 
 	time = 0;
 
@@ -143,7 +147,8 @@ function init(mapNo) {
 	if (mapNo.level === 1) {player.speedUp();}
 
 	enemies = new Enemies(map.tiles);
-	bullets = new Bullets();
+	bullets = new Bag();
+	fx = new Bag();
 	
 	loop(); // finish initializing and start the game loop
 
