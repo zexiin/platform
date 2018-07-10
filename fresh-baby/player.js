@@ -120,7 +120,7 @@ Player.prototype.update = function() {
 
 	//// otherstuf?/ ///
 	// generate bubbles
-	if(this.inWater && Math.floor(Math.random()*50) === 0 && Math.abs(this.x_vel) > 0.1) {
+	if(this.inWater && Math.floor(Math.random()*50) === 0) {
 		fx.bag.push(new Bubbles(this.x+8*scaleFactor,this.y+8*scaleFactor,this.x_vel* -0.3));
 	}
 
@@ -176,8 +176,8 @@ Player.prototype.reset = function() {
 };
 
 Player.prototype.die = function() {
-	
 	die.play();
+	//return;
 
 	sleep(2000);
 	deathTexts.push(new DeathText());
