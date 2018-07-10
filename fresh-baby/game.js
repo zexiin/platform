@@ -20,9 +20,11 @@ context.fillText("Top",5,100);
 //canvas.width = 480;
 function togglePause(){
 	if(!paused){
+		bg_music.pause();
 		paused = true;
 	}
 	else if(paused){
+		bg_music.play();
 		paused = false;
 	}
 };
