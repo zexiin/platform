@@ -1,9 +1,14 @@
+
 /**********
+
 this file contains the main game functions??
+
 **********/
 
 var context = document.querySelector("canvas").getContext("2d");
 var canvas = context.canvas;
+	canvas.height = 400;
+	canvas.width = 500;
 var scaleFactor = 2;
 var coinCount = 0;
 var livesCount = 5;
@@ -12,29 +17,14 @@ var killCount = 0;
 var deathTexts = [];
 var paused = false;
 
+
 context.font = "15px Arial";    
-context.textBaseline="top"; 
+context.textBaseline = "top"; 
 context.fillText("Top",5,100);    
 
 // canvas.height = 500;
 //canvas.width = 480;
-function togglePause(){
-	if(!paused){
-		bg_music.pause();
-		paused = true;
-	}
-	else if(paused){
-		bg_music.play();
-		paused = false;
-	}
-};
-window.addEventListener('keydown', function (e) {
-	var key = e.keyCode;
-	if(key === 80)//p
-	{
-		togglePause();
-	}
-});
+
 var control = {
 	left: false, right: false, up: false, down: false, attack: false,
 
@@ -62,11 +52,41 @@ var control = {
 	    case 90: // attack
 	    	control.attack = key_state;
 	    	event.preventDefault();
-	    	break;			  
+	    	break;	
+
+	    case 80: // pause
+	    	if(event.type == "keydown") togglePause();
+	    	break;		  
 			  
   		}
+	},
+
+
+	mouse_x: 0, mouse_y: 0, mouse_down: false, mouse_up: false,
+
+
+	mouseListener: function(event) {
+		var canvasRect = canvas.getBoundingClientRect();
+		control.mouse_x = event.clientX - canvasRect.x;
+		control.mouse_y = event.clientY - canvasRect.y;
+
+		switch(event.type) {
+			case "mousedown": 
+				control.mouse_down = true;
+				control.mouse_up = false; 
+				break;
+			case "mouseup": 
+				control.mouse_up = true;
+				control.mouse_down = false; 
+				break;
+			default: break;
+		}
+
 	}
+
 };
+
+function togglePause() { paused = !paused; }
 
 
 sleep = function(ms) { // lol
@@ -119,14 +139,29 @@ updateGame = function() {
 
 /**** function calls in here ****/
 
+var start = new SplashScreen();
+
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { init(mapArr[0]); }; // on loading this, load next
+tilesheet.onload = function() { startLoop(); };
 tilesheet.src = "../assets/arcadesheet.png";
+
+
+function startLoop() {start.loop(); window.requestAnimationFrame(startLoop);}
+
+
+
+
+
+
+
+
+
+
+
 
 var player, map, cam, collision_map, enemies, animate, time, bullets, fx;
 var bg_color;
-
 var statBar = new StatBar();
 
 
@@ -134,15 +169,16 @@ var statBar = new StatBar();
 function init(mapNo) {
 	
 	bg_music.play();
-	window.cancelAnimationFrame(animate);
+	window.cancelAnimationFrame(animate); 
+
 
 	time = 0;
 
 	levelText.reset();
 
 	play = true;
-	canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
-   	canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);
+	//canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
+   	//canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);
 
 	context.imageSmoothingEnabled = false;
 
@@ -170,26 +206,27 @@ function init(mapNo) {
 
 
 function loop() {
-	
-	if (!player.inWater) {
+
+	if(!paused) {
+		bg_music.play();
+		if(!player.inWater) {underwater.pause();}
+		else if(underwater.paused || underwater.duration === 0) {
+			console.log("inwater" + player.inWater);
+			underwater.play();
+		}
+		updateGame();
+		drawGame();
+	}
+	else {
+		bg_music.pause();
 		underwater.pause();
+		context.font = "70px arial";
+		context.fillStyle = "black";
+		context.textAlign = "center";
+		context.fillText("paused",canvas.width/2,canvas.height/3);
 	}
 
-	if ((underwater.paused || (underwater.duration == 0)) && player.inWater) { 
-		console.log("inwater " + player.inWater);
-		underwater.play(); 
-	}
-	
-	drawGame();
-	if(!paused){
-		updateGame();
-	}
-	else if(paused){
-		context.font = "70px Arial";
-		context.fillStyle = "#000000"
-		text1 = "Paused"
-		context.fillText(text1,125, 225);
-	}
+
     animate = window.requestAnimationFrame(loop);
 }
 
@@ -202,3 +239,6 @@ function loop() {
 
 window.addEventListener("keydown", control.keyListener);
 window.addEventListener("keyup", control.keyListener);
+canvas.addEventListener("mousemove", control.mouseListener);
+canvas.addEventListener("mousedown", control.mouseListener);
+canvas.addEventListener("mouseup", control.mouseListener);
