@@ -86,7 +86,7 @@ function collisionHandler(player, map) {
 function collisionType(tile_ID) {
 	var collisions = { n: false, s: false, e: false, w: false, 
 					   coin: false, treasure: false, spike: false, 
-					   water: false, ice: false, ice2: false, ice3: false };
+					   water: false, ice: false, collectible: false};
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -148,6 +148,12 @@ function collisionType(tile_ID) {
 			return collisions;
 
 
+		case 40: // brick w coin
+			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
+			collisions.collectible = true;
+			return collisions;
+
+
 		default: return collisions; // default: no collision.
 	};
 }
@@ -172,9 +178,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	tile.collisions = collisionType(tile.id);
 
 	if (tile.collisions.coin) {
-		
+
 		let test = new Audio("../assets/audio/coin.mp3");
-		test.play();
+ 		test.play();
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 		layer.tiles[tileIndex] = map.tiles[tileIndex] = "\u0020";
@@ -186,7 +192,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
-		win.play();
 		player.stop = true;
 
 		terminate(player);
@@ -216,22 +221,20 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		// if player is moving down into water
 		if (player.bound.y+player.bound.h > tile.y+tile.h*0.5 && !player.inWater) { 
-			
 			water_enter.play();
 			//console.log("collide north of water");
 			player.inWater = true;
 			player.setWater();
 			player.jumping = false;
 			player.y += player.y_vel;
-			water_depth = tile.y+tile.h*0.5;
+			water_depth = tile.y;
 			fx.bag.push(new WaterSplash(player.x,player.y+8*scaleFactor));
-			fx.bag.push(new Shimmer(player.x, player.bound.y+10));
+			fx.bag.push(new Shimmer(player.x, player.bound.y+10)); //this doesnt belong here
 			return;
 		}
 
 		// if player is moving up out of water
 		if (player.bound.y+player.bound.h < tile.y+tile.h*0.5 && player.inWater) {
-			
 			water_exit.play();
 			//console.log("collide south of water: " +player.x.toFixed(2) +","+player.y.toFixed(2));
 			player.inWater = false;
@@ -303,6 +306,13 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			player.y_vel = 0; 
 
 			if (tile.collisions.ice) iceHandler(tile_obj, layer);
+			
+			// THis will probably  change idk
+			if (tile.collisions.collectible) {
+				map.tiles[tile_obj.row * map.cols + tile_obj.col] = "\u0020";
+				//layer.tiles
+				fx.bag.push(new TileBump_G(tile.x,tile.y,tile_obj));
+			}
 
 			return;
 		}
