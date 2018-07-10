@@ -9,7 +9,7 @@ var footstep = new Audio("../assets/audio/footstep_short.wav");
 var underwater = new Audio("../assets/audio/underwater.mp3");
 
 var icecrack = new Audio("../assets/audio/icecrack4.mp3");
-var bg_music = new Audio("../assets/audio/bg3.mp3");
+var bg_music = new Audio("../assets/audio/bground.mp3");
 
 
 
