@@ -95,8 +95,7 @@ class Enemy {
 
 			// if player is jumping down onto enemy
 			if(player.bound.y_prev+player.bound.h <= enemy_top) {
-				
-			        bounce.play();
+				bounce.play();
 				killCount++;
 				this.die();
 				player.y_vel *= -4;
@@ -294,8 +293,8 @@ class Bag {
 	update() {
 		this.bag.forEach(function(element, i, bag) {
 			element.update();
-			if(element.x+element.w < 0 || element.x > map.cols*map.scaled 
-				|| element.y+element.h < 0 || element.y > map.rows*map.scaled) { 
+			if(map != undefined && (element.x+element.w < 0 || element.x > map.cols*map.scaled 
+				|| element.y+element.h < 0 || element.y > map.rows*map.scaled)) { 
 				terminate(element);
 				bag.splice(i,1);
 			}
