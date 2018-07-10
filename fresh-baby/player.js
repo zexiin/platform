@@ -176,6 +176,8 @@ Player.prototype.reset = function() {
 };
 
 Player.prototype.die = function() {
+	
+	die.play();
 
 	sleep(2000);
 	deathTexts.push(new DeathText());
