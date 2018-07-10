@@ -6,9 +6,146 @@ this file contains menus n displays n text n shit maybe ???????
 **********/
 
 
+// this class currently just makes the start screen. will better modularize so it can make screens in general iguess idk
+class SplashScreen {
+
+	constructor() {
+		this.on = true;
+		this.bgColor = "#f9eae5";
+		this.buttons = new Bag();
+
+
+		let start_btn = new Button("start", 200, 200, 100, 60, this);
+		let startie = function() {
+			this.screen.on = false;
+			window.cancelAnimationFrame(animate);
+			init(mapArr[0]);
+		};
+
+
+		start_btn.setOnClick(startie);
+		this.addButton(start_btn);
+
+
+
+	}
+
+	addButton(button) {
+		this.buttons.bag.push(button);
+	}
+
+	draw() {
+
+		context.fillStyle = this.bgColor;
+		context.fillRect(0,0,canvas.width,canvas.height);
+		context.font = "50px comic sans ms";
+		context.fillStyle = "#fcc955";
+		context.textAlign = "left";
+		context.fillText("hey blease",100,100);
+
+		this.buttons.draw();
+
+		
+
+
+	}
+
+
+	update() {
+		this.buttons.update();
+
+		if(control.mouse_down) document.getElementById("mousey").style = "color: red";
+		else document.getElementById("mousey").style = "color: blue";
+		document.getElementById("mousey").innerHTML = "x: "+control.mouse_x +"   y: "+ control.mouse_y;
+	}
+
+
+	loop() {
+		if(this.on) {
+			this.update();
+			this.draw();
+		}
+	}
+
+
+}
+
+
+
+
+class Button {
+
+	constructor(text, x,y,w,h, screen) { // colors are defaults. can set with setColors() function
+		this.txt = text;
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.screen = screen; // the screen it belongs to
+		this.text_idle = "blue";
+		this.text_hover = "red";
+		this.bg_idle = "gold";;
+		this.bg_hover = "black";
+		this.hover = false;
+		this.click = false;
+		this.onclick = function() {return;};
+	}
+
+	setColors(text_idle, text_hover, bg_idle, bg_hover) {
+		this.text_idle = text_idle;
+		this.text_hover = text_hover;
+		this.bg_idle = bg_idle;
+		this.bg_hover = bg_hover;
+	}
+
+	setOnClick(func) {
+		this.onclick = func;
+	}
+
+	update() {
+		if(control.mouse_x > this.x && control.mouse_x < this.x+this.w 
+			&& control.mouse_y > this.y && control.mouse_y < this.y+this.h) {
+			this.hover = true;
+			if(control.mouse_down) this.onclick();
+
+		}
+		else { this.hover = false; }
+
+	}
+
+	draw() {
+		let bg_color = this.bg_idle; let txt_color = this.text_idle;
+		if(this.hover) {
+			bg_color = this.bg_hover;
+			txt_color = this.text_hover;
+		}
+		context.fillStyle = bg_color;
+		context.fillRect(this.x,this.y,this.w,this.h);
+		context.strokeStyle = txt_color;
+		context.strokeRect(this.x,this.y,this.w,this.h);
+
+		context.font = "20px sans-serif";
+		context.fillStyle = txt_color;
+		context.textAlign="center";
+		context.fillText(this.txt,this.x+this.w/2,this.y+this.h/4);
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 function StatBar() {
-
 
 
 	this.icon_w = 8; // NOT scaled
@@ -30,13 +167,8 @@ function StatBar() {
 		{x:24, y:152}  //9
 	];
 
-
 } 
 
-
-StatBar.prototype.update = function() {
-
-};
 
 
 StatBar.prototype.draw = function() {
@@ -90,7 +222,7 @@ StatBar.prototype.draw = function() {
 
 
 
-// DEATH TEXT OBJECT
+// DEATH TEXT OBJECT hehe
 
 function DeathText() {
 	this.time = 200;
@@ -157,7 +289,6 @@ document.getElementById("level7").onclick = function() {startLevel(7);};
 document.getElementById("level8").onclick = function() {startLevel(8);};
 document.getElementById("level9").onclick = function() {startLevel(9);};
 document.getElementById("level10").onclick = function() {startLevel(10);};
-
 
 function startLevel(no) {
     console.log("levelno " + levelNo);
