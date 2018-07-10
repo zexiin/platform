@@ -462,7 +462,7 @@ class Shimmer extends VisFX {
 var water_depth; // idk where else to put this variable soz
 class Bubbles extends VisFX {
 	constructor(x,y,x_vel) {
-		super(x, y, x_vel , -0.8, 16, 16);
+		super(x, y, x_vel , -0.4*scaleFactor, 16, 16);
 		this.max_y;
 		this.animation = {
 			delay: 20,
@@ -478,10 +478,36 @@ class Bubbles extends VisFX {
 }
 
 
+// this is probably not how should to do the this
+// would prob be better to make these objects like stationary enemies that dont kill u or smth idfk
+class TileBump_G extends VisFX { // green brick tile bump up
+	constructor(x,y, tile_obj) {
+		super(x, y, 0 , -1, 16, 16);
+		this.yinit = y;
+		this.dist = 0;
+		this.frame= {x:32,y:96};
+		this.animation = {
+			delay: 10,
+			cur_frame: 0,
 
+			no_frames: 1,
+			frames: [{x:32,y:96}], 
+		};
+		this.tileIndex = tile_obj.row * map.cols + tile_obj.col;
+	}
 
+	update() {
+		this.y += this.y_vel;
+		this.dist += this.y_vel;
+		if (Math.abs(this.dist) > 5*scaleFactor) this.y_vel *= -1;
 
-
+		if(this.y >= this.yinit) {
+			map.tiles[this.tileIndex] = "O";
+			this.stop();
+		}
+		this.camCoords = cam.mapToCam(this.x, this.y); 
+	}
+}
 
 
 
