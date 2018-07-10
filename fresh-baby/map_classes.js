@@ -85,6 +85,7 @@ class TileMap extends Map {
 	    	case "X": return 0;
 
 	    	case "%": return 155; // solid
+	    	case "O": return 135; // green brick
 	    	
 	    	case "d": return 80;
 	    	case "x": return 125;
@@ -133,6 +134,7 @@ class CollisionMap extends Map {
 		switch(tile) {
 
 	    	case "%": return 1;  // solid 
+
 	    	case "X": return 1;
 	    	case "]": return 2;  // right 
 	    	case "l": return 2;  // right 
@@ -160,6 +162,12 @@ class CollisionMap extends Map {
 
 	        case "~": return 30; // WATER, pls
 	        case "I": return 31; // ICE, pls
+
+	        case "O": return 40; // brick with coin or smth. 0 coins collected
+	        	case "Ô": return 40.1; // 1 coin collected
+	        	case "Ö": return 40.2; // 2 coins collected
+	        	case "Ò": return 40.3; // 3 coins collected
+	        	case "Ó": return 40.4; // 4 coins collected
 
 
 	    	default: return;
