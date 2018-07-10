@@ -131,8 +131,8 @@ var statBar = new StatBar();
 
 function init(mapNo) {
 	
+	bg_music.play();
 	window.cancelAnimationFrame(animate);
-
 
 	time = 0;
 
