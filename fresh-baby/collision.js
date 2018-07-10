@@ -172,6 +172,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	tile.collisions = collisionType(tile.id);
 
 	if (tile.collisions.coin) {
+		
+		let test = new Audio("../assets/audio/coin.mp3");
+		test.play();
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 		layer.tiles[tileIndex] = map.tiles[tileIndex] = "\u0020";
