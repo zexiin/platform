@@ -5,10 +5,14 @@ this file contains vars/methods for animation.
 **********/
 
 
-  ////////////
- // PLAYER //
-////////////
 
+/*
+    ____  / /___ ___  _____  _____
+   / __ \/ / __ `/ / / / _ \/ ___/
+  / /_/ / / /_/ / /_/ /  __/ /    
+ / .___/_/\__,_/\__, /\___/_/     
+/_/            /____/             
+*/
 Player.prototype.animation = {
 	prev_state: "idle",
 	state: "idle",
@@ -173,10 +177,14 @@ coinAnimation.getFrame = function() {
 
 
 
-  ///////////
- // ENEMY //
-///////////
 
+/*
+  ___  ____  ___  ____ ___  (_)__  _____
+ / _ \/ __ \/ _ \/ __ `__ \/ / _ \/ ___/
+/  __/ / / /  __/ / / / / / /  __(__  ) 
+\___/_/ /_/\___/_/ /_/ /_/_/\___/____/  
+                                        
+*/
 
 Blue_Enemy.prototype.animation = {
 	state: "walk_right",
@@ -304,27 +312,18 @@ Enemy.prototype.updateAnimation = function() {
 
 
 
-
-  ///////////
- // EFFEX //
-///////////
-
-/* 
+/*
+        ________          __      
+  ___  / __/ __/__  _____/ /______
+ / _ \/ /_/ /_/ _ \/ ___/ __/ ___/
+/  __/ __/ __/  __/ /__/ /_(__  ) 
+\___/_/ /_/  \___/\___/\__/____/  
 
 these are objects that have position/velocity/animation
 but are merely for visual effect and have no collisions/interactions
 
 ALSO VisFX assumes that each effect only has one animation state and expires after it plays
-
-
-e.g.
-ice breaking
-water bubbles
-splash
-smoke puffs
-coin sparkles can go here too proably
-windy? leaves blowing thru the air? im dying
-
+                                  
 */
 
 
@@ -508,9 +507,6 @@ class TileBump_G extends VisFX { // green brick tile bump up
 		this.camCoords = cam.mapToCam(this.x, this.y); 
 	}
 }
-
-
-
 
 
 
