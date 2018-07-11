@@ -147,7 +147,7 @@ function resetGame() {
 
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { init(mapArr[0]); }; // start is in display.js
+tilesheet.onload = function() { resetGame(); init(mapArr[0]); }; // start is in display.js
 tilesheet.src = "../assets/arcadesheet.png";
 
 
