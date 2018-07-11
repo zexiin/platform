@@ -5,25 +5,17 @@ this file contains the main game functions??
 
 **********/
 
-var context = document.querySelector("canvas").getContext("2d");
-var canvas = context.canvas;
-	canvas.height = 400;
-	canvas.width = 500;
+
 var scaleFactor = 2;
-var coinCount = 0;
-var livesCount = 5;
-var levelNo = 1;
-var killCount = 0;
-var deathTexts = [];
-var paused = false;
+
+var player, map, cam, collision_map, enemies, animate, time, bullets, fx, statBar, bg_color;
+var coinCount, livesCount, levelNo, killCount, deathTexts;
 
 
 context.font = "15px Arial";    
 context.textBaseline = "top"; 
 context.fillText("Top",5,100);    
 
-// canvas.height = 500;
-//canvas.width = 480;
 
 var control = {
 	left: false, right: false, up: false, down: false, attack: false,
@@ -55,7 +47,7 @@ var control = {
 	    	break;	
 
 	    case 80: // pause
-	    	if(event.type == "keydown") togglePause();
+	    	if(event.type == "keydown") if(game_on) togglePause();
 	    	break;		  
 			  
   		}
@@ -86,7 +78,10 @@ var control = {
 
 };
 
-function togglePause() { paused = !paused; }
+function togglePause() { 
+	paused = !paused; 
+	pause_scr.on = !pause_scr.on;
+}
 
 
 sleep = function(ms) { // lol
@@ -118,7 +113,6 @@ drawGame = function() {
 updateGame = function() {
 	
 	player.update();
-	//collisionHandler(player, collision_map);
 	if(player.stop) return;
 
 	fx.update();
@@ -135,38 +129,36 @@ updateGame = function() {
 
 }
 
+function resetGame() {
+	coinCount = 0;
+	livesCount = 5;
+	levelNo = 1;
+	killCount = 0;
+	deathTexts = [];
+	statBar = new StatBar();
+	player = map = cam = collision_map = enemies = time = bullets = fx = animate = undefined;
+	paused = game_on = false;
+}
+
+
+
 
 
 /**** function calls in here ****/
 
-var start = new SplashScreen();
-
 // don't start game loop until all images have been preloaded
 var tilesheet = new Image();
-tilesheet.onload = function() { startLoop(); };
+tilesheet.onload = function() { start.on = true; startLoop(); }; // start is in display.js
 tilesheet.src = "../assets/arcadesheet.png";
 
 
-function startLoop() {start.loop(); window.requestAnimationFrame(startLoop);}
 
 
-
-
-
-
-
-
-
-
-
-
-var player, map, cam, collision_map, enemies, animate, time, bullets, fx;
-var bg_color;
-var statBar = new StatBar();
 
 
 
 function init(mapNo) {
+	game_on = true;
 	
 	sound.bag[9].play();
 	window.cancelAnimationFrame(animate); 
@@ -176,9 +168,6 @@ function init(mapNo) {
 
 	levelText.reset();
 
-	play = true;
-	//canvas.height = Math.min(mapNo.row * 32, 200 * scaleFactor);
-   	//canvas.width = Math.min(mapNo.col * 16, 250 * scaleFactor);
 
 	context.imageSmoothingEnabled = false;
 
@@ -207,30 +196,26 @@ function init(mapNo) {
 
 function loop() {
 
-	if(!paused) {
-		sound.bag[9].play();
-		if(!player.inWater) {sound.bag[7].pause();}
-		else if(sound.bag[7].paused || sound.bag[7].duration === 0) {
-			console.log("inwater" + player.inWater);
-			sound.bag[7].play();
+	if(game_on) {
+		if(!paused) {
+			sound.bag[9].play();
+			if(!player.inWater) {sound.bag[7].pause();}
+			else if(sound.bag[7].paused || sound.bag[7].duration === 0) {
+				console.log("inwater" + player.inWater);
+				sound.bag[7].play();
+			}
+			updateGame();
+			drawGame();
 		}
-		updateGame();
-		drawGame();
-	}
-	else {  /*
-		for (let i = 0; i < sound.bag.length; i++) {
-		sound.bag[i].pause();
-		}*/
-		sound.bag[9].pause();
-		sound.bag[7].pause();
-		context.font = "70px arial";
-		context.fillStyle = "black";
-		context.textAlign = "center";
-		context.fillText("paused",canvas.width/2,canvas.height/3);
-	}
+		else {
+			sound.bag[9].pause();
+			sound.bag[7].pause();
+			pauseLoop();
+		}
 
 
-    animate = window.requestAnimationFrame(loop);
+	    animate = window.requestAnimationFrame(loop);
+	}
 }
 
 
