@@ -168,7 +168,7 @@ var statBar = new StatBar();
 
 function init(mapNo) {
 	
-	bg_music.play();
+	sound.bag[9].play();
 	window.cancelAnimationFrame(animate); 
 
 
@@ -208,7 +208,7 @@ function init(mapNo) {
 function loop() {
 
 	if(!paused) {
-		bg_music.play();
+		sound.bag[9].play();
 		if(!player.inWater) {underwater.pause();}
 		else if(underwater.paused || underwater.duration === 0) {
 			console.log("inwater" + player.inWater);
@@ -218,7 +218,7 @@ function loop() {
 		drawGame();
 	}
 	else {
-		bg_music.pause();
+		sound.bag[9].pause();
 		underwater.pause();
 		context.font = "70px arial";
 		context.fillStyle = "black";
