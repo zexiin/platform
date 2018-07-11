@@ -67,8 +67,8 @@ var control = {
 
 	mouseListener: function(event) {
 		var canvasRect = canvas.getBoundingClientRect();
-		control.mouse_x = event.clientX - canvasRect.x;
-		control.mouse_y = event.clientY - canvasRect.y;
+		control.mouse_x = event.clientX - canvasRect.left;
+		control.mouse_y = event.clientY - canvasRect.top;
 
 		switch(event.type) {
 			case "mousedown": 
