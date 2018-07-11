@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+  
+        <link href = "lolidk.css" rel = "stylesheet" type = "text/css">
+  
+        <title> radishes </title>
+
+
+
+    </head>
+  
+    <body>
+
+
+        <h1> death by <s>turnip</s> radish </h1>  
+        <table style="width:580">
+  
+         <tr>
+
+    <td> <h2> <div id="insert"></div> </h2></td>
+    <td> <h2> <div id="lives" style = "margin-left: 20px;"></div> </h2> </td>
+    <td> <h2> <div id="level" style = "margin-left: 20px;"></div> </h2> </td>
+    <td> <h2> <div id="kills" style = "margin-left: 20px;"></div> </h2> </td>
+     </tr>
+  
+      </table>
+
+      <canvas></canvas>
+
+
+
+     <navbar> 
+	    <ul>       
+	    <div id="level1" class = "levels"> <li> 1</li></div> <br>
+	    <div id="level2" class = "levels"> <li>2</li></div>  <br>
+	    <div id="level3" class = "levels"> <li>3</li></div>  <br>
+	    <div id="level4" class = "levels"> <li>4</li></div>  <br>
+	    <div id="level5" class = "levels"> <li>5</li></div>  <br>
+	    <div id="level6" class = "levels"> <li>6 </li></div>  <br>
+	    <div id="level7" class = "levels"> <li>7 </li></div>  <br>
+	    <div id="level8" class = "levels"> <li>8 </li></div>  <br>
+	    <div id="level9" class = "levels"> <li>9 </li></div>  <br>
+        <div id="level10" class = "levels"> <li>10 </li></div>  <br>
+	    </ul> 
+    
+    </navbar>
+
+        
+        <script src = "enemy.js" type = "text/javascript"></script>
+        <script src = "collision.js" type = "text/javascript"></script>
+        <script src = "player.js" type = "text/javascript"></script>
+        <script src = "map_classes.js" type = "text/javascript"></script>
+        <script src = "map_data.js" type = "text/javascript"></script>
+        <script src = "camera.js" type = "text/javascript"></script>
+        <script src = "display.js" type = "text/javascript"></script>
+        <script src = "animation.js" type = "text/javascript"></script>
+        <script src = "audio.js" type = "text/javascript"></script>
+
+        <script src = "game.js" type = "text/javascript"></script>
+
+        <div class= "right">
+
+            <br>
+            use the right and left arrow keys to move,<br>
+            the up arrow key to jump,<br>
+            the z key to attack,<br>
+            and the p key to pause.<br>
+
+            the pink and white radishes,<br>
+            the blue ghost,<br>
+            and the tank <br>
+            all kill you.<br><br>
+
+            that's all.<br>
+
+
+            <br><br>
+            <p id="mousey"></p>
+
+            background volume:   <input id="vol-control" type="range" class = "slider" min="0" max="100" value="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input> <br><br>
+
+            sound effects volume: <input id="vol-control" type="range" class = "slider" min="0" max="100" value="100" step="1" oninput="SetSoundEffects(this.value)" onchange="SetSoundEffects(this.value)"></input>  
+
+        </div>
+        
+  
+    </body>
+  
+</html>
