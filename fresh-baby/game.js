@@ -209,17 +209,17 @@ function loop() {
 
 	if(!paused) {
 		sound.bag[9].play();
-		if(!player.inWater) {underwater.pause();}
-		else if(underwater.paused || underwater.duration === 0) {
+		if(!player.inWater) {sound.bag[7].pause();}
+		else if(sound.bag[7].paused || sound.bag[7].duration === 0) {
 			console.log("inwater" + player.inWater);
-			underwater.play();
+			sound.bag[7].play();
 		}
 		updateGame();
 		drawGame();
 	}
 	else {
 		sound.bag[9].pause();
-		underwater.pause();
+		sound.bag[7].pause();
 		context.font = "70px arial";
 		context.fillStyle = "black";
 		context.textAlign = "center";
