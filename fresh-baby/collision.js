@@ -192,6 +192,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+		sound.bag[0].play();
 		player.stop = true;
 
 		terminate(player);
