@@ -409,27 +409,25 @@ StatBar.prototype.draw = function() {
                     
 */
 
-
-// DEATH TEXT OBJECT hehe
-
+// death text object hehe
 function DeathText() {
 	this.time = 200;
-    this.x = 20;
+    this.x = 180;
 	this.y = 90; 
 	this.opacity = 1.0; 
-	this.size = 30;
+	this.size = 60;
 }
 
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
- 	 context.font = this.size + "px courier";
- 	 context.fillStyle = "#661144";
+ 	 context.font = "bold " + this.size + "px verdana";
+ 	 context.fillStyle = "#0099BB";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.005;
-     context.fillText("death is inevitable", this.x, this.y);
-     this.x += 0.8;
-     this.y += 0.2;
+     context.fillText("YOU DIED.", this.x, this.y);
+     //this.x += 0.8;
+     //this.y += 0.2;
      this.time--;
 	}
 	context.globalAlpha = 1.0;
@@ -437,28 +435,28 @@ DeathText.prototype.display = function() {
 
 var levelText = { 
 	time: 350,
-	x: 10,
+	x: 150,
 	y: 90, 
 	opacity: 1.0 
 };
 
 levelText.reset = function() {
 	this.time = 350;
-	this.x = 10;
+	this.x = 150;
 	this.y = 90;
 	this.opacity = 1.0;
 };
 
 levelText.draw = function() {
 	if (this.time > 0) {
- 	 context.font = "70px georgia";
- 	 context.fillStyle = "#339999";
+ 	 context.font = "bold 80px verdana";
+ 	 context.fillStyle = "#accadb";
  	 context.globalAlpha = this.opacity;
  	 this.opacity -= 0.0025;
  	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
      context.fillText(text1, this.x, this.y);
      this.x += 0.5;
-     this.y += 0.3;
+     this.y += 0.1;
      this.time--;
 	}
 	context.globalAlpha = 1.0;
