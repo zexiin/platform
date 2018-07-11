@@ -12,6 +12,13 @@ sound.bag.push(new Audio("../assets/audio/underwater.mp3")); // 7
 sound.bag.push(new Audio("../assets/audio/icecrack4.mp3")); // 8
 sound.bag.push(new Audio("../assets/audio/01 Frozen Langos.mp3")); // 9
 
+
+window.SetVolume = function(val)
+{
+    sound.bag[9].volume = val / 100;
+}
+
+/*
 var win = new Audio("../assets/audio/win.mp3");
 var die = new Audio("../assets/audio/negative_long.mp3");
 var coin_sound = new Audio("../assets/audio/coin.mp3");
@@ -25,6 +32,6 @@ var underwater = new Audio("../assets/audio/underwater.mp3");
 var icecrack = new Audio("../assets/audio/icecrack4.mp3");
 var bg_music = new Audio("../assets/audio/01 Frozen Langos.mp3");
 
-
+*/
 
 
