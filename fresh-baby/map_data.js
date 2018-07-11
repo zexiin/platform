@@ -14,55 +14,51 @@ var mapArr = [];
 
 mapArr.push({
   level: 1,
-  row: 13, 
+  row: 15, 
   col: 36,
   map: "\
 ]                                 [X\
 ]                                 [X\
-]                      t          [X\
-]                     dmb         [X\
 ]                                 [X\
-]              db           %%    [X\
-]                 3          %    [X\
-]           %     dmmb  5  o      [X\
-]         o             dmmmmb    [X\
-]~~~~~~~r====k   J       P        [X\
-]   o   ixxxxl  !    %        !   [X\
---------xxxxxx======================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  map_bg: "\
-                                    \
-                                    \
-                       t            \
-                                    \
-                                    \
-                                    \
-                                    \
-                                    \
-                                 123\
- ~~~~~~~r    k                   456\
- wwwwwwwi    l   J               789\
- wwwwwww                            \
-                                    ",
-  map_overlay: "\
-                                    \
-                                    \
-                       t            \
-                                    \
-                                    \
-                                    \
-                                    \
-                                    \
-                               123  \
- ~~~~~~~r    k                 456  \
- wwwwwwwi    l   J             789  \
-                                    \
-                                    "
-
-   
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]    P                            [X\
+]          t                      [X\
+====================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 });
+
+
 mapArr.push({
   level: 2,
+  row: 15, 
+  col: 36,
+  map: "\
+]                                 [X\
+]                                 [X\
+]      t                          [X\
+]      db                         [X\
+]            3                    [X\
+]            dmmb                 [X\
+]                                 [X\
+]                    dmb          [X\
+]                                 [X\
+]             4                   [X\
+]             dmmmb               [X\
+]    P                            [X\
+]                                 [X\
+====================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+});
+
+mapArr.push({
+  level: 3,
   row: 27, 
   col: 110,
   map: "\
@@ -152,7 +148,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    
 });
 mapArr.push({
-  level: 3,
+  level: 4,
   row: 24,
   col: 48,
   bg_color: "#3f8f6e",
@@ -232,35 +228,6 @@ xxlwwwwwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxxxxxx\
 xxlwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxx---------------ixxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  
-
- });
-mapArr.push({
-  level: 4,
-  row: 21,
-  col: 35,
-  map: "\
-%                        o        %\
-%                                 %\
-%  dmb          o    o            %\
-%                        v    o   %\
-%           o          dmb        %\
-%       o      4   o         o    %\
-%          o   dmmmb   o     o t o%\
-%    2             o     o    dmb %\
-% o  dmb  o    o    o  o    %     %\
-%            vvv     o   o      o %\
-%    o   o  dmb        vv  o      %\
-%                   o  dmb        %\
-%  o    4   o  o   2        o     %\
-%       dmmmb  P   dmb            %\
-%                 ! o       o     %\
-%   o    %     dmmb o  o5!o       %\
-%        %  !  o        dmmmmb    %\
-%  !    r====kJ     db            %\
-%!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!!%\
-=========xxxxxx====================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   
 
  });
