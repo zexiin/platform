@@ -105,3 +105,37 @@ canvas {
   border-width: 5px;
   border-color: #333333;
 }
+
+.slider {
+
+    -webkit-appearance: none;
+    width: 150px;
+    height: 2px;
+    border-radius: 5px;
+    background: #003366;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 30px;
+    background: #99bbee;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 13px;
+    height: 13px;
+    border-radius: 30px;
+    background: #99bbee;
+    cursor: pointer;
+}
