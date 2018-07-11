@@ -326,7 +326,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 
 function iceHandler(tile_obj, layer) {
-	icecrack.play();
+	sound.bag[8].play();
 	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 
 	switch(map.tiles[tileIndex]) {
