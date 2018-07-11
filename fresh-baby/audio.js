@@ -18,6 +18,12 @@ window.SetVolume = function(val)
     sound.bag[9].volume = val / 100;
 }
 
+window.SetSoundEffects = function(val)
+{
+	for (let i = 0; i < 9; i++) {
+    sound.bag[i].volume = val / 100;
+    } 
+}
 /*
 var win = new Audio("../assets/audio/win.mp3");
 var die = new Audio("../assets/audio/negative_long.mp3");
