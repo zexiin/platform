@@ -98,7 +98,7 @@ ul li:active {
 
 canvas {
   margin-left: 45px;
-  letter-spacing: -2px;
+  letter-spacing: auto;
   position: fixed;
   left:10px;
   border-style: solid;
