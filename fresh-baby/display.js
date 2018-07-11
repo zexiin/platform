@@ -5,49 +5,73 @@ this file contains menus n displays n text n shit maybe ???????
 
 **********/
 
+var context = document.querySelector("canvas").getContext("2d");
+var canvas = context.canvas;
+	canvas.height = 400;
+	canvas.width = 500;
 
-// this class currently just makes the start screen. will better modularize so it can make screens in general iguess idk
-class SplashScreen {
+
+
+
+
+/*                                  
+   __________________  ___  ____  _____
+  / ___/ ___/ ___/ _ \/ _ \/ __ \/ ___/
+ (__  ) /__/ /  /  __/  __/ / / (__  ) 
+/____/\___/_/   \___/\___/_/ /_/____/  
+
+*/
+
+// basic screen class (need to use functions to actually make screens)
+class Screen {
 
 	constructor() {
-		this.on = true;
-		this.bgColor = "#f9eae5";
+		this.on = false;
+		this.bgColor = "rgba(0,0,0,0)";
 		this.buttons = new Bag();
-
-
-		let start_btn = new Button("start", 200, 200, 100, 60, this);
-		let startie = function() {
-			this.screen.on = false;
-			window.cancelAnimationFrame(animate);
-			init(mapArr[0]);
-		};
-
-
-		start_btn.setOnClick(startie);
-		this.addButton(start_btn);
-
-
+		this.images = new Bag();
+		this.texts = new Bag();
 
 	}
+
+	setBGColor(color) {this.bgColor = color;}
 
 	addButton(button) {
 		this.buttons.bag.push(button);
 	}
 
+	addImg(img,x,y) {
+		var image = {
+			img:img, x:x, y:y,
+			// update: function() {return;},
+			draw: function() { context.drawImage(this.img,this.x,this.y); },
+		};
+		this.images.bag.push(image);
+	}
+
+	addTxt(string,x,y,font,color) {
+		var txt = {
+			text:string, x:x, y:y, font:font, color:color,
+			draw: function() {
+				context.font = this.font;
+				context.fillStyle = this.color;
+				context.textAlign = "left";
+				context.fillText(this.text, this.x, this.y);
+
+			}
+		};
+		this.texts.bag.push(txt);
+	}
+
+
 	draw() {
 
 		context.fillStyle = this.bgColor;
 		context.fillRect(0,0,canvas.width,canvas.height);
-		context.font = "50px comic sans ms";
-		context.fillStyle = "#fcc955";
-		context.textAlign = "left";
-		context.fillText("hey blease",100,100);
 
+		this.images.draw();
+		this.texts.draw();
 		this.buttons.draw();
-
-		
-
-
 	}
 
 
@@ -71,8 +95,6 @@ class SplashScreen {
 }
 
 
-
-
 class Button {
 
 	constructor(text, x,y,w,h, screen) { // colors are defaults. can set with setColors() function
@@ -82,10 +104,10 @@ class Button {
 		this.w = w;
 		this.h = h;
 		this.screen = screen; // the screen it belongs to
-		this.text_idle = "blue";
-		this.text_hover = "red";
-		this.bg_idle = "gold";;
-		this.bg_hover = "black";
+		this.text_idle = "#ef6c58";
+		this.text_hover = "#ef4033";
+		this.bg_idle = "#d0ede8";
+		this.bg_hover = "#aee5e5";
 		this.hover = false;
 		this.click = false;
 		this.onclick = function() {return;};
@@ -98,6 +120,13 @@ class Button {
 		this.bg_hover = bg_hover;
 	}
 
+	setImg(idle, active) {
+		this.img_idle = this.img_hover = idle;
+		if(active != undefined) this.img_hover = active;
+		this.w = idle.width;
+		this.h = idle.height;
+	}
+
 	setOnClick(func) {
 		this.onclick = func;
 	}
@@ -106,7 +135,10 @@ class Button {
 		if(control.mouse_x > this.x && control.mouse_x < this.x+this.w 
 			&& control.mouse_y > this.y && control.mouse_y < this.y+this.h) {
 			this.hover = true;
-			if(control.mouse_down) this.onclick();
+			if(control.mouse_down) {
+				control.mouse_down = false;
+				this.onclick();
+			}
 
 		}
 		else { this.hover = false; }
@@ -114,20 +146,30 @@ class Button {
 	}
 
 	draw() {
-		let bg_color = this.bg_idle; let txt_color = this.text_idle;
-		if(this.hover) {
-			bg_color = this.bg_hover;
-			txt_color = this.text_hover;
-		}
-		context.fillStyle = bg_color;
-		context.fillRect(this.x,this.y,this.w,this.h);
-		context.strokeStyle = txt_color;
-		context.strokeRect(this.x,this.y,this.w,this.h);
 
-		context.font = "20px sans-serif";
-		context.fillStyle = txt_color;
-		context.textAlign="center";
-		context.fillText(this.txt,this.x+this.w/2,this.y+this.h/4);
+		if(this.img_idle != undefined) {
+			if(this.hover) {
+				context.drawImage(this.img_hover, this.x,this.y);
+			}
+			else context.drawImage(this.img_idle, this.x, this.y);
+
+		}
+		else {
+			let bg_color = this.bg_idle; let txt_color = this.text_idle;
+			if(this.hover) {
+				bg_color = this.bg_hover;
+				txt_color = this.text_hover;
+			}
+			context.fillStyle = bg_color;
+			context.fillRect(this.x,this.y,this.w,this.h);
+			context.strokeStyle = txt_color;
+			context.strokeRect(this.x,this.y,this.w,this.h);
+
+			context.font = "20px sans-serif";
+			context.fillStyle = txt_color;
+			context.textAlign="center";
+			context.fillText(this.txt,this.x+this.w/2,this.y+this.h/4);
+		}
 
 	}
 
@@ -136,11 +178,150 @@ class Button {
 }
 
 
+//// create/define actual screens that we use
+
+function createStartScreen(screen) {
+
+	//// create background and title images
+	let bg = new Image();
+	bg.onload = function() {screen.addImg(bg,0,0);};
+	bg.src = "../assets/startbg.png";
+	let title = new Image();
+	title.onload = function() {screen.addImg(title,(canvas.width-title.width)/2, canvas.height/4)};
+	title.src = "../assets/title.png";
+
+
+	///// create START button
+	let start_btn = new Button("start", 200, 200, 100, 60, screen);
+	let startGame = function() {
+		resetGame();
+		screen.on = false;
+		window.cancelAnimationFrame(animate);
+		init(mapArr[0]);
+	};
+
+	let btn_idle = new Image();
+	let btn_hover = new Image();
+	btn_idle.onload = function() {btn_hover.onload();};
+	btn_hover.onload = function() {start_btn.setImg(btn_idle,btn_hover);};
+	btn_idle.src = "../assets/play_idl.png";
+	btn_hover.src = "../assets/play_hov.png";
+
+	start_btn.setOnClick(startGame);
+	screen.addButton(start_btn);
+
+
+	//// create another fucking button who fuckign i dont
+	let anoth_btn = new Button("another",200,280,100,40,screen);
+	let goAnother = function() {
+		screen.on = false;
+		window.cancelAnimationFrame(animate);
+		another.on = true;
+		anotherLoop();
+	};
+	anoth_btn.setOnClick(goAnother);
+	screen.addButton(anoth_btn);
+
+
+
+}
+
+function createAnotherScreen(screen) {
+
+	screen.setBGColor("#f9eeca");
+
+
+	let back_btn = new Button("back",20,20,100,40,screen);
+	let goBack = function() {
+		screen.on = false;
+		window.cancelAnimationFrame(animate);
+		start.on = true;
+		startLoop();
+	};
+	back_btn.setOnClick(goBack);
+	screen.addButton(back_btn);
+
+	let rut = new Image();
+	rut.onload = function() {screen.addImg(rut, -10,0);};
+	rut.src = "../assets/rutabaga.jpg";
+
+	screen.addTxt("m other why", 50,200, "30px courier", "white");
+
+
+}
+
+
+function createPauseScreen(screen) {
+
+	screen.setBGColor("rgba(247, 239, 215, 0.004)");
+
+
+	let resume_btn = new Button("resume", (canvas.width-100)/2, 170, 100, 40, screen);
+	let resume = function() {
+		window.cancelAnimationFrame(animate);
+		togglePause();
+	}
+	resume_btn.setOnClick(resume);
+	screen.addButton(resume_btn);
+
+
+	let quit_btn = new Button("quit", (canvas.width-100)/2, 220, 100, 40, screen);
+	let quit = function() {
+
+		window.cancelAnimationFrame(animate);
+		resetGame();
+		togglePause();
+		
+		start.on = true;
+		startLoop();
+	}
+	quit_btn.setOnClick(quit);
+	screen.addButton(quit_btn);
+
+	screen.addTxt("paused", (canvas.width-100)/3, 100, "50pt arial", "#ef6c58");
+
+
+
+}
+
+
+
+var start = new Screen();
+createStartScreen(start);
+function startLoop() {
+	start.loop(); 
+	animate = window.requestAnimationFrame(startLoop);
+}
+
+var another = new Screen();
+createAnotherScreen(another);
+function anotherLoop() {
+	another.loop();
+	animate = window.requestAnimationFrame(anotherLoop);
+}
+
+var pause_scr = new Screen();
+createPauseScreen(pause_scr);
+function pauseLoop() {
+	pause_scr.loop();
+	animate = window.requestAnimationFrame(pauseLoop);
+}
 
 
 
 
 
+
+
+
+/*
+         __        __  __              
+   _____/ /_____ _/ /_/ /_  ____ ______
+  / ___/ __/ __ `/ __/ __ \/ __ `/ ___/
+ (__  ) /_/ /_/ / /_/ /_/ / /_/ / /    
+/____/\__/\__,_/\__/_.___/\__,_/_/     
+                                       
+*/
 
 
 
@@ -219,7 +400,14 @@ StatBar.prototype.draw = function() {
 
 
 
-
+/*
+   __            __ 
+  / /____  _  __/ /_
+ / __/ _ \| |/_/ __/
+/ /_/  __/>  </ /_  
+\__/\___/_/|_|\__/  
+                    
+*/
 
 
 // DEATH TEXT OBJECT hehe
@@ -276,6 +464,14 @@ levelText.draw = function() {
 	context.globalAlpha = 1.0;
 };
 
+
+/*__              
+   ____  ____ __   __/ /_  ____ ______
+  / __ \/ __ `/ | / / __ \/ __ `/ ___/
+ / / / / /_/ /| |/ / /_/ / /_/ / /    
+/_/ /_/\__,_/ |___/_.___/\__,_/_/     
+
+*/
 
 
 
