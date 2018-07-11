@@ -217,7 +217,10 @@ function loop() {
 		updateGame();
 		drawGame();
 	}
-	else {
+	else {  /*
+		for (let i = 0; i < sound.bag.length; i++) {
+		sound.bag[i].pause();
+		}*/
 		sound.bag[9].pause();
 		sound.bag[7].pause();
 		context.font = "70px arial";
