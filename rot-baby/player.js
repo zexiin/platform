@@ -177,7 +177,6 @@ Player.prototype.reset = function() {
 
 Player.prototype.die = function() {
 	sound.bag[1].play();
-	return;
 
 	sleep(2000);
 	deathTexts.push(new DeathText());
