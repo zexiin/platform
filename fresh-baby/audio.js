@@ -18,7 +18,7 @@ window.SetVolume = function(val)
     sound.bag[9].volume = val / 100;
 }
 
-window.SetSoundEffects = function(val)
+function SetSoundEffects(val)
 {
 	for (let i = 0; i < 9; i++) {
     sound.bag[i].volume = val / 100;
