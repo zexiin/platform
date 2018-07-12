@@ -29,7 +29,7 @@ mapArr.push({
 ]                                 [X\
 ]                                 [X\
 ]    P                            [X\
-]          t                      [X\
+] U        t                      [X\
 ====================================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 });
@@ -51,7 +51,7 @@ mapArr.push({
 ]                                 [X\
 ]             4                   [X\
 ]             dmmmb               [X\
-]    P                            [X\
+]    P                     U      [X\
 ]                                 [X\
 ====================================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -374,7 +374,7 @@ X]                ixxxxxl                   4         ixxxx]\
 X]                ixx__xl     5                       ixxxx]\
 X]         dmb    ixlooLK                      %      ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
-X]     !%       o ixl     9                           ixxxx]\
+X]U    !%       o ixl     9                           ixxxx]\
 ========%  o  o   ixx===k                        t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
