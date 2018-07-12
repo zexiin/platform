@@ -8,7 +8,7 @@ body {
 
 h1 {
   font-family: verdana;
-  font-size: 20pt;
+  font-size: 40pt;
   text-transform: lowercase;
   letter-spacing: 4px;
   color: #DDDDDD;
@@ -18,7 +18,7 @@ h1 {
 
 h2 {
   font-family: verdana;
-  font-size: 10pt;
+  font-size: 15pt;
   text-transform: lowercase;
   color: #AAAAAA;
   margin-bottom: -5px;
@@ -50,6 +50,7 @@ ul li:hover {
   cursor: pointer;
   color: #bbbbbb;
   margin-left: 2px;
+
 }
 
 ul li:active {
@@ -94,6 +95,17 @@ ul li:active {
 
 }
 
+
+canvas {
+  margin-left: 45px;
+  letter-spacing: auto;
+  position: fixed;
+  left:10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #333333;
+}
+
 .slider {
 
     -webkit-appearance: none;
@@ -126,16 +138,4 @@ ul li:active {
     border-radius: 30px;
     background: #99bbee;
     cursor: pointer;
-}
-
-
-canvas {
-  margin-left: 45px;
-  letter-spacing: auto;
-  position: fixed;
-  left:30px;
-  top: 60px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: #333333;
 }
