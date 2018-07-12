@@ -114,6 +114,8 @@ class TileMap extends Map {
 	    	case "o": return 159; // coin
 	    	case "t": return 163;
 	    	case "!": return 98; // spike bloc
+
+	    	case "U": return 35; // superjump powerup
 	    	
 	    	default: return;
 
@@ -168,6 +170,8 @@ class CollisionMap extends Map {
 	        	case "Ö": return 40.2; // 2 coins collected
 	        	case "Ò": return 40.3; // 3 coins collected
 	        	case "Ó": return 40.4; // 4 coins collected
+
+	        case "U": return 35; // superjump powerup
 
 
 	    	default: return;
