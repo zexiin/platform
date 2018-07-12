@@ -86,7 +86,7 @@ function collisionHandler(player, map) {
 function collisionType(tile_ID) {
 	var collisions = { n: false, s: false, e: false, w: false, 
 					   coin: false, treasure: false, spike: false, 
-					   water: false, ice: false, collectible: false};
+					   water: false, ice: false, collectible: false, superjump: false};
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -153,6 +153,10 @@ function collisionType(tile_ID) {
 			collisions.collectible = true;
 			return collisions;
 
+		case 35: // superjump
+			collisions.superjump = true;
+			return collisions;	
+
 
 		default: return collisions; // default: no collision.
 	};
@@ -210,6 +214,16 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	}
 
+	if (tile.collisions.superjump) {
+		player.superjump_init();
+
+		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
+		layer.tiles[tileIndex] = "\u0020";
+		map.tiles[tileIndex] = "\u0020";
+
+		return;
+	}
+
 	if (tile.collisions.spike) {
 
 		player.die();
@@ -239,8 +253,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 			sound.bag[4].play();
 			//console.log("collide south of water: " +player.x.toFixed(2) +","+player.y.toFixed(2));
 			player.inWater = false;
-			player.Y_ACCEL = player.Y_ACCEL*3;
-			player.GRAVITY = 0.1*scaleFactor;
+
+			player.Y_ACCEL = player.Y_ACCEL*3; 
+			player.GRAVITY = 0.1*scaleFactor; 
 			return;
 		}
 
