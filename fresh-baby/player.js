@@ -22,6 +22,11 @@ function Player(x, y) {
 		delay_time: 20
 	}
 
+	this.superjump = {
+		state: false,
+		time: 0
+	}
+
 	this.camCoords = {}; 
 
 	this.setPhysics();
@@ -61,8 +66,9 @@ Player.prototype.update = function() {
 
 	// handle controls
 		if (control.up && !this.jumping) {
-	      this.y_vel -= this.Y_ACCEL;
+		  this.y_vel -= this.Y_ACCEL; 
 	      if (!this.inWater) this.jumping = true;
+
 	  	}
 	    if (control.left) {
 	      this.x_vel -= this.X_ACCEL;
@@ -94,6 +100,12 @@ Player.prototype.update = function() {
 
 
 	// player's camera coordinates are updated in Camera.update()
+
+	// SUPERJUMP 
+	if (this.superjump.state) {
+		this.superjump.time--;
+	    if (this.superjump.time == 0) { this.superjump.state = false; }
+	}
 	
 	// ATTACK updates
 		if (control.attack && this.attack.state === "idle") {
@@ -205,7 +217,9 @@ Player.prototype.die = function() {
 Player.prototype.setPhysics = function () { // reset regular player physics
 	this.GRAVITY = 0.15*scaleFactor; //0.15
 	this.X_ACCEL = 0.2*scaleFactor; // 0.25
-	this.Y_ACCEL = 6*scaleFactor;
+	if (this.superjump.state) { this.Y_ACCEL = 9*scaleFactor; }
+		else { this.Y_ACCEL = 6*scaleFactor; }
+
 	this.Y_FLOAT = 1 + 0.03*scaleFactor; // idk lol
 	this.X_FRICTION = this.Y_FRICTION = 0.83;
 }
@@ -218,6 +232,7 @@ Player.prototype.slowDown = function() {
 };
 
 Player.prototype.speedUp = function() {
+	return;
 
 	this.GRAVITY = this.GRAVITY * 2;
 	this.X_ACCEL = this.X_ACCEL * 2;
@@ -229,7 +244,8 @@ Player.prototype.speedUp = function() {
 Player.prototype.setWater = function () { 
 	this.GRAVITY = 0.05*scaleFactor; 
 	this.X_ACCEL = 0.17*scaleFactor; 
-	this.Y_ACCEL = 0.3*scaleFactor;
+	if (this.superjump.state) { this.Y_ACCEL = 0.6*scaleFactor; }
+		else { this.Y_ACCEL = 0.3*scaleFactor; }
 	this.Y_FLOAT = 1 + 0.03*scaleFactor; 
 	this.X_FRICTION = this.Y_FRICTION = 0.73;
 };
@@ -240,6 +256,11 @@ Player.prototype.setIce = function() {
 	this.X_FRICTION = 0.99;
 
 };
+
+Player.prototype.superjump_init = function() {
+	this.superjump.state = true;
+	this.superjump.time = 1000;
+}
 
 
 
