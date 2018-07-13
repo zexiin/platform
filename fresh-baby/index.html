@@ -7,6 +7,9 @@
         <link href = "lolidk.css" rel = "stylesheet" type = "text/css">
   
         <title> radishes </title>
+
+
+
     </head>
   
     <body>
@@ -30,7 +33,7 @@
 
 
      <navbar> 
-	    <ul>       		    
+	    <ul>       
 	    <div id="level1" class = "levels"> <li> 1</li></div> <br>
 	    <div id="level2" class = "levels"> <li>2</li></div>  <br>
 	    <div id="level3" class = "levels"> <li>3</li></div>  <br>
@@ -39,14 +42,15 @@
 	    <div id="level6" class = "levels"> <li>6 </li></div>  <br>
 	    <div id="level7" class = "levels"> <li>7 </li></div>  <br>
 	    <div id="level8" class = "levels"> <li>8 </li></div>  <br>
-            <div id="level9" class = "levels"> <li>9 </li></div>  <br>
-	    <div id="level10" class = "levels"> <li>10 </li></div>  <br>
-
+	    <div id="level9" class = "levels"> <li>9 </li></div>  <br>
+        <div id="level10" class = "levels"> <li>10 </li></div>  <br>
 	    </ul> 
     
     </navbar>
 
+        
         <script src = "enemy.js" type = "text/javascript"></script>
+        <script src = "audio.js" type = "text/javascript"></script>
         <script src = "collision.js" type = "text/javascript"></script>
         <script src = "player.js" type = "text/javascript"></script>
         <script src = "map_classes.js" type = "text/javascript"></script>
@@ -54,9 +58,7 @@
         <script src = "camera.js" type = "text/javascript"></script>
         <script src = "display.js" type = "text/javascript"></script>
         <script src = "animation.js" type = "text/javascript"></script>
-	<script src = "audio.js" type = "text/javascript"></script>        
-    
-
+        
         <script src = "game.js" type = "text/javascript"></script>
 
         <div class= "right">
@@ -71,17 +73,16 @@
             the blue ghost,<br>
             and the tank <br>
             all kill you.<br>
-	    (you can kill them by jumping on them or attacking them).<br>
-            the yellow flower with one eye is a superjump powerup.<br><br>
+            (you can kill them by jumping on them or attacking them).<br>
+            the yellow flower with one eye is a superjump powerup.
+            <br><br>
 
             that's all.<br>
-		
-		
-		<p id="mousey"></p>
-		
-		background volume:   <input id="vol-control" type="range" class = "slider" min="0" max="100" value="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>	<br><br>
 
-                sound effects volume: <input id="vol-control" type="range" class = "slider" min="0" max="100" value="100" step="1" oninput="SetSoundEffects(this.value)" onchange="SetSoundEffects(this.value)"></input>  
+
+            <br><br>
+            <p id="mousey"></p>
+
 
         </div>
         
