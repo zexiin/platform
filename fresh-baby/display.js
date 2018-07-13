@@ -28,7 +28,7 @@ class Screen {
 	constructor() {
 		this.on = false;
 		this.bgColor = "rgba(0,0,0,0)";
-		this.buttons = new Bag();
+		this.gui = new Bag(); // contains buttons, sliders, anything else u interact w
 		this.images = new Bag();
 		this.texts = new Bag();
 
@@ -37,16 +37,63 @@ class Screen {
 	setBGColor(color) {this.bgColor = color;}
 
 	addButton(button) {
-		this.buttons.bag.push(button);
+		this.gui.push(button);
+	}
+
+	addSlider(slider) {
+		this.gui.push(slider);
 	}
 
 	addImg(img,x,y) {
 		var image = {
 			img:img, x:x, y:y,
-			// update: function() {return;},
 			draw: function() { context.drawImage(this.img,this.x,this.y); },
 		};
-		this.images.bag.push(image);
+		this.images.push(image);
+	}
+
+	addRect(x,y,w,h,color, strokeColor) {
+		if(strokeColor === undefined) strokeColor = color;
+
+		var rect = {
+			x:x, y:y, w:w, h:h, color:color, stroke:strokeColor,
+
+			draw: function() { 
+				context.fillStyle = this.color;
+				context.fillRect(this.x, this.y, this.w, this.h);
+				context.strokeStyle = this.stroke;
+				context.lineWidth = 2;
+				context.strokeRect(this.x, this.y, this.w, this.h);
+			 },
+		};
+
+		this.images.push(rect);
+
+	}
+
+	addRoundedRect(x,y,w,h,color, strokeColor) {
+		if(strokeColor === undefined) strokeColor = color;
+
+		var rect = {
+			x:x, y:y, w:w, h:h, color:color, stroke:strokeColor,
+
+			draw: function() { 
+
+				let r = 20;
+
+				roundedRectPath(this.x,this.y,this.w,this.h,r);
+
+
+				context.fillStyle = this.color;
+				context.fill();
+				context.strokeStyle = this.stroke;
+				context.lineWidth = 2;
+				context.stroke();
+			 },
+		};
+
+		this.images.push(rect);
+
 	}
 
 	addTxt(string,x,y,font,color) {
@@ -60,7 +107,7 @@ class Screen {
 
 			}
 		};
-		this.texts.bag.push(txt);
+		this.texts.push(txt);
 	}
 
 
@@ -71,15 +118,15 @@ class Screen {
 
 		this.images.draw();
 		this.texts.draw();
-		this.buttons.draw();
+		this.gui.draw();
 	}
 
 
 	update() {
-		this.buttons.update();
+		this.gui.update();
 
-		//if(control.mouse_down) document.getElementById("mousey").style = "color: red";
-		//else document.getElementById("mousey").style = "color: blue";
+		if(control.mouse_down) document.getElementById("mousey").style = "color: red";
+		else document.getElementById("mousey").style = "color: blue";
 		document.getElementById("mousey").innerHTML = "x: "+control.mouse_x +"   y: "+ control.mouse_y;
 	}
 
@@ -109,7 +156,7 @@ class Button {
 		this.bg_idle = "#d0ede8";
 		this.bg_hover = "#aee5e5";
 		this.hover = false;
-		this.click = false;
+		this.clickable = false;
 		this.onclick = function() {return;};
 	}
 
@@ -135,13 +182,14 @@ class Button {
 		if(control.mouse_x > this.x && control.mouse_x < this.x+this.w 
 			&& control.mouse_y > this.y && control.mouse_y < this.y+this.h) {
 			this.hover = true;
-			if(control.mouse_down) {
-				control.mouse_down = false;
-				this.onclick();
-			}
-
+			if(control.mouse_up) this.clickable = true; 
 		}
-		else { this.hover = false; }
+		else { this.hover = false; this.clickable = false;}
+
+		if(this.clickable && control.mouse_down) {
+			control.mouse_down = false;
+			this.onclick();
+		}
 
 	}
 
@@ -160,10 +208,18 @@ class Button {
 				bg_color = this.bg_hover;
 				txt_color = this.text_hover;
 			}
+
+			roundedRectPath(this.x,this.y,this.w,this.h,10);
+			context.fillStyle = bg_color; context.fill();
+			context.strokeStyle = txt_color; context.lineWidth =2; context.stroke();
+
+			/*
 			context.fillStyle = bg_color;
 			context.fillRect(this.x,this.y,this.w,this.h);
 			context.strokeStyle = txt_color;
+			context.lineWidth = 2;
 			context.strokeRect(this.x,this.y,this.w,this.h);
+			*/
 
 			context.font = "20px sans-serif";
 			context.fillStyle = txt_color;
@@ -173,9 +229,103 @@ class Button {
 
 	}
 
+}
+
+
+
+class Slider {
+
+	constructor(x,y,w,h) {
+		this.x = x;
+		this.y = y;
+		this.screen = screen;
+		this.w = w;
+		this.h = h; 
+		this.indicator = {
+			x: this.x+this.w,
+			y: this.y+this.h/2,
+			color: "#ef6c58",
+			active_color: "#ef4033",
+		};
+		this.barColor = "#aee5e5";
+		this.clickable = false;
+
+		this.value = 1; 
+		this.onclick = function() { console.log(this.value); }; // onclick function passes in one arg: this.value
+
+	}
+
+	getVal() {
+		return this.value; // this is a number from 0 to 1.
+	}
+
+	setColors(bar, indicator, indicator_active) {
+		this.indicator.color = indicator;
+		this.indicator.active_color = indicator_active;
+		this.barColor = bar;
+	}
+
+	setFunction(func) {
+		this.onclick = func;
+	}
+
+	update() {
+
+		if(control.mouse_x > this.x && control.mouse_x < this.x+this.w 
+			&& control.mouse_y > this.y && control.mouse_y < this.y+this.h && control.mouse_up) {
+			this.clickable = true;
+		}
+		else if(control.mouse_up) this.clickable = false;
+
+		if(this.clickable && control.mouse_down) {
+			this.indicator.x = Math.max(Math.min(control.mouse_x,this.x+this.w),this.x);
+			this.value = ((this.indicator.x - this.x)/this.w);
+			this.onclick(this.value);
+		}
+
+
+
+	}
+
+	draw() {
+
+		// draw bar
+		context.strokeStyle = this.barColor;
+		context.beginPath();
+		context.lineCap = "round";
+		context.lineWidth = this.h*(1/3);
+		context.moveTo(this.x, this.y+this.h/2);
+		context.lineTo(this.x+this.w, this.y+this.h/2);
+		context.stroke();
+
+		// draw indicator thing
+		context.fillStyle = this.indicator.color;
+		if(this.clickable && control.mouse_down) context.fillStyle = this.indicator.active_color;
+		context.beginPath();
+		context.arc(this.indicator.x, this.indicator.y, this.h*(3/4), 0, 2*Math.PI);
+		context.fill();
+
+
+
+	}
+
 
 
 }
+
+function roundedRectPath(x,y,w,h,r) {
+	context.beginPath();
+	context.moveTo(x+r,y);
+	context.lineTo(x+w-r,y);
+	context.arcTo(x+w, y, x+w, y+r,r);
+	context.lineTo(x+w, y+h-r);
+	context.arcTo(x+w, y+h, x+w-r, y+h,r);
+	context.lineTo(x+r, y+h);
+	context.arcTo(x, y+h, x, y+h-r,r);
+	context.lineTo(x,y+r);
+	context.arcTo(x,y,x+r,y,r);	
+}
+
 
 
 //// create/define actual screens that we use
@@ -193,11 +343,12 @@ function createStartScreen(screen) {
 
 	///// create START button
 	let start_btn = new Button("start", 200, 200, 100, 60, screen);
-	let startGame = function() {
+	let startGame = function() { ///////// START GAME FUNCTION HERE ////////////
 		resetGame();
 		screen.on = false;
-		window.cancelAnimationFrame(animate);
 		init(mapArr[0]);
+		sfx.push(new SFX("bgm"));
+		sfx.push(new SFX("underwater"));
 	};
 
 	let btn_idle = new Image();
@@ -215,9 +366,7 @@ function createStartScreen(screen) {
 	let anoth_btn = new Button("another",200,280,100,40,screen);
 	let goAnother = function() {
 		screen.on = false;
-		window.cancelAnimationFrame(animate);
 		another.on = true;
-		anotherLoop();
 	};
 	anoth_btn.setOnClick(goAnother);
 	screen.addButton(anoth_btn);
@@ -234,9 +383,7 @@ function createAnotherScreen(screen) {
 	let back_btn = new Button("back",20,20,100,40,screen);
 	let goBack = function() {
 		screen.on = false;
-		window.cancelAnimationFrame(animate);
-		start.on = true;
-		startLoop();
+		start_scr.on = true;
 	};
 	back_btn.setOnClick(goBack);
 	screen.addButton(back_btn);
@@ -250,63 +397,87 @@ function createAnotherScreen(screen) {
 
 }
 
-
 function createPauseScreen(screen) {
 
-	screen.setBGColor("rgba(247, 239, 215, 0.004)");
+	screen.setBGColor("rgba(247, 239, 215, 0.005)");
+
+	screen.addRoundedRect(100,50,300,300,"#f7fcfa","#ef6c58");
 
 
 	let resume_btn = new Button("resume", (canvas.width-100)/2, 170, 100, 40, screen);
 	let resume = function() {
-		window.cancelAnimationFrame(animate);
 		togglePause();
 	}
 	resume_btn.setOnClick(resume);
 	screen.addButton(resume_btn);
 
+	let vol_btn = new Button("volume", (canvas.width-100)/2, 220, 100, 40, screen)
+	let adjust_vol = function() {
+		vol_scr.on = true;
+	}
+	vol_btn.setOnClick(adjust_vol);
+	screen.addButton(vol_btn);
 
-	let quit_btn = new Button("quit", (canvas.width-100)/2, 220, 100, 40, screen);
+
+	let quit_btn = new Button("quit", (canvas.width-100)/2, 270, 100, 40, screen);
 	let quit = function() {
-
-		window.cancelAnimationFrame(animate);
 		resetGame();
 		togglePause();
 		
-		start.on = true;
-		startLoop();
+		start_scr.on = true;
 	}
 	quit_btn.setOnClick(quit);
 	screen.addButton(quit_btn);
 
-	screen.addTxt("paused", (canvas.width-100)/3, 100, "50pt arial", "#ef6c58");
+	
 
 
+
+	screen.addTxt("paused", 135, 70, "bold 50pt arial", "#ef6c58");
+
+
+	
+}
+
+
+function createVolScreen(screen) {
+
+	let w = 250; let h = 180;
+	let x = (canvas.width-w)/2;
+	let y = (canvas.height-h)/2;
+
+	screen.addRoundedRect(x,y,w,h, "#fcf7e5", "#ef6c58");
+
+	let return_btn = new Button("done",(canvas.width-100)/2, 230, 100, 40, screen);
+	return_btn.setOnClick(function() {screen.on = false;});
+	screen.addButton(return_btn);
+
+	let bg_vol = new Slider(x+(w-100)/2+20, y+50, 100, 10);
+	bg_vol.setFunction(window.setVolume);
+	let sfx_vol = new Slider(x+(w-100)/2+20, y+75, 100, 10);
+	sfx_vol.setFunction(setSoundEffects);
+
+	screen.addSlider(bg_vol);
+	screen.addSlider(sfx_vol);
+
+	screen.addTxt("BGM:", x+50, y+47, "10pt arial", "#ef6c58");
+	screen.addTxt("SFX:", x+50, y+72, "10pt arial", "#ef6c58");
 
 }
 
 
 
-var start = new Screen();
-createStartScreen(start);
-function startLoop() {
-	start.loop(); 
-	animate = window.requestAnimationFrame(startLoop);
-}
+var start_scr = new Screen();
+createStartScreen(start_scr);
 
 var another = new Screen();
 createAnotherScreen(another);
-function anotherLoop() {
-	another.loop();
-	animate = window.requestAnimationFrame(anotherLoop);
-}
 
 var pause_scr = new Screen();
 createPauseScreen(pause_scr);
-function pauseLoop() {
-	pause_scr.loop();
-	animate = window.requestAnimationFrame(pauseLoop);
-}
 
+var vol_scr = new Screen();
+createVolScreen(vol_scr);
 
 
 
@@ -409,7 +580,9 @@ StatBar.prototype.draw = function() {
                     
 */
 
-// death text object hehe
+
+// DEATH TEXT 
+
 function DeathText() {
 	this.time = 200;
     this.x = 180;
@@ -421,14 +594,14 @@ function DeathText() {
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
- 	 context.font = "bold " + this.size + "px verdana";
- 	 context.fillStyle = "#0099BB";
- 	 context.globalAlpha = this.opacity;
- 	 this.opacity -= 0.005;
-     context.fillText("YOU DIED.", this.x, this.y);
-     //this.x += 0.8;
-     //this.y += 0.2;
-     this.time--;
+		context.font = "bold" + this.size + "px verdana";
+		context.fillStyle = "#0099bb";
+		context.globalAlpha = this.opacity;
+		this.opacity -= 0.005;
+		context.fillText("YOU DIED.", this.x, this.y);
+		//this.x += 0.8;
+		//this.y += 0.2;
+		this.time--;
 	}
 	context.globalAlpha = 1.0;
 }
