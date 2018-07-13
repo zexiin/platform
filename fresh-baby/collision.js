@@ -86,7 +86,7 @@ function collisionHandler(player, map) {
 function collisionType(tile_ID) {
 	var collisions = { n: false, s: false, e: false, w: false, 
 					   coin: false, treasure: false, spike: false, 
-					   water: false, ice: false, collectible: false, superjump: false};
+					   water: false, ice: false, superjump: false};
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -147,15 +147,11 @@ function collisionType(tile_ID) {
 			collisions.ice = true;
 			return collisions;
 
-
-		case 40: // brick w coin
-			collisions.n = true; collisions.s = true; collisions.e = true; collisions.w = true;
-			collisions.collectible = true;
-			return collisions;
-
 		case 35: // superjump
 			collisions.superjump = true;
-			return collisions;	
+			return collisions;
+
+
 
 
 		default: return collisions; // default: no collision.
@@ -183,8 +179,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	if (tile.collisions.coin) {
 
-		//let test = new Audio("../assets/audio/coin.mp3");
- 		sound.bag[2].play();
+		sfx.push(new SFX("coin"));
 
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 		layer.tiles[tileIndex] = map.tiles[tileIndex] = "\u0020";
@@ -196,7 +191,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
-		sound.bag[0].play();
+		sfx.push(new SFX("win"));
 		player.stop = true;
 
 		terminate(player);
@@ -208,6 +203,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		terminate(fx);
 		terminate(bullets);
 		terminate(enemies);
+
 		levelNo++;
 		init(mapArr[levelNo-1]);
 		return;
@@ -216,11 +212,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	if (tile.collisions.superjump) {
 		player.superjump_init();
-
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 		layer.tiles[tileIndex] = "\u0020";
 		map.tiles[tileIndex] = "\u0020";
-
 		return;
 	}
 
@@ -236,7 +230,8 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		// if player is moving down into water
 		if (player.bound.y+player.bound.h > tile.y+tile.h*0.5 && !player.inWater) { 
-			sound.bag[3].play();
+			sfx.push(new SFX("water_enter"));
+			sfx.bag[1].muted = false;
 			//console.log("collide north of water");
 			player.inWater = true;
 			player.setWater();
@@ -250,12 +245,12 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 		// if player is moving up out of water
 		if (player.bound.y+player.bound.h < tile.y+tile.h*0.5 && player.inWater) {
-			sound.bag[4].play();
+			sfx.push(new SFX("water_exit"));
+			sfx.bag[1].muted = true;
 			//console.log("collide south of water: " +player.x.toFixed(2) +","+player.y.toFixed(2));
 			player.inWater = false;
-
-			player.Y_ACCEL = player.Y_ACCEL*3; 
-			player.GRAVITY = 0.1*scaleFactor; 
+			player.Y_ACCEL = player.Y_ACCEL*3;
+			player.GRAVITY = 0.3*scaleFactor;
 			return;
 		}
 
@@ -323,12 +318,6 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 			if (tile.collisions.ice) iceHandler(tile_obj, layer);
 			
-			// THis will probably  change idk
-			if (tile.collisions.collectible) {
-				map.tiles[tile_obj.row * map.cols + tile_obj.col] = "\u0020";
-				//layer.tiles
-				fx.bag.push(new TileBump_G(tile.x,tile.y,tile_obj));
-			}
 
 			return;
 		}
@@ -341,7 +330,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 
 function iceHandler(tile_obj, layer) {
-	sound.bag[8].play();
+
+	sfx.push(new SFX("icecrack"));
+	
 	let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 
 	switch(map.tiles[tileIndex]) {
