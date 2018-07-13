@@ -396,6 +396,25 @@ X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 ========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+xxxxxxxxx=============================================ixxxx]",
+map_overlay: "\
+X]                                                    ixxxx]\
+X]                                       o            ixxxx]\
+X]                                                    ixxxx]\
+X]                                         o          ixxxx]\
+X]                               o         %          ixxxx]\
+X]                              %                     ixxxx]\
+X]                  o  dmb                       o    ixxxx]\
+X]                    %                       o       ixxxx]\
+X]                                              o     ixxxx]\
+X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]         dmb    ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxxx=============================================ixxxx]"
 
 
