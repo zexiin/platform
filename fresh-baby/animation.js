@@ -16,7 +16,7 @@ this file contains vars/methods for animation.
 Player.prototype.animation = {
 	prev_state: "idle",
 	state: "idle",
-	delay: 15,
+	delay: 8,
 	cur_frame: 0,
 	max_frames: 4, // just so cur_frame doesn't get huge i gues
 
@@ -164,7 +164,7 @@ var coinAnimation = {
 	no_frames: 4,
 	frames: [{x:64,y:112}, {x:80,y:112}, {x:96,y:112}, {x:112,y:112}],
 	lastUpdate: 0,
-	delay: 17
+	delay: 12,
 };
 
 coinAnimation.getFrame = function() {
@@ -383,7 +383,7 @@ class Sparkles extends VisFX {
 	constructor(x,y) {
 		super(x, y, 0 , 0, 16, 16);
 		this.animation = {
-			delay: 16,
+			delay: 10,
 			cur_frame: 0,
 			no_frames: 4,
 			frames:[{x:128,y:112}, {x:144,y:112}, {x:160,y:112}, {x:176,y:112}],
@@ -507,6 +507,10 @@ class TileBump_G extends VisFX { // green brick tile bump up
 		this.camCoords = cam.mapToCam(this.x, this.y); 
 	}
 }
+
+
+
+
 
 
 
