@@ -21,11 +21,10 @@ function Player(x, y) {
 		time: -1,
 		delay_time: 20
 	}
-
 	this.superjump = {
 		state: false,
-		time: 0
-	}
+		time: 0,
+	};
 
 	this.camCoords = {}; 
 
@@ -36,8 +35,8 @@ function Player(x, y) {
 
 	// define sprite bounding box
 	this.bound = {
-		x:0, 
-		y:0,
+		x:x, 
+		y:y,
 		x_prev: 0,
 		y_prev: 0,
 		w: 14*scaleFactor, //13
@@ -66,9 +65,8 @@ Player.prototype.update = function() {
 
 	// handle controls
 		if (control.up && !this.jumping) {
-		  this.y_vel -= this.Y_ACCEL; 
+	      this.y_vel -= this.Y_ACCEL;
 	      if (!this.inWater) this.jumping = true;
-
 	  	}
 	    if (control.left) {
 	      this.x_vel -= this.X_ACCEL;
@@ -101,26 +99,24 @@ Player.prototype.update = function() {
 
 	// player's camera coordinates are updated in Camera.update()
 
-	// SUPERJUMP 
-	if (this.superjump.state) {
+
+	// SUPERJUMP
+	if(this.superjump.state) {
 		this.superjump.time--;
-	    if (this.superjump.time == 0) { this.superjump.state = false; }
+		if(this.superjump.time === 0) this.superjump.state = false;
 	}
 	
 	// ATTACK updates
 		if (control.attack && this.attack.state === "idle") {
-			console.log("start");
 			this.attack.state = "ongoing";
 			this.attack.time = this.attack.delay_time;
 		}
 
 		if (this.attack.state === "delay") {
-			console.log("delaying");
 			this.attack.time--;
 		}
 
 		if (this.attack.time == 0) {
-			console.log("finish attack");
 			this.attack.state = "idle";
 			this.attack.time = -1;
 		}
@@ -188,7 +184,7 @@ Player.prototype.reset = function() {
 };
 
 Player.prototype.die = function() {
-	sound.bag[1].play();
+	sfx.push(new SFX("die"));
 	//return;
 
 	sleep(2000);
@@ -215,10 +211,12 @@ Player.prototype.die = function() {
 
 
 Player.prototype.setPhysics = function () { // reset regular player physics
-	this.GRAVITY = 0.15*scaleFactor; //0.15
-	this.X_ACCEL = 0.2*scaleFactor; // 0.25
-	if (this.superjump.state) { this.Y_ACCEL = 9*scaleFactor; }
-		else { this.Y_ACCEL = 6*scaleFactor; }
+	this.GRAVITY = 0.3*scaleFactor; //0.15
+	this.X_ACCEL = 0.4*scaleFactor; // 0.25
+	this.Y_ACCEL = 7*scaleFactor;
+
+	if (this.superjump.state) { this.Y_ACCEL = 10*scaleFactor; }
+	else { this.Y_ACCEL = 7*scaleFactor; }
 
 	this.Y_FLOAT = 1 + 0.03*scaleFactor; // idk lol
 	this.X_FRICTION = this.Y_FRICTION = 0.83;
@@ -232,7 +230,6 @@ Player.prototype.slowDown = function() {
 };
 
 Player.prototype.speedUp = function() {
-	return;
 
 	this.GRAVITY = this.GRAVITY * 2;
 	this.X_ACCEL = this.X_ACCEL * 2;
@@ -242,17 +239,19 @@ Player.prototype.speedUp = function() {
 };
 
 Player.prototype.setWater = function () { 
-	this.GRAVITY = 0.05*scaleFactor; 
-	this.X_ACCEL = 0.17*scaleFactor; 
-	if (this.superjump.state) { this.Y_ACCEL = 0.6*scaleFactor; }
-		else { this.Y_ACCEL = 0.3*scaleFactor; }
+	this.GRAVITY = 0.06*scaleFactor; 
+	this.X_ACCEL = 0.4*scaleFactor; 
+
+	if(this.superjump.state) this.Y_ACCEL = 0.8*scaleFactor; 
+	else this.Y_ACCEL = 0.4*scaleFactor; 
+
 	this.Y_FLOAT = 1 + 0.03*scaleFactor; 
 	this.X_FRICTION = this.Y_FRICTION = 0.73;
 };
 
 Player.prototype.setIce = function() {
-	this.X_ACCEL = 0.05*scaleFactor;
-	this.Y_ACCEL = 5*scaleFactor;
+	this.X_ACCEL = 0.1*scaleFactor;
+	this.Y_ACCEL = 6*scaleFactor;
 	this.X_FRICTION = 0.99;
 
 };
@@ -260,9 +259,7 @@ Player.prototype.setIce = function() {
 Player.prototype.superjump_init = function() {
 	this.superjump.state = true;
 	this.superjump.time = 1000;
-}
-
-
+};
 
 
 
