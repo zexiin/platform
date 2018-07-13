@@ -1,28 +1,22 @@
-var sound = new Bag();
 
-sound.bag.push(new Audio("../assets/audio/win.mp3")); // 0
-sound.bag.push(new Audio("../assets/audio/negative_long.mp3")); // 1 DYING
-sound.bag.push(new Audio("../assets/audio/coin.mp3")); // 2
-sound.bag.push(new Audio("../assets/audio/water_drip.mp3")); // 3
-sound.bag.push(new Audio("../assets/audio/water_exit.mp3")); // 4
-
-sound.bag.push(new Audio("../assets/audio/bounce.mp3")); // 5
-sound.bag.push(new Audio("../assets/audio/footstep_short.wav")); // 6 - currently unused
-sound.bag.push(new Audio("../assets/audio/underwater.mp3")); // 7
-sound.bag.push(new Audio("../assets/audio/icecrack4.mp3")); // 8
-sound.bag.push(new Audio("../assets/audio/01 Frozen Langos.mp3")); // 9
+/*               _ _       
+                | (_)      
+ _____ _   _  __| |_  ___  
+(____ | | | |/ _  | |/ _ \ 
+/ ___ | |_| ( (_| | | |_| |
+\_____|____/ \____|_|\___/ 
+                           
+*/
 
 
-window.SetVolume = function(val)
-{
-    sound.bag[9].volume = val / 100;
+
+function setVolume(val) {
+	sfx.bag[0].volume = val;
 }
 
-function SetSoundEffects(val)
-{
-	for (let i = 0; i < 9; i++) {
-    sound.bag[i].volume = val / 100;
-    } 
+function setSoundEffects(val) {
+	sfx.volume = val;
+
 }
 /*
 var win = new Audio("../assets/audio/win.mp3");
@@ -39,5 +33,72 @@ var icecrack = new Audio("../assets/audio/icecrack4.mp3");
 var bg_music = new Audio("../assets/audio/01 Frozen Langos.mp3");
 
 */
+
+
+
+class AudioBag extends Bag { // note: bag[0] should always be bgm and bag[1] should always be underwater.
+
+	constructor() {
+		super();
+		this.volume = 1;
+	}
+
+	update() {
+		this.bag.forEach(function(element, i, bag) {
+			if(i > 0) element.volume = sfx.volume;
+			if(element.ended) { 
+				terminate(element);
+				bag.splice(i,1);
+			}
+
+		});
+	}
+	play() {
+		this.bag.forEach(function(element) {element.play();}); 
+	}
+	pause() {
+		this.bag.forEach(function(element) {element.pause();}); 
+	}
+	terminateAll() { 
+		this.bag.forEach(function(element) {terminate(element)}); 
+	}
+}
+
+
+
+
+class SFX {
+	constructor(sfx_type) {
+		switch(sfx_type) {
+			case "bgm": 
+				let bgm = new Audio("../assets/audio/01 Frozen Langos.mp3");
+				bgm.loop = true;
+				return bgm;
+			case "underwater": 
+				let underwater = new Audio("../assets/audio/underwater.mp3");
+				underwater.loop = true;
+				underwater.muted = true;
+				return underwater;
+			case "icecrack": return new Audio("../assets/audio/icecrack4.mp3");
+			case "die": return new Audio("../assets/audio/negative_long.mp3");
+			case "coin": return new Audio("../assets/audio/coin.mp3");
+			case "water_enter": return new Audio("../assets/audio/water_drip.mp3");
+			case "water_exit": return new Audio("../assets/audio/water_exit.mp3");
+			case "bounce": return new Audio("../assets/audio/bounce.mp3");
+			case "win": return new Audio("../assets/audio/win.mp3");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
