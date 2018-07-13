@@ -28,8 +28,8 @@ class Enemy {
 		this.h = gen.h*scaleFactor;
 
 		this.bound = {
-			x:0, 
-			y:0,
+			x:gen.x, 
+			y:gen.y,
 			x_prev: 0,
 			y_prev: 0,
 			w: boundary.w*scaleFactor, //13
@@ -87,31 +87,25 @@ class Enemy {
 		let enemy_left = this.bound.x; let enemy_top = this.bound.y;
 		let enemy_right = this.bound.x + this.bound.w; let enemy_bottom = this.bound.y + this.bound.h;
 
-		// replace w overlap ? {!}
 
-		if(!(enemy_left < player.bound.x+player.bound.w && enemy_right > player.bound.x)) return;
+		if(overlap(this.bound,player.bound)) {
 
-		if (player.bound.y + player.bound.h > enemy_top) {
-
-			// if player is jumping down onto enemy
-			if(player.bound.y_prev+player.bound.h <= enemy_top) {
-				sound.bag[5].play();
+			if (player.bound.y + player.bound.h > enemy_top && player.bound.y_prev+player.bound.h <= enemy_top) {
+				sfx.push(new SFX("bounce"));
 				killCount++;
 				this.die();
-				player.y_vel *= -4;
-				return;
+				player.y_vel *= -3;
 			}
 
-			else if (enemy_bottom > player.bound.y) {
-
-				if (player.attack.state === "ongoing") {
-					killCount++;
-					this.die();
-				}
-				else player.die();
-
+			else if (player.attack.state === "ongoing") {
+				killCount++;
+				this.die();
 			}
-			
+
+			else {
+				player.die();
+			}
+
 		}
 
 	}
@@ -151,7 +145,7 @@ class Blue_Enemy extends Enemy {
 			path_length: path_length
 		};
 		let physics = {
-			x_vel: 0.2, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
+			x_vel: 0.2*scaleFactor, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
 		};
 		let boundary = {
 			w: 10, h: 11, x_offset:3, y_offset: 5,
@@ -185,10 +179,10 @@ class Jump_Enemy extends Enemy {
 			path_length: path_length
 		};
 		let physics = {
-			x_vel: 0.25, y_vel: 0, x_accel: 0, y_accel: -1.4, gravity: 0.05
+			x_vel: 0.25*scaleFactor, y_vel: 0, x_accel: 0, y_accel: -1*scaleFactor, gravity: 0.05*scaleFactor
 		};
 		let boundary = {
-			w: 10, h: 16, x_offset:3, y_offset: 16,
+			w: 12, h: 16, x_offset:1, y_offset: 16,
 		};
 		super(gen, physics, boundary);
 		this.frame = {x:96,y:16}; // replace w animation 
@@ -228,7 +222,7 @@ class Tank_Enemy extends Enemy {
 			path_length: path_length
 		};
 		let physics = {
-			x_vel: 0.25, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
+			x_vel: 0.25*scaleFactor, y_vel: 0, x_accel: 0, y_accel: 0, gravity: 0
 		};
 		let boundary = {
 			w: 24, h: 26, x_offset:3, y_offset: 6, // this big boi can intersect 9 tiles at once
@@ -286,8 +280,7 @@ class Bullet extends Enemy {
 
 
 
-
-
+/// this class prob dosesnt belong here but shruggy
 class Bag {
 	constructor() { this.bag = []; }
 	update() {
@@ -306,6 +299,9 @@ class Bag {
 	}
 	terminateAll() { 
 		this.bag.forEach(function(element) {terminate(element)}); 
+	}
+	push(element) {
+		this.bag.push(element);
 	}
 }
 
@@ -389,6 +385,7 @@ function getAllIndexes(arr, val) {
 // checks if two rectangular boxes overlap
 // the arguments are two objects: each must have an x, y, w, and h
 function overlap(first, second) {
+	
 	return (first.x < (second.x + second.w) && (first.x + first.w) > second.x
              && first.y < (second.y + second.h) && (first.y + second.h) > second.y);
 }
