@@ -8,14 +8,13 @@ this file contains the main game functions??
 
 var scaleFactor = 2;
 
-var player, map, cam, collision_map, enemies, animate, time, bullets, fx, statBar, bg_color;
+var player, map, cam, collision_map, enemies, animate, time, bullets, fx, sfx, statBar, bg_color;
 var coinCount, livesCount, levelNo, killCount, deathTexts;
 
 
 context.font = "15px Arial";    
 context.textBaseline = "top"; 
 context.fillText("Top",5,100);    
-
 
 var control = {
 	left: false, right: false, up: false, down: false, attack: false,
@@ -81,6 +80,7 @@ var control = {
 function togglePause() { 
 	paused = !paused; 
 	pause_scr.on = !pause_scr.on;
+	vol_scr.on = false;
 }
 
 
@@ -107,6 +107,7 @@ drawGame = function() {
     });
 
     statBar.draw();
+    sfx.play();
     
 }
 
@@ -119,6 +120,7 @@ updateGame = function() {
 	enemies.update(); 
 	bullets.update();
 	cam.update();
+	sfx.update();
 
 
 	document.getElementById("insert").innerHTML = "coins: " + coinCount;
@@ -136,6 +138,7 @@ function resetGame() {
 	killCount = 0;
 	deathTexts = [];
 	statBar = new StatBar();
+	sfx = new AudioBag();
 	player = map = cam = collision_map = enemies = time = bullets = fx = animate = undefined;
 	paused = game_on = false;
 }
@@ -144,24 +147,9 @@ function resetGame() {
 
 
 
-/**** function calls in here ****/
-
-// don't start game loop until all images have been preloaded
-var tilesheet = new Image();
-tilesheet.onload = function() { start.on = true; startLoop(); }; // start is in display.js
-tilesheet.src = "../assets/arcadesheet.png";
-
-
-
-
-
-
 
 function init(mapNo) {
 	game_on = true;
-	
-	sound.bag[9].play();
-	window.cancelAnimationFrame(animate); 
 
 
 	time = 0;
@@ -181,45 +169,47 @@ function init(mapNo) {
 	else bg_color = "#bae4ef";
 
 	cam = new Camera(player, map, bg_map, overlay_map);
-
-	
-	if (mapNo.level === 1) {player.speedUp();}
-
 	enemies = new Enemies(map.tiles);
 	bullets = new Bag();
 	fx = new Bag();
-	
-	loop(); // finish initializing and start the game loop
 
 }
 
+function gameLoop() {
+	if(!paused) {
+		updateGame();
+		drawGame();
 
-function loop() {
-
-	if(game_on) {
-		if(!paused) {
-			sound.bag[9].play();
-			if(!player.inWater) {sound.bag[7].pause();}
-			else if(sound.bag[7].paused || sound.bag[7].duration === 0) {
-				console.log("inwater" + player.inWater);
-				sound.bag[7].play();
-			}
-			updateGame();
-			drawGame();
-		}
-		else {
-			sound.bag[9].pause();
-			sound.bag[7].pause();
-			pauseLoop();
-		}
-
-
-	    animate = window.requestAnimationFrame(loop);
+		
 	}
 }
 
 
 
+/**** function calls start here ****/
+
+// don't start game loop until all images have been preloaded
+var tilesheet = new Image();
+tilesheet.onload = function() { start_scr.on = true; mainLoop(); }; 
+tilesheet.src = "../assets/arcadesheet.png";
+
+
+
+function mainLoop() {
+
+	if(start_scr.on) start_scr.loop();
+	else if (another.on) another.loop();
+	else if (game_on && !pause_scr.on) gameLoop();
+	else if (game_on && pause_scr.on) { 
+		sfx.pause();
+		if(vol_scr.on) vol_scr.loop();
+		else pause_scr.loop();
+	}
+
+
+	animate = window.requestAnimationFrame(mainLoop);
+
+}
 
 
 
