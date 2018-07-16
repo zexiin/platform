@@ -381,17 +381,17 @@ l                                                  4   o            ixxxxl      
 l                                                  dmmmb            ixxxxl          dmmmb      ixl\
 l                                                         dmb       ixxxxl       J             ixl\
 l                                 J            J              4     ixxxxl           4     ooo ixl\
-l                                                         r=========xxxxxl!o     ==============xxl\
-l                ==    o        dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                                                         r=========xxxxxl!o     r=============xxl\
+l                rk    o        dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 l                il                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 l                il       dmb               ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
 l                ilooo 8      5             ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-l                il=================        ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
-l                L__________________   4  o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                il================k        ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
+l                L_________________K   4  o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 l                                      dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 l                                           ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 l               4     6      8 o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
-============================================ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+============================================xxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________l       ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo                                    ixxxxxxxxxxxxxxxl\
@@ -400,21 +400,21 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo4        4                         
 lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
 l                                                                                ixxxxxxxxxxxxxxxl\
 l                                                                          o     ixxxxxxxxxxxxxxxl\
-l                                                                        o   dmmmxxxxxxxxxxxxxxxxl\
+l                                                                        o   dmmm_______________xl\
 l                                                         P    o  4    o                        ix\
 l                                                           o   dmmmmmb   o                     ix\
-l                                                       ====k               o2   o              ix\
+l                                                       r===k               o2   o              ix\
 l                                                  o 2  ixxxl             dmmmmb   o            ix\
 l                                                o   dmmixxxl                        o          ix\
 l                                         o  3          ixxxl                     dmmb R     oooix\
 l                                       o    dmmb       ixxxl                                oooix\
-l                                                       ixxxl                  =================ix\
+l                                                       ixxxl                  r================xx\
 l   J      R                         3                  ixxxl~~~~~~~~~~~~~~~~~~ixxxxxxxxxxxxxxxxxx\
-lt                          ===     dmmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lt                          r=k     dmmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
 l====================k      ixl~~~~~~~~~~~~~~~~~~~~~~~~~ixxxl                  ixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxxl!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxx======xxx=========================xxxxx==================xxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 map_bg:"\
@@ -455,60 +455,14 @@ l                                                       ixxxl              mmmm 
 l                                                     mmixxxl                              123  ix\
 l                                                       ixxxl                      mm  R   456ooix\
 l                                             mm        ixxxl                     v        789ooix\
-l        123                                            ixxxl                  =================ix\
-l   J    456                v                           ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+l        123                                            ixxxl                  r================ix\
+l   J    456                v                           ixxxl                  ixxxxxxxxxxxxxxxxxx\
 lt       789      vv        ===       mm                ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
 l====================k      ixl                         ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl      ixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixlwwwwwwwwwwwwwwwwwwwwwwwwwixxl!wwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-map_overlay:"\
-l..............................................................................................ixl\
-l..............................................................................................ixl\
-l............................................................{}................................ixl\
-l...................................................................................{}.........ixl\
-l.......................................................{}.........a....a....a....a....a....a..ixl\
-l.............C..{}................................................:bcde:bcde:bcde:bcde:bcde:bcixl\
-l.........................{}................................{}......ixxxxlfgfgfgfgfgfgfgfgfgfgfixl\
-l............................................{}.....................ixxxxlFGFGFGFGFGFGFGFGFGFGFixl\
-l....................{}............{}..................{}...........ixxxxl          d123b123   ixl\
-l................{}........{}.......................................ixxxxl       J   456 456   ixl\
-l.......................................C...........................ixxxxl           789 789oo ixl\
-l............{}............................................=========xxxxxl!o     ==============xxl\
-l...............................dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-l.a....a....a....a....a....a....a....a....a.ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-le:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcxxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
-lfgfgfgfgfgfgfgfgfgfgfgfgfgfggfgffgfgfgfgfgfg                                    ixxxxxxxxxxxxxxxl\
-lFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFG                                    ixxxxxxxxxxxxxxxl\
-l                L__________________      o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-l  123 123 123  123 123                dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-lP 456 456 456  456 456                     ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-l  789 789 789 v789 789        o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
-============================================ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________l       ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 123                                ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 456      J                         ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 789 v v   v  v  v v   v            ixxxxxxxxxxxxxxxl\
-lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
-l                                                                              v ixxxxxxxxxxxxxxxl\
-l                                                                            dmmmxxxxxxxxxxxxxxxxl\
-l                                                                                               ix\
-l                                                                mmmmm                          ix\
-l                                                       ====k                                   ix\
-l                                                       ixxxl              mmmm                 ix\
-l                                                     mmixxxl                              123  ix\
-l                                                       ixxxl                      mm  R   456ooix\
-l                                             mm        ixxxl                     v        789ooix\
-l       123                                             ixxxl                  =================ix\
-l   J   456                 v                           ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lt      789       vv        ===       mm                ixxxl                  ixxxxxxxxxxxxxxxxxx\
-l====================k      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 });
 
 mapArr.push({
