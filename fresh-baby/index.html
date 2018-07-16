@@ -30,23 +30,60 @@
 
       <canvas></canvas>
 
-
-
-     <navbar> 
-	    <ul>       
-	    <div id="level1" class = "levels"> <li> 1</li></div> <br>
-	    <div id="level2" class = "levels"> <li>2</li></div>  <br>
-	    <div id="level3" class = "levels"> <li>3</li></div>  <br>
-	    <div id="level4" class = "levels"> <li>4</li></div>  <br>
-	    <div id="level5" class = "levels"> <li>5</li></div>  <br>
-	    <div id="level6" class = "levels"> <li>6 </li></div>  <br>
-	    <div id="level7" class = "levels"> <li>7 </li></div>  <br>
-	    <div id="level8" class = "levels"> <li>8 </li></div>  <br>
-	    <div id="level9" class = "levels"> <li>9 </li></div>  <br>
+      <div class="dropdown">
+       <button onclick="clickDropdown()" class="dropbtn">*</button>
+        <div id="myDropdown" class="dropdown-content">
+            
+    <div id="level1" class = "levels"> <li> 1</li></div> <br>
+        <div id="level2" class = "levels"> <li>2</li></div>  <br>
+        <div id="level3" class = "levels"> <li>3</li></div>  <br>
+        <div id="level4" class = "levels"> <li>4</li></div>  <br>
+        <div id="level5" class = "levels"> <li>5</li></div>  <br>
+        <div id="level6" class = "levels"> <li>6 </li></div>  <br>
+        <div id="level7" class = "levels"> <li>7 </li></div>  <br>
+        <div id="level8" class = "levels"> <li>8 </li></div>  <br>
+        <div id="level9" class = "levels"> <li>9 </li></div>  <br>
         <div id="level10" class = "levels"> <li>10 </li></div>  <br>
-	    </ul> 
+
     
-    </navbar>
+  </div>
+</div>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+               
+
+     
+            
+
+    
+    
+
+
+
 
         
         <script src = "enemy.js" type = "text/javascript"></script>
@@ -60,6 +97,8 @@
         <script src = "animation.js" type = "text/javascript"></script>
         
         <script src = "game.js" type = "text/javascript"></script>
+
+
 
         <div class= "right">
 
