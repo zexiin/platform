@@ -422,37 +422,9 @@ xxxxxxxxx=============================================ixxxx]"
 
 mapArr.push({
   level: 10,
-  row: 21,
-  col: 35,
-  map: "\
-]                                 [\
-]                                 [\
-]                                 [\
-]   P                         o   [\
-]                o                [\
-]IIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIII[\
-]                                 [\
-] J     o           5             [\
-]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
-]                   J             [\
-]            o                    [\
-]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
-]   R                             [\
-]                o              o [\
-]IIIIIIIIII%%%%%%IIIIIIIIIIIIIIIII[\
-]        R                        [\
-]    o             o      o    t  [\
-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
-===================================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  
- });
-mapArr.push({
-  level: 11,
   row: 44,
   col: 98,
-    bg_color: "#3f8f6e",
+  bg_color: "#3f8f6e",
   map: "\
 l                                                                                              ixl\
 l                                                                                              ixl\
@@ -593,3 +565,32 @@ lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!i
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 });
+
+mapArr.push({
+  level: 10,
+  row: 21,
+  col: 35,
+  map: "\
+]                                 [\
+]                                 [\
+]                                 [\
+]   P                         o   [\
+]                o                [\
+]IIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIII[\
+]                                 [\
+] J     o           5             [\
+]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
+]                   J             [\
+]            o                    [\
+]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
+]   R                             [\
+]                o              o [\
+]IIIIIIIIII%%%%%%IIIIIIIIIIIIIIIII[\
+]        R                        [\
+]    o             o      o    t  [\
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
+===================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  
+ });
