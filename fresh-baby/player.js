@@ -184,9 +184,9 @@ Player.prototype.reset = function() {
 };
 
 Player.prototype.die = function() {
+	console.log("you should be dead");
+	return;
 	sfx.push(new SFX("die"));
-	//return;
-
 	sleep(2000);
 	deathTexts.push(new DeathText());
 	livesCount--;
