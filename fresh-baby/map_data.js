@@ -231,66 +231,45 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   
 
  });
-
-
 mapArr.push({
-  level: 5,
-  row: 21,
-  col: 35,
-  map: "\
-]                        o        [\
-]                                 [\
-]  dmb          o    o            [\
-]                        v    o   [\
-]        o          dmb           [\
-]    o         5o         o       [\
-]    P     o   dmmmb   o     o   o[\
-]                  o     o    dmb [\
-] o  dmb  o    o    o  o          [\
-]            vvv     o   o      o [\
-]    o   o  dmb        vv  o      [\
-]                   o  dmb        [\
-]v o    4   o  o            o     [\
-]       dmmmb      dmb            [\
-]              ! o3      o        [\
-]      o    %     dmmb o 5ot!o    [\
-]o 9     %  !  o    o   dmmmmb    [\
-]! dmmmmmmmmmb o o      o  o  o   [\
-]!!!!!!!ixxxxl!!!!!!!!!!!!!!!!!!!![\
-========xxxxxx=====================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  
- });
-
+level: 5,
+row: 15,
+col: 88,
+map: "\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%~~~~~~~~~~%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%t         %%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%   P      8                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                       %%%\
+%%%%          %%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%~~~~~~~~~%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%                   %%%%%%%%%%%%%% o    %%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%% 8                 %%%%%%%%%%%%%%    o %%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%~~~~~~%%%%%%%%%%%%     %%%%%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%   %%%%%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      8                                        %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+map_bg: "\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%~~~~~~~~~~%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%wwwwwwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%t         %%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%wwwwwwwwwwwwwwwwwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%%wwwwwwwwwwwwwwwwwwwwwwwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                       %%%\
+%%%%wwwwwwwwww%%%%%%%%%%%wwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%wwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%~~~~~~~~~%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%wwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwwwwwwwwwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwwwwwwwwwwwww%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwww%%%%%%%%%%%%%%      %%%%%%%%%%%%wwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwww%%%%%%%%%%%%%%www%%%%%%%%%%%%%%%wwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww%%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+});
 mapArr.push({
   level: 6,
-  row: 18,
-  col: 60,
-  map:"\
-X]                                                    [xxxx]\
-X]                                                    [xxxx]\
-X]                                     t              [xxxx]\
-X]                 o                %%%%              [xxxx]\
-X]                                         %          [xxxx]\
-X]                     2        %                     [xxxx]\
-X]                     dmb                            [xxxx]\
-X]           o  4     %                               [xxxx]\
-X]                               %                    [xxxx]\
-X]                db                 5                [xxxx]\
-X]    o          %                                    [xxxx]\
-X]                                                    [xxxx]\
-X]         db                           %             [xxxx]\
-X]  P                  %                              [xxxx]\
-X]                        9                           [xxxx]\
-========k                 dmmmmmmmmb                  [xxxx]\
-xxxxxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![xxxx]\
-xxxxxxxxx=============================================[xxxx]",
-
-
-})
-
-mapArr.push({
-  level: 7,
   row: 22,
   col: 75,
   map: "\
@@ -321,42 +300,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
 });
 
 mapArr.push({
-  level: 8,
-  row: 27,
-  col: 110,
-  map: "\
-xxxxxxxxxxl                                                                                             xxxxx]\
-xxxxxxxxxxx                                                                                             xxxxx]\
-ooooxxxxxxx                                                                                             xxxxx]\
-ooooxxxxxxx                                                                                  o          xxxxx]\
-ooooxxxxxxx                     oU                                                        dmmmmmb       xxxxx]\
-ooooxxxxxxx                    dmb            8                                 R            R          xxxxx]\
-ooooxxxxxxl        5     o                    dmmmmm==k                 o          4      4     4     t xxxxx]\
-====xxxxxxl       dmmmmmb                           ixl          ixxmmmb     o  i=======================xxxxx]\
-xxxxxxxxxxl                                         ixl    o     ixl         dmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   3                     ixl!        !ixl            ixxlxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl   o        ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                             7    3      ixl          ixxmmb         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                       o     dmmmmmmmb   ixl!       o!ixl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                                         ixl          xxl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                    dmb                  ixl                      o  ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl               o                         ixl     o                dmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxlP                                        ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl            dmb                          ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl=========                                ixl            dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixl!!!!===!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-!!!!!!!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
-   
-});
-
-mapArr.push({
-  level: 9,
+  level: 7,
   row: 18,
   col: 60,
   map:"\
@@ -421,7 +365,7 @@ xxxxxxxxx=============================================ixxxx]"
 });
 
 mapArr.push({
-  level: 10,
+  level: 8,
   row: 44,
   col: 98,
   bg_color: "#3f8f6e",
@@ -568,7 +512,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 });
 
 mapArr.push({
-  level: 11,
+  level: 9,
   row: 21,
   col: 35,
   map: "\
