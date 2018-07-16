@@ -88,30 +88,9 @@ class SFX {
 			case "win": return new Audio("../assets/audio/win.mp3");
 		}
 	}
-	/*
-	coin_switch() {
-		if (coin1.duration > 0 && !coin1.paused)
-	
-	}*/
 	
 	
 }
-
-
-/*
-class Coin_manager {
-
-    constructor() {
-    let first = second = third = fourth = false;
-	    
-    }
-}
-// im sry jamie im sry 4 mess
-var coin1 = new Audio("../assets/audio/coin.mp3");
-var coin2 = new Audio("../assets/audio/coin.mp3");
-var coin3 = new Audio("../assets/audio/coin.mp3");
-var coin4 = new Audio("../assets/audio/coin.mp3");
-*/
 
 
 
