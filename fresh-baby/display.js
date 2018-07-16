@@ -594,11 +594,11 @@ function DeathText() {
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
-		context.font = "bold" + this.size + "px verdana";
+		context.font = "bold" + "60px" + "px verdana";
 		context.fillStyle = "#0099bb";
 		context.globalAlpha = this.opacity;
 		this.opacity -= 0.005;
-		context.fillText("YOU DIED.", 125, 225);
+		context.fillText("YOU DIED.", this.x, this.y);
 		//this.x += 0.8;
 		//this.y += 0.2;
 		this.time--;
