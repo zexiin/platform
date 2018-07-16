@@ -448,3 +448,148 @@ IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   
  });
+mapArr.push({
+  level: 11,
+  row: 44,
+  col: 98,
+    bg_color: "#3f8f6e",
+  map: "\
+l                                                                                              ixl\
+l                                                                                              ixl\
+l                                                                                              ixl\
+l                                                         J                                    ixl\
+l                                                          4      4                            ixl\
+l                                               2 o     dmmmmmmmmmmm======mmmmmb               ixl\
+l                                               dmb                 ixxxxl                     ixl\
+l                                                  4   o            ixxxxl                     ixl\
+l                                                  dmmmb            ixxxxl          dmmmb      ixl\
+l                                                         dmb       ixxxxl       J             ixl\
+l                                 J            J              4     ixxxxl           4     ooo ixl\
+l                                                         r=========xxxxxl!o     ==============xxl\
+l                ==    o        dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                il                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                il       dmb               ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+l                ilooo 8      5             ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                il=================        ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
+l                L__________________   4  o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l                                      dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+lP                                          ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l               4     6      8 o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+============================================ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________l       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo                                    ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo          J                         ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo   4               4                ixxxxxxxxxxxxxxxl\
+lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
+l                                                                                ixxxxxxxxxxxxxxxl\
+l                                                                            dmmmxxxxxxxxxxxxxxxxl\
+l                                                                 4                             ix\
+l                                                               dmmmmmb                         ix\
+l                                                       ====k               2                   ix\
+l                                                    2  ixxxl             dmmmmb                ix\
+l                                                    dmmixxxl                                   ix\
+l                                            3          ixxxl                     dmmb R     oooix\
+l                                            dmmb       ixxxl                                oooix\
+l                                                       ixxxl                  =================ix\
+l   J      R                         3                  ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lt                          ===      dmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
+l====================k      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+
+map_bg:"\
+l..............................................................................................ixl\
+l..............................................................................................ixl\
+l............................................................{}................................ixl\
+l...................................................................................{}.........ixl\
+l.......................................................{}.........a....a....a....a....a....a..ixl\
+l.............C..{}................................................:bcde:bcde:bcde:bcde:bcde:bcixl\
+l.........................{}................................{}......ixxxxlfgfgfgfgfgfgfgfgfgfgfixl\
+l............................................{}.....................ixxxxlFGFGFGFGFGFGFGFGFGFGFixl\
+l....................{}............{}..................{}...........ixxxxl          d123b123   ixl\
+l................{}........{}.......................................ixxxxl       J   456 456   ixl\
+l.......................................C...........................ixxxxl           789 789oo ixl\
+l............{}............................................=========xxxxxl!o     ==============xxl\
+l...............................dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l.a....a....a....a....a....a....a....a....a.ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+le:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcxxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+lfgfgfgfgfgfgfgfgfgfgfgfgfgfggfgffgfgfgfgfgfg   456                              ixxxxxxxxxxxxxxxl\
+lFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFG   789     v v   v  v  v v          ixxxxxxxxxxxxxxxl\
+l                L__________________      o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l   123 123 123  123 123               dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+lP  456 456 456  456 456                    ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l   789 789 789 v789 789       o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+============================================ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________l       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo                                    ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo          J                         ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo   4               4   v            ixxxxxxxxxxxxxxxl\
+lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
+l                                                                              v ixxxxxxxxxxxxxxxl\
+l                                                                            dmmmxxxxxxxxxxxxxxxxl\
+l                                                                 4                             ix\
+l                                                               dmmmmmb                         ix\
+l                                                       ====k               2                   ix\
+l                                                    2  ixxxl             dmmmmb                ix\
+l                                                    dmmixxxl                              123  ix\
+l                                            3          ixxxl                     dmmb R   456ooix\
+l                                            dmmb       ixxxl                     v        789ooix\
+l        123                                            ixxxl                  =================ix\
+l   J    456                v        3                  ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lt       789      vv        ===      dmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
+l====================k      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+map_overlay:"\
+l..............................................................................................ixl\
+l..............................................................................................ixl\
+l............................................................{}................................ixl\
+l...................................................................................{}.........ixl\
+l.......................................................{}.........a....a....a....a....a....a..ixl\
+l.............C..{}................................................:bcde:bcde:bcde:bcde:bcde:bcixl\
+l.........................{}................................{}......ixxxxlfgfgfgfgfgfgfgfgfgfgfixl\
+l............................................{}.....................ixxxxlFGFGFGFGFGFGFGFGFGFGFixl\
+l....................{}............{}..................{}...........ixxxxl          d123b123   ixl\
+l................{}........{}.......................................ixxxxl       J   456 456   ixl\
+l.......................................C...........................ixxxxl           789 789oo ixl\
+l............{}............................................=========xxxxxl!o     ==============xxl\
+l...............................dmmmmmmmmmmm==============xxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l.a....a....a....a....a....a....a....a....a.ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+le:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcxxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+lfgfgfgfgfgfgfgfgfgfgfgfgfgfggfgffgfgfgfgfgfg                                    ixxxxxxxxxxxxxxxl\
+lFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFG                                    ixxxxxxxxxxxxxxxl\
+l                L__________________      o ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l  123 123 123  123 123                dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+lP 456 456 456  456 456                     ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+l  789 789 789 v789 789        o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o!ixxxxxxxxxxxxxxxl\
+============================================ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl!o     ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________l       ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 123                                ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 456      J                         ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo 789 v v   v  v  v v   v            ixxxxxxxxxxxxxxxl\
+lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
+l                                                                              v ixxxxxxxxxxxxxxxl\
+l                                                                            dmmmxxxxxxxxxxxxxxxxl\
+l                                                                                               ix\
+l                                                               dmmmmmb                         ix\
+l                                                       ====k                                   ix\
+l                                                       ixxxl             dmmmmb                ix\
+l                                                    dmmixxxl                              123  ix\
+l                                                       ixxxl                     dmmb R   456ooix\
+l                                            dmmb       ixxxl                     v        789ooix\
+l       123                                             ixxxl                  =================ix\
+l   J   456                 v                           ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lt      789       vv        ===      dmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
+l====================k      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+});
