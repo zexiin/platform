@@ -52,7 +52,7 @@ li {
    color: #555555;
    font-family: verdana;
    font-size: 10pt;
-   left: 585px;
+   left: 580px;
    position:fixed;
    height: 410px;
    width: 400px;
@@ -60,7 +60,7 @@ li {
 }
 
 canvas {
-  margin-left: 45px;
+  margin-left: 40px;
   letter-spacing: auto;
   position: fixed;
   left:10px;
