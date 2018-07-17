@@ -113,7 +113,7 @@ class TileMap extends Map {
 
 	    	case "o": return 159; // coin
 	    	case "t": return 163;
-	    	case "!": return 98; // spike bloc
+	    	case "!": return 232; // spike bloc
 
 	    	case "U": return 35; // superjump powerup
 	    	
