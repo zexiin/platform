@@ -198,6 +198,8 @@ tilesheet.src = "../assets/arcadesheet.png";
 function mainLoop() {
 
 	if(start_scr.on) start_scr.loop();
+	else if (instr_scr.on) instr_scr.loop();
+	else if (credits_scr.on) credits_scr.loop();
 	else if (another.on) another.loop();
 	else if (game_on && !pause_scr.on) gameLoop();
 	else if (game_on && pause_scr.on) { 
