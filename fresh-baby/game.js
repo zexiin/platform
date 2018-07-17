@@ -150,7 +150,8 @@ function resetGame() {
 
 function init(mapNo) {
 	game_on = true;
-
+	if(mapNo.winter) winter_on = true;
+	else winter_on = false;
 
 	time = 0;
 
