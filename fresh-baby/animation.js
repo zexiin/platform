@@ -207,6 +207,7 @@ Blue_Enemy.prototype.animation = {
 };
 
 
+
 Jump_Enemy.prototype.animation = {
 	state: "walk_right",
 	delay: 40,
@@ -226,6 +227,38 @@ Jump_Enemy.prototype.animation = {
 	},
 
 };
+
+
+Pink_Enemy.prototype.animation = {
+	state: "idle",
+	delay: 30,
+	cur_frame: 0,
+	max_frames: 2, // just so cur_frame doesn't get huge i gues
+	lastUpdate: 0,
+
+	idle: {
+		no_frames: 2,
+		frames: [{x:160,y:64},{x:176,y:64}]
+	},
+
+	launch: {
+		no_frames: 1,
+		frames: [{x:128,y:48}]
+	},
+
+	walk_right: {
+		no_frames: 2,
+		frames: [{x:128,y:368}, {x:144,y:368}]
+	},
+
+	walk_left: {
+		no_frames: 2,
+		frames: [{x:112,y:48}, {x:96,y:48}]
+	},
+
+};
+
+
 
 Tank_Enemy.prototype.animation = {
 	state: "walk_right",
@@ -271,6 +304,14 @@ Enemy.prototype.setAnimationFrame = function() {
 
 	switch(this.animation.state) {
 
+		case "idle":
+			this.frame.x = this.animation.idle.frames[(this.animation.cur_frame % this.animation.idle.no_frames)].x;
+			this.frame.y = this.animation.idle.frames[(this.animation.cur_frame % this.animation.idle.no_frames)].y;
+			break;
+		case "launch":
+			this.frame.x = this.animation.launch.frames[(this.animation.cur_frame % this.animation.launch.no_frames)].x;
+			this.frame.y = this.animation.launch.frames[(this.animation.cur_frame % this.animation.launch.no_frames)].y;
+			break;
 		case "walk_right":
 			this.frame.x = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].x;
 			this.frame.y = this.animation.walk_right.frames[(this.animation.cur_frame % this.animation.walk_right.no_frames)].y;
@@ -293,12 +334,19 @@ Enemy.prototype.updateAnimation = function() {
 		this.animation.lastUpdate = time;
 	}
 
+
 	if (this.x_vel >= 0) this.animation.state = "walk_right";
 	else this.animation.state = "walk_left";
+
+	if(this.state === "idle") this.animation.state = "idle";
+	else if(this.state === "ready") this.animation.state = "launch";
+
+	
 
 	this.setAnimationFrame();
 
 };
+
 
 
 
@@ -507,6 +555,27 @@ class TileBump_G extends VisFX { // green brick tile bump up
 		this.camCoords = cam.mapToCam(this.x, this.y); 
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
