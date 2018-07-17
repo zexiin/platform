@@ -84,7 +84,7 @@ ooooixxxxxl                                                                     
 ooooixxxxxl                                                                                  o          ixxxx]\
 ooooL_____K                     o        o                                                dmmmmmb       ixxxx]\
 oooo              J            dmb      dmb   8                                 R            R          ixxxx]\
-oooo                     o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
+Uooo                     o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========k       dmmmmmmb                          ixl          r==mmmb        r=======================xxxxx]\
 xxxxxxxxxxl                             %%          ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl!        !ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -186,7 +186,7 @@ xxx______________________xxxxxxxxxl           ix\
 xxl                      ixxxxxxxxxmmb        ix\
 xxl                      L________K           ix\
 xxl                         R              dmmxx\
-xxl   P                                    !!!ix\
+xxl   P                                       ix\
 xxl~~~~~~~~~~~~~~~~~~~~~~r====================xx\
 xxl                      ixxxxxxxxxxxxxxxxxxxxxx\
 xxl                4     ixxxxxxxxxxxxxxxxxxxxxx\
