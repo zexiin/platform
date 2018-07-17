@@ -44,15 +44,20 @@ class Screen {
 		this.gui.push(slider);
 	}
 
-	addImg(img,x,y) {
+	addImg(img,x,y, scaleRatio, clipx, clipy, clipw, cliph) { // scaling and clipping optional
+		if (scaleRatio === undefined) scaleRatio = 1;
+		if (clipx === undefined) {
+			clipx = 0; clipy = 0; clipw = img.width; cliph = img.height;
+		}
 		var image = {
-			img:img, x:x, y:y,
-			draw: function() { context.drawImage(this.img,this.x,this.y); },
+			draw: function() { 
+				context.drawImage(img,clipx,clipy,clipw,cliph,x,y, clipw*scaleRatio, cliph*scaleRatio); 
+			},
 		};
 		this.images.push(image);
 	}
 
-	addRect(x,y,w,h,color, strokeColor) {
+	addRect(x,y,w,h,color, strokeColor) { // stroke optional
 		if(strokeColor === undefined) strokeColor = color;
 
 		var rect = {
@@ -71,17 +76,16 @@ class Screen {
 
 	}
 
-	addRoundedRect(x,y,w,h,color, strokeColor) {
+	addRoundedRect(x,y,w,h, r, color, strokeColor) { // stroke is optional
 		if(strokeColor === undefined) strokeColor = color;
 
 		var rect = {
-			x:x, y:y, w:w, h:h, color:color, stroke:strokeColor,
+			x:x, y:y, w:w, h:h, r: r, color:color, stroke:strokeColor,
 
 			draw: function() { 
 
-				let r = 20;
 
-				roundedRectPath(this.x,this.y,this.w,this.h,r);
+				roundedRectPath(this.x,this.y,this.w,this.h,this.r);
 
 
 				context.fillStyle = this.color;
@@ -96,14 +100,18 @@ class Screen {
 
 	}
 
-	addTxt(string,x,y,font,color) {
+	addTxt(string,x,y,font,color, stroke) { // stroke is optional
 		var txt = {
-			text:string, x:x, y:y, font:font, color:color,
+			text:string, x:x, y:y, font:font, color:color, stroke: stroke,
 			draw: function() {
 				context.font = this.font;
 				context.fillStyle = this.color;
 				context.textAlign = "left";
 				context.fillText(this.text, this.x, this.y);
+				if(this.stroke != undefined) {
+					context.strokeStyle = this.stroke;
+					context.strokeText(this.text, this.x, this.y);
+				}
 
 			}
 		};
@@ -125,8 +133,8 @@ class Screen {
 	update() {
 		this.gui.update();
 
-		//if(control.mouse_down) document.getElementById("mousey").style = "color: red";
-		//else document.getElementById("mousey").style = "color: blue";
+		if(control.mouse_down) document.getElementById("mousey").style = "color: red";
+		else document.getElementById("mousey").style = "color: blue";
 		document.getElementById("mousey").innerHTML = "x: "+control.mouse_x +"   y: "+ control.mouse_y;
 	}
 
@@ -151,20 +159,22 @@ class Button {
 		this.w = w;
 		this.h = h;
 		this.screen = screen; // the screen it belongs to
-		this.text_idle = "#ef6c58";
-		this.text_hover = "#ef4033";
-		this.bg_idle = "#d0ede8";
-		this.bg_hover = "#aee5e5";
+		this.text_idle = "#FFFFFF";
+		this.text_hover = "#FFFFFF";
+		this.bg_idle = "#ef6c58";
+		this.bg_hover = "#81e0ef";
+		this.stroke_on = false;
 		this.hover = false;
 		this.clickable = false;
 		this.onclick = function() {return;};
 	}
 
-	setColors(text_idle, text_hover, bg_idle, bg_hover) {
+	setColors(text_idle, text_hover, bg_idle, bg_hover, stroke_on) {
 		this.text_idle = text_idle;
 		this.text_hover = text_hover;
 		this.bg_idle = bg_idle;
 		this.bg_hover = bg_hover;
+		this.stroke_on = stroke_on;
 	}
 
 	setImg(idle, active) {
@@ -211,7 +221,10 @@ class Button {
 
 			roundedRectPath(this.x,this.y,this.w,this.h,10);
 			context.fillStyle = bg_color; context.fill();
-			context.strokeStyle = txt_color; context.lineWidth =2; context.stroke();
+			if(this.stroke_on) {
+				context.strokeStyle = txt_color; context.lineWidth =2; context.stroke();
+			}
+			
 
 			/*
 			context.fillStyle = bg_color;
@@ -221,7 +234,7 @@ class Button {
 			context.strokeRect(this.x,this.y,this.w,this.h);
 			*/
 
-			context.font = "20px sans-serif";
+			context.font = "17px 'Nunito'";
 			context.fillStyle = txt_color;
 			context.textAlign="center";
 			context.fillText(this.txt,this.x+this.w/2,this.y+this.h/4);
@@ -332,17 +345,16 @@ function roundedRectPath(x,y,w,h,r) {
 
 function createStartScreen(screen) {
 
-	//// create background and title images
+	//// create background and title
 	let bg = new Image();
 	bg.onload = function() {screen.addImg(bg,0,0);};
 	bg.src = "../assets/startbg.png";
-	let title = new Image();
-	title.onload = function() {screen.addImg(title,(canvas.width-title.width)/2, canvas.height/4)};
-	title.src = "../assets/title.png";
+
+	screen.addTxt("RADish", 130,100,"80px 'Jua'","white");
 
 
 	///// create START button
-	let start_btn = new Button("start", 200, 200, 100, 60, screen);
+	let start_btn = new Button("START", 200, 200, 100, 40, screen);
 	let startGame = function() { ///////// START GAME FUNCTION HERE ////////////
 		resetGame();
 		screen.on = false;
@@ -350,20 +362,29 @@ function createStartScreen(screen) {
 		sfx.push(new SFX("bgm"));
 		sfx.push(new SFX("underwater"));
 	};
-
-	let btn_idle = new Image();
-	let btn_hover = new Image();
-	btn_idle.onload = function() {btn_hover.onload();};
-	btn_hover.onload = function() {start_btn.setImg(btn_idle,btn_hover);};
-	btn_idle.src = "../assets/play_idl.png";
-	btn_hover.src = "../assets/play_hov.png";
-
 	start_btn.setOnClick(startGame);
 	screen.addButton(start_btn);
 
 
+
+	let instr_btn = new Button("GUIDE", 200, 250,100,40,screen);
+	instr_btn.setOnClick(function() {
+		screen.on = false;
+		instr_scr.on = true;
+	});
+	screen.addButton(instr_btn);
+
+	let credits_btn = new Button("CREDITS", 200, 300,100,40,screen);
+	credits_btn.setOnClick(function() {
+		screen.on = false;
+		credits_scr.on = true;
+	});
+	screen.addButton(credits_btn);
+
+
+	
 	//// create another fucking button who fuckign i dont
-	let anoth_btn = new Button("another",200,280,100,40,screen);
+	let anoth_btn = new Button("?",canvas.width-45,canvas.height-45,40,40,screen);
 	let goAnother = function() {
 		screen.on = false;
 		another.on = true;
@@ -380,12 +401,11 @@ function createAnotherScreen(screen) {
 	screen.setBGColor("#f9eeca");
 
 
-	let back_btn = new Button("back",20,20,100,40,screen);
-	let goBack = function() {
+	let back_btn = new Button("BACK",canvas.width-75,canvas.height-45,70,40,screen);
+	back_btn.setOnClick(function() {
 		screen.on = false;
 		start_scr.on = true;
-	};
-	back_btn.setOnClick(goBack);
+	});
 	screen.addButton(back_btn);
 
 	let rut = new Image();
@@ -400,18 +420,18 @@ function createAnotherScreen(screen) {
 function createPauseScreen(screen) {
 
 	screen.setBGColor("rgba(247, 239, 215, 0.005)");
+	screen.addRoundedRect(100,50,300,300, 35, "#ffffff");
+	screen.addTxt("PAUSED", 135, 80, "bold 60px Nunito", "#c4eaed");
 
-	screen.addRoundedRect(100,50,300,300,"#f7fcfa","#ef6c58");
 
-
-	let resume_btn = new Button("resume", (canvas.width-100)/2, 170, 100, 40, screen);
+	let resume_btn = new Button("RESUME", (canvas.width-100)/2, 170, 100, 40, screen);
 	let resume = function() {
 		togglePause();
 	}
 	resume_btn.setOnClick(resume);
 	screen.addButton(resume_btn);
 
-	let vol_btn = new Button("volume", (canvas.width-100)/2, 220, 100, 40, screen)
+	let vol_btn = new Button("VOLUME", (canvas.width-100)/2, 220, 100, 40, screen)
 	let adjust_vol = function() {
 		vol_scr.on = true;
 	}
@@ -419,7 +439,7 @@ function createPauseScreen(screen) {
 	screen.addButton(vol_btn);
 
 
-	let quit_btn = new Button("quit", (canvas.width-100)/2, 270, 100, 40, screen);
+	let quit_btn = new Button("QUIT", (canvas.width-100)/2, 270, 100, 40, screen);
 	let quit = function() {
 		resetGame();
 		togglePause();
@@ -428,12 +448,6 @@ function createPauseScreen(screen) {
 	}
 	quit_btn.setOnClick(quit);
 	screen.addButton(quit_btn);
-
-	
-
-
-
-	screen.addTxt("paused", 135, 70, "bold 50pt arial", "#ef6c58");
 
 
 	
@@ -446,9 +460,9 @@ function createVolScreen(screen) {
 	let x = (canvas.width-w)/2;
 	let y = (canvas.height-h)/2;
 
-	screen.addRoundedRect(x,y,w,h, "#fcf7e5", "#ef6c58");
+	screen.addRoundedRect(x,y,w,h, 35, "#eaf2f0");
 
-	let return_btn = new Button("done",(canvas.width-100)/2, 230, 100, 40, screen);
+	let return_btn = new Button("DONE",(canvas.width-100)/2, 230, 100, 40, screen);
 	return_btn.setOnClick(function() {screen.on = false;});
 	screen.addButton(return_btn);
 
@@ -460,8 +474,100 @@ function createVolScreen(screen) {
 	screen.addSlider(bg_vol);
 	screen.addSlider(sfx_vol);
 
-	screen.addTxt("BGM:", x+50, y+47, "10pt arial", "#ef6c58");
-	screen.addTxt("SFX:", x+50, y+72, "10pt arial", "#ef6c58");
+	screen.addTxt("BGM:", x+50, y+46, "11pt 'Nunito'", "#ef6c58");
+	screen.addTxt(" SFX:", x+50, y+71, "11pt 'Nunito'", "#ef6c58");
+
+}
+
+function createInstrScreen(screen) {
+
+	screen.setBGColor("#81d4ef");
+
+	let back_btn = new Button("BACK",canvas.width-75,canvas.height-45,70,40,screen);
+	back_btn.setOnClick(function() {
+		screen.on = false;
+		start_scr.on = true;
+	});
+	screen.addButton(back_btn);
+
+	screen.addTxt("HOW TO PLAY", 40, 20,"40px 'Nunito'","white");
+
+
+	screen.addTxt("press the arrow keys", 160, 100, "20px 'Nunito", "white");
+	screen.addTxt("to move around and jump", 160, 125, "15px 'Nunito", "white");
+	let up = new Image(); 
+	up.onload = function() {screen.addImg(up, 70, 90, 0.4)};
+	up.src = "../assets/Keyboard_White_Arrow_Up.png";
+	let down = new Image();
+	down.onload = function() {screen.addImg(down, 70, 120, 0.4)};
+	down.src = "../assets/Keyboard_White_Arrow_Down.png";
+	let left = new Image();
+	left.onload = function() {screen.addImg(left, 38, 120, 0.4)};
+	left.src = "../assets/Keyboard_White_Arrow_Left.png";
+	let right = new Image();
+	right.onload = function() {screen.addImg(right, 102, 120, 0.4)};
+	right.src = "../assets/Keyboard_White_Arrow_Right.png";
+
+	screen.addTxt("press the 'Z' key", 160, 235, "20px 'Nunito", "white");
+	screen.addTxt("to attack! (hint: you can also jump to attack)", 160, 260, "15px 'Nunito", "white");
+	let z = new Image();
+	z.onload = function() {screen.addImg(z, 70, 180, 0.4)};
+	z.src = "../assets/Keyboard_White_P.png"; 
+
+	screen.addTxt("press the 'P' key", 160, 175, "20px 'Nunito", "white");
+	screen.addTxt("to pause, adjust settings, or quit", 160, 200, "15px 'Nunito", "white");
+	let p = new Image();
+	p.onload = function() {screen.addImg(p, 70, 240, 0.4)};
+	p.src = "../assets/Keyboard_White_Z.png";
+
+	let sprites = new Image();
+	sprites.onload = function() {
+		context.imageSmoothingEnabled = false;
+		screen.addImg(sprites, 50,290,2, 0,0,32,32); // player
+		screen.addTxt("you", 70,360,"15px 'Nunito'", "white");
+
+		screen.addImg(sprites, 150,322,2, 64,112,16,16); // coin
+		screen.addImg(sprites, 182,322,2, 192,16,16,16); // superjump
+		screen.addTxt("good", 165,360,"15px 'Nunito'", "white");
+
+		screen.addImg(sprites, 250, 290,2, 0,64,32,32); // tank
+		screen.addImg(sprites, 290, 322,2, 96,0,16,16); // blue
+		screen.addImg(sprites, 310, 290,2, 96,16,16,32); // jump
+		screen.addImg(sprites, 330,322,2, 144,64,16,16); // pink
+		screen.addTxt("bad", 290,360,"15px 'Nunito'", "white");
+
+	};
+	sprites.src = "../assets/arcadesheet.png"
+
+
+
+
+
+}
+
+function createCredits(screen) {
+
+	screen.setBGColor("#161616");
+
+	let back_btn = new Button("BACK",canvas.width-75,canvas.height-45,70,40,screen);
+	back_btn.setOnClick(function() {
+		screen.on = false;
+		start_scr.on = true;
+	});
+	screen.addButton(back_btn);
+
+	screen.addTxt("CREDITS", 40,40,"40px 'Nunito'","white");
+
+	screen.addTxt("sound effects from https://www.zapsplat.com", 65, 110, "15px 'Nunito'", "white");
+	screen.addTxt("background music from https://ozzed.net", 65, 130, "15px 'Nunito'", "white");
+	screen.addTxt("tileset by GrafxKid on https://opengameart.org", 65, 150, "15px 'Nunito'", "white");
+	screen.addTxt("with plenty of coding help from:", 65, 170, "15px 'Nunito'", "white");
+		screen.addTxt("- PothOnProgramming on YouTube", 90, 190, "15px 'Nunito'", "white");
+		screen.addTxt("- https://www.w3schools.com", 90, 210, "15px 'Nunito'", "white");
+		screen.addTxt("- https://stackoverflow.com", 90, 230, "15px 'Nunito'", "white");
+
+	screen.addTxt("game by Ze-Xin Koh, Kevin Ramos, & Jamie Guo", 65, 270, "15px 'Nunito'", "white");
+
 
 }
 
@@ -478,6 +584,12 @@ createPauseScreen(pause_scr);
 
 var vol_scr = new Screen();
 createVolScreen(vol_scr);
+
+var instr_scr = new Screen();
+createInstrScreen(instr_scr);
+
+var credits_scr = new Screen();
+createCredits(credits_scr);
 
 
 
@@ -594,7 +706,7 @@ function DeathText() {
 DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
-		context.font = "bold" + "60px" + "px verdana";
+		context.font = "bold" + this.size + "px verdana";
 		context.fillStyle = "#0099bb";
 		context.globalAlpha = this.opacity;
 		this.opacity -= 0.005;
