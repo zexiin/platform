@@ -640,7 +640,11 @@ StatBar.prototype.draw = function() {
 	context.fillStyle = '#000000';
 	context.fillRect(0,0,canvas.width,map.scaled);
 
-	 {}
+	// write level
+	context.font = "14px 'Press Start 2P'";
+	context.fillStyle = "white";
+	context.textAlign = "center";
+	context.fillText("LEVEL "+levelNo, canvas.width/2, 10);
 
 	// draw lives
 	for (let i = 1; i <= 5; i++) { // three lives rn
