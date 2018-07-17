@@ -132,10 +132,6 @@ class Screen {
 
 	update() {
 		this.gui.update();
-
-		if(control.mouse_down) document.getElementById("mousey").style = "color: red";
-		else document.getElementById("mousey").style = "color: blue";
-		//document.getElementById("mousey").innerHTML = "x: "+control.mouse_x +"   y: "+ control.mouse_y;
 	}
 
 
