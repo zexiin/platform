@@ -1,20 +1,22 @@
 
-
 /**********
+
 this file contains map strings and data.
+
 **********/
 
 
 // note: map_bg, map_overlay, and bg_color are optional
 
-
+var winter_on = false; // include a winter:true in map data if using winter tiles.
 
 var mapArr = [];
 
 mapArr.push({
   level: 1,
   row: 15, 
-  col: 36,
+  col: 36, 
+  winter:true,
   map: "\
 ]                                 [X\
 ]                                 [X\
@@ -22,34 +24,16 @@ mapArr.push({
 ]                                 [X\
 ]                                 [X\
 ]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]    P                            [X\
-] U        t                      [X\
+]                           Q   t [X\
+]                         A######E[X\
+]                         a``````e[X\
+]               Q         a``````e[X\
+]               A###E+++A###E````e[X\
+]    P          a```e   a```e````e[X\
+] U             a```e   a```e````e[X\
 ====================================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 });
-/*
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]                                 [X\
-]    P                            [X\
-] U        t                      [X\
-====================================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-});
-*/
 
 mapArr.push({
   level: 2,
@@ -84,7 +68,7 @@ ooooixxxxxl                                                                     
 ooooixxxxxl                                                                                  o          ixxxx]\
 ooooL_____K                     o        o                                                dmmmmmb       ixxxx]\
 oooo              J            dmb      dmb   8                                 R            R          ixxxx]\
-Uooo                     o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
+oooo                     o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========k       dmmmmmmb                          ixl          r==mmmb        r=======================xxxxx]\
 xxxxxxxxxxl                             %%          ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl!        !ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -186,7 +170,7 @@ xxx______________________xxxxxxxxxl           ix\
 xxl                      ixxxxxxxxxmmb        ix\
 xxl                      L________K           ix\
 xxl                         R              dmmxx\
-xxl   P                                       ix\
+xxl   P                                    !!!ix\
 xxl~~~~~~~~~~~~~~~~~~~~~~r====================xx\
 xxl                      ixxxxxxxxxxxxxxxxxxxxxx\
 xxl                4     ixxxxxxxxxxxxxxxxxxxxxx\
