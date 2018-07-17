@@ -1,8 +1,7 @@
 
+
 /**********
-
 this file contains map strings and data.
-
 **********/
 
 
@@ -33,7 +32,24 @@ mapArr.push({
 ====================================\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 });
-
+/*
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]                                 [X\
+]    P                            [X\
+] U        t                      [X\
+====================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+});
+*/
 
 mapArr.push({
   level: 2,
@@ -75,7 +91,7 @@ xxxxxxxxxxl                   3                     ixl!        !ixl        dmmm
 xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                             7    3      ixl          ixl o          ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                       o    dmmmIIImmb   ixl!       o!ixxmmmmb       ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl     IIIII                               ixl          L_K            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl                                         ixl          L_K            ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   dmmb                  ixl                      o  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl               o                         ixl     o              dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxlP                                        ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -90,33 +106,33 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 !!!!!!!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
   map_bg: "\
-xxxxxxxxxxl                                                                                             xxxxx]\
-xxxxxxxxxxx                                                                                  123        xxxxx]\
-ooooxxxxxxx                                                                                  456        xxxxx]\
-ooooxxxxxxx                                                                                  789        xxxxx]\
-ooooxxxxxxx                     o        o                                                dmmmmmb       xxxxx]\
-ooooxxxxxxx                    dmb      dmb                                     R            R          xxxxx]\
-ooooxxxxxxl       J      o                    dmmmmm==k                 o        v     v v            t xxxxx]\
-==========l       dmmmmmmb                          ixl          ixxmmmb        ========================xxxxx]\
-xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                                         ixl          ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   dmmb       o o o o    ixl  o       ixl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                                         ixl          ixl o          ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                       o    dmmmIIImmb   ixl        o ixxmmb         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl     IIIII                               ixl          xxl            ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl                   dmmb                  ixl                      o  ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl               o                         ixl     o               dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxlP                                        ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl            dmmb                         ixl                         ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl========k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixl            dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxl    ===     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl.............................................................................................xxxxx]\
+xxxxxxxxxxx...................................................................C.........................xxxxx]\
+ooooxxxxxxx..............................C.........................C....................C...............xxxxx]\
+ooooxxxxxxx..........C............................C.............................C.................C.....xxxxx]\
+ooooxxxxxxx..C.......................C..........................C..........C.........C..................xxxxx]\
+ooooxxxxxxx...........C...C....C................C......................C.....................C..........xxxxx]\
+ooooxxxxxxl.......C...........................dmmmmm==k.................................................xxxxx]\
+==========l.......dmmmmmmb........C.................ixl..C.......ixxmmmb.....C..========================xxxxx]\
+xxxxxxxxxxl................C..............C.........ixl........C.ixl............ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl......C..............................C...ixl..........ixl........dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl...................dmmb..................ixl.....C....ixl............ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl..........................C.......C......ixl..........ixl.......C....ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl....C........C..............dmmm...mmb...ixl..........ixxmmb.........ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl..........C..............................ixl..........xxl............xxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl...............C...dmmb..................ixl...............C.........ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl...............................C.........ixl...C.................dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl...........................C.............ixl.........................ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl............dmmb....................C....ixl.........................ixlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl========k................................ixl............dmmmmmmmmmmmmxxlxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxl............xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-                      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+......................xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
   map_overlay: "\
 xxxxxxxxxxl                                                                                             xxxxx]\
 xxxxxxxxxxx                                                                                             xxxxx]\
@@ -140,7 +156,7 @@ xxxxxxxxxxl========k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixl            dmmmmmmmmmmmm
 xxxxxxxxxxxxxxxxxxx wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww xl    ===     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxx wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxx wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxxxxxxxxxx                                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
