@@ -406,10 +406,10 @@ l                                                    2  ixxxl             dmmmmb
 l                                                    dmmixxxl                                   ix\
 l                                            3          ixxxl                     dmmb R     oooix\
 l                                            dmmb       ixxxl                                oooix\
-l                                                       ixxxl~~~~~~~~~~~~~~~~~~r================ix\
-l   J      R                         3                  ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lt                          r=k      dmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
-l====================k      ixl~~~~~~~~~~~~~~~~~~~~~~~~~ixxxl                  ixxxxxxxxxxxxxxxxxx\
+l                                     3                 ixxxl~~~~~~~~~~~~~~~~~~r================ix\
+l   J      R                         dmmmb              ixxxl                  ixxxxxxxxxxxxxxxxxx\
+lt                          r=k~~~~~~~~~~~~~~~~~~~~~~~~~ixxxl                  ixxxxxxxxxxxxxxxxxx\
+l====================k~~~~~~ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxxl!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxx======xxx=========================xxxxx==================xxxxxxxxxxxxxxxxxxx\
@@ -455,9 +455,9 @@ l                                                       ixxxl                   
 l                                            dmmb       ixxxl                     v        789ooix\
 l        123                                            ixxxl~~~~~~~~~~~~~~~~~~=================ix\
 l   J    456                v                           ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
-lt       789      vv        ===      dmmb               ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
-l====================k      ixl                         ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl      ixl                         ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+lt       789      vv        ===                         ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+l====================k      ixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxlwwwwwwixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -500,10 +500,10 @@ l                                                    dmmixxxl                   
 l                                                       ixxxl                     dmmb R   456ooix\
 l                                            dmmb       ixxxl                     v        789ooix\
 l       123                                             ixxxl                  =================ix\
-l   J   456                 v                           ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lt      789       vv        ===      dmmb               ixxxl                  ixxxxxxxxxxxxxxxxxx\
-l====================k      ixl                         ixxxl                  ixxxxxxxxxxxxxxxxxx\
-lxxxxxxxxxxxxxxxxxxxxl      ixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxl                  ixxxxxxxxxxxxxxxxxx\
+l   J   456                 v                           ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+lt      789       vv        ===      dmmb               ixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+l====================k      ixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
+lxxxxxxxxxxxxxxxxxxxxlwwwwwwixlwwwwwwwwwwwwwwwwwwwwwwwwwixxxlwwwwwwwwwwwwwwwwwwixxxxxxxxxxxxxxxxxx\
 lxxxxxxxxxxxxxxxxxxxxl!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!ixxl!!!!!!!!!!!!!!!!!!!ixxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
