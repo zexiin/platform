@@ -554,3 +554,135 @@ IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   
  });
+
+
+mapArr.push({
+  level: 10,
+  row: 38,
+  col: 112,
+  bg_color: "#50b1e4",
+  winter:true,
+  map: "\
+]                                                                                                            ixx\
+]                                                                                                            ixx\
+]                                                                                                            ixx\
+]                                                                                                            ixx\
+]                                                                 ooo                                        ixx\
+]                                                                 r=k  o      o                              ixx\
+]                                                                 ixx====k++++dmb   db   o                   ixx\
+]                 o  o  o  o  o  o  o  o  o  o  o  o  o  o        L______K               %    db             ixx\
+]              A######E++++++++++++++++++r================k                                        db        ixx\
+]           r=========k                  ixxxxxxxxxxxxxxxxl                                                o ixx\
+] oo      dm__________K                  ixxxxxxxxxxxxxxxxl                                              r===xxx\
+mmmmmb                                   ixxxxxxxxxxxxxxxxl                                              ixxxxxx\
+]                                        ixxxxxxxxxxxxxxxxl                                              ixxxxxx\
+]         dmmmb    R                     ixxxxxxxxxxxxxxxxl~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~r==xxxxxxx\
+]                      ooo               ixxxxxxxxxxxxxxxxx----j      o   o   o   o   o   o   o    y--xxxxxxxxxx\
+]                A#######E               ixxxxxxxxxxxxxxxxxxxxxx-j  o   o   o   o   o   o   o   o  L___xxxxxxxxx\
+] dbIIIdb        a```````e               ixxxxxxxxxxxxxxxxxxxxxxxl    o   o   o   o   o   o   o        L_____xxx\
+]             o  a```t```e               ixxxxxxxxxxxxxxxxxxxxxxxx---j  o   o   o   o   o   o                ixx\
+]           or===========k     IIIIII    ixxxxxxxxxxxxxxxxxxxxxxxxxxxl                                       ixx\
+]         or=xxxxxxxxxxxxl     IooooI    ixxxxxxxxxxxxxxxxxxxxxxxxxxxK              4                  3     ixx\
+]        dm______________K     IooooI    ixxxxxxxxxxxxxxxxxxxxx_____K               r===k            A#######ixx\
+]Qo                            IooooI    ixxxxxxxxxxxxxxxxxxxxK                    yxxxxxj           a```````ixx\
+====k o                        IIIIII    ixxxxxxxxxxxxxxxxxxxK                    yxxxxxxxj          a```````ixx\
+xxxxx===k o                              ixxxxxxxxxxxxxxxxx_K    J                ixxxxxxxl          a```````ixx\
+xxxxxxxxx===k             J              ixxxxxxxxxxxxxxxxl                       LxxxxxxxK      y-----------xxx\
+xxxxxxxxxxxxl                            ixxxxxxxxxxxxxxxxl                        LxxxxxK      yxxxxxxxxxxxxxxx\
+____________K      A#####################ixxxxxxxxxxxxxxxxl!!!                      L___K       ixxxxxxxxxxxxxxx\
+]                  a```````5`````````````ixxxxxxxxxxxxxxxxx---j                                yxxxxxxxxxxxxxxxx\
+]                  a````A###########E````ixxxxxxxxxxxxxxxxxxxxl  o      Q                  y---xxxxxxxxxxxxxxxxx\
+]                 9a`o oa```````````e````ixxxxxxxxxxxxxxxxx___K oo  r=======k              ixxxxx______xxxxxxxxx\
+]               A###########E``o o `e````ixxxxxxxxxxxxxxxxl    o    ixxxxxxxl              ixxxxl      ixxxxxxxx\
+]P              a```````````e```````e````ixxxxxxxxxxxxxxxxl  o   y--xx______K   y-------j  L____K oooo Lxxxxxxxx\
+]   o o o o o   a```````````e``o o``e````ixxxxxxxxxxxxxxxxl oo  yxx__K   o  oo  ixxxxxxxl         oooo  ixxxxxxx\
+======k+++++r========================k~~~ixxxxxxxxxxxxxxxxl oo yxxK   oo   y----xxxxxxxxl  y---j        L_xxxxxx\
+xxxxxxl~~~~~ixxxxxxxxxxxxxxxxxxxxxxxxl   ixxxxxxxxxxxxxxxxl o  L_K  oo     ixxxxxxxxxxxxl  ixxxx------j  *ixxxxx\
+xxxxxxl     ixxxxxxxxxxxxxxxxxxxxxxxxl o ixxxxxxxxxxxxxxxxl  o    oo       ixxxxxxxxxxxxK  Lxxxxxxxxxxx---xxxxxx\
+xxxxxxl     ixxxxxxxxxxxxxxxxxxxxxxxxl!!!ixxxxxxxxxxxxxxxxxj  oooo   !!!! yxxxxxxxxxxxxl!1 !ixxxxxxxxxxxxxxxxxxx\
+xxxxxxx-----xxxxxxxxxxxxxxxxxxxxxxxxxx---xxxxxxxxxxxxxxxxxxx--------------xxxxxxxxxxxxxx----xxxxxxxxxxxxxxxxxxxx\
+",
+map_bg: "\
+]    C              C               C                C                {}                C               C    x  \
+]                                                                                                            x  \
+]                                                                                                            x  \
+]                                                                                                            x  \
+]          {}               C               C                {}                 C               {}           x  \
+]                                        123123123123123123       xxx    v                                   x  \
+]                           {}           456456456456456456       x  xxxxx++++xmC   xx         v             x  \
+]               v                        789789789789789789       xxxxxxxx               x    xx             x  \
+]    C         xxxxvxxx++++++++++++++++++xxxxxxxxxxxxxxxxxx         {}               C             xx   C    x  \
+]           xxxxxxxxxxx                  x                x                                                  x  \
+] v       xmxxxxxxxxxxx                  x                x                                       C      xxxx   \
+mmmmmx        C               C          x                x                                              x      \
+]                                        x                x   {}               {}       {}               x      \
+]         xmmmx       C             C    x                x~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~xxx       \
+]    C                                   x                 xxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxx          \
+]                xxxxxxxxx               x                      xxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxx         \
+] xxxxxxx   C    x       x    {}         x                       xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxx   \
+]                x   `   x             C x                        xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]   C        xxxxxxxxxxxxx     xxxxxx    x                           xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]          xx            x   C x    x    x                           xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]        xmxxxxxxxxxxxxxxx     x    C    x                     xxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxx  \
+]   v      C          C        x    x    x                    xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+xxxxx                          xxxxxx    x                   xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+     xxxx       C        123 C  123 123  x                 xxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+         xxxx            456    456 456  x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxxxx   \
+            x        vv  789v   789 789  x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx               \
+xxxxxxxxxxxxx      xxxxxxxxxxxxxxxxxxxxxxx                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx               \
+]   C              x      `` v   v       x                 xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx                \
+]         {}       x    xxxxxxxxxxxxx    x                    xwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxx                 \
+..a....a....a....a.x````x ````````` x    x                 xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwx     xxxxxx         \
+de:bcde:bcde:bcdxxxxxxxxxxxxx```````x    x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx    xwwwwwwx        \
+gfgfgfgfgfgfgfgfx           x```````x    x                xwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxwwxxxxxxwwwwwwx        \
+GFGFGFGFGFGFGFGFx     v     x```````x    x                xwwwwwwwwwwwwwwwwwwwwwx       xwwwwwwwwwwwwwwwx       \
+xxxxxxx,,,,,xxxxxxxxxxxxxxxxxxxxxxxxxx```x                xwwwwwwwwwwwwwwwwxxxxx        xwwxxxxxwwwwwwwwxx      \
+      x,,,,,x                        xwwwx                xwwwwwwwwwwwwwwwwx            xwwx    xxxxxxxwwwx     \
+      xwwwwwx                        xwwwx                xwwwwwwwwwwwwwwwwx            xwwx           xxx      \
+      xwwwwwx                        xwwwx                 xwwwwwwwwwwwwwwx            xwwwwx                   \
+       xxxxx                          xxx                   xxxxxxxxxxxxxx              xxxx                    \
+",
+map_overlay: "\
+]    C              C               C                C                {}                C               C    x  \
+]                                                                                                            x  \
+]                                                                                                            x  \
+]                                                                                                            x  \
+]          {}               C               C                {}                 C               {}           x  \
+]                                         123 123123123123         xxx                                       x  \
+]                           {}            456 456456456456         x  xxxxx++++xmC   xx                      x  \
+]                                         789 789789789789         xxxxxxxx               x    xx            x  \
+]    C         xxxx xxx++++++++++++++++++xxxxxxxxxxxxxxxxxx         {}               C             xx   C    x  \
+]           xxxxxxxxxxx                  x                x                                                  x  \
+]         xmxxxxxxxxxxx                  x                x                                       C      xxxx   \
+mmmmmx        C               C          x                x                                              x      \
+]                                        x                x   {}               {}       {}               x      \
+]         xmmmx       C             C    x                x~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~xxx       \
+]    C                                   x                 xxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxx          \
+]                xxxxxxxxx               x                      xxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxx         \
+] xxxxxxx   C    x       x    {}         x                       xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxx   \
+]                x   `   x             C x                        xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]   C        xxxxxxxxxxxxx     xxxxxx    x                           xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]          xx            x   C x    x    x                           xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]        xmxxxxxxxxxxxxxxx     x    C    x                     xxxxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+]          C          C        x    x    x                    xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+xxxxx                          xxxxxx    x                   xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+     xxxx       C            C    123    x                 xxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx  \
+         xxxx                     456    x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxxxx   \
+            x                     789    x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx               \
+xxxxxxxxxxxxx      xxxxxxxxxxxxxxxxxxxxxxx                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx               \
+]   C              x      ``             x                 xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx                \
+]         {}       x    xxxxxxxxxxxxx    x                    xwwwwwwwwwwwwwwwwwwwwwwwwwwwwxxxx                 \
+..a....a....a....a.x````x ````````` x    x                 xxxxwwwwwwwwwwwwwwwwwwwwwwwwwwwwx     xxxxxx         \
+de:bcde:bcde:bcdxxxxxxxxxxxxx```````x    x                xwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwx    xwwwwwwx        \
+gfgfgfgfgfgfgfgfx           x```````x    x                xwwwwwwwwwwwwwwwwwwwwwxxxxxxxxxwwxxxxxxwwwwwwx        \
+GFGFGFGFGFGFGFGFx           x```````x    x                xwwwwwwwwwwwwwwwwwwwwwx       xwwwwwwwwwwwwwwwx       \
+xxxxxxx,,,,,xxxxxxxxxxxxxxxxxxxxxxxxxx~~~x                xwwwwwwwwwwwwwwwwxxxxx        xwwxxxxxwwwwwwwwxx      \
+      x~~~~~x                        xwwwx                xwwwwwwwwwwwwwwwwx            xwwx    xxxxxxxwwwx     \
+      xwwwwwx                        xwwwx                xwwwwwwwwwwwwwwwwx            xwwx           xxx      \
+      xwwwwwx                        xwwwx                 xwwwwwwwwwwwwwwx            xwwwwx                   \
+       xxxxx                          xxx                   xxxxxxxxxxxxxx              xxxx                    \
+",
+  
+ });
+
+
