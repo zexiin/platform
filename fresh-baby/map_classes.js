@@ -144,6 +144,7 @@ class TileMap extends Map {
 	    	case "|": return 231; // spike, facing DOWN
 
 	    	case "U": return 276; // superjump powerup
+		case "&": return 297; // lives powerup
 	    	
 	    	default: return;
 
@@ -209,6 +210,7 @@ class CollisionMap extends Map {
 	        	case "Ó": return 40.4; // 4 coins collected
 
 	        case "U": return 276; // superjump powerup
+		case "&": return 297; // lives powerup		
 
 
 	    	default: return;
