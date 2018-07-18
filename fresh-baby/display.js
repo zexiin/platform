@@ -715,7 +715,7 @@ function DeathText() {
     this.x = 200;
 	this.y = 150; 
 	this.opacity = 1.0; 
-	this.size = 80;
+	this.size = 60;
 }
 
 DeathText.prototype.display = function() {
