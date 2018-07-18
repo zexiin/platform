@@ -130,7 +130,12 @@ class TileMap extends Map {
 
 	    	case "o": return 159; // coin
 	    	case "t": return 39; // nxt lv
-	    	case "!": return 232; // spike bloc
+
+	    	case "!": return 232; // spike, facing upwards
+	    	case ">": return 253; // spike, facing RGHT
+	    	case "<": return 254; // spike, facing LEFT
+	    	case "|": return 231; // spike, facing DOWN
+
 
 	    	case "U": return 35; // superjump powerup
 	    	
@@ -182,7 +187,12 @@ class CollisionMap extends Map {
 	    	
 	        case "o": return 20; // COIN
 	        case "t": return 21; // TREASURE, NEXT LEVEL
+
+	        // ADD CASES 
 	        case "!": return 22; // SPIKE, DIE
+	        case ">": return 22; // SPIKE, DIE
+	        case "<": return 22; // SPIKE, DIE
+	        case "|": return 22; // SPIKE, DIE
 
 	        case "~": return 30; // WATER, pls
 	        case "I": return 31; // ICE, pls
