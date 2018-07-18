@@ -52,6 +52,8 @@ function Player(x, y) {
 	this.facingRight = true;
 	this.inWater = false;
 
+	this.key = false; // whether he has collected key or not
+
 }
 
 
@@ -181,11 +183,14 @@ Player.prototype.reset = function() {
 	this.inWater = false;
 	this.setPhysics();
 	this.updateBoundingBox();
+	this.key = false;
 };
 
 Player.prototype.die = function() {
-	console.log("you should be dead");
-	return;
+    
+    key.reset();
+	//console.log("you should be dead");
+	//return;
 	sfx.push(new SFX("die"));
 	sleep(2000);
 	deathTexts.push(new DeathText());
