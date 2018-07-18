@@ -143,7 +143,7 @@ class TileMap extends Map {
 	    	case "|": return 231; // spike, facing DOWN
 
 
-	    	case "U": return 35; // superjump powerup
+	    	case "U": return 276; // superjump powerup
 	    	
 	    	default: return;
 
