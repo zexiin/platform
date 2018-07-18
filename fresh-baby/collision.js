@@ -191,6 +191,9 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+		
+		if (!player.key) return;
+		
 		sfx.push(new SFX("win"));
 		player.stop = true;
 
