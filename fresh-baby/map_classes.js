@@ -57,10 +57,10 @@ class TileMap extends Map {
 
 	constructor(tilesheet, tilesize, scaledsize, c, r, stringRep) {
 		super(tilesheet, tilesize, scaledsize, c, r, stringRep);
-		this.findPlayer();
+		this.findPlayer_and_key();
 	}
 
-	findPlayer() {
+	findPlayer_and_key() {
 		for(let i = 0; i < this.tiles.length; i++) {
 		    if (this.tiles[i] === "P") {
 
@@ -70,6 +70,15 @@ class TileMap extends Map {
 				player = new Player(x * scaleFactor * 16, y * scaleFactor * 16);
 
 				break;
+
+		    }
+
+		    else if (this.tiles[i] === "*") {
+
+		    	let y = Math.floor(i / this.cols);
+				let x = Math.floor(i % this.cols);
+
+				key = new Key(x * scaleFactor * 16, y * scaleFactor * 16);
 
 		    }
 		}
