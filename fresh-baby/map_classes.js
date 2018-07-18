@@ -81,6 +81,7 @@ class TileMap extends Map {
 		}
 	}
 
+
 	getTile(col, row) {
 
 		let tile = this.tiles[row * this.cols + col];
@@ -127,7 +128,7 @@ class TileMap extends Map {
 	    	case "e": if(winter_on) return 196; else return 192;
 
 
-	    	case "~": return 220; // water blue 176
+	    	case "~": return 220; // water 
 	    	case "I": return 133; // ice
 		    	case "È": return 182;
 		    	case "Ê": return 183;
@@ -141,7 +142,6 @@ class TileMap extends Map {
 	    	case ">": return 253; // spike, facing RGHT
 	    	case "<": return 254; // spike, facing LEFT
 	    	case "|": return 231; // spike, facing DOWN
-
 
 	    	case "U": return 276; // superjump powerup
 	    	
@@ -194,7 +194,6 @@ class CollisionMap extends Map {
 	        case "o": return 20; // COIN
 	        case "t": return 21; // TREASURE, NEXT LEVEL
 
-	        // ADD CASES 
 	        case "!": return 22; // SPIKE, DIE
 	        case ">": return 22; // SPIKE, DIE
 	        case "<": return 22; // SPIKE, DIE
@@ -209,7 +208,7 @@ class CollisionMap extends Map {
 	        	case "Ò": return 40.3; // 3 coins collected
 	        	case "Ó": return 40.4; // 4 coins collected
 
-	        case "U": return 35; // superjump powerup
+	        case "U": return 276; // superjump powerup
 
 
 	    	default: return;
@@ -231,9 +230,10 @@ class BGMap extends Map {
 		switch(tile) {
 
 	    	case " ": return 0;
-	    	case "w": return 132; // water, solid bg
+	    	case "w": return 132; // water, solid bg 
 
 	    	case "v": if(winter_on) return 109; else return 105; // lil grass sprout or stone
+	    	case "`": if(winter_on) return 195; else return 191; // light dirt
 
 
 	    	// holy shit lol
@@ -266,6 +266,8 @@ class BGMap extends Map {
 	    	case "F": if(winter_on) return 388; else return 375;
 	    	case "G": if(winter_on) return 389; else return 376;
 
+	    	case ",": if(winter_on) return 411; else return 397; // g for gitch (green)
+
 
 
 	    	default: return;
@@ -293,6 +295,8 @@ class OverlayMap extends Map {
 	    	case "~": return 66; // transparent water border
 
 	    	case "v": if(winter_on) return 109; else return 105; // lil grass sprout or stone
+
+
 
 
 	    	// holy shit lol
