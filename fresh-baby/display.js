@@ -615,6 +615,7 @@ function StatBar() {
 	this.heart_full = { x:48, y:152 };
 	this.heart_empty = { x:56, y:152 };
 	this.key = { x:160, y:192 };
+	this.superjump = { x:176, y:192 };
 	this.nums = [
 		{x:0, y:144}, //0
 		{x:8, y:144}, //1
@@ -646,7 +647,14 @@ StatBar.prototype.draw = function() {
 	// KEY
     if (player.key) {
 	context.drawImage(tilesheet, this.key.x, this.key.y, this.icon_w * 2, this.icon_w * 2,
-	43*scaleFactor + 30, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
+	43*scaleFactor + 20, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
+    }
+
+    // superjump
+    // KEY
+    if (player.superjump.state) {
+	context.drawImage(tilesheet, this.superjump.x, this.superjump.y, this.icon_w * 2, this.icon_w * 2,
+	43*scaleFactor + 40, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
     }
 
 	// draw lives
