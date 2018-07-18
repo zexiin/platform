@@ -27,7 +27,7 @@ mapArr.push({
 ]                           Q   t [X\
 ]                         A######E[X\
 ]                         a``````e[X\
-]               Q         a``````e[X\
+]        *      Q         a``````e[X\
 ]               A###E+++A###E````e[X\
 ]    P          a```e   a```e````e[X\
 ] U             a```e   a```e````e[X\
@@ -46,7 +46,7 @@ mapArr.push({
 ]      db                         [X\
 ]            3                    [X\
 ]            dmmb                 [X\
-]                                 [X\
+]                     *           [X\
 ]                    dmb          [X\
 ]                                 [X\
 ]             4                   [X\
@@ -79,7 +79,7 @@ xxxxxxxxxxl                                         ixl          L_K            
 xxxxxxxxxxl                   dmmb                  ixl                      o  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl               o                         ixl     o              dmmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxlP                                        ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
-xxxxxxxxxxl            dmmb                         ixl                         ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxl            dmmb                         ixl                      *  ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxx========k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixl            r============xxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxl                                ixl!!!!r=k!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxl                                ixx====xxx=====xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -173,7 +173,7 @@ xxl                         R              dmmxx\
 xxl   P                                    !!!ix\
 xxl~~~~~~~~~~~~~~~~~~~~~~r====================xx\
 xxl                      ixxxxxxxxxxxxxxxxxxxxxx\
-xxl                4     ixxxxxxxxxxxxxxxxxxxxxx\
+xxl                4   * ixxxxxxxxxxxxxxxxxxxxxx\
 xxl        6      y------xxxxxxxxxxxxxxxxxxxxxxx\
 xxx---------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -245,7 +245,7 @@ map: "\
 %%%%          %%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%         %%%\
 %%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%~~~~~~~~~%%%\
 %%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%\
-%%%%%%%%%%%%%%%%%%%%%%%%%                   %%%%%%%%%%%%%% o    %%%%%%%%%%%%         %%%\
+%%%%%%%%%%%%%%%%%%%%%%%%%                   %%%%%%%%%%%%%% o *  %%%%%%%%%%%%         %%%\
 %%%%%%%%%%%%%%%%%%%%%%%%% 8                 %%%%%%%%%%%%%%    o %%%%%%%%%%%%         %%%\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%~~~~~~%%%%%%%%%%%%     %%%%%%%\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      %%%%%%%%%%%%%%   %%%%%%%%%%%%%%%         %%%\
@@ -310,7 +310,7 @@ X]                                ixxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
 X]               o       %        ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
 X]  P                  9   o    o ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
 X]           o       r============xxxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
-=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3  oixxxxxxxxxxxxxxxxxxx]\
+=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3  *ixxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
 
 
@@ -335,7 +335,7 @@ X]                ixxxxxl                   4         ixxxx]\
 X]                ixx__xl     5                       ixxxx]\
 X]         dmb    ixlooLK                      %      ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
-X]U    !%       o ixl     9                           ixxxx]\
+X]U    !%   *   o ixl     9                           ixxxx]\
 ========%  o  o   ixx===k                        t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
@@ -420,7 +420,7 @@ l                                                                 4             
 l                                                               dmmmmmb                         ix\
 l                                                       r===k               2                   ix\
 l                                                    2  ixxxl             dmmmmb                ix\
-l                                                    dmmixxxl                                   ix\
+l                                                    dmmixxxl                                 * ix\
 l                                            3          ixxxl                     dmmb R     oooix\
 l                                            dmmb       ixxxl                                oooix\
 l                                     3                 ixxxl~~~~~~~~~~~~~~~~~~r================ix\
@@ -541,7 +541,7 @@ mapArr.push({
 ] J     o           5             [\
 ]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
 ]                   J             [\
-]            o                    [\
+] *          o                    [\
 ]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
 ]   R                             [\
 ]                o              o [\
