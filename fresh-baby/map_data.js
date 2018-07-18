@@ -510,26 +510,51 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 mapArr.push({
   level: 9,
+  winter: true,
   row: 21,
+ bg_color: "#50b1e4",
   col: 35,
   map: "\
-]                                 [\
-]                                 [\
-]                                 [\
-]   P                         o   [\
-]                o                [\
-]IIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIII[\
-]                                 [\
-] J     o           5             [\
-]IIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIII[\
-]                   J             [\
-] *          o                    [\
-]IIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIII[\
-]   R                             [\
-]                o              o [\
-]IIIIIIIIII%%%%%%IIIIIIIIIIIIIIIII[\
-]        R                        [\
-]    o             o      o    t  [\
+]                                  \
+]                                  \
+]                                  \
+]   P                         o    \
+]                o                 \
+IIIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIIII\
+]                                  \
+] J     o           5             !\
+IIIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIIII\
+]                   J              \
+]            o            4        \
+IIIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIIII\
+]   R                              \
+]                o              o  \
+IIIIIIIIIII%%%%%%IIIIIIIIIIIIIIIIII\
+]        R                 R       \
+]    o             o      o    t   \
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
+===================================\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+
+map_bg: "\
+]..................................\
+]GFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGF\
+]fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfg\
+]                             o    \
+]                o                 \
+IIIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIIII\
+]                                  \
+] J     o                         !\
+IIIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIIII\
+]                   J              \
+]            o                     \
+IIIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIIII\
+]   R                              \
+]                o              o  \
+IIIIIIIIIII%%%%%%IIIIIIIIIIIIIIIIII\
+]        R                 R       \
+]    o             o      o    t   \
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
 ===================================\
