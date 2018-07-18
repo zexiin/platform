@@ -644,7 +644,7 @@ StatBar.prototype.draw = function() {
 	
 	// KEY
     if (player.key) {
-	context.drawImage(tilesheet, 0, 128, this.icon_w, this.icon_w,
+	context.drawImage(tilesheet, 160, 192, this.icon_w, this.icon_w,
 	canvas.width - 78*scaleFactor, 3.6*scaleFactor, this.icon_scaled, this.icon_scaled);
     }
 
