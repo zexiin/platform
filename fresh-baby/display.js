@@ -614,6 +614,7 @@ function StatBar() {
 	this.x = { x:64, y:144 };
 	this.heart_full = { x:48, y:152 };
 	this.heart_empty = { x:56, y:152 };
+	this.key = { x:160, y:192 };
 	this.nums = [
 		{x:0, y:144}, //0
 		{x:8, y:144}, //1
@@ -644,7 +645,7 @@ StatBar.prototype.draw = function() {
 	
 	// KEY
     if (player.key) {
-	context.drawImage(tilesheet, 160, 192, this.icon_w, this.icon_w,
+	context.drawImage(tilesheet, this.key.x, this.key.y, this.icon_w, this.icon_w,
 	canvas.width - 78*scaleFactor, 3.6*scaleFactor, this.icon_scaled, this.icon_scaled);
     }
 
