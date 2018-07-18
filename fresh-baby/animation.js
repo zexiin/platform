@@ -506,6 +506,7 @@ class Shimmer extends VisFX {
 	}
 }
 
+
 var water_depth; // idk where else to put this variable soz
 class Bubbles extends VisFX {
 	constructor(x,y,x_vel) {
@@ -557,6 +558,18 @@ class TileBump_G extends VisFX { // green brick tile bump up
 }
 
 
+
+class Locked extends VisFX {
+	constructor(x,y) {
+		super(x, y, 0 , 0, 16, 16);
+		this.frame = {x:176,y:208};
+		this.timer = time;
+	}
+	update() {
+		this.camCoords = cam.mapToCam(this.x, this.y);
+		if (time > this.timer) this.stop();
+	}
+}
 
 
 
