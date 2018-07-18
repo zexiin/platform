@@ -712,10 +712,10 @@ StatBar.prototype.draw = function() {
 
 function DeathText() {
 	this.time = 200;
-    this.x = 180;
-	this.y = 90; 
+    this.x = 200;
+	this.y = 150; 
 	this.opacity = 1.0; 
-	this.size = 60;
+	this.size = 80;
 }
 
 DeathText.prototype.display = function() {
