@@ -147,7 +147,7 @@ function collisionType(tile_ID) {
 			collisions.ice = true;
 			return collisions;
 
-		case 35: // superjump
+		case 276: // superjump
 			collisions.superjump = true;
 			return collisions;
 
@@ -191,9 +191,11 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
-		
-		if (!player.key) return;
-		
+		if(!player.key) {
+			fx.push(new Locked(player.bound.x,player.y - 5));
+			return;
+		}
+
 		sfx.push(new SFX("win"));
 		player.stop = true;
 
