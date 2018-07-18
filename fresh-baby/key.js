@@ -29,8 +29,8 @@ class Key {
 
 		        context.drawImage(
 				map.tilesheet, // image src
-				176 * map.tsize % map.tilesheet.width,
-				Math.floor(176 * map.tsize / map.tilesheet.width) * map.tsize,
+				274 * map.tsize % map.tilesheet.width,
+				Math.floor(274 * map.tsize / map.tilesheet.width) * map.tsize,
 				map.tsize, // src width (clipped)
 				map.tsize, // src height (clipped)
 				xyTarget.x, // target x
