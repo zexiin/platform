@@ -8,7 +8,7 @@ this file contains the main game functions??
 
 var scaleFactor = 2;
 
-var player, map, cam, collision_map, enemies, animate, time, bullets, fx, sfx, statBar, bg_color;
+var player, map, cam, collision_map, enemies, animate, time, bullets, fx, sfx, statBar, bg_color, key;
 var coinCount, livesCount, levelNo, killCount, deathTexts;
 
 
@@ -96,6 +96,7 @@ drawGame = function() {
 
 	cam.draw();
 	fx.draw();
+	key.draw();
 	player.draw();
 	enemies.draw();
 	bullets.draw();
@@ -112,7 +113,8 @@ drawGame = function() {
 }
 
 updateGame = function() {
-	
+
+	key.update();
 	player.update();
 	if(player.stop) return;
 
@@ -161,6 +163,7 @@ function init(mapNo) {
 	context.imageSmoothingEnabled = false;
 
 	map = new TileMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
+
 	collision_map = new CollisionMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
 
 	let bg_map, overlay_map;
