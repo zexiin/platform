@@ -405,10 +405,10 @@ function createAnotherScreen(screen) {
 	screen.addButton(back_btn);
 
 	let rut = new Image();
-	rut.onload = function() {screen.addImg(rut, -180,-100,1.5);};
+	rut.onload = function() {screen.addImg(rut, -10,0);};
 	rut.src = "../assets/rutabaga.jpg";
 
-	screen.addTxt("m other why", 50,260, "30px courier", "white");
+	screen.addTxt("m other why", 50,200, "30px courier", "white");
 
 
 }
@@ -638,24 +638,24 @@ StatBar.prototype.draw = function() {
 	context.fillStyle = '#000000';
 	context.fillRect(0,0,canvas.width,map.scaled);
 
-	
 	// write level
 	context.font = "14px 'Press Start 2P'";
 	context.fillStyle = "white";
 	context.textAlign = "center";
 	context.fillText("LEVEL "+levelNo, canvas.width/2, 10);
-
-	if (player.key) {
-		context.drawImage(tilesheet, this.key.x, this.key.y, this.icon_w * 2, this.icon_w * 2,
-		43*scaleFactor + 20, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
+	
+	// KEY
+    if (player.key) {
+	context.drawImage(tilesheet, this.key.x, this.key.y, this.icon_w * 2, this.icon_w * 2,
+	43*scaleFactor + 20, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
     }
 
+    // superjump
+    // KEY
     if (player.superjump.state) {
-		context.drawImage(tilesheet, this.superjump.x, this.superjump.y, this.icon_w * 2, this.icon_w * 2,
-		43*scaleFactor + 40, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
-	}
-
-
+	context.drawImage(tilesheet, this.superjump.x, this.superjump.y, this.icon_w * 2, this.icon_w * 2,
+	43*scaleFactor + 40, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
+    }
 
 	// draw lives
 	for (let i = 1; i <= 5; i++) { // three lives rn
@@ -711,24 +711,24 @@ StatBar.prototype.draw = function() {
 // DEATH TEXT 
 
 function DeathText() {
-    this.x = canvas.width/2;
-	this.y = canvas.height/2; 
+	this.time = 200;
+    this.x = 180;
+	this.y = 100; 
 	this.opacity = 1.0; 
+	this.size = 60;
 }
 
 DeathText.prototype.display = function() {
 
-	if (this.opacity > 0) {
-		
+	if (this.time > 0) {
+		context.font = "bold" + this.size + "px verdana";
+		context.fillStyle = "#ff0000";
 		context.globalAlpha = this.opacity;
-		this.opacity -= 0.01;
-		context.font = "20px 'Press Start 2P'";
-		context.fillStyle = "black";
-		context.fillRect(0,0,canvas.width,canvas.height);
-		context.font = "20px 'Press Start 2P'";
-		context.textAlign = "center";
-		context.fillStyle = "white";
-		context.fillText("YOU DIED", this.x, this.y);
+		this.opacity -= 0.005;
+		context.fillText("YOU DIED.", this.x, this.y);
+		//this.x += 0.8;
+		//this.y += 0.2;
+		this.time--;
 	}
 	context.globalAlpha = 1.0;
 }
@@ -742,23 +742,22 @@ var levelText = {
 
 levelText.reset = function() {
 	this.time = 350;
-	this.x = canvas.width/2;
-	this.y = canvas.height/2;
+	this.x = 150;
+	this.y = 90;
 	this.opacity = 1.0;
 };
 
 levelText.draw = function() {
-	if (this.opacity > 0) {
+	if (this.time > 0) {
+ 	 context.font = "bold 80px verdana";
+ 	 context.fillStyle = "#accadb";
  	 context.globalAlpha = this.opacity;
- 	 this.opacity -= 0.009;
-
- 	 context.fillStyle = "black";
- 	 context.fillRect(0,0,canvas.width,canvas.height);
-
- 	 let text1 = ("LEVEL " + levelNo).split("").join(String.fromCharCode(8201));
- 	 context.fillStyle = "white";
- 	 context.font = "30px 'Press Start 2P'";
+ 	 this.opacity -= 0.0025;
+ 	 let text1 = ("level " + levelNo).split("").join(String.fromCharCode(8201));
      context.fillText(text1, this.x, this.y);
+     this.x += 0.5;
+     this.y += 0.1;
+     this.time--;
 	}
 	context.globalAlpha = 1.0;
 };
