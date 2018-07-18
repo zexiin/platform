@@ -86,7 +86,7 @@ function collisionHandler(player, map) {
 function collisionType(tile_ID) {
 	var collisions = { n: false, s: false, e: false, w: false, 
 					   coin: false, treasure: false, spike: false, 
-					   water: false, ice: false, superjump: false};
+					   water: false, ice: false, superjump: false, heart: false};
 	switch(tile_ID) {
 
 		case 1: // all sides
@@ -150,6 +150,11 @@ function collisionType(tile_ID) {
 		case 276: // superjump
 			collisions.superjump = true;
 			return collisions;
+			
+			case 297: // life
+			collisions.heart = true;
+			return collisions;
+
 
 
 
@@ -217,6 +222,14 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 
 	if (tile.collisions.superjump) {
 		player.superjump_init();
+		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
+		layer.tiles[tileIndex] = "\u0020";
+		map.tiles[tileIndex] = "\u0020";
+		return;
+	}
+	
+	if (tile.collisions.heart) {
+		livesCount++;
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
 		layer.tiles[tileIndex] = "\u0020";
 		map.tiles[tileIndex] = "\u0020";
