@@ -340,7 +340,7 @@ X]         dmmb   ixlooLK                             ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
 X]U     %         ixloo   9                o  o  o    ixxxx]\
 ========%         ixl*                                ixxxx]\
-xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
+xxxxxxxx%!!!!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
   map_bg: "\
 ......................................................ixxxx]\
