@@ -725,7 +725,7 @@ DeathText.prototype.display = function() {
 		context.fillStyle = "#ff0000";
 		context.globalAlpha = this.opacity;
 		this.opacity -= 0.005;
-		context.fillText("YOU DIED.", this.x, this.y);
+		context.fillText("YOU DIED, we are sorry the game is inadequate", this.x, this.y);
 		//this.x += 0.8;
 		//this.y += 0.2;
 		this.time--;
