@@ -707,7 +707,7 @@ DeathText.prototype.display = function() {
 
 	if (this.time > 0) {
 		context.font = "bold" + this.size + "px verdana";
-		context.fillStyle = "#0099bb";
+		context.fillStyle = "#ff0000";
 		context.globalAlpha = this.opacity;
 		this.opacity -= 0.005;
 		context.fillText("YOU DIED.", this.x, this.y);
