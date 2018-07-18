@@ -641,6 +641,12 @@ StatBar.prototype.draw = function() {
 	context.fillStyle = "white";
 	context.textAlign = "center";
 	context.fillText("LEVEL "+levelNo, canvas.width/2, 10);
+	
+	// KEY
+    if (player.key) {
+	context.drawImage(tilesheet, 0, 128, this.icon_w, this.icon_w,
+	canvas.width - 78*scaleFactor, 3.6*scaleFactor, this.icon_scaled, this.icon_scaled);
+    }
 
 	// draw lives
 	for (let i = 1; i <= 5; i++) { // three lives rn
