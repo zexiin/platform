@@ -319,64 +319,46 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
 mapArr.push({
   level: 7,
   row: 18,
+     bg_color: "#3f8f6e",
   col: 60,
   map:"\
 X]                                                    ixxxx]\
-X]                                       o            ixxxx]\
-X]                                                    ixxxx]\
-X]                                         o          ixxxx]\
-X]                               o         %          ixxxx]\
-X]                     2        %                     ixxxx]\
-X]                  o  dmb                       o    ixxxx]\
-X]                    %                       o       ixxxx]\
+X]                                           t        ixxxx]\
+X]                                       o   %        ixxxx]\
+X]                                   o   %            ixxxx]\
+X]                              o    %                ixxxx]\
+X]                              %                     ixxxx]\
+X]                        3                           ixxxx]\
+X]                        dmmb                        ixxxx]\
 X]                 3                            o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxl                   4         ixxxx]\
 X]                ixx__xl     5                       ixxxx]\
-X]         dmb    ixlooLK                      %      ixxxx]\
+X]         dmmb   ixlooLK                             ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
-X]U    !%   *   o ixl     9                           ixxxx]\
-========%  o  o   ixx===k                        t    ixxxx]\
+X]U     %         ixloo   9                o  o  o    ixxxx]\
+========%         ixl*                                ixxxx]\
 xxxxxxxx%!!!!!!!!!ixxxxxl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
   map_bg: "\
+......................................................ixxxx]\
+...............C....C..........C.......C.....C........ixxxx]\
+.........C..............C.........C..............C....ixxxx]\
+...............C.............C........................ixxxx]\
+.a....a....a....a....a....a....a....a....a....a....a..ixxxx]\
+e:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:ebcd:ebcd:ebixxxx]\
+fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgixxxx]\
+FGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGixxxx]\
 X]                                                    ixxxx]\
-X]                                       o            ixxxx]\
-X]                                                    ixxxx]\
-X]                                         o          ixxxx]\
-X]                               o         %          ixxxx]\
-X]                              %                     ixxxx]\
-X]                  o  dmb                       o    ixxxx]\
-X]                    %                       o       ixxxx]\
-X]                                              o     ixxxx]\
 X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]         dmb    ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]                ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+========%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxxx=============================================ixxxx]",
-map_overlay: "\
-X]                                                    ixxxx]\
-X]                                       o            ixxxx]\
-X]                                                    ixxxx]\
-X]                                         o          ixxxx]\
-X]                               o         %          ixxxx]\
-X]                              %                     ixxxx]\
-X]                  o  dmb                       o    ixxxx]\
-X]                    %                       o       ixxxx]\
-X]                                              o     ixxxx]\
-X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
-X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]         dmb    ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-========%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
-xxxxxxxxx=============================================ixxxx]"
 
 
 });
