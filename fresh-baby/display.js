@@ -646,7 +646,7 @@ StatBar.prototype.draw = function() {
 	// KEY
     if (player.key) {
 	context.drawImage(tilesheet, this.key.x, this.key.y, this.icon_w * 2, this.icon_w * 2,
-	canvas.width - 78*scaleFactor, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
+	43*scaleFactor + 30, 4*scaleFactor, this.icon_scaled, this.icon_scaled);
     }
 
 	// draw lives
