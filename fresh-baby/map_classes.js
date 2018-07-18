@@ -68,9 +68,6 @@ class TileMap extends Map {
 				let x = Math.floor(i % this.cols);
 
 				player = new Player(x * scaleFactor * 16, y * scaleFactor * 16);
-
-				break;
-
 		    }
 
 		    else if (this.tiles[i] === "*") {
