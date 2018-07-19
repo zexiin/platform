@@ -124,11 +124,12 @@ updateGame = function() {
 	cam.update();
 	sfx.update();
 
-
+/*
 	document.getElementById("insert").innerHTML = "coins: " + coinCount;
 	document.getElementById("lives").innerHTML = "lives: " + livesCount;
 	document.getElementById("level").innerHTML = "level: " + levelNo;
-	document.getElementById("kills").innerHTML = "kills: " + killCount;	
+	document.getElementById("kills").innerHTML = "kills: " + killCount;
+	*/	
 	time++;
 
 }
