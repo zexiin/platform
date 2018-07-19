@@ -291,6 +291,7 @@ mapArr.push({
   level: 6,
   row: 22,
   col: 75,
+   bg_color: "#3f8f6e",
   map: "\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
@@ -298,23 +299,45 @@ X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                                    ixxxxxxxxxxxxxxxxxxx]\
 X]                                          3  t      ixxxxxxxxxxxxxxxxxxx]\
 X]                                          dmmmb     ixxxxxxxxxxxxxxxxxxx]\
-X]                                          %     o   ixxxxxxxxxxxxxxxxxxx]\
-X]                                  %       %    dmb  ixxxxxxxxxxxxxxxxxxx]\
-X]                 o                %6      %         ixxxxxxxxxxxxxxxxxxx]\
-X]                db             dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
-X]                     o                 %      &     ixxxxxxxxxxxxxxxxxxx]\
-X]                   db            %   o %      %     ixxxxxxxxxxxxxxxxxxx]\
-X]                                 %     %            ixxxxxxxxxxxxxxxxxxx]\
-X]           2           o         %  !      o        ixxxxxxxxxxxxxxxxxxx]\
-X]           dmb                  r==============k    ixxxxxxxxxxxxxxxxxxx]\
-X]                  db     dmmmmmmxxxxxxxxxxxxxxxlo  dxxxxxxxxxxxxxxxxxxxx]\
-X]                                ixxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
-X]               o       %        ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
-X]  P                  9   o    o ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
-X]           o       r============xxxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
-=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3  *ixxxxxxxxxxxxxxxxxxx]\
+X]                                          %    oooo ixxxxxxxxxxxxxxxxxxx]\
+X]                                    %     %    dmmb ixxxxxxxxxxxxxxxxxxx]\
+X]                                3   %4   !%         ixxxxxxxxxxxxxxxxxxx]\
+X]             o                 dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
+X]            dmb            o              %         ixxxxxxxxxxxxxxxxxxx]\
+X]                   o      dmb        o    %         ixxxxxxxxxxxxxxxxxxx]\
+X]                  dmb                %              ixxxxxxxxxxxxxxxxxxx]\
+X]                                     %!    o        ixxxxxxxxxxxxxxxxxxx]\
+X]              o           5     r==============k    ixxxxxxxxxxxxxxxxxxx]\
+X]             dmb         dmmmmmmxxxxxxxxxxxxxxxlo  dxxxxxxxxxxxxxxxxxxxx]\
+X]                    o           ixxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
+X]                   dmb          ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
+X]  P    J             9        o ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
+X]           o       r============xxxxxxxxxxxxxxxl* o ixxxxxxxxxxxxxxxxxxx]\
+=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl3  oixxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
-
+map_bg:"\
+X]....................................................ixxxxxxxxxxxxxxxxxxx]\
+X]....................................................ixxxxxxxxxxxxxxxxxxx]\
+X]...........C.........C.................C............ixxxxxxxxxxxxxxxxxxx]\
+X]..............C.................C..........C........ixxxxxxxxxxxxxxxxxxx]\
+X].a....a....a....a....a....a....a....a....a....a....aixxxxxxxxxxxxxxxxxxx]\
+X]e:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:ebcd:ebcd:ixxxxxxxxxxxxxxxxxxx]\
+X]fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgixxxxxxxxxxxxxxxxxxx]\
+X]FGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGixxxxxxxxxxxxxxxxxxx]\
+X]                 o                %       %         ixxxxxxxxxxxxxxxxxxx]\
+X]                               dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
+X]                     o                 %      o     ixxxxxxxxxxxxxxxxxxx]\
+X]                                 %   o %      %     ixxxxxxxxxxxxxxxxxxx]\
+X]                                 %     %            ixxxxxxxxxxxxxxxxxxx]\
+X]                       o         %  !      o        ixxxxxxxxxxxxxxxxxxx]\
+X]                                r==============k    ixxxxxxxxxxxxxxxxxxx]\
+X]                         dmmmmmmxxxxxxxxxxxxxxxlo  dxxxxxxxxxxxxxxxxxxxx]\
+X]                             123ixxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
+X]123      123   o       %     456ixxxxxxxxxxxxxxxb   ixxxxxxxxxxxxxxxxxxx]\
+X]456      456             o   789ixxxxxxxxxxxxxxl   dxxxxxxxxxxxxxxxxxxxx]\
+X]789   v  789       r============xxxxxxxxxxxxxxxl  o ixxxxxxxxxxxxxxxxxxx]\
+=====================xxxxxxxxxxxxxxxxxxxxxxxxxxxxl   oixxxxxxxxxxxxxxxxxxx]\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx====xxxxxxxxxxxxxxxxxxxx]",
 
 });
 
