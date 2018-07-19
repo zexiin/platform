@@ -3,21 +3,23 @@ html {
 
 body {
 
+  background-color: black;
+
 }
 
 
 h1 {
-  font-family: verdana;
-  font-size: 40pt;
-  letter-spacing: 4px;
-  color: #DDDDDD;
-  text-shadow: 2px 2px #EEEEEE;
-  margin-bottom: -20px;
+  font-family: Jua;
+  font-size: 50pt;
+  letter-spacing: auto;
+  color: #ef6c58;
+  text-shadow: 2px 2px #81e0ef;
+  position:relative;
+  top:25%;
 }
 
 h2 {
-  font-weight: lighter;
-  font-family: serif;
+  font-family: verdana;
   font-size: 15pt;
   text-transform: lowercase;
   color: #AAAAAA;
@@ -44,7 +46,7 @@ li {
 }
 
 .levels {
-  font-family: georgia;
+  font-family: 'Nunito';
   text-transform: uppercase;
 }
 
@@ -52,7 +54,7 @@ li {
    color: #555555;
    font-family: verdana;
    font-size: 10pt;
-   left: 580px;
+   left: 600px;
    position:fixed;
    height: 410px;
    width: 400px;
@@ -60,10 +62,13 @@ li {
 }
 
 canvas {
-  margin-left: 40px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
   letter-spacing: auto;
-  position: fixed;
-  left:10px;
+  position: relative;
+  
   border-style: solid;
   border-width: 5px;
   border-color: #333333;
@@ -86,18 +91,21 @@ canvas {
 
 .dropdown {
     position: relative;
+    left: 0px;
+    top:-440px;
     display: inline-block;
 }
 
 .dropdown-content {
+
   text-align: center;
   padding: 5px;
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    width: 30px;
-    overflow: scroll;
-    height: 350px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 30px;
+  overflow: scroll;
+  height: 350px;
 }
 
 ::-webkit-scrollbar { 
@@ -107,3 +115,39 @@ canvas {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+
+
+#carrot {
+
+  background-color: #ffde84;
+  position: relative;
+  top: -20px;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+
+
+
+}
+
+#potato {
+  position: absolute;
+  left: 20vw;
+  width: 60vw;
+  background-color: #ffde84;
+
+}
+
+#rubbish {
+  text-align: center;
+  font-family: Nunito;
+  color: black;
+
+}
+
+
+
+
+
