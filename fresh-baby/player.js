@@ -51,8 +51,7 @@ function Player(x, y) {
 	};
 	this.facingRight = true;
 	this.inWater = false;
-
-	this.key = false; // whether he has collected key or not
+	this.key = false;
 
 }
 
@@ -181,17 +180,25 @@ Player.prototype.reset = function() {
 	this.y_vel = 0;
 	this.jumping = true;
 	this.inWater = false;
+	this.key = false
 	this.setPhysics();
 	this.updateBoundingBox();
-	this.key = false;
 };
 
 Player.prototype.die = function() {
-    
-    key.reset();
-	//console.log("you should be dead");
-	//return;
+
 	sfx.push(new SFX("die"));
+
+	if(livesCount === 1) {
+		game_on = false;
+		gameover_scr.on = true;
+		return;
+	}
+
+	key.reset();
+
+	sfx.push(new SFX("die"));
+
 	sleep(2000);
 	deathTexts.push(new DeathText());
 	livesCount--;
