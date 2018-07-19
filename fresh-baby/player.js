@@ -196,9 +196,6 @@ Player.prototype.die = function() {
 	}
 
 	key.reset();
-
-	sfx.push(new SFX("die"));
-
 	sleep(2000);
 	deathTexts.push(new DeathText());
 	livesCount--;
