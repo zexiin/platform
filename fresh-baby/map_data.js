@@ -69,7 +69,7 @@ ooooixxxxxl                                                                     
 ooooixxxxxl                                                                                  o          ixxxx]\
 ooooL_____K                     o        o                                                dmmmmmb       ixxxx]\
 oooo              J            dmb      dmb   8                                 R            R          ixxxx]\
-oooo                  *  o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
+oooo  &               *  o                   dmmmmmm==k                 o          4      4     4     t ixxxx]\
 ==========k       dmmmmmmb                          ixl          r==mmmb        r=======================xxxxx]\
 xxxxxxxxxxl                                         ixl    o     ixl          o ixxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
 xxxxxxxxxxl                   3                     ixl>        <ixl        dmmmxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\
@@ -302,7 +302,7 @@ X]                                          %     o   ixxxxxxxxxxxxxxxxxxx]\
 X]                                  %       %    dmb  ixxxxxxxxxxxxxxxxxxx]\
 X]                 o                %6      %         ixxxxxxxxxxxxxxxxxxx]\
 X]                db             dmmmmmmmmmmb         ixxxxxxxxxxxxxxxxxxx]\
-X]                     o                 %      o     ixxxxxxxxxxxxxxxxxxx]\
+X]                     o                 %      &     ixxxxxxxxxxxxxxxxxxx]\
 X]                   db            %   o %      %     ixxxxxxxxxxxxxxxxxxx]\
 X]                                 %     %            ixxxxxxxxxxxxxxxxxxx]\
 X]           2           o         %  !      o        ixxxxxxxxxxxxxxxxxxx]\
@@ -339,7 +339,7 @@ X]                ixx__xl     5                       ixxxx]\
 X]         dmmb   ixlooLK                             ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
 X]U     %         ixloo   9                o  o  o    ixxxx]\
-========%         ixl*                           t    ixxxx]\
+========%   &     ixl*                           t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
   map_bg: "\
@@ -414,7 +414,7 @@ l               4     6      8 o     o      ixxxxxxxxxxxxxxxxxxxxxxxxxxxxl     o
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl>o     ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_______________________________K       ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo                                    ixxxxxxxxxxxxxxxl\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo                                    ixxxxxxxxxxxxxxxl\
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlo&o                                    ixxxxxxxxxxxxxxxl\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlooo   4               4                ixxxxxxxxxxxxxxxl\
 l_________________________________________mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmb      ixxxxxxxxxxxxxxxl\
 l                                                                                ixxxxxxxxxxxxxxxl\
@@ -549,7 +549,7 @@ IIIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIIII\
 ]            o            4        \
 IIIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIIII\
 ]   R                              \
-]                o              o  \
+]         &      o              o  \
 IIIIIIIIIII%%%%%%IIIIIIIIIIIIIIIIII\
 ]        R                 R       \
 ]    o             o      o    t   \
@@ -626,7 +626,7 @@ ____________K      A#####################ixxxxxxxxxxxxxxxxl!!!                  
 ]   o o o o o   a```````````e``o o``e````ixxxxxxxxxxxxxxxxl oo  yxx__K   o  oo  ixxxxxxxl         oooo  ixxxxxxx\
 ======k+++++r========================k~~~ixxxxxxxxxxxxxxxxl oo yxxK   oo   y----xxxxxxxxl  y---j        L_xxxxxx\
 xxxxxxl~~~~~ixxxxxxxxxxxxxxxxxxxxxxxxl   ixxxxxxxxxxxxxxxxl o  L_K  oo     ixxxxxxxxxxxxl  ixxxx------j  *ixxxxx\
-xxxxxxl     ixxxxxxxxxxxxxxxxxxxxxxxxl o ixxxxxxxxxxxxxxxxl  o    oo       ixxxxxxxxxxxxK  Lxxxxxxxxxxx---xxxxxx\
+xxxxxxl     ixxxxxxxxxxxxxxxxxxxxxxxxl o ixxxxxxxxxxxxxxxxl  o    oo   &   ixxxxxxxxxxxxK  Lxxxxxxxxxxx---xxxxxx\
 xxxxxxl     ixxxxxxxxxxxxxxxxxxxxxxxxl!!!ixxxxxxxxxxxxxxxxxj  oooo   !!!! yxxxxxxxxxxxxl!1 !ixxxxxxxxxxxxxxxxxxx\
 xxxxxxx-----xxxxxxxxxxxxxxxxxxxxxxxxxx---xxxxxxxxxxxxxxxxxxx--------------xxxxxxxxxxxxxx----xxxxxxxxxxxxxxxxxxxx\
 ",
