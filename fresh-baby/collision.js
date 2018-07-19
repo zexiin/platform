@@ -195,14 +195,13 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+		if(!player.key) {
+			fx.push(new Locked(player.bound.x,player.y - 5));
+			return;
+		}
 		if(levelNo === 10) { //hardcoded last level number sory
 			game_on = false;
 			win_scr.on = true;
-			return;
-		}
-
-		if(!player.key) {
-			fx.push(new Locked(player.bound.x,player.y - 5));
 			return;
 		}
 
