@@ -150,11 +150,10 @@ function collisionType(tile_ID) {
 		case 276: // superjump
 			collisions.superjump = true;
 			return collisions;
-			
-			case 297: // life
+
+		case 297: // life
 			collisions.heart = true;
 			return collisions;
-
 
 
 
@@ -196,6 +195,12 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 	}
 
 	if (tile.collisions.treasure) {
+		if(levelNo === 10) { //hardcoded last level number sory
+			game_on = false;
+			win_scr.on = true;
+			return;
+		}
+
 		if(!player.key) {
 			fx.push(new Locked(player.bound.x,player.y - 5));
 			return;
@@ -227,7 +232,7 @@ function collide(player, tile_obj, layer) {  // tile_obj should be a {col, row, 
 		map.tiles[tileIndex] = "\u0020";
 		return;
 	}
-	
+
 	if (tile.collisions.heart) {
 		livesCount++;
 		let tileIndex = tile_obj.row * map.cols + tile_obj.col;
