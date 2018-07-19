@@ -488,49 +488,56 @@ function createInstrScreen(screen) {
 
 	screen.addTxt("HOW TO PLAY", 40, 20,"40px 'Nunito'","white");
 
+	screen.addTxt("goal: get the key        and go to the door", 40, 75, "15px 'Nunito", "white");
 
-	screen.addTxt("press the arrow keys", 160, 100, "20px 'Nunito", "white");
-	screen.addTxt("to move around and jump", 160, 125, "15px 'Nunito", "white");
+
+	screen.addTxt("press the arrow keys", 160, 120, "20px 'Nunito", "white");
+	screen.addTxt("to move around and jump", 160, 145, "15px 'Nunito", "white");
 	let up = new Image(); 
-	up.onload = function() {screen.addImg(up, 70, 90, 0.4)};
+	up.onload = function() {screen.addImg(up, 70, 110, 0.4)};
 	up.src = "../assets/Keyboard_White_Arrow_Up.png";
 	let down = new Image();
-	down.onload = function() {screen.addImg(down, 70, 120, 0.4)};
+	down.onload = function() {screen.addImg(down, 70, 140, 0.4)};
 	down.src = "../assets/Keyboard_White_Arrow_Down.png";
 	let left = new Image();
-	left.onload = function() {screen.addImg(left, 38, 120, 0.4)};
+	left.onload = function() {screen.addImg(left, 38, 140, 0.4)};
 	left.src = "../assets/Keyboard_White_Arrow_Left.png";
 	let right = new Image();
-	right.onload = function() {screen.addImg(right, 102, 120, 0.4)};
+	right.onload = function() {screen.addImg(right, 102, 140, 0.4)};
 	right.src = "../assets/Keyboard_White_Arrow_Right.png";
 
-	screen.addTxt("press the 'Z' key", 160, 235, "20px 'Nunito", "white");
-	screen.addTxt("to attack! (hint: you can also jump to attack)", 160, 260, "15px 'Nunito", "white");
+	screen.addTxt("press the 'Z' key", 160, 250, "20px 'Nunito", "white");
+	screen.addTxt("to attack! (hint: you can also jump to attack)", 160, 275, "15px 'Nunito", "white");
 	let z = new Image();
-	z.onload = function() {screen.addImg(z, 70, 180, 0.4)};
+	z.onload = function() {screen.addImg(z, 70, 195, 0.4)};
 	z.src = "../assets/Keyboard_White_P.png"; 
 
-	screen.addTxt("press the 'P' key", 160, 175, "20px 'Nunito", "white");
-	screen.addTxt("to pause, adjust settings, or quit", 160, 200, "15px 'Nunito", "white");
+	screen.addTxt("press the 'P' key", 160, 190, "20px 'Nunito", "white");
+	screen.addTxt("to pause, adjust settings, or quit", 160, 215, "15px 'Nunito", "white");
 	let p = new Image();
-	p.onload = function() {screen.addImg(p, 70, 240, 0.4)};
+	p.onload = function() {screen.addImg(p, 70, 255, 0.4)};
 	p.src = "../assets/Keyboard_White_Z.png";
 
 	let sprites = new Image();
 	sprites.onload = function() {
 		context.imageSmoothingEnabled = false;
-		screen.addImg(sprites, 50,290,2, 0,0,32,32); // player
-		screen.addTxt("you", 70,360,"15px 'Nunito'", "white");
+		screen.addImg(sprites, 70,300,2, 0,0,32,32); // player
+		screen.addTxt("you", 90,370,"15px 'Nunito'", "white");
 
-		screen.addImg(sprites, 150,322,2, 64,112,16,16); // coin
-		screen.addImg(sprites, 182,322,2, 192,16,16,16); // superjump
-		screen.addTxt("good", 165,360,"15px 'Nunito'", "white");
+		screen.addImg(sprites, 165,332,2, 64,112,16,16); // coin
+		screen.addImg(sprites, 190,332,2, 176,192,16,16); // superjump
+		screen.addImg(sprites, 215,332,2, 160,208,16,16); // heart
+		screen.addTxt("good", 185,370,"15px 'Nunito'", "white");
 
-		screen.addImg(sprites, 250, 290,2, 0,64,32,32); // tank
-		screen.addImg(sprites, 290, 322,2, 96,0,16,16); // blue
-		screen.addImg(sprites, 310, 290,2, 96,16,16,32); // jump
-		screen.addImg(sprites, 330,322,2, 144,64,16,16); // pink
-		screen.addTxt("bad", 290,360,"15px 'Nunito'", "white");
+		screen.addImg(sprites, 270, 300,2, 0,64,32,32); // tank
+		screen.addImg(sprites, 310, 332,2, 96,0,16,16); // blue
+		screen.addImg(sprites, 330, 300,2, 96,16,16,32); // jump
+		screen.addImg(sprites, 350,332,2, 144,64,16,16); // pink
+		screen.addTxt("bad", 310,370,"15px 'Nunito'", "white");
+
+
+		screen.addImg(sprites, 157,77,1, 160,192,16,16); // key
+		screen.addImg(sprites, 312,75,1.2, 256,16,16,16); // door
 
 	};
 	sprites.src = "../assets/arcadesheet.png"
@@ -569,6 +576,43 @@ function createCredits(screen) {
 
 
 
+function createGameOver(screen) {
+
+	screen.setBGColor("#06090c");
+
+	screen.addTxt("GAME", 130,120, "60px 'Press Start 2P'", "white");
+	screen.addTxt("OVER", 130,200, "60px 'Press Start 2P'", "white");
+
+	let next_btn = new Button("aw man", (canvas.width-100)/2, 300, 100, 40, screen);
+	next_btn.setOnClick(function() {
+		resetGame();
+		screen.on = false;
+		start_scr.on = true;
+	});
+	screen.addButton(next_btn);
+
+}
+
+function createWinScreen(screen) {
+
+	screen.setBGColor("#81d4ef");
+
+	screen.addTxt("CONGRATS", 50,120, "50px 'Press Start 2P'", "white");
+	screen.addTxt("that's the end of the game for now", 136, 200, "15px 'Nunito'", "white");
+	screen.addTxt("thanks for playin", 193, 220, "15px 'Nunito'", "white");
+
+	let next_btn = new Button("hooray", (canvas.width-100)/2, 280, 100, 40, screen);
+	next_btn.setOnClick(function() {
+		resetGame();
+		screen.on = false;
+		start_scr.on = true;
+	});
+	screen.addButton(next_btn);
+
+}
+
+
+
 var start_scr = new Screen();
 createStartScreen(start_scr);
 
@@ -586,6 +630,12 @@ createInstrScreen(instr_scr);
 
 var credits_scr = new Screen();
 createCredits(credits_scr);
+
+var gameover_scr = new Screen();
+createGameOver(gameover_scr);
+
+var win_scr = new Screen();
+createWinScreen(win_scr);
 
 
 
