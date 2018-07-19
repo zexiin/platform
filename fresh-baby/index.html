@@ -6,8 +6,14 @@
   
         <link href = "lolidk.css" rel = "stylesheet" type = "text/css">
         <link href="https://fonts.googleapis.com/css?family=Jua|Nunito|Press+Start+2P" rel="stylesheet">
+
+
+
+
+
+
   
-        <title> RAD(-ish) </title>
+        <title> ugh </title>
 
 
 
@@ -15,119 +21,102 @@
   
     <body>
 
-
-        <h1> RADish </h1>  
-        <table style="width:580">
-  
-         <tr>
-
-    <td> <h2> <div id="insert"></div> </h2></td>
-    <td> <h2> <div id="lives" style = "margin-left: 20px;"></div> </h2> </td>
-    <td> <h2> <div id="level" style = "margin-left: 20px;"></div> </h2> </td>
-    <td> <h2> <div id="kills" style = "margin-left: 20px;"></div> </h2> </td>
-     </tr>
-  
-      </table>
-
-      <canvas></canvas>
-
-      <div class="dropdown">
-       <button onclick="clickDropdown()" class="dropbtn">*</button>
-        <div id="myDropdown" class="dropdown-content">
-            
-    <div id="level1" class = "levels"> <li> 1</li></div> <br>
-        <div id="level2" class = "levels"> <li>2</li></div>  <br>
-        <div id="level3" class = "levels"> <li>3</li></div>  <br>
-        <div id="level4" class = "levels"> <li>4</li></div>  <br>
-        <div id="level5" class = "levels"> <li>5</li></div>  <br>
-        <div id="level6" class = "levels"> <li>6 </li></div>  <br>
-        <div id="level7" class = "levels"> <li>7 </li></div>  <br>
-        <div id="level8" class = "levels"> <li>8 </li></div>  <br>
-        <div id="level9" class = "levels"> <li>9 </li></div>  <br>
-        <div id="level10" class = "levels"> <li>10 </li></div>  <br>
-
-    
-  </div>
-</div>
+        <div id = "potato">
 
 
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function clickDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+            <div id = "carrot">
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+                <h1> play our game yea </h1>  
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+
+            </div>
+
+        
+
+          <canvas></canvas>
+          <table style="width:580; height: 30px;">
+             <tr>
+            <td> <h2> <div id="insert"></div> </h2></td>
+            <td> <h2> <div id="lives" style = "margin-left: 20px;"></div> </h2> </td>
+            <td> <h2> <div id="level" style = "margin-left: 20px;"></div> </h2> </td>
+            <td> <h2> <div id="kills" style = "margin-left: 20px;"></div> </h2> </td>
+             </tr>
+          </table>
+
+
+
+         <div class="dropdown">
+           <button onclick="clickDropdown()" class="dropbtn">*</button>
+            <div id="myDropdown" class="dropdown-content">
+              
+        	    <div id="level1" class = "levels"> <li> 1</li></div> <br>
+        	    <div id="level2" class = "levels"> <li>2</li></div>  <br>
+        	    <div id="level3" class = "levels"> <li>3</li></div>  <br>
+        	    <div id="level4" class = "levels"> <li>4</li></div>  <br>
+        	    <div id="level5" class = "levels"> <li>5</li></div>  <br>
+        	    <div id="level6" class = "levels"> <li>6 </li></div>  <br>
+        	    <div id="level7" class = "levels"> <li>7 </li></div>  <br>
+        	    <div id="level8" class = "levels"> <li>8 </li></div>  <br>
+        	    <div id="level9" class = "levels"> <li>9 </li></div>  <br>
+                <div id="level10" class = "levels"> <li>10 </li></div>  <br>
+        	    
+            </div>
+        </div>
+
+
+        <div id="rubbish">
+            <p>a game made for SPE '18 <br>
+                by Ze-Xin Koh, Kevin Ramos, & Jamie Guo
+                <br><br>
+            </p>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function clickDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
       }
     }
-  }
-}
-</script>
+    </script>
 
 
-               
-
-     
-            
+        
+    <script src = "enemy.js" type = "text/javascript"></script>
+    <script src = "key.js" type = "text/javascript"></script>
+    <script src = "audio.js" type = "text/javascript"></script>
+    <script src = "collision.js" type = "text/javascript"></script>
+    <script src = "player.js" type = "text/javascript"></script>
+    <script src = "map_classes.js" type = "text/javascript"></script>
+    <script src = "map_data.js" type = "text/javascript"></script>
+    <script src = "camera.js" type = "text/javascript"></script>
+    <script src = "display.js" type = "text/javascript"></script>
+    <script src = "animation.js" type = "text/javascript"></script>
+    
+    <script src = "game.js" type = "text/javascript"></script>
 
     
-    
-
-
-
-
-        
-        <script src = "enemy.js" type = "text/javascript"></script>
-        <script src = "key.js" type = "text/javascript"></script>
-        <script src = "audio.js" type = "text/javascript"></script>
-        <script src = "collision.js" type = "text/javascript"></script>
-        <script src = "player.js" type = "text/javascript"></script>
-        <script src = "map_classes.js" type = "text/javascript"></script>
-        <script src = "map_data.js" type = "text/javascript"></script>
-        <script src = "camera.js" type = "text/javascript"></script>
-        <script src = "display.js" type = "text/javascript"></script>
-        <script src = "animation.js" type = "text/javascript"></script>
-        
-        <script src = "game.js" type = "text/javascript"></script>
-
-
-
-        <div class= "right">
-
-            <br>
-            use the right and left arrow keys to move,<br>
-            the up arrow key to jump,<br>
-            the z key to attack,<br>
-            and the p key to pause.<br>
-
-            the pink and white radishes,<br>
-            the blue ghost,<br>
-            and the tank <br>
-            all kill you.<br>
-            (you can kill them by jumping on them or attacking them).<br>
-            the yellow flower with one eye is a superjump powerup.
-            <br><br>
-
-            that's all.<br>
-            
-            <p id="mousey"></p>
-
-
-            <br><br>
-
-
-        </div>
-        
   
     </body>
   
