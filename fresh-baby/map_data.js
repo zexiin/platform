@@ -556,7 +556,7 @@ mapArr.push({
   level: 9,
   winter: true,
   row: 21,
- bg_color: "#50b1e4",
+ bg_color: "#748991",
   col: 35,
   map: "\
 ]                                  \
