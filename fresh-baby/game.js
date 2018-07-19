@@ -96,8 +96,8 @@ drawGame = function() {
 
 	cam.draw();
 	fx.draw();
-	key.draw();
 	player.draw();
+	key.draw();
 	enemies.draw();
 	bullets.draw();
 	cam.drawOverlay();
@@ -113,12 +113,12 @@ drawGame = function() {
 }
 
 updateGame = function() {
-
-	key.update();
+	
 	player.update();
 	if(player.stop) return;
 
 	fx.update();
+	key.update();
 	enemies.update(); 
 	bullets.update();
 	cam.update();
@@ -146,14 +146,11 @@ function resetGame() {
 }
 
 
-
-
-
-
 function init(mapNo) {
 	game_on = true;
 	if(mapNo.winter) winter_on = true;
 	else winter_on = false;
+	if(sfx.bag[1] != undefined) sfx.bag[1].muted = true;
 
 	time = 0;
 
@@ -163,7 +160,6 @@ function init(mapNo) {
 	context.imageSmoothingEnabled = false;
 
 	map = new TileMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
-
 	collision_map = new CollisionMap(tilesheet,16,16*scaleFactor, mapNo.col, mapNo.row, mapNo.map);
 
 	let bg_map, overlay_map;
@@ -210,6 +206,14 @@ function mainLoop() {
 		sfx.pause();
 		if(vol_scr.on) vol_scr.loop();
 		else pause_scr.loop();
+	}
+	else if (gameover_scr.on) {
+		sfx.pause();
+		gameover_scr.loop();
+	}
+	else if (win_scr.on) {
+		sfx.pause();
+		win_scr.loop();
 	}
 
 
