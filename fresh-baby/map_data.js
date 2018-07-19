@@ -582,9 +582,9 @@ IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 map_bg: "\
-]..................................\
+]gfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf\
 ]GFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGF\
-]fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfg\
+]                                  \
 ]                             o    \
 ]                o                 \
 IIIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIIII\
