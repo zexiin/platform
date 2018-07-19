@@ -579,30 +579,7 @@ IIIIIIIIIII%%%%%%IIIIIIIIIIIIIIIIII\
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
 ===================================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-
-map_bg: "\
-]fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfg\
-]FGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFG\
-]                                  \
-]                             o    \
-]                o                 \
-IIIIIIIIIIIIIIIIIIIIIIdmmmmbIIIIIII\
-]                                  \
-] J     o                         !\
-IIIIIIIIIIIIdmmbIIIIIIIIIIIIIIIIIII\
-]                   J              \
-]            o                     \
-IIIIIIIIIIIIIIIIIIIIIIdmmmbIIIIIIII\
-]   R                              \
-]                o              o  \
-IIIIIIIIIII%%%%%%IIIIIIIIIIIIIIIIII\
-]        R                 R       \
-]    o             o      o    t   \
-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIdmbII\
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\
-===================================\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   
  });
 
