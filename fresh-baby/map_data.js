@@ -339,7 +339,7 @@ X]                ixx__xl     5                       ixxxx]\
 X]         dmmb   ixlooLK                             ixxxx]\
 X]  P   %~~~~~~~~~ixloo             J                 ixxxx]\
 X]U     %         ixloo   9                o  o  o    ixxxx]\
-========%         ixl*                                ixxxx]\
+========%         ixl*                           t    ixxxx]\
 xxxxxxxx%!!!!!!!!!ixl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ixxxx]\
 xxxxxxxxx=============================================ixxxx]",
   map_bg: "\
@@ -361,6 +361,25 @@ X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 ========%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
 xxxxxxxxx=============================================ixxxx]",
+  map_overlay: "\
+......................................................ixxxx]\
+...............C....C..........C.......C.....C........ixxxx]\
+.........C..............C.........C..............C....ixxxx]\
+...............C.............C........................ixxxx]\
+.a....a....a....a....a....a....a....a....a....a....a..ixxxx]\
+e:bcde:bcde:bcde:bcde:bcde:bcde:bcde:bcde:ebcd:ebcd:ebixxxx]\
+fgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgixxxx]\
+FGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGFGixxxx]\
+X]                                                    ixxxx]\
+X]                r=====k~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]                ixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]                ixxwwxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]      %~~~~~~~~~ixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+X]     !%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+========%wwwwwwwwwixxwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+xxxxxxxx%wwwwwwwwwixxxxxlwwwwwwwwwwwwwwwwwwwwwwwwwwwwwixxxx]\
+xxxxxxxxx=============================================ixxxx]"
 
 
 });
