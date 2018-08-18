@@ -1,0 +1,153 @@
+html {
+}
+
+body {
+
+  background-color: black;
+
+}
+
+
+h1 {
+  font-family: Jua;
+  font-size: 50pt;
+  letter-spacing: auto;
+  color: #ef6c58;
+  text-shadow: 2px 2px #81e0ef;
+  position:relative;
+  top:25%;
+}
+
+h2 {
+  font-family: verdana;
+  font-size: 15pt;
+  text-transform: lowercase;
+  color: black;
+  margin-bottom: -5px;
+}
+
+li {
+  list-style-type: none;
+    cursor: pointer;
+    color: #333333;
+  font-size: 15px;    
+}
+ li:hover {
+  cursor: pointer;
+  color: #bbbbbb;
+  margin-left: 2px;
+
+}
+
+ li:active {
+  cursor: pointer;
+  color: #AAAAAA;
+  margin-left: 2px;
+}
+
+.levels {
+  font-family: 'Nunito';
+  text-transform: uppercase;
+}
+
+.right {
+   color: #555555;
+   font-family: verdana;
+   font-size: 10pt;
+   left: 600px;
+   position:fixed;
+   height: 410px;
+   width: 400px;
+
+}
+
+canvas {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
+  letter-spacing: auto;
+  position: relative;
+  
+  border-style: solid;
+  border-width: 5px;
+  border-color: #333333;
+}
+
+.dropbtn {
+
+    width: 40px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #336688;
+}
+
+.dropdown {
+    position: relative;
+    left: 0px;
+    top:-440px;
+    display: inline-block;
+}
+
+.dropdown-content {
+
+  text-align: center;
+  padding: 5px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 30px;
+  overflow: scroll;
+  height: 350px;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+#carrot {
+
+  background-color: #ffde84;
+  position: relative;
+  top: -20px;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+
+
+
+}
+
+#potato {
+  position: absolute;
+  left: 20vw;
+  width: 60vw;
+  background-color: #ffde84;
+
+}
+
+#rubbish {
+  text-align: center;
+  font-family: Nunito;
+  color: black;
+
+}
+
+
+
+
+
